@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2010
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebapplicatieAutohandel", "WebapplicatieAutohandel\WebapplicatieAutohandel.csproj", "{BCBED773-E87F-40CB-8242-7EEEF649C5F4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autohandel.Domain", "Autohandel.Domain\Autohandel.Domain.csproj", "{1763B566-2758-4F88-9347-085382252E6D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Autohandel.web", "Autohandel.web\Autohandel.web.csproj", "{6E657B63-FE5F-43E7-AF8C-999EE758C07B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{BCBED773-E87F-40CB-8242-7EEEF649C5F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{BCBED773-E87F-40CB-8242-7EEEF649C5F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{BCBED773-E87F-40CB-8242-7EEEF649C5F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{BCBED773-E87F-40CB-8242-7EEEF649C5F4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1763B566-2758-4F88-9347-085382252E6D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1763B566-2758-4F88-9347-085382252E6D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1763B566-2758-4F88-9347-085382252E6D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1763B566-2758-4F88-9347-085382252E6D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6E657B63-FE5F-43E7-AF8C-999EE758C07B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6E657B63-FE5F-43E7-AF8C-999EE758C07B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6E657B63-FE5F-43E7-AF8C-999EE758C07B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6E657B63-FE5F-43E7-AF8C-999EE758C07B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
