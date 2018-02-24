@@ -31,8 +31,21 @@ namespace Autohandel.Domain.Entities
         [Display(Name = "Afbeeldingen")]
         public string[] FiguurURLs { get; set; }
 
+        public int? OpVoorraad { get; set; }
+
+        public Specificaties Specificatie { get; set; }
+
         public CategorieOnderdelen categorieOnderdelen  { get; set; }
 
         public virtual ICollection<File> Files { get; set; }
+
+
+
+
+
     }
+
+    
+
+
 }

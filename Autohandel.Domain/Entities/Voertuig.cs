@@ -75,24 +75,5 @@ namespace Autohandel.Domain.Entities
 
     }
 
-    public enum Versnelling
-    {
-        Manueel, Automaat
-    }
-
-    public enum Binnenbekleding
-    {
-        Stof, Leder
-    }
-
-    public enum Binnenkleur
-    {
-        Zawrt, Grijs, Donkergrijs, Donkerblauw
-    }
-    public enum Koetswerk
-    {
-        Berline, Monovolume, Coupé, Hatchback, Break, Bestelwagen, Cabriolet, Limousine, Coach
-    }
-    
     
 }
