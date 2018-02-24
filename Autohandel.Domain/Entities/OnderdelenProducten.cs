@@ -27,6 +27,10 @@ namespace Autohandel.Domain.Entities
         [Display(Name = "Afbeelding")]
         public string FiguurURL { get; set; }
 
+        [StringLength(512, ErrorMessage = "Het veld FiguurURL kan niet langer zijn dan 512 karakters")]
+        [Display(Name = "Afbeeldingen")]
+        public string[] FiguurURLs { get; set; }
+
         public CategorieOnderdelen categorieOnderdelen  { get; set; }
 
         public virtual ICollection<File> Files { get; set; }

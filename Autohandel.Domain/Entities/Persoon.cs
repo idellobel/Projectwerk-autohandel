@@ -1,12 +1,20 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Autohandel.Domain.Entities
 {
     public abstract class Persoon
     {
         [Key]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long PersoonId { get; set; }
+
+        [Required]
+        [MaxLength(150)]
         public string Naam { get; set; }
+
+        [Required]
+        [MaxLength(150)]
         public string Voornaam { get; set; }
 
         //[Required(ErrorMessage = "Het veld Telefoon is vereist")]
