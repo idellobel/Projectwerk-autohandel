@@ -37,7 +37,9 @@ namespace Autohandel.Domain.Entities
 
         //Oa Fietsdragers
         public int AantalFietsen { get; set; }
+        [NotMapped]
         public string[] Fietstypes { get; set; }
+        [NotMapped]
         public string[] StekkerAansluiting { get; set; }
         public string WaaromKeuze { get; set; }
         public bool Mistlicht { get; set; }

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Autohandel.Domain.Data;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace Autohandel.Domain.Entities
@@ -9,6 +10,6 @@ namespace Autohandel.Domain.Entities
         public long RoleId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<User> Users { get; set; }
+        public ICollection<RoleUsers> RoleUsers { get; set; }
     }
 }

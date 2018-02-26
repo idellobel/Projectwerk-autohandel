@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Autohandel.Domain.Entities
 {
@@ -27,6 +27,7 @@ namespace Autohandel.Domain.Entities
         [Display(Name = "Afbeelding")]
         public string FiguurURL { get; set; }
 
+        [NotMapped]
         [StringLength(512, ErrorMessage = "Het veld FiguurURL kan niet langer zijn dan 512 karakters")]
         [Display(Name = "Afbeeldingen")]
         public string[] FiguurURLs { get; set; }

@@ -17,6 +17,12 @@ namespace Autohandel.Domain.Entities
         [MaxLength(150)]
         public string Voornaam { get; set; }
 
+        [Display(Name = "VolledigeNaam")]
+        public string FullName
+        {
+            get { return Naam + ", " + Voornaam; }
+        }
+
         //[Required(ErrorMessage = "Het veld Telefoon is vereist")]
         [DataType(DataType.PhoneNumber)]
         //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Geen geldig telefoonnummer")]

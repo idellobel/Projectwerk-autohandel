@@ -39,6 +39,7 @@ namespace Autohandel.Domain.Entities
         [Display(Name = "Afbeelding")]
         public string FiguurURL { get; set; }
 
+        [NotMapped]
         [StringLength(512, ErrorMessage = "Het veld FiguurURL kan niet langer zijn dan 512 karakters")]
         [Display(Name = "Afbeeldingen")]
         public string[] FiguurURLs { get; set; }
@@ -46,8 +47,8 @@ namespace Autohandel.Domain.Entities
         public Klant Klant  { get; set; }
         public long  KlantId { get; set; }
 
-        public Onderhoud Onderhoud { get; set; }
-        public long OnderhoudId { get; set; }
+        public virtual ICollection<Onderhoud> Onderhoudsbeurten { get; set; } 
+        //public long OnderhoudId { get; set; }
 
         public Garantie Garantie { get; set; }
         public long GrantieId { get; set; }

@@ -8,8 +8,8 @@ namespace Autohandel.Domain.Entities
 {
     public class Leverancier : Persoon
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Required]
         public long LeverancierID { get; set; }
 

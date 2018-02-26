@@ -11,7 +11,7 @@ namespace Autohandel.Domain.Entities
         public long OnderhoudId { get; set; }
 
         public Voertuig Voertuig { get; set; }
-        public long VoertuigId { get; set; }
+        //public long VoertuigId { get; set; }
 
         public DateTime Datum { get; set; }
         public int Kilometerstand { get; set; }

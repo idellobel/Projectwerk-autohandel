@@ -6,8 +6,9 @@ namespace Autohandel.Domain.Entities
 {
     public class Klant : Persoon
     {
-        [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[Key]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [Required]
         public long KlantId { get; set; }
 
         [Required]
@@ -17,9 +18,9 @@ namespace Autohandel.Domain.Entities
         [MaxLength(150)]
         public string KlantNaam { get; set; }
 
-        [ForeignKey("User")]
-        public long UserId { get; set; }
-        public User User { get; set; }
+        //[ForeignKey("User")]
+        //public long UserId { get; set; }
+        //public User User { get; set; }
 
 
 
