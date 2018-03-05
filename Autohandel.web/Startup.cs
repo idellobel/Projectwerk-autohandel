@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Autohandel.web.Data;
 using Autohandel.web.Models;
 using Autohandel.web.Services;
 using Autohandel.Domain.Data;
@@ -55,6 +50,15 @@ namespace Autohandel.web
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
+
+                //create a scope with which to get the DbContext service (yuck!) 
+                using (var serviceScope = app.ApplicationServices
+                                             .GetRequiredService<IServiceScopeFactory>()
+                                             .CreateScope())
+                {
+                    var context = serviceScope.ServiceProvider.GetService<AutohandelContext>(); //get DbContext 
+                    DataSeeder.Seed(context);
+                }
             }
             else
             {

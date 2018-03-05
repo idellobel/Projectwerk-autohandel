@@ -8,6 +8,8 @@ namespace Autohandel.Domain.Data
 {
     public class AutohandelContext : DbContext
     {
+        
+
         //Om straks met behulp van Dependency Injection de Context configureerbaar te maken moet je een speciale constructor definiëren.
         public AutohandelContext(DbContextOptions<AutohandelContext> options) : base(options)
         { }
@@ -28,7 +30,7 @@ namespace Autohandel.Domain.Data
         public DbSet<Role> Roles { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Voertuig> Voertuigen { get; set; }
-        public DbSet<VoertuigCategorie> VoertuigCategoriën { get; set; }
+        public DbSet<VoertuigCategorie> VoertuigCategorieen { get; set; }
         public DbSet<Specificaties> Specificaties { get; set; } 
 
 

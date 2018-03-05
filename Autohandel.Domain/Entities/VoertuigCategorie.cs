@@ -9,7 +9,7 @@ namespace Autohandel.Domain.Entities
     public class VoertuigCategorie
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long VoertuigCatId { get; set; }
 
         [Required]

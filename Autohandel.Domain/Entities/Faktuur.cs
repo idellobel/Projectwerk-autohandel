@@ -8,7 +8,7 @@ namespace Autohandel.Domain.Entities
     public class Faktuur
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long FaktuurNr { get; set; }
 
         [Required]

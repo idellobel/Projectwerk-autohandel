@@ -22,19 +22,6 @@ namespace Autohandel.Domain.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("Autohandel.Domain.Data.RoleUsers", b =>
-                {
-                    b.Property<long>("Role_RoleId");
-
-                    b.Property<long>("User_UserId");
-
-                    b.HasKey("Role_RoleId", "User_UserId");
-
-                    b.HasIndex("User_UserId");
-
-                    b.ToTable("RoleUsers");
-                });
-
             modelBuilder.Entity("Autohandel.Domain.Entities.CategorieOnderdelen", b =>
                 {
                     b.Property<int>("OnderdelenCategorieId")
@@ -255,6 +242,19 @@ namespace Autohandel.Domain.Migrations
                     b.ToTable("Roles");
                 });
 
+            modelBuilder.Entity("Autohandel.Domain.Entities.RoleUsers", b =>
+                {
+                    b.Property<long>("Role_RoleId");
+
+                    b.Property<long>("User_UserId");
+
+                    b.HasKey("Role_RoleId", "User_UserId");
+
+                    b.HasIndex("User_UserId");
+
+                    b.ToTable("RoleUsers");
+                });
+
             modelBuilder.Entity("Autohandel.Domain.Entities.Specificaties", b =>
                 {
                     b.Property<int>("SpecificatieId")
@@ -359,22 +359,24 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<int>("CC");
 
+                    b.Property<string>("COTwee");
+
                     b.Property<long>("Chassisnummer");
 
                     b.Property<int>("Deuren");
 
-                    b.Property<long>("FaktuurNr");
+                    b.Property<long?>("FaktuurNr");
 
                     b.Property<string>("FiguurURL")
                         .HasMaxLength(512);
 
                     b.Property<long?>("GarantieId");
 
-                    b.Property<long>("GrantieId");
+                    b.Property<string>("GarantieTijd");
 
                     b.Property<int>("Kilometerstand");
 
-                    b.Property<long>("KlantId");
+                    b.Property<long?>("KlantPersoonId");
 
                     b.Property<string>("Kleur");
 
@@ -388,11 +390,16 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<string>("Registratie");
 
-                    b.Property<int?>("Vermogen");
+                    b.Property<string>("Vermogen");
 
                     b.Property<int>("Versnelling");
 
+                    b.Property<string>("VoertuigArtikelNummer")
+                        .IsRequired();
+
                     b.Property<long>("VoertuigCatId");
+
+                    b.Property<string>("VoertuigTitel");
 
                     b.Property<int>("Zitplaatsen");
 
@@ -402,7 +409,7 @@ namespace Autohandel.Domain.Migrations
 
                     b.HasIndex("GarantieId");
 
-                    b.HasIndex("KlantId");
+                    b.HasIndex("KlantPersoonId");
 
                     b.HasIndex("MerkId");
 
@@ -424,7 +431,7 @@ namespace Autohandel.Domain.Migrations
 
                     b.HasKey("VoertuigCatId");
 
-                    b.ToTable("VoertuigCategoriën");
+                    b.ToTable("VoertuigCategorieen");
                 });
 
             modelBuilder.Entity("Autohandel.Domain.Entities.Klant", b =>
@@ -481,19 +488,6 @@ namespace Autohandel.Domain.Migrations
                     b.ToTable("User");
 
                     b.HasDiscriminator().HasValue("User");
-                });
-
-            modelBuilder.Entity("Autohandel.Domain.Data.RoleUsers", b =>
-                {
-                    b.HasOne("Autohandel.Domain.Entities.Role", "Role")
-                        .WithMany("RoleUsers")
-                        .HasForeignKey("Role_RoleId")
-                        .OnDelete(DeleteBehavior.Cascade);
-
-                    b.HasOne("Autohandel.Domain.Entities.User", "User")
-                        .WithMany("RoleUsers")
-                        .HasForeignKey("User_UserId")
-                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Autohandel.Domain.Entities.CategorieOnderdelen", b =>
@@ -556,12 +550,24 @@ namespace Autohandel.Domain.Migrations
                         .HasForeignKey("VoertuigId");
                 });
 
+            modelBuilder.Entity("Autohandel.Domain.Entities.RoleUsers", b =>
+                {
+                    b.HasOne("Autohandel.Domain.Entities.Role", "Role")
+                        .WithMany("RoleUsers")
+                        .HasForeignKey("Role_RoleId")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Autohandel.Domain.Entities.User", "User")
+                        .WithMany("RoleUsers")
+                        .HasForeignKey("User_UserId")
+                        .OnDelete(DeleteBehavior.Cascade);
+                });
+
             modelBuilder.Entity("Autohandel.Domain.Entities.Voertuig", b =>
                 {
                     b.HasOne("Autohandel.Domain.Entities.Faktuur", "Faktuur")
                         .WithMany("Voertuigen")
-                        .HasForeignKey("FaktuurNr")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("FaktuurNr");
 
                     b.HasOne("Autohandel.Domain.Entities.Garantie", "Garantie")
                         .WithMany()
@@ -569,8 +575,7 @@ namespace Autohandel.Domain.Migrations
 
                     b.HasOne("Autohandel.Domain.Entities.Klant", "Klant")
                         .WithMany()
-                        .HasForeignKey("KlantId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("KlantPersoonId");
 
                     b.HasOne("Autohandel.Domain.Entities.Merk", "Merk")
                         .WithMany()

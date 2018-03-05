@@ -7,14 +7,14 @@ namespace Autohandel.Domain.Entities
     public class Merk
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long MerkId { get; set; }
 
         [Required]
         [MaxLength(150)]
         public string MerkNaam { get; set; }
 
-        public List<MerkType> MerkTypes { get; set; }
+        public ICollection<MerkType> MerkTypes { get; set; }
 
     }
 }

@@ -9,7 +9,7 @@ namespace Autohandel.Domain.Entities
     public class MerkType
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long MerkTypeId { get; set; }
 
         [Required]

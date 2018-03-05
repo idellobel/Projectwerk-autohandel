@@ -14,6 +14,11 @@ namespace Autohandel.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long VoertuigId { get; set; }
 
+        [Required]
+        public string VoertuigArtikelNummer { get; set; }
+
+        public string VoertuigTitel { get; set; }
+
         public long Chassisnummer { get; set; }
 
         public Merk Merk { get; set; }
@@ -45,24 +50,25 @@ namespace Autohandel.Domain.Entities
         public string[] FiguurURLs { get; set; }
 
         public Klant Klant  { get; set; }
-        public long  KlantId { get; set; }
-
+  
         public virtual ICollection<Onderhoud> Onderhoudsbeurten { get; set; } 
-        //public long OnderhoudId { get; set; }
-
+        
         public Garantie Garantie { get; set; }
-        public long GrantieId { get; set; }
-
+        
         public Faktuur Faktuur { get; set; }
-        public long FaktuurNr { get; set; }
-
+       
         public string Registratie { get; set; }
+
+        public string GarantieTijd { get; set; }
+
+        [Display(Name = "CO2")]
+        public string COTwee { get; set; }
 
         public Versnelling Versnelling { get; set; }
 
         public int  CC { get; set; }
 
-        public int? Vermogen { get; set; }
+        public string Vermogen { get; set; }
 
         public int Deuren { get; set; }
 

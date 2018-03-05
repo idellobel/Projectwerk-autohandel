@@ -9,7 +9,7 @@ namespace Autohandel.Domain.Entities
     //}
     public enum Kleur
     {
-        zwart, wit, grijs, blauw, groen, geel, oranje
+        zwart, wit, grijs, blauw, groen, geel, oranje, bruin, zilver, rood, beige
 
     }
 
@@ -25,16 +25,16 @@ namespace Autohandel.Domain.Entities
 
     public enum Binnenbekleding
     {
-        Stof, Leder
+        Stof, Leder, Velour, Semileder
     }
 
     public enum Binnenkleur
     {
-        Zawrt, Grijs, Donkergrijs, Donkerblauw
+        Zwart, Grijs, Donkergrijs, Donkerblauw
     }
     public enum Koetswerk
     {
-        Berline, Monovolume, Coupé, Hatchback, Break, Bestelwagen, Cabriolet, Limousine, Coach
+        Berline, Monovolume, Coupé, Hatchback, Break, Bestelwagen, Cabriolet, Limousine, Coach, Bedrijfsvoertuig, SUV, Stadswagen
     }
 
 

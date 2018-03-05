@@ -7,7 +7,7 @@ namespace Autohandel.Domain.Entities
     public class Garantie
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long GarantieId { get; set; }
 
         [Required]

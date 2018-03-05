@@ -9,7 +9,7 @@ namespace Autohandel.Domain.Entities
     public class Specificaties
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int SpecificatieId { get; set; }
 
         //Specificaties

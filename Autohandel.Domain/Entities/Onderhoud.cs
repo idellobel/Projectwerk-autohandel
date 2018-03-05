@@ -7,7 +7,7 @@ namespace Autohandel.Domain.Entities
     public class Onderhoud
     {
         [Key]
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long OnderhoudId { get; set; }
 
         public Voertuig Voertuig { get; set; }
