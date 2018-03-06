@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Autohandel.Domain.Migrations
 {
-    public partial class Initial : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -84,7 +84,7 @@ namespace Autohandel.Domain.Migrations
                     Buitendiameter = table.Column<int>(nullable: false),
                     CityCrash = table.Column<bool>(nullable: false),
                     Dikte = table.Column<int>(nullable: false),
-                    Draagvermogen = table.Column<int>(nullable: false),
+                    Draagvermogen = table.Column<string>(nullable: true),
                     Flappen = table.Column<string>(maxLength: 75, nullable: true),
                     Formaat = table.Column<string>(nullable: true),
                     GarantieTermijn = table.Column<string>(maxLength: 75, nullable: true),
@@ -106,9 +106,9 @@ namespace Autohandel.Domain.Migrations
                     Mistlicht = table.Column<bool>(nullable: false),
                     Montageset = table.Column<string>(nullable: true),
                     Opening = table.Column<string>(nullable: true),
-                    Rolgeluid = table.Column<int>(nullable: false),
+                    Rolgeluid = table.Column<string>(nullable: true),
                     Schroefdraad = table.Column<string>(maxLength: 75, nullable: true),
-                    SnelheidIndex = table.Column<int>(nullable: false),
+                    SnelheidIndex = table.Column<string>(nullable: true),
                     Type = table.Column<string>(maxLength: 75, nullable: true),
                     Vergrendeling = table.Column<string>(nullable: true),
                     WaaromKeuze = table.Column<string>(nullable: true)
@@ -215,17 +215,23 @@ namespace Autohandel.Domain.Migrations
                     Artikelnummer = table.Column<string>(maxLength: 20, nullable: false),
                     Artikelnaam = table.Column<string>(maxLength: 512, nullable: false),
                     Artikelomschrijving = table.Column<string>(nullable: false),
+                    CategorieOnderdelenOnderdelenCategorieId = table.Column<int>(nullable: true),
                     FaktuurNr = table.Column<long>(nullable: true),
                     FiguurURL = table.Column<string>(maxLength: 512, nullable: true),
                     LeverancierPersoonId = table.Column<long>(nullable: true),
                     OpVoorraad = table.Column<int>(nullable: true),
                     Prijs = table.Column<decimal>(nullable: false),
-                    SpecificatieId = table.Column<int>(nullable: true),
-                    categorieOnderdelenOnderdelenCategorieId = table.Column<int>(nullable: true)
+                    SpecificatieId = table.Column<int>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_OnderdelenProducten", x => x.Artikelnummer);
+                    table.ForeignKey(
+                        name: "FK_OnderdelenProducten_CategorieOnderdelen_CategorieOnderdelenOnderdelenCategorieId",
+                        column: x => x.CategorieOnderdelenOnderdelenCategorieId,
+                        principalTable: "CategorieOnderdelen",
+                        principalColumn: "OnderdelenCategorieId",
+                        onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
                         name: "FK_OnderdelenProducten_Fakturen_FaktuurNr",
                         column: x => x.FaktuurNr,
@@ -243,12 +249,6 @@ namespace Autohandel.Domain.Migrations
                         column: x => x.SpecificatieId,
                         principalTable: "Specificaties",
                         principalColumn: "SpecificatieId",
-                        onDelete: ReferentialAction.Restrict);
-                    table.ForeignKey(
-                        name: "FK_OnderdelenProducten_CategorieOnderdelen_categorieOnderdelenOnderdelenCategorieId",
-                        column: x => x.categorieOnderdelenOnderdelenCategorieId,
-                        principalTable: "CategorieOnderdelen",
-                        principalColumn: "OnderdelenCategorieId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
@@ -417,6 +417,11 @@ namespace Autohandel.Domain.Migrations
                 column: "FaktuurId");
 
             migrationBuilder.CreateIndex(
+                name: "IX_OnderdelenProducten_CategorieOnderdelenOnderdelenCategorieId",
+                table: "OnderdelenProducten",
+                column: "CategorieOnderdelenOnderdelenCategorieId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_OnderdelenProducten_FaktuurNr",
                 table: "OnderdelenProducten",
                 column: "FaktuurNr");
@@ -430,11 +435,6 @@ namespace Autohandel.Domain.Migrations
                 name: "IX_OnderdelenProducten_SpecificatieId",
                 table: "OnderdelenProducten",
                 column: "SpecificatieId");
-
-            migrationBuilder.CreateIndex(
-                name: "IX_OnderdelenProducten_categorieOnderdelenOnderdelenCategorieId",
-                table: "OnderdelenProducten",
-                column: "categorieOnderdelenOnderdelenCategorieId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Onderhoud_KlantId",
@@ -513,10 +513,10 @@ namespace Autohandel.Domain.Migrations
                 name: "Roles");
 
             migrationBuilder.DropTable(
-                name: "Specificaties");
+                name: "CategorieOnderdelen");
 
             migrationBuilder.DropTable(
-                name: "CategorieOnderdelen");
+                name: "Specificaties");
 
             migrationBuilder.DropTable(
                 name: "GarantieTabel");

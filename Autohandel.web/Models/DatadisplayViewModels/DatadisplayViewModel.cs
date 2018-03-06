@@ -12,8 +12,8 @@ namespace Autohandel.web.Models.DatadisplayViewModels
         public IEnumerable<Merk> autoMerken { get; set; }
         public IEnumerable<MerkType> automodellen { get; set; }
         public IEnumerable<Voertuig> aanbodVoertuigen { get; set; }
-        public object Categorieen { get; internal set; }
-        //public IEnumerable<Klant> Klanten { get; set; }
+        public IEnumerable<CategorieOnderdelen>categorieOnderdelen { get; set; }
+        public IEnumerable<OnderdelenProducten> onderdelenProducten { get; set; }
         //public IEnumerable<Leverancier> Leveranciers { get; set; }
     }
 }

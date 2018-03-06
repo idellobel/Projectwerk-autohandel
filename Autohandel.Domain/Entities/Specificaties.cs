@@ -74,8 +74,8 @@ namespace Autohandel.Domain.Entities
         public string Formaat { get; set; }
 
         //Oa Winterbanden
-        public int Draagvermogen { get; set; }
-        public int SnelheidIndex { get; set; }
-        public int Rolgeluid { get; set; }
+        public string Draagvermogen { get; set; }
+        public string SnelheidIndex { get; set; }
+        public string Rolgeluid { get; set; }
     }
 }

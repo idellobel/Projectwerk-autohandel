@@ -9,7 +9,7 @@ namespace Autohandel.Domain.Entities
     //}
     public enum Kleur
     {
-        zwart, wit, grijs, blauw, groen, geel, oranje, bruin, zilver, rood, beige
+        zwart, wit, grijs, blauw, groen, geel, oranje, bruin, zilver, rood, beige, roze, gunmetal
 
     }
 

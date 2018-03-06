@@ -422,7 +422,7 @@ namespace Autohandel.Domain.Data
                        new Voertuig{ Merk = context.Merken.Single(c => c.MerkNaam == "BMW"),
                                   MerkType = context.Types.Single(c => c.MerkTypeNaam == "3 Reeks"),
                                   VoertuigArtikelNummer = "8",
-                                  FiguurURL = @"wwwroot/images/vtgn/fronts/8_FRONT.jpg",
+                                  FiguurURL = @"~/images/vtgn/fronts/8_FRONT.jpg",
                                   VoertuigTitel= "316DA Touring Aut. Navi/leder/PDC",
                                   Koetswerk = Koetswerk.Break,
                                   Registratie = "02/2014",
@@ -1603,8 +1603,1100 @@ namespace Autohandel.Domain.Data
                                   VoertuigCategorie = context.VoertuigCategorieen.Single(c => c.VoertuigCategorieNaam == "Bestelwagen")
                        },
                 };
-                    context.Voertuigen.AddRange(voertuigen);
+                context.Voertuigen.AddRange(voertuigen);
+                context.SaveChanges();
+            }
+            //Seed CategorieOnderdelen
+            if (!context.CategorieOnderdelen.Any(o => o.ParentId == null))
+            {
+                CategorieOnderdelen[] categorieOnderdelen = new[]
+                {
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Winterbanden", ParentId = null},
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Wieldoppen", ParentId = null},
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Trekhaken", ParentId = null},
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Tapijten", ParentId = null},
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Privacy Shades", ParentId = null},
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Filters en Vloeistoffen", ParentId = null},
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Bagage en Transport", ParentId = null}
+                };
+                foreach (CategorieOnderdelen o in categorieOnderdelen)
+                {
+                    context.CategorieOnderdelen.Add(o);
                 }
+                //context.CategorieOnderdelen.AddRange(categorieOnderdelen);
+                context.SaveChanges();
+            }
+            
+
+            if(!context.CategorieOnderdelen.Any(o => o.ParentId != null))
+                { 
+
+                CategorieOnderdelen[] categorieOnderdelen = new[]
+                {
+                     new CategorieOnderdelen{ OnderdelenCategorienaam = "Vaste Trekhaak", ParentId = 3},
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Afneembare Trekhaak", ParentId = 3},
+                    new CategorieOnderdelen{ OnderdelenCategorienaam = "Kabelset Trekhaken", ParentId = 3 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Koffermat", ParentId = 4 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Tapijt Stof", ParentId = 4 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Tapijt Rubber", ParentId = 4 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Clips", ParentId = 4 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Brandstoffliter", ParentId = 6 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Interieurfilter", ParentId = 6 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Koelvloeistof", ParentId = 6 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Luchtfilter", ParentId = 6 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Motorolie", ParentId = 6 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Remvloeistof", ParentId = 6 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Ruitensproeier", ParentId = 6 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Dakdrager", ParentId = 7 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Dakkoffer", ParentId = 7 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Fietsendrager", ParentId = 7 },
+                };
+                foreach (CategorieOnderdelen o in categorieOnderdelen)
+                {
+                    context.CategorieOnderdelen.Add(o);
+                }
+
+                //context.CategorieOnderdelen.AddRange(categorieOnderdelen);
+                context.SaveChanges();
+            }
+            //Seed Winterbanden
+            if(!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 1))
+            {
+                OnderdelenProducten[] winterbanden = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_1",
+                        Artikelnaam = "Michelin Alpin 5 205/55 R16 91T",
+                        Artikelomschrijving = "De Michelin Alpin 5 205/55 R16 91T is een 16 inch band in de categorie winterbanden. Michelin is een A-merk band, " +
+                                              "die de beste prestaties levert. De Michelin Alpin 5 205/55 R16 91T heeft gewichtsklasse 91; dat betekent dat elke band 615 kg " +
+                                              "gewicht kan hebben.De snelheidsklasse van deze band is 'T'. Daarmee is de band ontwikkeld voor een snelheid tot 190 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 82.27M,
+                        OpVoorraad = 47,
+                        FiguurURL = @"~/images/onderdelen/banden/MI_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "91 (615kg per band)",
+                            SnelheidIndex = "T (tot 190 km/h)",
+                            Rolgeluid = "Rolgeluid	68dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_2",
+                        Artikelnaam = "Goodyear UltraGrip 9 205/55 R16 91T",
+                        Artikelomschrijving = "De Goodyear UltraGrip 9 205/55 R16 91T is een 16 inch band in de categorie winterbanden. Goodyear is een A-merk band, die de beste prestaties levert. De Goodyear UltraGrip 9 205/55 R16 91T heeft gewichtsklasse 91; dat betekent dat elke band 615 kg gewicht kan hebben. De snelheidsklasse van deze band is 'T'. Daarmee is de band ontwikkeld voor een snelheid tot 190 km/h. ",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 88.52M,
+                        OpVoorraad = 50,
+                        FiguurURL = @"~/images/onderdelen/banden/GY_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "91 (615kg per band)",
+                            SnelheidIndex = "T (tot 190 km/h)",
+                            Rolgeluid = "Rolgeluid	68dB"
+                        }
+
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_3",
+                        Artikelnaam = "Pirelli W 210 Snowcontrol Serie 3 205/55 R16 91H",
+                        Artikelomschrijving = "De Pirelli W 210 Snowcontrol Serie 3 205/55 R16 91H is een 16 inch band in de categorie winterbanden. Pirelli is een A-merk band, die de beste prestaties levert. De W 210 Snowcontrol Serie 3 205/55 R16 91H heeft gewichtsklasse 91; dat betekent dat elke band 615 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h. ",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 76.01M,
+                        OpVoorraad = 24,
+                        FiguurURL = @"~/images/onderdelen/banden/PI_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "91 (615kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	72dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_4",
+                        Artikelnaam = "Dunlop Winter Sport 5 205/55 R16 91H",
+                        Artikelomschrijving = "De Dunlop Winter Sport 5 205/55 R16 91H M+S is een 16 inch band in de categorie winterbanden. Dunlop is een A-merk band, die de beste prestaties levert. De Dunlop Winter Sport 5 205/55 R16 91H M+S heeft gewichtsklasse 91; dat betekent dat elke band 615 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 78.64M,
+                        OpVoorraad = 100,
+                        FiguurURL = @"~/images/onderdelen/banden/DU_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "91 (615kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	69dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_5",
+                        Artikelnaam = "Continental WinterContact TS 860 195/65 R15 91H",
+                        Artikelomschrijving = "De Continental WinterContact TS 860 195/65 R15 91H is een 15 inch band in de categorie winterbanden. Continental is een A-merk band, die de beste prestaties levert. De Continental WinterContact TS 860 195/65 R15 91H heeft gewichtsklasse 91; dat betekent dat elke band 615 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 71.56M,
+                        OpVoorraad = 55,
+                        FiguurURL = @"~/images/onderdelen/banden/CO_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "91 (615kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	72dB"
+                        }
+
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_6",
+                        Artikelnaam = "Michelin Alpin 5 195/65 R15 95H",
+                        Artikelomschrijving = "De Michelin Alpin 5 195/65 R15 95H XL is een 15 inch band in de categorie winterbanden. Michelin is een A-merk band, die de beste prestaties levert. De Michelin Alpin 5 195/65 R15 95H XL heeft gewichtsklasse 95; dat betekent dat elke band 690 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 77.13M,
+                        OpVoorraad = 99,
+                        FiguurURL = @"~/images/onderdelen/banden/MI_2_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "95 (690kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	68dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_7",
+                        Artikelnaam = "Dunlop SP Winter Sport 195/65 R15 91H",
+                        Artikelomschrijving = "De Dunlop SP Winter Sport 195/65 R15 91H DOT2014 is een 15 inch band in de categorie winterbanden. Dunlop is een A-merk band, die de beste prestaties levert. De SP Winter Sport 195/65 R15 91H DOT2014 heeft gewichtsklasse 91; dat betekent dat elke band 615 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 77.13M,
+                        OpVoorraad = 1,
+                        FiguurURL = @"~/images/onderdelen/banden/DU_2_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "91 (615kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	68dB"
+                        }
+
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_8",
+                        Artikelnaam = "Continental WinterContact TS 860 225/45 R17 94V",
+                        Artikelomschrijving = "De Continental WinterContact TS 860 225/45 R17 94V XL is een 17 inch band in de categorie winterbanden. Continental is een A-merk band, die de beste prestaties levert. De Continental WinterContact TS 860 225/45 R17 94V XL heeft gewichtsklasse 94; dat betekent dat elke band 670 kg gewicht kan hebben. De snelheidsklasse van deze band is 'V'. Daarmee is de band ontwikkeld voor een snelheid tot 240 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 131.29M,
+                        OpVoorraad = 50,
+                        FiguurURL = @"~/images/onderdelen/banden/CO_2_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "94 (670kg per band)",
+                            SnelheidIndex = "V (tot 240 km/h)",
+                            Rolgeluid = "Rolgeluid	72dB"
+                        }
+
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_9",
+                        Artikelnaam = "Dunlop Winter Sport 5 225/45 R17 94H",
+                        Artikelomschrijving = "De Dunlop Winter Sport 5 225/45 R17 94H M+S MFS XL is een 17 inch band in de categorie winterbanden. Dunlop is een A-merk band, die de beste prestaties levert. De Dunlop Winter Sport 5225/45 R17 94H M+S MFS XL heeft gewichtsklasse 94; dat betekent dat elke band 670 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h. ",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 122.57M,
+                        OpVoorraad = 98,
+                        FiguurURL = @"~/images/onderdelen/banden/DU_3_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "94 (670kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	70dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_10",
+                        Artikelnaam = "Hankook Winter i*cept EVO2 W320 225/45 R17 94H",
+                        Artikelomschrijving = "De Hankook Winter i*cept EVO2 W320 225/45 R17 94H XL is een 17 inch band in de categorie winterbanden. De Hankook Winter i*cept EVO2 W320 225/45 R17 94H XL heeft gewichtsklasse 94; dat betekent dat elke band 670 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 88.30M,
+                        OpVoorraad = 73,
+                        FiguurURL = @"~/images/onderdelen/banden/HA_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "94 (670kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	72dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_11",
+                        Artikelnaam = "Vredestein Wintrac Xtreme S 225/45 R17 94H",
+                        Artikelomschrijving = "De Vredestein Wintrac Xtreme S 225/45 R17 94H XL is een 17 inch band in de categorie winterbanden. Vredestein is een A-merk band, die de beste prestaties levert. De Vredestein Wintrac Xtreme S 225/45 R17 94H XL heeft gewichtsklasse 94; dat betekent dat elke band 670 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 102.21M,
+                        OpVoorraad = 80,
+                        FiguurURL = @"~/images/onderdelen/banden/VE_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "94 (670kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	70dB"
+                        }
+
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_12",
+                        Artikelnaam = "Kleber Krisalp HP3 225/40 R18 92V",
+                        Artikelomschrijving = "De Kleber Krisalp HP3 225/40 R18 92V XL is een 18 inch band in de categorie winterbanden. Kleber is een goedkope band, te vinden in ons budgetsegment. De Kleber Krisalp HP3 225/40 R18 92V XL heeft gewichtsklasse 92; dat betekent dat elke band 630 kg gewicht kan hebben. De snelheidsklasse van deze band is 'V'. Daarmee is de band ontwikkeld voor een snelheid tot 240 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 98.95M,
+                        OpVoorraad = 11,
+                        FiguurURL = "GEEN AFBEELDING BESCHIKBAAR",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "92 (630kg per band)",
+                            SnelheidIndex = "V (tot 240 km/h)",
+                            Rolgeluid = "Rolgeluid	69dB"
+                        }
+
+                    },
+                       new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_13",
+                        Artikelnaam = "Maxxis Maxxis MA-PW 225/40 R18 92V",
+                        Artikelomschrijving = "De Maxxis Maxxis MA-PW 225/40 R18 92V XL is een 18 inch band in de categorie winterbanden. De Maxxis Maxxis MA-PW 225/40 R18 92V XL heeft gewichtsklasse 92; dat betekent dat elke band 630 kg gewicht kan hebben. De snelheidsklasse van deze band is 'V'. Daarmee is de band ontwikkeld voor een snelheid tot 240 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 103.99M,
+                        OpVoorraad = 1,
+                        FiguurURL = "GEEN AFBEELDING BESCHIKBAAR",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "92 (630kg per band)",
+                            SnelheidIndex = "V (tot 240 km/h)",
+                            Rolgeluid = "Rolgeluid	72dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_14",
+                        Artikelnaam = "Firestone Winterhawk 3 225/40 R18 92V",
+                        Artikelomschrijving = "De Firestone Winterhawk 3 225/40 R18 92V XL M+S is een 18 inch band in de categorie winterbanden. De Firestone Winterhawk 3 225/40 R18 92V XL M+S heeft gewichtsklasse 92; dat betekent dat elke band 630 kg gewicht kan hebben. De snelheidsklasse van deze band is 'V'. Daarmee is de band ontwikkeld voor een snelheid tot 240 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 105.80M,
+                        OpVoorraad = 43,
+                        FiguurURL = @"~/images/onderdelen/banden/FI_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "92 (630kg per band)",
+                            SnelheidIndex = "V (tot 240 km/h)",
+                            Rolgeluid = "Rolgeluid	72dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_15",
+                        Artikelnaam = "Pneumant Pneumant WINT. PNEUWIN 3 225/40 ",
+                        Artikelomschrijving = "De Pneumant Pneumant WINT. PNEUWIN 3 225/40 R18 92V HP is een 18 inch band in de categorie winterbanden. De Pneumant WINT. PNEUWIN 3 225/40 R18 92V HP heeft gewichtsklasse 92; dat betekent dat elke band 630 kg gewicht kan hebben. De snelheidsklasse van deze band is 'V'. Daarmee is de band ontwikkeld voor een snelheid tot 240 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 104.99M,
+                        OpVoorraad = 99,
+                        FiguurURL = "GEEN AFBEELDING BESCHIKBAAR",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "92 (630kg per band)",
+                            SnelheidIndex = "V (tot 240 km/h)",
+                            Rolgeluid = "Rolgeluid	68dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_16",
+                        Artikelnaam = "Bridgestone Blizzak LM-25 205/45 R16 83H",
+                        Artikelomschrijving = "De Bridgestone Blizzak LM-25 205/45 R16 83H DOT2001 MFS is een 16 inch band in de categorie winterbanden. Bridgestone is een A-merk band, die de beste prestaties levert. De Blizzak LM-25 205/45 R16 83H DOT2001 MFS heeft gewichtsklasse 83; dat betekent dat elke band 487 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 64.99M,
+                        OpVoorraad = 1,
+                        FiguurURL = @"~/images/onderdelen/banden/BR_1_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "83 (487kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	71dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_17",
+                        Artikelnaam = "Kumho WinterCraft WP51 205/45 R16 87H",
+                        Artikelomschrijving = "De Kumho WinterCraft WP51 205/45 R16 87H XL is een 16 inch band in de categorie winterbanden. De Kumho WinterCraft WP51 205/45 R16 87H XL heeft gewichtsklasse 87; dat betekent dat elke band 545 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 63.73M,
+                        OpVoorraad = 24,
+                        FiguurURL = "GEEN AFBEELDING BESCHIKBAAR",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "87 (545kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	70dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_18",
+                        Artikelnaam = "Toyo Snowprox S954 205/45 R16 87H",
+                        Artikelomschrijving = "De Toyo Snowprox S954 205/45 R16 87H XL is een 16 inch band in de categorie winterbanden. Toyo is een goedkope band, te vinden in ons budgetsegment. De Toyo Snowprox S954 205/45 R16 87H XL heeft gewichtsklasse 87; dat betekent dat elke band 545 kg gewicht kan hebben. De snelheidsklasse van deze band is 'H'. Daarmee is de band ontwikkeld voor een snelheid tot 210 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 80.99M,
+                        OpVoorraad = 50,
+                        FiguurURL = "GEEN AFBEELDING BESCHIKBAAR",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "87 (545kg per band)",
+                            SnelheidIndex = "H (tot 210 km/h)",
+                            Rolgeluid = "Rolgeluid	71dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_19",
+                        Artikelnaam = "Pirelli Cinturato Winter 205/45 R16 87T",
+                        Artikelomschrijving = "De Pirelli Cinturato Winter 205/45 R16 87T is een 16 inch band in de categorie winterbanden. Pirelli is een A-merk band, die de beste prestaties levert. De Pirelli Cinturato Winter 205/45 R16 87T heeft gewichtsklasse 87; dat betekent dat elke band 545 kg gewicht kan hebben. De snelheidsklasse van deze band is 'T'. Daarmee is de band ontwikkeld voor een snelheid tot 190 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 117.95M,
+                        OpVoorraad = 1,
+                        FiguurURL = @"~/images/onderdelen/banden/PI_2_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "87 (545kg per band)",
+                            SnelheidIndex = "T (tot 190 km/h)",
+                            Rolgeluid = "Rolgeluid	66dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_20",
+                        Artikelnaam = "Continental WinterContact TS 860 175/65 R14 82T",
+                        Artikelomschrijving = "De Continental WinterContact TS 860 175/65 R14 82T is een 14 inch band in de categorie winterbanden. Continental is een A-merk band, die de beste prestaties levert. De Continental WinterContact TS 860 175/65 R14 82T heeft gewichtsklasse 82; dat betekent dat elke band 475 kg gewicht kan hebben. De snelheidsklasse van deze band is 'T'. Daarmee is de band ontwikkeld voor een snelheid tot 190 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 55.12M,
+                        OpVoorraad = 4,
+                        FiguurURL = @"~/images/onderdelen/banden/CO_3_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "82 (475kg per band)",
+                            SnelheidIndex = "T (tot 190 km/h)",
+                            Rolgeluid = "Rolgeluid	71dB"
+                        }
+
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_21",
+                        Artikelnaam = "Vredestein Snowtrac 5 175/65 R14 82T",
+                        Artikelomschrijving = "De Vredestein Snowtrac 5 175/65 R14 82T is een 14 inch band in de categorie winterbanden. Vredestein is een A-merk band, die de beste prestaties levert. De Vredestein Snowtrac 5 175/65 R14 82T heeft gewichtsklasse 82; dat betekent dat elke band 475 kg gewicht kan hebben. De snelheidsklasse van deze band is 'T'. Daarmee is de band ontwikkeld voor een snelheid tot 190 km/h. ",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 46.64M,
+                        OpVoorraad = 80,
+                        FiguurURL = @"~/images/onderdelen/banden/VR_2_ZIJ.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "82 (475kg per band)",
+                            SnelheidIndex = "T (tot 190 km/h)",
+                            Rolgeluid = "Rolgeluid	69dB"
+                        }
+
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WB_22",
+                        Artikelnaam = "Nokian WR D4 175/65 R14 82T",
+                        Artikelomschrijving = "De Nokian WR D4 175/65 R14 82T is een 14 inch band in de categorie winterbanden. De Nokian WR D4175/65 R14 82T heeft gewichtsklasse 82; dat betekent dat elke band 475 kg gewicht kan hebben. De snelheidsklasse van deze band is 'T'. Daarmee is de band ontwikkeld voor een snelheid tot 190 km/h.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 1),
+                        Prijs = 53.12M,
+                        OpVoorraad = 48,
+                        FiguurURL = "GEEN AFBEELDING BESCHIKBAAR",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Winterband - Personenwagen",
+                            Draagvermogen = "82 (475kg per band)",
+                            SnelheidIndex = "T (tot 190 km/h)",
+                            Rolgeluid = "Rolgeluid	68dB"
+                        }
+
+                    },
+                };
+                context.OnderdelenProducten.AddRange(winterbanden);
+                context.SaveChanges();
+            }
+            //Seed Wieldoppen
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 2))
+            {
+                OnderdelenProducten[] wieldoppen = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_1",
+                        Artikelnaam = "12 INCH WIELDOPPEN SET COLORADO ZILVER",
+                        Artikelomschrijving = "12 inch wieldoppen set Colorado zilver , is 1 van de 3 kleinste wieldoppensets uit ons 12-inch programma.De Colorado is gemaakt " +
+                        "van recycleerbaar kunststof en voorzien van een zilverkleurige en blanke laklaag.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 27.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/12 INCH WIELDOPPEN SET COLORADO ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "12 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_2",
+                        Artikelnaam = "12 INCH WIELDOPPEN SET IOWA ZILVER",
+                        Artikelomschrijving = "12 inch wieldoppen set Iowa zilver , 1 van de 3 kleinste wieldoppensets uit ons 12 inch  programma.De Iowa wieldoppen zijn gemaakt van recycleeerbaar kunststof " +
+                        "en voorzien van een zilverkleurige en blanke laklaag. Worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking " +
+                        "om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 27.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/12 INCH WIELDOPPEN SET IOWA ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "12 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_3",
+                        Artikelnaam = "12 INCH WIELDOPPEN SET TINY S ZILVER",
+                        Artikelomschrijving = "12 inch wieldoppen set Tiny-S zilver , 1 van de 3 kleinste wieldoppensets uit ons 12 inch programma. De Tiny-S wieldoppen zijn gemaakt van recycleerbaar kunststof en voorzien van meerdere lagen zilverkleurige lak." +
+                        "De wieldoppen worden gemonteerd d.m.v. clips en een stalen ring in de rand van uw stalen velgen." +
+                        "Worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden." +
+                        " Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 25.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/12 INCH WIELDOPPEN SET TINY S ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "12 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_4",
+                        Artikelnaam = "13 INCH WIELDOPPEN SET AGAT BW ZWART/WIT",
+                        Artikelomschrijving = "13 inch wieldoppen set Agat BW zwart/wit  zijn gefabriceerd van buig- en recycleerbaar ABS kunststof en gespoten in een witte ondergrond met zwarte spaken." +
+                        "Deze hippe 12-spaaks zwart-witte Agat BW wieldoppen worden eenvoudig en in nog geen 15 minuten in de rand geklikt van de stalen velgen van uw auto d.m.v. clips en een in omtrek verstelbare ring." +
+                        "Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo geeft u de saaie of verweerde stalen velgen van uw auto in in minder dan een 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken/verzenden van een kartonnen afdekking om beschadiging aan de bovenste wielsierdop " +
+                        "te voorkomen tijdens het transport van ons naar u.Controleer a.u.b. direct na ontvangst de wieldoppen. Mocht er een beschadiging zijn dan dit graag na ontvangst (binnen 12 uur) aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 29.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/13 INCH WIELDOPPEN SET AGAT BW ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "13 inch",
+                            Kleur = Kleur.wit,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_5",
+                        Artikelnaam = "13 INCH WIELDOPPEN SET AGAT WB WIT/ZWART",
+                        Artikelomschrijving = "13 inch wieldoppen set Agat WB wit/zwart  zijn gefabriceerd van recycle- en buigbaar ABS kunststof en gespoten in een zwarte ondergrond met witte spaken.Deze hippe 12-spaaks wit-zwarte Agat WB wieldoppen worden eenvoudig en in nog geen 15 minuten in de rand geklikt van de stalen velgen " +
+                        "van uw auto d.m.v. clips en een in omtrek verstelbare ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo geeft u de saaie of verweerde stalen velgen van uw auto in in minder dan een 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken/verzenden van een kartonnen afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u." +
+                        "Controleer a.u.b. direct na ontvangst de wieldoppen. Mocht er een beschadiging zijn dan dit graag na ontvangst (binnen 12 uur)aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 29.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/13 INCH WIELDOPPEN SET AGAT WB WIT IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "13 inch",
+                            Kleur = Kleur.wit,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_6",
+                        Artikelnaam = "13 INCH WIELDOPPEN SET AGAT ZWART",
+                        Artikelomschrijving = "113 inch wieldoppen set Agat mat zwart  De door ons geleverde wieldoppen hebben een gunstige prijsstelling en zijn van goede kwaliteit." +
+                        "Deze 13 inch Agat mat zwart wieldoppen worden gemonteerd d.m.v. clips en een stalen ring in de rand van uw stalen velgen. Worden per set van vier stuks geleverd met 4 stalen " +
+                        "ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden." +
+                        "Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Geeft uw auto een nieuwe look met onze 13 inch wieldoppen. Bestel veilig en snel deze 13 inch Agat mat zwart wieldoppen.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 27.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/13 INCH WIELDOPPEN SET AGAT ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "13 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_7",
+                        Artikelnaam = "13 INCH WIELDOPPEN SET ALABAMA STEENKOOL ZWART",
+                        Artikelomschrijving = "13 inch wieldoppen set Alabama matt charcoal (steenkool zwart)  zijn gefabriceerd van eersteklas slagvast, " +
+                        "recyclebaar ABS kunststof en gespoten in meerdere lagen steenkoolzwarte lak." +
+                        "De wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een gepatendeerde, in 2 hoogtes verstelbare stalen ring." +
+                        "Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo geeft u de saaie of verweerde stalen velgen van uw auto " +
+                        "in ca. 15 minuten een compleet nieuwe look. De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. " +
+                        "Deze voorzien wij voor het verpakken van kartonnen afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden." +
+                        "Controleert a.u.b. direct na ontvangst de wieldoppen. Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief " +
+                        "foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 30.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/13 INCH WIELDOPPEN SET ALABAMA STEENKOOL ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "13 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_8",
+                        Artikelnaam = "13 INCH WIELDOPPEN SET AVALONE SB ZILVER/ZWART",
+                        Artikelomschrijving = "13 inch wieldoppen set Avalone-SB zilver met zwarte accenten  zijn gefabriceerd van recyclebaar ABS kunststof en gespoten " +
+                        "in meerdere lagen zwarte en zilverkleurige coating.Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. " +
+                        "clips en een gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage " +
+                        "is eenvoudig. Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van " +
+                        "kartonnen afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u." +
+                        "Controleer a.u.b. direct na ontvangst de wieldoppen. Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief " +
+                        "foto van de beschadiging",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 34.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/13 INCH WIELDOPPEN SET AVALONE SB ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "13 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                       new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_9",
+                        Artikelnaam = "13 INCH WIELDOPPEN SET CALIBER SB ZILVER/ZWART CARBON-LOOK",
+                        Artikelomschrijving = "13 inch wieldoppen set Caliber-SB zilver/zwart met 3D carbon-look in de spaken  zijn gefabriceerd van recyclebaar ABS kunststof " +
+                        "met 3D print en gespoten in meerdere lagen zwarte en zilverkleurige lak." +
+                        "Deze set wieldoppen worden eenvoudig en snel geplaatst in de rand van de stalen velgen van uw auto d.m.v. clips en een gepatendeerde, " +
+                        "in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van " +
+                        "kartonnen afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u." +
+                        "Controleer a.u.b. direct na ontvangst de wieldoppen. Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief " +
+                        "foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 34.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/13 INCH WIELDOPPEN SET CALIBER SB ZILVER ZWART CARBON-LOOK IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "13 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_10",
+                        Artikelnaam = "14 INCH WIELDOPPEN SET ALASKA ZWART/ZILVER",
+                        Artikelomschrijving = "14 inch wieldoppen set Alaska IS hoogglans zilver met -zwarte rand en 5 wielmoerkapjes  zijn gefabriceerd van eersteklas slagvast, " +
+                        "recyclebaar ABS kunststof en gespoten in meerdere lagen hoogglans zilverkleurige lak en brede hoogglanszwarte rand." +
+                        "De wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een gepatendeerde, in 2 hoogtes verstelbare stalen ring." +
+                        "Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo geeft u de saaie of verweerde stalen velgen van uw auto " +
+                        "in ca. 15 minuten een compleet nieuwe look. De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. " +
+                        "Deze voorzien wij voor het verpakken van kartonnen afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden." +
+                        "Controleert a.u.b. direct na ontvangst de wieldoppen. Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail " +
+                        "inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 34.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/14 INCH WIELDOPPEN SET ALASKA ZWART ZILVER IM.png",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "14 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_11",
+                        Artikelnaam = "14 INCH WIELDOPPEN SET AVALONE SB ZILVER/ZWART",
+                        Artikelomschrijving = "14 inch wieldoppen set Avalone-SB zilver met zwarte accenten  zijn gefabriceerd van recyclebaar ABS kunststof en gespoten in " +
+                        "meerdere lagen zwarte en zilverkleurige coating. Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een " +
+                        "gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig . " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u. Controleer a.u.b. direct na ontvangst de wieldoppen." +
+                        " Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 34.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/14 INCH WIELDOPPEN SET SET AVALONE SB ZILVER ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "14 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_12",
+                        Artikelnaam = "14 INCH WIELDOPPEN SET AVERA ZILVER/ZWART",
+                        Artikelomschrijving = "14 inch wieldoppen set Avera zilver/mat zwart zijn gefabriceerd van recyclebaar ABS kunststof en gespoten in " +
+                        "meerdere lagen zwarte en zilverkleurige coating. Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een " +
+                        "gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig . " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u. Controleer a.u.b. direct na ontvangst de wieldoppen." +
+                        " Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 34.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/14 INCH WIELDOPPEN SET AVERA ZILVER ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "14 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_13",
+                        Artikelnaam = "14 INCH WIELDOPPEN SET CLASSIC SE ZILVER",
+                        Artikelomschrijving = "14 inch klassieke wieldoppen set Classic Special Edition zilver zijn gefabriceerd van recyclebaar ABS kunststof en gespoten in " +
+                        "meerdere lagen zwarte en zilverkleurige coating. Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een " +
+                        "gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig . " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u. Controleer a.u.b. direct na ontvangst de wieldoppen." +
+                        " Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 41.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/14 INCH WIELDOPPEN SET CLASSIC SE ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "14 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_14",
+                        Artikelnaam = "14 INCH WIELDOPPEN SET CYRKON ZILVER",
+                        Artikelomschrijving = "14 inch wieldoppen set Cyrkon zilver zijn gefabriceerd van recyclebaar ABS kunststof en gespoten in " +
+                        "meerdere lagen zwarte en zilverkleurige coating. Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een " +
+                        "gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig . " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u. Controleer a.u.b. direct na ontvangst de wieldoppen." +
+                        " Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 34.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/14 INCH WIELDOPPEN SET CYRKON ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "14 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_15",
+                        Artikelnaam = "15 INCH BOLLE WIELDOPPEN SET CATO ZILVER",
+                        Artikelomschrijving = "15 inch bolle wieldoppen Cato zilver van slagvast, van recyclebaar ABS kunststof en gespoten in " +
+                        "meerdere lagen zwarte en zilverkleurige coating. Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een " +
+                        "gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig . " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u. Controleer a.u.b. direct na ontvangst de wieldoppen." +
+                        " Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 34.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/15 INCH BOLLE WIELDOPPEN SET CATO ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "15 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_16",
+                        Artikelnaam = "15 INCH WIELDOPPEN SET ARKANSAS SG ZILVER/GUNMETAL",
+                        Artikelomschrijving = "15 inch wieldoppen set Arkansas-SG zilver met antraciete spaken en chromen wielmoerkapjes  zijn gefabriceerd van eersteklas slagvast, van recyclebaar ABS kunststof en gespoten in " +
+                        "meerdere lagen zwarte en zilverkleurige coating. Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een " +
+                        "gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig . " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u. Controleer a.u.b. direct na ontvangst de wieldoppen." +
+                        " Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 30.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/15 INCH WIELDOPPEN SET ARKANSAS SG ZILVER GUNMETAL IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "15 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_17",
+                        Artikelnaam = "15 INCH WIELDOPPEN SET DELAWARE GP MAT GUNMETAL/ROZE",
+                        Artikelomschrijving = "15 inch wieldoppen set Delaware mat gunmetal/roze (pink) met chromen wielmoerkapjes zijn gefabriceerd van eersteklas slagvast, van recyclebaar ABS kunststof en gespoten in " +
+                        "meerdere lagen zwarte en zilverkleurige coating. Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een " +
+                        "gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig . " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u. Controleer a.u.b. direct na ontvangst de wieldoppen." +
+                        " Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 32.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/15 INCH WIELDOPPEN SET DELAWARE GP MAT GUNMETAL ROZE IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "15 inch",
+                            Kleur = Kleur.roze,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                        new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_18",
+                        Artikelnaam = "15 INCH WIELDOPPEN SET GIGA R ZWART/ROOD",
+                        Artikelomschrijving = "15 inch wieldoppen set Giga R mat zwart met rode rand zijn gefabriceerd van eersteklas slagvast, van recyclebaar ABS kunststof en gespoten in " +
+                        "meerdere lagen zwarte en zilverkleurige coating. Deze set wieldoppen worden gemonteerd in de rand van de stalen velgen van uw auto d.m.v. clips en een " +
+                        "gepatendeerde, in 2 hoogtes verstelbare stalen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig . " +
+                        "Zo geeft u de saaie of verweerde stalen velgen van uw auto in ca. 15 minuten een compleet nieuwe look." +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos. Deze voorzien wij voor het verpakken van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het transport van ons naar u. Controleer a.u.b. direct na ontvangst de wieldoppen." +
+                        " Mocht er een beschadiging zijn dan dit graag onmiddelijk aan ons melden per mail inclusief foto van de beschadiging.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 30.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/15 INCH WIELDOPPEN SET GIGA R ZWART ROOD IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "15 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                         new OnderdelenProducten
+                    {
+                        Artikelnummer = "WD_19",
+                        Artikelnaam = "15 INCH WIELDOPPEN SET INFINITY GTS ZILVER/ZWART/CHROOM",
+                        Artikelomschrijving = "15 inch wieldoppen set Infinity SC zilver/mat zwart/chroom. De door ons geleverde wieldoppen hebben een gunstige prijsstelling en zijn van goede kwaliteit." +
+                        "Deze 15 inch Infinity SC zilver/chroom wieldoppen zijn universeel en passen op 99% van de stalen velgen die op de markt zijn. De wieldoppen worden gemonteerd d.m.v. clips en een stalen ring in de rand van uw stalen velgen. " +
+                        "Worden per set van vier stuks geleverd met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om beschadiging " +
+                        "aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig." +
+                        "Zo kunt u uw auto in een korte tijd een nieuwe look geven.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 29.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/15 INCH WIELDOPPEN SET INFINITY GTS ZILVER ZWART CHROOM IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "15 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                          new OnderdelenProducten
+                    {
+                        Artikelnummer = "20",
+                        Artikelnaam = "16 INCH WIELDOPPEN SET EVO RACE ZILVER",
+                        Artikelomschrijving = "16 inch wieldoppen set EVO Race zilver  zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere lagen zilverkleurige " +
+                        "lak en zwart/rode EVO Race logo op een spaak. De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de stalen velgen " +
+                        "van uw auto. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
+                        "beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn " +
+                        "dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 39.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/16 INCH WIELDOPPEN SET EVO RACE ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "16 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                           new OnderdelenProducten
+                    {
+                        Artikelnummer = "21",
+                        Artikelnaam = "16 INCH WIELDOPPEN SET GIGA ZWART",
+                        Artikelomschrijving = "16 inch wieldoppen set Giga mat zwart zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere lagen zilverkleurige " +
+                        "lak en Giga logo in het hart van de wieldop. De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de stalen velgen " +
+                        "van uw auto. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
+                        "beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn " +
+                        "dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 34.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/16 INCH WIELDOPPEN SET GIGA ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "16 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "22",
+                        Artikelnaam = "16 INCH WIELDOPPEN SET GRAL B ZWART",
+                        Artikelomschrijving = "16 inch wieldoppen set Gral in het zwart  zijn gefabriceerd van buig- en recyclebaar kunststof en gespoten in meerdere lagen matzwarte lak. De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de stalen velgen " +
+                        "van uw auto. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
+                        "beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn " +
+                        "dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 30.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/16 INCH WIELDOPPEN SET GRAL B ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "16 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "23",
+                        Artikelnaam = "16 INCH WIELDOPPEN SET GRAL ZILVER",
+                        Artikelomschrijving = "16 inch wieldoppen set Gral in zilver zijn gefabriceerd van buig- en recyclebaar kunststof en gespoten in meerdere lagen zilverkleurige coating. De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de stalen velgen " +
+                        "van uw auto. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
+                        "beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn " +
+                        "dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 30.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/16 INCH WIELDOPPEN SET GRAL ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "16 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                        new OnderdelenProducten
+                    {
+                        Artikelnummer = "24",
+                        Artikelnaam = "16 INCH WIELDOPPEN SET LEMANS ZWART/GROEN",
+                        Artikelomschrijving = "16 inch wieldoppen set LeMans mat zwart/groen  zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere lagen groene en matzwarte lak en chromen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
+                        "beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn " +
+                        "dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 45.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/16 INCH WIELDOPPEN SET LEMANS ZWART GROEN IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "16 inch",
+                            Kleur = Kleur.groen,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "25",
+                        Artikelnaam = "17 INCH WIELDOPPEN SET CALIFORNIA ZILVER",
+                        Artikelomschrijving = "17 inch wieldoppen California zilver en 5 wielmoerkapjes  zijn gefabriceerd van eersteklas slagvast, recyclebaar ABS kunststof en gespoten " +
+                        "in meerdere lagen zilverkleurige lak en afgewerkt met een blanke laklaag. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
+                        "beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn " +
+                        "dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 45.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/17 INCH WIELDOPPEN SET CALIFORNIA ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "17 inch",
+                            Kleur = Kleur.zilver,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "26",
+                        Artikelnaam = "17 INCH WIELDOPPEN SET NEW YORK MG MAT GUNMETAL",
+                        Artikelomschrijving = "17 inch wieldoppen set New York-MG mat gunmetal met chroom ring  zijn gefabriceerd van eersteklas slagvast, recyclebaar ABS kunststof en gespoten in meerdere lagen mat antraciete coating." +
+                        " Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
+                        "beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn " +
+                        "dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 43.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/17 INCH WIELDOPPEN SET NEW YORK MG MAT GUNMETAL IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "17 inch",
+                            Kleur = Kleur.gunmetal,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "27",
+                        Artikelnaam = "17 INCH WIELDOPPEN SET SILVERSTONE PRO ZWART",
+                        Artikelomschrijving = "17 inch wieldoppen Silverstone PRO mat zwart  zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere lagen matzwarte lak en een chromen ring." +
+                        " Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
+                        "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
+                        "beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er een beschadiging zijn " +
+                        "dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 48.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/17 INCH WIELDOPPEN SET SILVERSTONE PRO ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "17 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "28",
+                        Artikelnaam = "17 INCH WIELDOPPEN SET VERMONT GUNMETAL/ZILVER",
+                        Artikelomschrijving = "17 inch wieldoppen Vermont antraciet (ook wel gun metal genoemd)/zilver geven uw auto een compleet nieuwe en frisse look. " +
+                        "De 17 inch Vermont wieldoppen worden eenvoudig gemonteerd aan de rand van uw velgen en worden in een stevige doos die wij voor het verpakken " +
+                        "voorzien van kartonnen afdekking verstuurd. Let op dat u in de winter de wieldoppen op kamertemperatuur laat komen. " +
+                        "Dit ivm de kunststof clips waarmee de wieldoppen vast komen te zitten.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 32.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/17 INCH WIELDOPPEN SET VERMONT GUNMETAL ZILVER IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "17 inch",
+                            Kleur = Kleur.gunmetal,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "29",
+                        Artikelnaam = "17 INCH WIELDOPPEN SET VERMONT ZILVER/ZWART",
+                        Artikelomschrijving = "17 inch wieldoppen Vermont zilver/mat zwart geven uw auto een compleet nieuwe en frisse look. " +
+                        "De 17 inch Vermont wieldoppen worden eenvoudig gemonteerd aan de rand van uw velgen en worden in een stevige doos die wij voor het verpakken " +
+                        "voorzien van kartonnen afdekking verstuurd. Let op dat u in de winter de wieldoppen op kamertemperatuur laat komen. " +
+                        "Dit ivm de kunststof clips waarmee de wieldoppen vast komen te zitten.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 32.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/17 INCH WIELDOPPEN SET VERMONT ZILVER ZWART IM.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "17 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "30",
+                        Artikelnaam = "17 INCH WIELDOPPEN SET VOLANTE ZILVER/ZWART",
+                        Artikelomschrijving = "17 inch wieldoppen Volante zilver/mat zwart  zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere " +
+                        "lagen zilverkleurige en matzwarte lak.De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de " +
+                        "stalen velgen van uw auto. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe " +
+                        "look geven. De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen " +
+                        "afdekking om beschadiging aan de bovenste wielsierdop te voorkomen tijdens het verzenden. Controleert u a.u.b. na ontvangst de wieldoppen en mocht er " +
+                        "een beschadiging zijn dan dit onmiddelijk aan ons melden per mail inclusief foto.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 2),
+                        Prijs = 48.99M,
+                        FiguurURL = @"~/images/onderdelen/wieldoppen/17 INCH WIELDOPPEN SET VOLANTE ZILVER ZWART IM.png",
+                        Specificatie = new Specificaties
+                        {
+                            Formaat = "17 inch",
+                            Kleur = Kleur.zwart,
+                            Materie = "Kunststof",
+                            Montageset = "4 stuks"
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(wieldoppen);
+                context.SaveChanges();
+            }
+
                 context.SaveChanges();
 
             }

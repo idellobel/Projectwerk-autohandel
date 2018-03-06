@@ -36,7 +36,7 @@ namespace Autohandel.Domain.Entities
 
         public Specificaties Specificatie { get; set; }
 
-        public CategorieOnderdelen categorieOnderdelen  { get; set; }
+        public CategorieOnderdelen CategorieOnderdelen  { get; set; }   
 
         public virtual ICollection<File> Files { get; set; }
 

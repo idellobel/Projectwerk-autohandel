@@ -23,7 +23,10 @@ namespace Autohandel.web.Controllers
                 voertuigCategorieen = await _context.VoertuigCategorieen.ToListAsync(),
                 autoMerken = await _context.Merken.ToListAsync(),
                 automodellen = await _context.Types.ToListAsync(),
-                aanbodVoertuigen = await _context.Voertuigen.ToListAsync()
+                aanbodVoertuigen = await _context.Voertuigen.ToListAsync(),
+                categorieOnderdelen = await _context.CategorieOnderdelen.ToArrayAsync(),
+                onderdelenProducten = await _context.OnderdelenProducten.Include(s => s.Specificatie).ToArrayAsync()
+
             };
            
             return View(viewModel);

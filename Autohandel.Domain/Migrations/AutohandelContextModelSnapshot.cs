@@ -142,6 +142,8 @@ namespace Autohandel.Domain.Migrations
                     b.Property<string>("Artikelomschrijving")
                         .IsRequired();
 
+                    b.Property<int?>("CategorieOnderdelenOnderdelenCategorieId");
+
                     b.Property<long?>("FaktuurNr");
 
                     b.Property<string>("FiguurURL")
@@ -155,17 +157,15 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<int?>("SpecificatieId");
 
-                    b.Property<int?>("categorieOnderdelenOnderdelenCategorieId");
-
                     b.HasKey("Artikelnummer");
+
+                    b.HasIndex("CategorieOnderdelenOnderdelenCategorieId");
 
                     b.HasIndex("FaktuurNr");
 
                     b.HasIndex("LeverancierPersoonId");
 
                     b.HasIndex("SpecificatieId");
-
-                    b.HasIndex("categorieOnderdelenOnderdelenCategorieId");
 
                     b.ToTable("OnderdelenProducten");
                 });
@@ -274,7 +274,7 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<int>("Dikte");
 
-                    b.Property<int>("Draagvermogen");
+                    b.Property<string>("Draagvermogen");
 
                     b.Property<string>("Flappen")
                         .HasMaxLength(75);
@@ -325,12 +325,12 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<string>("Opening");
 
-                    b.Property<int>("Rolgeluid");
+                    b.Property<string>("Rolgeluid");
 
                     b.Property<string>("Schroefdraad")
                         .HasMaxLength(75);
 
-                    b.Property<int>("SnelheidIndex");
+                    b.Property<string>("SnelheidIndex");
 
                     b.Property<string>("Type")
                         .HasMaxLength(75);
@@ -521,6 +521,10 @@ namespace Autohandel.Domain.Migrations
 
             modelBuilder.Entity("Autohandel.Domain.Entities.OnderdelenProducten", b =>
                 {
+                    b.HasOne("Autohandel.Domain.Entities.CategorieOnderdelen", "CategorieOnderdelen")
+                        .WithMany("Products")
+                        .HasForeignKey("CategorieOnderdelenOnderdelenCategorieId");
+
                     b.HasOne("Autohandel.Domain.Entities.Faktuur")
                         .WithMany("OnderdelenProducten")
                         .HasForeignKey("FaktuurNr");
@@ -532,10 +536,6 @@ namespace Autohandel.Domain.Migrations
                     b.HasOne("Autohandel.Domain.Entities.Specificaties", "Specificatie")
                         .WithMany()
                         .HasForeignKey("SpecificatieId");
-
-                    b.HasOne("Autohandel.Domain.Entities.CategorieOnderdelen", "categorieOnderdelen")
-                        .WithMany("Products")
-                        .HasForeignKey("categorieOnderdelenOnderdelenCategorieId");
                 });
 
             modelBuilder.Entity("Autohandel.Domain.Entities.Onderhoud", b =>

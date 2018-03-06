@@ -7,7 +7,7 @@ namespace Autohandel.Domain.Entities
     public class CategorieOnderdelen
     {
         [Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int OnderdelenCategorieId { get; set; }
 
         [Required(ErrorMessage = "Vul een {0} in.")]
