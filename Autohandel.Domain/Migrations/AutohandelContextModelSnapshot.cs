@@ -276,6 +276,9 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<string>("Draagvermogen");
 
+                    b.Property<string>("Fietstypes")
+                        .HasMaxLength(75);
+
                     b.Property<string>("Flappen")
                         .HasMaxLength(75);
 
@@ -331,6 +334,9 @@ namespace Autohandel.Domain.Migrations
                         .HasMaxLength(75);
 
                     b.Property<string>("SnelheidIndex");
+
+                    b.Property<string>("StekkerAansluiting")
+                        .HasMaxLength(75);
 
                     b.Property<string>("Type")
                         .HasMaxLength(75);

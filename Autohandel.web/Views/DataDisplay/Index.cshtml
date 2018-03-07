@@ -1,8 +1,8 @@
 ﻿@model Autohandel.web.Models.DatadisplayViewModels.DatadisplayViewModel
 @{
     ViewData["Title"] = "DatabaseData";
+    
 }
-
 
 <div class="row text-center">
     <div class="col-lg-12">
@@ -261,4 +261,282 @@
         </table>
     </div>
 </div>
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="bg-info populair text-center">Aanbod Privacy Shades</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Shade</th>
+                    <th>Beschrijving</th>
+                    <th>Afbeelding</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.onderdelenProducten.Where(o => o.CategorieOnderdelen.OnderdelenCategorieId == 5))
+            {
+                <tr>
+                    <td width="300">
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
+                        Prijs: @Html.DisplayFor(modelItem => item.Prijs) €<br />
+                    </td>
+                    <td width="auto">
+                        @Html.Raw(item.Artikelomschrijving)
+
+                    </td>
+                    <td width="100">
+
+                        <img src="@Url.Content(item.FiguurURL)" alt=@Html.DisplayFor(modelItem => item.FiguurURL) width="250" />
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="bg-info populair text-center">Aanbod Onderdeel trekhaken</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Vaste trekhaak</th>
+                    <th>Specificaties</th>
+                    <th>Afbeelding</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.onderdelenProducten.Where(o => o.CategorieOnderdelen.OnderdelenCategorieId == 8))
+            {
+                <tr>
+                    <td width="300">
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
+                        Prijs: @Html.DisplayFor(modelItem => item.Prijs) €<br />
+                    </td>
+                    <td width="auto">
+                        Type: @Html.DisplayFor(modelItem => item.Specificatie.Type)<br />
+                        MaxVertikaleLast: @Html.DisplayFor(modelItem => item.Specificatie.MaxVertikaleLast)<br />
+                        Goedkeuringsnummer: @Html.DisplayFor(modelItem => item.Specificatie.Goedkeuring)<br />
+                        Aanhangwagengewicht:@Html.DisplayFor(modelItem => item.Specificatie.Aanhangwagengewicht) kg<br />
+                        Montageduur: @Html.DisplayFor(modelItem => item.Specificatie.Montageset)<br />
+                   </td>
+                    <td width="100">
+
+                        <img src="@Url.Content(item.FiguurURL)" alt=@Html.DisplayFor(modelItem => item.FiguurURL) width="250" />
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Afneembare trekhaak</th>
+                    <th>Specificaties</th>
+                    <th>Afbeelding</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.onderdelenProducten.Where(o => o.CategorieOnderdelen.OnderdelenCategorieId == 22))
+            {
+                <tr>
+                    <td width="300">
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
+                        Prijs: @Html.DisplayFor(modelItem => item.Prijs) €<br />
+                    </td>
+                    <td width="auto">
+                        Type: @Html.DisplayFor(modelItem => item.Specificatie.Type)<br />
+                        MaxVertikaleLast: @Html.DisplayFor(modelItem => item.Specificatie.MaxVertikaleLast)<br />
+                        Goedkeuringsnummer: @Html.DisplayFor(modelItem => item.Specificatie.Goedkeuring)<br />
+                        Aanhangwagengewicht:@Html.DisplayFor(modelItem => item.Specificatie.Aanhangwagengewicht) kg<br />
+                        
+                    </td>
+                    <td width="100">
+
+                        <img src="@Url.Content(item.FiguurURL)" alt=@Html.DisplayFor(modelItem => item.FiguurURL) width="250" />
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Kabelset trekhaak</th>
+                    <th>Beschrijving</th>
+                    <th>Afbeelding</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.onderdelenProducten.Where(o => o.CategorieOnderdelen.OnderdelenCategorieId == 21))
+            {
+                <tr>
+                    <td width="300">
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
+                        Prijs: @Html.DisplayFor(modelItem => item.Prijs) €<br />
+                    </td>
+                    <td width="auto">
+                        @Html.Raw(item.Artikelomschrijving)
+                    </td>
+                    <td width="100">
+
+                        <img src="@Url.Content(item.FiguurURL)" alt=@Html.DisplayFor(modelItem => item.FiguurURL) width="250" />
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="bg-info populair text-center">Aanbod Onderdeel Bagage en Transport</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Dakdrager</th>
+                    <th>Specificaties</th>
+                    <th>Afbeelding</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.onderdelenProducten.Where(o => o.CategorieOnderdelen.OnderdelenCategorieId == 9))
+            {
+                <tr>
+                    <td width="300">
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
+                        Prijs: @Html.DisplayFor(modelItem => item.Prijs) €<br /><br />
+                        @Html.Raw(item.Artikelomschrijving)
+                    </td>
+                    <td width="auto">
+                        Materiaal: @Html.DisplayFor(modelItem => item.Specificatie.Materie)<br />
+                        Kleur: @Html.DisplayFor(modelItem => item.Specificatie.Kleur)<br />
+                        Goedkeuring: @Html.DisplayFor(modelItem => item.Specificatie.Goedkeuring)<br />
+                        Garantietermijn:@Html.DisplayFor(modelItem => item.Specificatie.GarantieTermijn) kg<br />
+                        Breedte: @Html.DisplayFor(modelItem => item.Specificatie.Breedte) cm<br />
+                        Hoogte: @Html.DisplayFor(modelItem => item.Specificatie.Hoogte) cm<br />
+                        Vergrendeling: @Html.DisplayFor(modelItem => item.Specificatie.Vergrendeling)<br />
+                    </td>
+                    <td width="100">
+
+                        <img src="@Url.Content(item.FiguurURL)" alt=@Html.DisplayFor(modelItem => item.FiguurURL) width="250" />
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Dakkoffer</th>
+                    <th>Specificaties</th>
+                    <th>Afbeelding</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.onderdelenProducten.Where(o => o.CategorieOnderdelen.OnderdelenCategorieId == 15))
+            {
+                <tr>
+                    <td width="300">
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
+                        Prijs: @Html.DisplayFor(modelItem => item.Prijs) €<br /><br />
+                        @Html.Raw(item.Artikelomschrijving)
+                    </td>
+                    <td width="auto">
+                        Materiaal: @Html.DisplayFor(modelItem => item.Specificatie.Materie)<br />
+                        Kleur: @Html.DisplayFor(modelItem => item.Specificatie.Kleur)<br />
+                        Inhoud: @Html.DisplayFor(modelItem => item.Specificatie.Inhoud) liter<br />
+                        Goedkeuring: @Html.DisplayFor(modelItem => item.Specificatie.Goedkeuring)<br />
+                        Garantietermijn:@Html.DisplayFor(modelItem => item.Specificatie.GarantieTermijn) kg<br />
+                        Opening: @Html.DisplayFor(modelItem => item.Specificatie.Opening)<br />
+                        Lengte: @Html.DisplayFor(modelItem => item.Specificatie.Lengte) cm<br />
+                        Breedte: @Html.DisplayFor(modelItem => item.Specificatie.Breedte) cm<br />
+                        Hoogte: @Html.DisplayFor(modelItem => item.Specificatie.Hoogte) cm<br />
+                        Max. Belading: @Html.DisplayFor(modelItem => item.Specificatie.MaxBelading)<br />
+                        Gewicht: @Html.DisplayFor(modelItem => item.Specificatie.Gewicht)<br />
+                        Vergrendeling: @Html.DisplayFor(modelItem => item.Specificatie.Vergrendeling)<br />
+                        Montageset: @Html.DisplayFor(modelItem => item.Specificatie.Montageset)<br />
+                        CityCrash: @Html.DisplayFor(modelItem => item.Specificatie.CityCrash)<br />
+
+                    </td>
+                    <td width="100">
+
+                        <img src="@Url.Content(item.FiguurURL)" alt=@Html.DisplayFor(modelItem => item.FiguurURL) width="250" />
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Fietsendrager</th>
+                    <th>Specificaties</th>
+                    <th>Afbeelding</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.onderdelenProducten.Where(o => o.CategorieOnderdelen.OnderdelenCategorieId == 24))
+            {
+                <tr>
+                    <td width="300">
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
+                        Prijs: @Html.DisplayFor(modelItem => item.Prijs) €<br /><br />
+                        @Html.Raw(item.Artikelomschrijving)
+                    </td>
+                    <td width="auto">
+                        Aantal fietsen: @Html.DisplayFor(modelItem => item.Specificatie.AantalFietsen)<br />
+                        Fietstypes: @Html.DisplayFor(modelItem => item.Specificatie.Fietstypes)<br />
+                        Vergrendeling: @Html.DisplayFor(modelItem => item.Specificatie.Vergrendeling)<br />
+                        Max. Belading: @Html.DisplayFor(modelItem => item.Specificatie.MaxBelading) kg<br />
+                        Stekkeraansluiting: @Html.DisplayFor(modelItem => item.Specificatie.StekkerAansluiting)<br />
+                        Mistlicht: @Html.DisplayFor(modelItem => item.Specificatie.Mistlicht)<br />
+                        Kantelfunctie: @Html.DisplayFor(modelItem => item.Specificatie.Kantelfunctie)<br />
+                        Garantietermijn:@Html.DisplayFor(modelItem => item.Specificatie.GarantieTermijn) <br />
+                        Inklapbaar: @Html.DisplayFor(modelItem => item.Specificatie.Inklapbaar)<br />
+                        Montage: @Html.DisplayFor(modelItem => item.Specificatie.Montageset)<br />
+                        Materiaal: @Html.DisplayFor(modelItem => item.Specificatie.Materie)<br />
+                        Afmetingen: @Html.DisplayFor(modelItem => item.Specificatie.Lengte) x @Html.DisplayFor(modelItem => item.Specificatie.Breedte) x @Html.DisplayFor(modelItem => item.Specificatie.Hoogte)<br />
+                        Gewicht: @Html.DisplayFor(modelItem => item.Specificatie.Gewicht) kg<br />
+                        Afstand tussen fietsen: @Html.DisplayFor(modelItem => item.Specificatie.Dikte) cm<br />
+                    </td>
+                    <td width="100">
+
+                        <img src="@Url.Content(item.FiguurURL)" alt=@Html.DisplayFor(modelItem => item.FiguurURL) width="250" />
+
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
 

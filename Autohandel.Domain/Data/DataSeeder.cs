@@ -2696,6 +2696,1057 @@ namespace Autohandel.Domain.Data
                 context.OnderdelenProducten.AddRange(wieldoppen);
                 context.SaveChanges();
             }
+            //seed privacy shades
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 5))
+            {
+                OnderdelenProducten[] privacyShades = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_1",
+                        Artikelnaam = "PS1 Sonniboy Audi A1 5 deurs 2012- CL 78309",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 152.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_1.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_2",
+                        Artikelnaam = "PS2 Privacy Shades Audi A3 8V 5 deurs 2012",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 152.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_2.jpg",
+                    },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_3",
+                        Artikelnaam = "PS3 Sonniboy Audi A5 4drs 09- Compleet zonder achter portieren. CL 78296",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 152.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_3.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_4",
+                        Artikelnaam =  "PS4 Sonniboy BMW 1-serie F20 5 deurs 2011- CL 78318",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 152.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_4.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_5",
+                        Artikelnaam = "PS5 Sonniboy BMW 3 serie F31 Touring 2012- CL 78344",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 179.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_5.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_6",
+                        Artikelnaam = "PS6 Sonniboy BMW 5-Serie Touring F11 5drs 10- Compleet CL 78276",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 179.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_6.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_7",
+                        Artikelnaam = "PS7 Sonniboy Ford B-Max 2012- CL 78325",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 179.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_7.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_8",
+                        Artikelnaam = "PS8 Sonniboy Ford C-Max 10- Compleet CL 78261",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 152.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_8.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_9",
+                        Artikelnaam = "PS9 Sonniboy OP Astra J HB 5drs 09- CL 78268",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 179.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_9.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_10",
+                        Artikelnaam = "PS10 Privacy Shades Opel Corsa D 5 deurs",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 98.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_10.jpg",
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_11",
+                        Artikelnaam = "PS11 Sonniboy Opel Agila B 08- Achterdeuren CL 78190",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 98.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_11.jpg",
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_12",
+                        Artikelnaam = "PS12 Privacy Shades Peugeot 207 5 deurs",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 98.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_12.jpg",
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_13",
+                        Artikelnaam = "PS13 Zonwering Peugeot 308 Hatchback 5-deurs 2013- 3-delig",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 132.74M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_13.jpg",
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_14",
+                        Artikelnaam = "PS14 Privacy Shades Peugeot 2008 2013",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 116.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_14.jpg",
+                     },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_15",
+                        Artikelnaam = "PS15 Privacy Shades Peugeot 5008 5 deurs 2009",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 125.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_15.jpg",
+                     },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_16",
+                        Artikelnaam = "PS16 Sonniboy VW Golf VII 5drs 2012- Compleet CL 78315",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 152.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_16.jpg",
+                     },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_17",
+                        Artikelnaam = "PS17 Zonwering Volkswagen Jetta VI Sedan 4drs 2010- 3-delig",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 132.75M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_17.jpg",
+                   },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_18",
+                        Artikelnaam = "PS18 Sonniboy VW Touran 810- Compleet CL 78243",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 179.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_18.jpg",
+                     },
+                       new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_19",
+                        Artikelnaam = "PS19 Originele Shades Citroen C3",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 109.26M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_19.jpg",
+                     },
+                       new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_20",
+                        Artikelnaam = "PS20 Originele Shades Citroen C3 achterruit",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 94.24M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_20.jpg",
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_21",
+                        Artikelnaam = "PS21 Zonwering Citroen C4 AirCross Crossover 5drs 2012- 5-delig",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 162.84M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_21.jpg",
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_22",
+                        Artikelnaam = "PS22 Privacy Shades Kia Cee'd 5 deurs 2012",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 116.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_22.jpg",
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_23",
+                        Artikelnaam = "PS23 Privacy Shades Kia Carens 5 deurs 2013",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 143.09M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_23.jpg",
+                     },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "PS_24",
+                        Artikelnaam = "PS24 Sonniboy Dacia Duster 2010- CL 78374",
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
+                        "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
+                        "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 5),
+                        Prijs = 152.10M,
+                        FiguurURL = @"~/images/onderdelen/prShades/PS_24.jpg",
+                     },
+                };
+                context.OnderdelenProducten.AddRange(privacyShades);
+                context.SaveChanges();
+            }
+            //seed vaste trekhaak
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 8))
+            {
+                OnderdelenProducten[] vasteTrekhaken = new[]
+                {
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_1",
+                        Artikelnaam = "TH1 Trekhaak - vast 031-101 Bosal",
+                        Artikelomschrijving= "TH1 Trekhaak - vast 031-101 Bosal",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
+                        Prijs = 80.47M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/vast/TH_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Vast kogelkop",
+                            MaxVertikaleLast = 75,
+                            Goedkeuring = "ECE4_3039",
+                            Aanhangwagengewicht = 3500,
+                            Montageset = "9O minuten"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_4",
+                        Artikelnaam = "TH4 Trekhaak - vast 034-581 Bosal",
+                        Artikelomschrijving = "TH4 Trekhaak - vast 034-581 Bosal",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
+                        Prijs = 103.80M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/vast/TH_4.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Vast kogelkop",
+                            MaxVertikaleLast = 75,
+                            Goedkeuring = "ECE4_3039",
+                            Aanhangwagengewicht = 1742,
+                            Montageset = "9O minuten"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_5",
+                        Artikelnaam = "TH5 Trekhaak - vast 037-261 Bosal",
+                        Artikelomschrijving = "TH5 Trekhaak - vast 037-261 Bosal",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
+                        Prijs = 105.41M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/vast/TH_5.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Vast kogelkop",
+                            MaxVertikaleLast = 75,
+                            Goedkeuring = "ECE4_4098",
+                            Aanhangwagengewicht = 1900,
+                            Montageset = "9O minuten"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_6",
+                        Artikelnaam = "TH6 Trekhaak - vast 037-141 Bosal",
+                        Artikelomschrijving = "TH6 Trekhaak - vast 037-141 Bosal",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
+                        Prijs = 107.02M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/vast/TH_6.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Vast kogelkop",
+                            MaxVertikaleLast = 85,
+                            Aanhangwagengewicht = 2100,
+                            Goedkeuring = "ECE4_4064",
+                            Montageset = "9O minuten"
+                        }
+                    },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_7",
+                        Artikelnaam = "TH7 Trekhaak - vast 037-641 Bosal",
+                        Artikelomschrijving = "TH7 Trekhaak - vast 037-641 Bosal",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
+                        Prijs = 107.02M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/vast/TH_7.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Vast kogelkop",
+                            MaxVertikaleLast = 75,
+                            Aanhangwagengewicht = 1742,
+                            Goedkeuring = "ECE4_4333",
+                            Montageset = "9O minuten"
+                        }
+                    },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_8",
+                        Artikelnaam = "TH8 Trekhaak vast 040-521 Bosal",
+                        Artikelomschrijving = "TH8 Trekhaak vast 040-521 Bosal",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
+                        Prijs = 111.04M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/vast/TH_8.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Vast kogelkop",
+                            MaxVertikaleLast = 85,
+                            Aanhangwagengewicht = 1415,
+                            Goedkeuring = "ECE7_011507",
+                            Montageset = "9O minuten"
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(vasteTrekhaken);
+                context.SaveChanges();
+            }
+            //seed afneembare trekhaak
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 22))
+            {
+                OnderdelenProducten[] afneemTrekhaak = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_2",
+                        Artikelnaam = "TH2 Trekhaak - afneembaar Bosal",
+                        Artikelomschrijving = "TH2 Trekhaak - afneembaar Bosal",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
+                        Prijs = 140.81M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/afneem/TH_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Afneembare kogel",
+                            MaxVertikaleLast = 75,
+                            Goedkeuring = "ECE4_2313",
+                            Aanhangwagengewicht = 1100
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_3",
+                        Artikelnaam = "GDW Towbars Group - Afneembaar",
+                        Artikelomschrijving = "GDW Towbars Group - Afneembaar",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
+                        Prijs = 125.11M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/afneem/TH_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Afneembare kogel",
+                            MaxVertikaleLast = 75,
+                            Goedkeuring = "ECE4_6363",
+                            Aanhangwagengewicht = 1400
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_10",
+                        Artikelnaam = "TH10 Trekhaak - afneembaar ECE7_0340",
+                        Artikelomschrijving= "TH10 Trekhaak - afneembaar ECE7_0340",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
+                        Prijs = 80.47M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/afneem/TH_10.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Afneembare kogel",
+                            MaxVertikaleLast = 75,
+                            Goedkeuring = "ECE7_0340",
+                            Aanhangwagengewicht = 1450
+                        }
+                    },
+                      new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_9",
+                        Artikelnaam = "TH9 Trekhaak - afneembaar Trh. Bosal PSA AK",
+                        Artikelomschrijving = "TH9 Trekhaak - afneembaar Trh. Bosal PSA AK",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
+                        Prijs = 80.47M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/afneem/TH_9.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Afneembare kogel",
+                            MaxVertikaleLast = 50,
+                            Goedkeuring = "EC2280",
+                            Aanhangwagengewicht = 1100
+                        }
+                    },
+                        new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_11",
+                        Artikelnaam = "TH11 Trekhaak - afneembaar EC3852",
+                        Artikelomschrijving = "TH11 Trekhaak - afneembaar EC3852",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
+                        Prijs = 189.09M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/afneem/TH_11.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Afneembare kogel",
+                            MaxVertikaleLast = 75,
+                            Goedkeuring = "EC3852",
+                            Aanhangwagengewicht = 1200
+                        }
+                    },
+                          new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_12",
+                        Artikelnaam = "TH12 Trekhaak - afneembaar ECE7_0320",
+                        Artikelomschrijving = "TH12 Trekhaak - afneembaar ECE7_0320",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
+                        Prijs = 187.14M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/afneem/TH_12.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Afneembare kogel",
+                            MaxVertikaleLast = 50,
+                            Goedkeuring = "ECE7_0320",
+                            Aanhangwagengewicht = 900
+                        }
+                    },
+                             new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_13",
+                        Artikelnaam = "TH13 Trekhaak - afneembaar  ECE7_011388",
+                        Artikelomschrijving = "TH13 Trekhaak - afneembaar  ECE7_011388",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
+                        Prijs = 217.26M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/afneem/TH_13.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Afneembare kogel",
+                            MaxVertikaleLast = 75,
+                            Goedkeuring = ": ECE7_011388",
+                            Aanhangwagengewicht = 1500
+                        }
+                    },
+                              new OnderdelenProducten
+                    {
+                        Artikelnummer = "TH_14",
+                        Artikelnaam = "TH14 BRINK KIT Trekhaak afneembaar (BMU) + 13p kabelset",
+                        Artikelomschrijving = "TH14 BRINK KIT Trekhaak afneembaar (BMU) + 13p kabelset",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
+                        Prijs = 377.94M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/afneem/TH_14.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Afneembare kogel",
+                            MaxVertikaleLast = 85,
+                            Goedkeuring = "55R",
+                            Aanhangwagengewicht = 2000
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(afneemTrekhaak);
+                context.SaveChanges();
+            }
+            //seed kabelset trekhaak
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 21))
+            {
+                OnderdelenProducten[] kabelsTrekhaak = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "KB_1",
+                        Artikelnaam = "Kabelset universeel 7-polig Brink",
+                        Artikelomschrijving= "Universele kabelset, 7-polig",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 21),
+                        Prijs = 8.65M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/kabelset/KB_1_7POL.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "KB_3",
+                        Artikelnaam = "Kabelset universeel 13-polig",
+                        Artikelomschrijving = "Aantal polen: 13.<br/>Spanning (Volt): 12.<br/>Aanhanginrichting: E - set zonder originele steekverbinderaansluitingen." +
+                        "<br/>Aanhanginrichting: zonder checkcontrolesysteem.<br/>Aanhanginrichting: zonder knipperlampcontrole(C2-moduke).<br/>Uitvoering: Voor voertuigen " +
+                        "zonder CAN bussysteem.<br/>Aanhanginrichting: zonder mistlampuitschakeling.<br/>Aanhanginrichting: PDC niet uitschakelbaar.<br/>aanhanginrichting: zonder " +
+                        "aanhanger stabilisatie.<br/>Uitvoering: Incl.power supply.<br/>Uitvoering: Incl.battery charge.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 21),
+                        Prijs = 39.73M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/kabelset/KB_3_13POL.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "KB_2",
+                        Artikelnaam = "Uni Electroset 7 polig",
+                        Artikelomschrijving = "Universele Kabelset met module. 7 polige set voorzien van module,kabelboom, stekkerdoos en 3M kabel mofjes en een duidelijk aansluitschema.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 21),
+                        Prijs = 89.95M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/kabelset/KB_2_7POL.jpg",
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "KB_4",
+                        Artikelnaam = "Uni Electroset 13 polig",
+                        Artikelomschrijving = "Universele Kabelset met module.<br/>13 polige set voorzien van module, kabelboom, stekkerdoos en 3M kabel mofjes en een " +
+                        "duidelijk aansluitschema.<br/>De kabelset is geschikt voor auto's met CAN BUS CHECK CONTROL SFL LFS.<br/>Deze electroset is niet voorzien van " +
+                        "originele stekkers, echter hoeft er niet worden 'geknipt'in de originele bekabeling.<br/>De aanbevolen kabelset is wel voorzien van stekkers deze " +
+                        "simpel op (mits aanwezige voorbereiding) de auto kan worden aangesloten.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 21),
+                        Prijs = 177.92M,
+                        FiguurURL = @"~/images/onderdelen/trekhaken/kabelset/KB_4_13POL.jpg",
+                    },
+                };
+                context.OnderdelenProducten.AddRange(kabelsTrekhaak);
+                context.SaveChanges();
+            }
+            //seed dakdrager
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 9))
+            {
+                OnderdelenProducten[] dakdrager = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DD_1",
+                        Artikelnaam = "DD1 Dakdrager",
+                        Artikelomschrijving = "DD1 Dakdrager",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 9),
+                        Prijs = 84.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakdrager/DD_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Materie = "Aluminium",
+                            Kleur = Kleur.zilver,
+                            Goedkeuring = "TUV",
+                            GarantieTermijn = "3 jaar",
+                            Breedte = 1046 //in mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DD_2",
+                        Artikelnaam = "DD2 Winprice Dakdragerset staal basic",
+                        Artikelomschrijving = "Winprice dakdragerset basic.<br/><br/>set van 2 dakdragers.<br/>50 kg draagvermogen.<br/>4.2 kg eigen gewicht.<br/>Grotendeels " +
+                        "pre assembled.<br/>Inclusief afwerk rubberstrip.<br/>Duurzaam staal.<br/>Citycrash getest",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 9),
+                        Prijs = 85.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakdrager/DD_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Materie = "Aluminium",
+                            Kleur = Kleur.zwart,
+                            Goedkeuring = "TUV en Citycrash",
+                            GarantieTermijn = "2 jaar",
+                            Breedte = 49,
+                            Hoogte = 30,
+                            Vergrendeling = "Moeren"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DD_3",
+                        Artikelnaam = "DD3 G3 Dakdragers Pacific Staal",
+                        Artikelomschrijving = "G3 dakdragers Pacific.<br/><br/>Italiaans design.<br/>ISO / PAS 11154.<br/>Set van 2 dragers<br/>Grotendeels " +
+                        "pre assembled.<br/>Montage op originele bevestigingspunten van de auto.<br/>De G3 Pacific dakdragers zijn voor auto's zonder dakreling en " +
+                        "zijn door hun unieke ontwerp snel en makkelijk te monteren op het dak van uw auto. De dakdragers kunnen met gemak 50 kg dragen. " +
+                        "De dakdragers zijn uitvoerig getest en absoluut veilig tot dit gewicht.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 9),
+                        Prijs = 99.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakdrager/DD_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Materie = "Staal",
+                            Kleur = Kleur.zwart,
+                            Goedkeuring = "TUV en Citycrash",
+                            GarantieTermijn = "2 jaar",
+                            Breedte = 49,
+                            Hoogte = 30,
+                            Vergrendeling = "4 slotjes met 2 sleutels"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DD_4",
+                        Artikelnaam = "DD4 Dakdragerset Twinny Load Staal S16",
+                        Artikelomschrijving = "Kwalitatief hoogstaande dakdragers van Twinny Load zijn leverbaar in speciaal hoogwaardig staal of aluminium.<br/>De " +
+                        "dakdragers van Twinny Load zijn snel en eenvoudig te monteren.<br/>De Twinny Load dakdragers zijn TUV en GS goedgekeurd.<br/>Twinny Load 627914114 " +
+                        "<br/>Pasklare dakdragers voor uw auto.<br/>75kg belastbaar" +
+                        "Snelle en eenvoudige montage.<br/>Keuringen: DIN 75302; ISO 11154; TÜV; GS",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 9),
+                        Prijs = 113.05M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakdrager/DD_4.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Materie = "Staal",
+                            Kleur = Kleur.zwart,
+                            Goedkeuring = "TUV en GS getest",
+                            GarantieTermijn = "2 jaar",
+                            Vergrendeling = "inclusief slot"
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(dakdrager);
+                context.SaveChanges();
+            }
+            //seed dakkoffer
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 15))
+            {
+                OnderdelenProducten[] dakkoffer = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_1",
+                        Artikelnaam = "DK1 G3 dakkoffer Arjes 320 zwart",
+                        Artikelomschrijving = "Deze prachtige Arjes 320 zwarte dakkoffer kunt u gelijk uit de doos gebruiken en geeft u de gewenste extra ruimte. " +
+                        "Voor super snelle montage en/of wingbar dakdragers koopt u de G3 Rapid fixing kit 0360815",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 139.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            
+                            Kleur = Kleur.zwart,
+                            GarantieTermijn = "5 jaar",
+                            Inhoud= 240, //in liter
+                            Lengte= 133,// in cm 
+                            Opening= "Rechterzijde",
+                            Breedte = 73, //in cm,
+                            Hoogte = 37,
+                            MaxBelading = 50, //in kg
+                            Materie = "P.S/ABS",
+                            Gewicht = 7,//in kg
+                            Vergrendeling = "Centraal afsluitbaar met slot",
+                            Montageset = "Ja, voor dakdragers met een maximale breedte van 60 mm",
+                            CityCrash = true
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_2",
+                        Artikelnaam = "DK2 Hapro dakkoffer Roady 350 Silver Grey",
+                        Artikelomschrijving = "De Hapro Roady is nestbaar, wat betekent dat de bodem omgekeerd in het deksel past. Zo bespaart u in opbergruimte. " +
+                        "De Hapro Roady is door zijn handzaam formaat ook zeer geschikt voor de wat kleinere auto's.  ",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 149.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.zilver,
+                            GarantieTermijn = "3 jaar",
+                            Inhoud= 300, //in liter
+                            Lengte= 135,// in cm 
+                            Opening= "Achterzijde",
+                            Breedte = 78, //in cm,
+                            Hoogte = 40,
+                            MaxBelading = 50, //in kg
+                            Materie = "ABS/ASA",
+                            Gewicht = 11,//in kg
+                            Vergrendeling = "Afsluitbaar met slot"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_3",
+                        Artikelnaam = "DK3 G3 dakkoffer Hydra 480 grijs",
+                        Artikelomschrijving = "Deze prachtige Hydra 480 grijze dakkoffer kunt u gelijk uit de doos gebruiken en geeft u de gewenste extra ruimte! " +
+                        "Voor super snelle montage en/of wingbar dakdragers koopt u de G3 Rapid Fixing 0360815 ",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 189.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.grijs,
+                            GarantieTermijn = "3 jaar",
+                            Inhoud= 390, //in liter
+                            Lengte= 197,// in cm 
+                            Opening= "Rechterzijde",
+                            Breedte = 74, //in cm,
+                            Hoogte = 37,
+                            MaxBelading = 75, //in kg
+                            Materie = "PS/ABA",
+                            Gewicht = 13,//in kg
+                            Vergrendeling = "Centraal afsluitbaar met slot",
+                            Montageset= "Ja, snelmontage voor dakdragers met een maximale breedte van 60 mm"
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_4",
+                        Artikelnaam = "DK4 G3 dakkoffer Spark 420 zwart",
+                        Artikelomschrijving = "Deze dakkoffer is ook geschikt voor combinatie vervoer met bijvoorbeeld een dak-fietsendrager naast de koffer. " +
+                        "De bescheiden breedte is geen probleem, de lengte zorgt ervoor dat deze koffer uw bagage tot zelf 75 kg met gemak kan bergen! " +
+                        "De Spark 420 zwart metallic dakkoffer is een mooie, sportieve en gestroomlijnde dakkoffer en kunt u gelijk uit de doos gebruiken . " +
+                        "De Spark 420 wordt standaard geleverd met Rapid (wingbar) Fixing Kit en zal passen op dragers tot maximaal 90mm",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 199.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_4.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.zwart,
+                            GarantieTermijn = "5 jaar",
+                            Inhoud= 370, //in liter
+                            Lengte= 193,// in cm 
+                            Opening= "Linker en rechterzijde",
+                            Breedte = 55, //in cm,
+                            Hoogte = 50,
+                            MaxBelading = 75, //in kg
+                            Materie = "PS/ABS",
+                            Gewicht = 12,//in kg
+                            Vergrendeling = "Centraal afsluitbaar met slot",
+                            Montageset= "Ja, snelmontage voor dakdragers met een maximale breedte van 60 mm",
+                            CityCrash = true
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_5",
+                        Artikelnaam = "DK5 G3 dakkoffer Helios 400",
+                        Artikelomschrijving = "De Helios 400 zwarte dakkoffer is een mooie gestroomlijnde brede koffer. U kunt deze gelijk uit de doos gebruiken. " +
+                        "Voor super snelle montage en/of wingbar dakdragers koopt u de G3 Rapid Fixing Kit 0360815",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 199.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_5.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.zwart,
+                            GarantieTermijn = "5 jaar",
+                            Inhoud= 330, //in liter
+                            Lengte= 144,// in cm 
+                            Opening= "Linker en rechterzijde",
+                            Breedte = 86, //in cm,
+                            Hoogte = 38,
+                            MaxBelading = 75, //in kg
+                            Materie = "PS/ABS",
+                            Gewicht = 10,//in kg
+                            Vergrendeling = "Centraal afsluitbaar met slot",
+                            Montageset= "Ja, snelmontage voor dakdragers met een maximale breedte van 60 mm",
+                            CityCrash = true
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_6",
+                        Artikelnaam = "DK6 G3 dakkoffer Reef 390 [extra breed]",
+                        Artikelomschrijving = "De Reef 390 zwarte dakkoffer is gestroomlijnd, sportief en lekker breed! Dit maakt de dakkoffer zeer geschikt " +
+                        "voor SUV of auto's met geringe dak lengte. U kunt deze gelijk uit de doos gebruiken. De Reef 390 wordt standaard geleverd met Rapid Fixing Kit en zal passen op dragers tot maximaal 90mm.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 179.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_6.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.zwart,
+                            GarantieTermijn = "5 jaar",
+                            Inhoud= 335, //in liter
+                            Lengte= 125,// in cm 
+                            Opening= "Linker en rechterzijde",
+                            Breedte = 102, //in cm,
+                            Hoogte = 40,
+                            MaxBelading = 75, //in kg
+                            Materie = "PS/ABS",
+                            Gewicht = 10,//in kg
+                            Vergrendeling = "Centraal afsluitbaar met slot",
+                            Montageset= "Ja, snelmontage voor dakdragers met een maximale breedte van 60 mm",
+                            CityCrash = true
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_7",
+                        Artikelnaam = "DK7 Opvouwbare daktas 320L Zwart 105x80x45cm",
+                        Artikelomschrijving = "Deze opvouwbare daktas is niet alleen handig in gebruik maar ook zeer compact op te bergen. " +
+                        "Deze 'rugzak voor uw auto' is uitgevoerd in een zware kwaliteit PVC gecoat polyester met 100% waterproof ritssluiting.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 125.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_7.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.zwart,
+                            Inhoud= 320, //in liter
+                            GarantieTermijn="1 jaar",
+                            Lengte= 105,// in cm 
+                            Opening= "Linker en rechterzijde",
+                            Breedte = 80, //in cm,
+                            Hoogte = 45,
+                            MaxBelading = 50, //in kg
+                            Materie = "100% waterproof nylon en ritssluiting",
+                            Gewicht = 10,//in kg
+                            Vergrendeling = "Centraal afsluitbaar met slot",
+                            Montageset= "Ja, snelmontage voor dakdragers met een maximale breedte van 60 mm",
+                            CityCrash = true
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_8",
+                        Artikelnaam = "DK8 Hapro Softbox",
+                        Artikelomschrijving = "De Hapro Softbox is makkelijk op te bergen voor diegene die niet genoeg ruimte hebben voor een 'traditionele' Hapro dakkoffer. " +
+                        "Om uw bagage veilig te vervoeren kunnen de dubbel deelbare ritsen aan beide zijden afgesloten worden met de twee meegeleverde hangsloten.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 179.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_8.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.zwart,
+                            GarantieTermijn = "2 jaar",
+                            Inhoud= 375, //in liter
+                            Lengte= 110,// in cm 
+                            Opening= "Linker en rechterzijde",
+                            Breedte = 85, //in cm,
+                            Hoogte = 42,
+                            MaxBelading = 50, //in kg
+                            Materie = "Weerbestendig textiel ABS/ASA",
+                            Gewicht = 12//in kg
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_9",
+                        Artikelnaam = "DK9 G3 dakkoffer Helios 400 Camou",
+                        Artikelomschrijving = "De Helios 400 Camouflage dakkoffer is naast een stoere eyecatcher ook een mooie " +
+                        "gestroomlijnde brede koffer. U kunt deze gelijk uit de doos gebruiken. Voor super snelle montage en/of wingbar dakdragers koopt u de G3 Rapid Fixing Kit 0360815 (zie meebestellentip).",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 249.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_9.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.grijs,
+                            GarantieTermijn = "5 jaar",
+                            Inhoud= 330, //in liter
+                            Lengte= 144,// in cm 
+                            Opening= "Linker en rechterzijde",
+                            Breedte = 86, //in cm,
+                            Hoogte = 38,
+                            MaxBelading = 50, //in kg
+                            Materie = "PS/ABS",
+                            Gewicht = 10,//in kg
+                            Vergrendeling = "Centraal afsluitbaar met slot",
+                            Montageset= "Ja, snelmontage voor dakdragers met een maximale breedte van 60 mm",
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "DK_10",
+                        Artikelnaam = "DK10 Pro-User opvouwbare daktas 270 liter 50031",
+                        Artikelomschrijving = "De dakkoffer is zeer compact waardoor deze gemakkelijk is " +
+                        "op te bergen. Met een opslagcapaciteit van 270 liter is de Pro User opvouwbare daktas de ideale dakkoffer voor bijvoorbeeld een weekendje weg met uw auto. De Pro User daktas biedt dan genoeg ruimte voor uw extra bagage.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 15),
+                        Prijs = 89.95M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/dakkoffer/DK_10.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            Kleur = Kleur.zwart,
+                            GarantieTermijn = "1 jaar",
+                            Inhoud= 270, //in liter
+                            Lengte= 100,// in cm 
+                            Opening= "Linker en rechterzijde",
+                            Breedte = 80, //in cm,
+                            Hoogte = 40,
+                            MaxBelading = 50, //in kg
+                            Materie = "100% waterproof Dubbellaags PVC Doek"                           
+                        }
+                    },
+
+                };
+                context.OnderdelenProducten.AddRange(dakkoffer);
+                context.SaveChanges();
+            }
+            //seed fietsendragers
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 24))
+            {
+                OnderdelenProducten[] fietsendrager = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "FD_1",
+                        Artikelnaam = "FD1 Bosal Traveller II E-bike fietsendrager 070-532",
+                        Artikelomschrijving = "Waarom de Bosal Traveller II E-bike?<br/><br/>Afsluitbaar.<br/>Compact opbergen (opklapbaar).<br/>Zeer geschikt voor " +
+                        "E-bikes.<br/>Kantelbaar door handig voetpedaal!<br/>Multifunctionele stekker (7/13-polig).<br/>Inclusief mistachterlicht en " +
+                        "achteruitrijlicht.<br/>Anti-diefstal beveiliging.<br/>Gratis opbergtas.<br/>Wielbevestiging met snelsluiting<br/>ANWB 2016 Rijtest<br/>Rijtest " +
+                        "Stabiel.<br/>Tijdens het vervoer staan de fietsen relatief stil op de drager, mede dankzij de instelbare goten en wielhouders zijn de wielen zeer goed " +
+                        "vast te zetten. De wielen van fietsen met een iets grotere wielbasis, zoals randonneurs, kunnen iets overhellen.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 24),
+                        Prijs = 329.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/fietsdrager/FD_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            AantalFietsen = 2,
+                            Fietstypes = "Geschikt voor e-bikes",
+                            Vergrendeling = "Ja met slot",
+                            MaxBelading = 60,//in kg
+                            StekkerAansluiting = "7-polig en 13-polig",
+                            Mistlicht= true,// in cm 
+                            Kantelfunctie= Kantelfunctie.Voetbediening,
+                            Inklapbaar = true, //in cm,
+                            Hoogte = 37                            
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "FD_2",
+                        Artikelnaam = "FD2 Twinny Load e-Wing fietsendrager 7913050",
+                        Artikelomschrijving = "Waarom de Twinny Load e-Wing?<br/><br/>Geschikt voor elektrische fietsen.<br/>Diefstalbeveiliging.<br/>Verstelbare " +
+                        "wielhouders.<br/>Mistlicht & Achteruitrijlicht.<br/>Kantelfunctie.<br/>IMax gewicht: 58 kg" +
+                        "<br/>ANWB fietsdragertest: Goed!.<br/>Ook voor 7-polig met verloop stekker (los bij bestellen).",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 24),
+                        Prijs = 309.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/fietsdrager/FD_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            AantalFietsen = 2,
+                            Fietstypes = "Geschikt voor e-bikes",
+                            Vergrendeling = "Ja met slot",
+                            MaxBelading = 58,//in kg
+                            StekkerAansluiting = "13-polig",
+                            Mistlicht= true,// in cm 
+                            Kantelfunctie= Kantelfunctie.Voetbediening,
+                            Inklapbaar = true, //in cm,
+                            Montageset = "Hefboom op trekhaak", //Montage
+                            Lengte= 135,
+                            Breedte= 69,
+                            Hoogte=70,   //Afmetingen:135x69x70
+                            Gewicht = 17, // in kg
+                            Dikte = 23 //afstand tussen fietsen in cm
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "FD_3",
+                        Artikelnaam = "FD3 Cykell T3 fietsendrager 31",
+                        Artikelomschrijving = "Waarom de Cykell Just Click T3?<br/><br/>Geschikt voor elektrische fietsen.<br/>Draagvermogen 60 kg.<br/>3" +
+                        "fietsen.<br/>Geschikt voor elektrische fietse.<br/>Kantelfunctie met voetpedaal." +
+                        "<br/>7-polig en 13-polig.<br/>Handige wieltjes",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 24),
+                        Prijs = 675.00M,
+                        FiguurURL = @"~/images/onderdelen/bagTrans/fietsdrager/FD_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+
+                            AantalFietsen = 3,
+                            Fietstypes = "Geschikt voor e-bikes",
+                            Vergrendeling = "Ja met slot",
+                            MaxBelading = 60,//in kg
+                            StekkerAansluiting = "7-polig en 13-polig",
+                            Mistlicht= true,// in cm 
+                            Kantelfunctie= Kantelfunctie.Voetbediening,
+                            Inklapbaar = true, //in cm,
+                            Montageset = "Just Click op trekhaak", //Montage
+                            Materie = "Aluminium",
+                            GarantieTermijn = "5 jaar",
+                            Lengte= 100,
+                            Breedte= 77,
+                            Hoogte= 72,   //Afmetingen:135x69x70
+                            Gewicht = 20, // in kg
+                            Dikte = 20 //afstand tussen fietsen in cm
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(fietsendrager);
+                context.SaveChanges();
+            }
+
 
                 context.SaveChanges();
 

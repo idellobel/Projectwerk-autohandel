@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:bhv ="clr-namespace:B4.EE.DellobelI.Behaviors"
+             x:Class="B4.EE.DellobelI.Pages.AanbodPage"
+             NavigationPage.HasNavigationBar="False">
+    <ContentView x:Name="contentView" Padding="0,0,0,0"
+                 ControlTemplate="{StaticResource HomeTemplate}" BackgroundColor="#f7ddbb">
+        <StackLayout  Margin="10,100,10,20" >
+            <StackLayout>
+                <Button x:Name="btnGereed" Text="&#10004;" TextColor="White" BackgroundColor="Aquamarine" 
+                        Command="{Binding TerugOverzichtVerkoopPageCommand}" WidthRequest="50" HorizontalOptions="Start"
+                        IsVisible="{Binding IsVisibleGereed}"/>
+            </StackLayout>
+            <ScrollView>
+                <ListView ItemsSource="{Binding VoertuigenAanbod}"  >
+                    <ListView.Behaviors>
+                        <bhv:EventToCommandBehavior
+                        EventName="ItemTapped"
+                        Command="{Binding ToEditAanbodCommand}"
+                        EventArgsConverter="{StaticResource ItemTappedEventArgsConv}" />
+                    </ListView.Behaviors>
+                    <ListView.ItemTemplate  >
+                        <DataTemplate >
+                            <ViewCell Height="100" >
+                                <Grid Padding="10" BackgroundColor="Firebrick">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto" />
+                                       
+                                       
+                                    </Grid.RowDefinitions>
+
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="0.05*" />
+                                        <ColumnDefinition Width="0.20*" />
+                                        <ColumnDefinition Width="0.25*" />
+                                        <ColumnDefinition Width="0.20*" />
+                                        <ColumnDefinition Width="0.25*" />
+                                        <ColumnDefinition Width="0.05*" />
+                                    </Grid.ColumnDefinitions>
+
+                                   
+                                <Label Text="{Binding Merk}" Grid.Column="1" TextColor="Cyan" FontAttributes="Bold" HorizontalOptions="Start"/>
+                                <Label Text="{Binding Model}" Grid.Column="2" TextColor="Cyan" FontAttributes="Bold" HorizontalOptions="Start"  />
+                                <Label Text="{Binding Bouwjaar}" Grid.Column="3" TextColor="LightBlue"  FontAttributes="Italic" HorizontalOptions="Center"/>
+                                <Label Text="{Binding Prijs}" Grid.Column="4" TextColor="Gainsboro" FontAttributes="Bold" HorizontalOptions="End"  />
+                                <Label Text="€" Grid.Column="5" HorizontalOptions="Start" TextColor="Gainsboro" FontAttributes="Bold" />
+                                <BoxView Color="Yellow" Grid.ColumnSpan="6" HeightRequest="2"  VerticalOptions="End" />
+                                    
+                                </Grid>
+                           
+                        </ViewCell>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+            </ScrollView>
+        </StackLayout>
+    </ContentView>
+</ContentPage>

@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps"   
+             xmlns:local="clr-namespace:B4.EE.DellobelI.Domain.Services.Mock"
+             Title="Locatie Klant"
+             x:Class="B4.EE.DellobelI.Pages.LocatiePage">
+    <local:MapService MapType="Street" MapPosition="{Binding MyPosition}"  MapPins="{Binding PinCollection}" >
+    </local:MapService>
+</ContentPage>

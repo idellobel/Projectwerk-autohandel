@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="B4.EE.DellobelI.Pages.FotoPage"
+            NavigationPage.HasNavigationBar="False">
+    <ContentView x:Name="contentView" Padding="0,0,0,0"
+                 ControlTemplate="{StaticResource HomeTemplate}" BackgroundColor="#f7ddbb">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.40*" />
+                <RowDefinition Height = "0.20*"/>
+                <RowDefinition Height = "*" />
+                <RowDefinition Height="0.10*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.20*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="0.10*" />
+            </Grid.ColumnDefinitions>
+
+            <Button x:Name ="CameraButton"  Text="&#128247;"   BackgroundColor="LightGreen" Grid.Column="0" Grid.Row="1"
+                        Command="{Binding FotoCommand}" WidthRequest="50" HorizontalOptions="End" />
+            <Image x:Name="FotoAfbeelding" Source="{Binding FotoSource}" Grid.Row="2"  Grid.Column="1"/>
+
+        </Grid>
+    </ContentView>
+</ContentPage>

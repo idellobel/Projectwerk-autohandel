@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="B4.EE.DellobelI.Pages.OverzichtVerkoopPage"
+            NavigationPage.HasNavigationBar="False">
+    <ContentView x:Name="contentView" Padding="0,0,0,0"
+                 ControlTemplate="{StaticResource HomeTemplate}" BackgroundColor="#f7ddbb" >
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.40*" />
+                    <RowDefinition Height="0.25*" /> <!--1-->
+                    <RowDefinition Height="0.1*" /> <!--2-->
+                    <RowDefinition Height="0.25*" /> <!--3-->
+                    <RowDefinition Height="0.1*" /> <!--4-->
+                    <RowDefinition Height="0.25*" /> <!--5-->
+                    <RowDefinition Height="0.1*" /> <!--6-->
+                    <RowDefinition Height="0.25*" /> <!--7-->
+                    <RowDefinition Height="0.5*" /> <!--8-->
+                    <RowDefinition Height="0.1*" /> <!--9-->
+                    <!--<RowDefinition Height="0.1*" /> --><!--10--><!--
+                    <RowDefinition Height="0.1*" />--> <!--11--><!--
+                    <RowDefinition Height="0.1*" /> --><!--12--><!--
+                    <RowDefinition Height="0.1*" /> --><!--13--><!--
+                    <RowDefinition Height="0.1*" /> --><!--14--><!--
+                    <RowDefinition Height="0.1*" /> --><!--15-->
+                    
+                </Grid.RowDefinitions>
+                
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.25*" />
+                    <ColumnDefinition Width="0.75*" />
+                    <ColumnDefinition Width="0.25*" />
+                    <!--<ColumnDefinition Width="0.35*" />
+                    <ColumnDefinition Width="0.05*" />-->
+                </Grid.ColumnDefinitions>
+
+                <Button x:Name="btnAanBod" Text="Aanbod" TextColor="White" BackgroundColor="Firebrick" BorderWidth="3" 
+                             BorderColor="DarkCyan" BorderRadius="4"  Grid.Column="1" Grid.Row="1" FontSize="25" FontAttributes="Bold"
+                              HorizontalOptions="Fill"
+                             Command="{Binding ToAanbodCommand}" />
+
+                <Button x:Name="btnVerkocht" Text="Verkocht" TextColor="White" BackgroundColor="Firebrick"  BorderWidth="3"
+                           BorderColor="DarkCyan" BorderRadius="4"  Grid.Column="1" Grid.Row="3" FontSize="25" FontAttributes="Bold"
+                           Command="{Binding ToVerkochtCommand}" HorizontalOptions="Fill" />
+
+                <Button x:Name="btnGekocht" Text="Gekocht" TextColor="White" BackgroundColor="Firebrick"  BorderWidth="3"
+                           BorderColor="DarkCyan" BorderRadius="4"  Grid.Column="1" Grid.Row="5" FontSize="25" FontAttributes="Bold"
+                        Command="{Binding ToGekochtCommand}" HorizontalOptions="Fill" />
+
+                <Button x:Name="btnVraag" Text="Vraag" TextColor="White" BackgroundColor="Firebrick" BorderWidth="3"
+                           BorderColor="DarkCyan" BorderRadius="4"  Grid.Column="1" Grid.Row="7" FontSize="25" FontAttributes="Bold"
+                       Command="{Binding ToVraagCommand}"  HorizontalOptions="Fill" />
+
+                <Button x:Name="btnGereed" Text="&#10004;" TextColor="White" BackgroundColor="Aquamarine" 
+                        Command="{Binding TerugVerkoopPageCommand}" WidthRequest="50" HorizontalOptions="Center"
+                       Grid.Column="0" Grid.Row="1" />
+                <Button x:Name="btnPlus" Text="&#10133;" TextColor="White" BackgroundColor="DarkGreen" 
+                        Command="{Binding ToVraagPlusCommand}" WidthRequest="50" FontSize="25"
+                       Grid.Column="2" Grid.Row="7"  HorizontalOptions="Start"/>
+
+            </Grid>
+        </ScrollView>
+    </ContentView>
+</ContentPage>

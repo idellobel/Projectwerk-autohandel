@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="B4.EE.DellobelI.Pages.KlantInitPage"    NavigationPage.HasNavigationBar="False">
+    <ContentView x:Name="contentView" Padding="0,0,0,0"
+                 ControlTemplate="{StaticResource HomeTemplate}" BackgroundColor="#f7ddbb" >
+        <ScrollView>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.25*" />
+                    <RowDefinition Height="0.1*" />
+                    <!--1-->
+                    <RowDefinition Height="0.1*" />
+                    <!--2-->
+                    <RowDefinition Height="0.1*" />
+                    <!--3-->
+                    <RowDefinition Height="0.1*" />
+                    <!--4-->
+                    <RowDefinition Height="0.1*" />
+                    <!--5-->
+                    <RowDefinition Height="0.1*" />
+                    <!--6-->
+                    <RowDefinition Height="0.1*" />
+                    <!--7-->
+                    <RowDefinition Height="0.1*" />
+                    <!--8-->
+                    <RowDefinition Height="0.1*" />
+                    <!--9-->
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.05*" />
+                    <ColumnDefinition Width="0.25*" />
+                    <ColumnDefinition Width="0.45*" />
+                    <ColumnDefinition Width="0.30*" />
+                    <ColumnDefinition Width="0.05*" />
+
+
+                </Grid.ColumnDefinitions>
+
+                <!--date en timepicker-->
+                <Label Text="Naam:"  Grid.Row="1" Grid.Column="1"/>
+                <Entry Text="{Binding Naam}" Keyboard="Default" Placeholder="Naam en Voornaam" FontSize="14" Grid.Column="2" Grid.Row="1"/>
+                <Label Text="{Binding NaamError}" 
+                       IsVisible="{Binding NaamErrorVisible}" 
+                       Style="{StaticResource ErrorMessage}" Grid.Column="3" Grid.Row="1" />
+
+                <Label Text="Adres:" Grid.Column="1" Grid.Row="2" />
+                <Entry Text="{Binding Adres}" Keyboard="Default" Placeholder="Straat en huisnummer" FontSize="14" Grid.Column="2" Grid.Row="2"/>
+
+                <Label Text="Postnummer:" Grid.Column="1" Grid.Row="3" />
+                <Entry Text="{Binding Postnummer}" Keyboard="Numeric" Placeholder="Postnummer" FontSize="14" Grid.Column="2" Grid.Row="3"/>
+
+                <Label Text="Woonplaats:" Grid.Column="1" Grid.Row="4"/>
+                <Entry Text="{Binding Woonplaats}" Keyboard="Default" Placeholder="Gemeente" FontSize="14" Grid.Column="2" Grid.Row="4"/>
+
+                <Label Text="Telefoonnummer:" Grid.Column="1" Grid.Row="5"/>
+                <Entry Text="{Binding Telefoonnummer}"  Keyboard="Numeric" Placeholder="Telefoonnummer"  FontSize="14" Grid.Column="2" Grid.Row="5"/>
+                <Label Text="{Binding TelefoonnummerError}" 
+                           IsVisible="{Binding TelefoonnummerErrorVisible}" 
+                           Style="{StaticResource ErrorMessage}" Grid.Column="3" Grid.Row="5" />
+                
+                <Label Text="Email:" Grid.Column="1" Grid.Row="6"/>
+                <Entry Text="{Binding Email}" Keyboard="Email"  FontSize="14" Placeholder="Email" Grid.Column="2" Grid.Row="6"/>
+
+                <Label Text="KlantStatus:" Grid.Column="1" Grid.Row="7" />
+                <Entry Text="{Binding KlantStatus}" Grid.Column="2" Grid.Row="7" FontSize="14" Placeholder="KlantStatus" />
+
+                <Label Text="AutoId:" Grid.Column="1" Grid.Row="8" />
+                <Entry Text="{Binding AutoId}" Keyboard="Numeric" Placeholder="Int AutoID" Grid.Column="2" Grid.Row="8" />
+
+
+                <Button x:Name="btnSave" Text="Wijzig" TextColor="White" BackgroundColor="Orange" Grid.Column="1" Grid.Row="9"
+                        Command="{Binding WijzigCommand}" WidthRequest="100" HorizontalOptions="End"
+                        IsVisible="{Binding IsVisibleBewaar}"/>
+
+                <!--<Button x:Name="btnGereed" Text="&#10004;" TextColor="White" BackgroundColor="Aquamarine" Grid.Column="2" Grid.Row="9"
+                        Command="{Binding TerugClockPageFromGereedCommand}" WidthRequest="50" HorizontalOptions="Center"/>-->
+
+            </Grid>
+        </ScrollView>
+    </ContentView>
+</ContentPage>

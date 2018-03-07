@@ -1,0 +1,222 @@
+﻿	Merk		Model			Nieuwprijs/Richtprijs
+
+1	Alfa Romeo	Giulia			32300 €
+2	Alfa Romeo	Giulietta		23700 €
+3 	Alfa Romeo	Stelvio			39500 €
+4	Alfa Romeo	MiTo			16530 €
+5	Alfa Rome	MiTo			16530 €
+6	Alfa Romeo	156				--------
+7	Alfa Romeo	Brera			--------
+8	Alfa Romeo	Spider			--------
+
+9	Audi		A1				16530 €
+10 	Audi		A3				23100 €
+11	Audi		A4				31310 €
+12	Audi		A5				37500 €
+13	Audi		A6				42300 €
+14	Audi		A7				69900 €
+
+15	BMW			1 Reeks			24450 €
+16	BMW			2 Reeks			30750 €	
+17	BMW			3 Reeks			30750 €
+18	BMW			4 Reeks			39000 €
+19	BMW			5 Reeks			47500 €
+20	BMW			i3				38800 €
+21	BMW			X1				30600 €
+22	BMW			X3				45650 €
+23	BMW			Z4				--------
+
+24	Citroen		C-Elysée 		13650 €
+25	Citroen		C-Zero			30235 €
+26	Citroen		C1				8490 €
+27	Citroen		C3				13255 €
+28	Citroen		C4				16940 €
+29	Citroen		C4 Cactus		16230 €
+30	Citroen		C4 Picasso		24450 €
+31	Citroen		C5				23595 €
+
+32 	Daewoo		Nubira			2000 €
+
+33	Daihatsu	Charade			500 €
+
+34	Fiat	 	Spider			27700 €
+35	Fiat		500				11990 €
+36	Fiat		Panda			9340 €
+37	Fiat		Punto			13140 €
+38	Fiat		Tipo			14790 €
+39	Fiat		Bravo			--------
+
+40	Ford		B-Max			18000 €
+41	Ford		Ecosport		18500 €
+42	Ford		Edge			43975 €
+43	Ford		Fiesta			15100 €
+44	Ford		Focus			19050 €
+45	Ford		Galaxy			37750 €
+46	Ford		Ka+				10300 €
+47	Ford		Kuga			24100 €
+48	Ford		Mondeo			34135 €
+49	Ford		S-Max			32350 €
+
+50	Honda		CR-V			--------	
+51	Honda		Jazz			--------
+
+52	Hyundai		i10				24450 €
+53	Hyundai		i20				--------
+
+54	Jaguar		XE				30060 €
+55	Jaguar		XJ				86740 €
+56	Jaguar		E-PACE			36050 €
+
+57	Kia			Carens			22090 €
+58	Kia			Rio				14390 €
+59	Kia			Picanto			10840 €
+60	Kia			Venga			15990 €
+61	Kia			cee'd			17540 €
+62	Kia			Hybrid			26490 €
+63	Kia			Optima			20090 €
+64	Kia			Soul EV			35890 €
+
+65	Landrover	Discovery			35100 €	
+66	Landrover	Range Rover Evoque	36550 €
+
+67	Mazda		Mazda2				12990 €
+68	Mazda		Mazda3				18490 €
+69	Mazda		CX-3				17990 €
+70	Mazda		CX-5				24990 €
+71	Mazda		MX-5				22590 €
+
+72	Mercedes	A-Klasse			24684 €	
+73	Mercedes	B-Klasse			26257 €
+74	Mercedes	C-Klasse			31460 €
+75	Mercedes	CLA					29282 €
+76	Mercedes	GLA SUV				27951 €
+
+77	Mitsubishi	SPACE STAR			12189 €
+78	Mitsubishi	ASX					20689 €
+79	Mitsubishi	ECLIPSE CROSS		26489 €
+80	Mitsubishi	OUTLANDER			27490 €
+
+81	Nissan		JUKE				16640 €
+82	Nissan		MICRA				13989 €
+83	Nissan		NOTE				14040 €
+84	Nissan		LEAF				24739 €
+
+85	Opel		ADAM				12324 €
+86	Opel		ANTARA				28949 €
+87	Opel		AMPERA				36900 €
+88	Opel		ASTRA				18075 €
+89	Opel		CASCADA				26550 €
+90	Opel		CORSA				13775 €
+91	Opel		CROSSLAND X			17900 €
+92	Opel		GRANDLAND X			25599 €
+93	Opel		GTC					23374 €
+94	Opel		INSIGNIA			27504 €
+95	Opel		KARL				11650 €
+96	Opel		MERIVA				18275 €
+97	Opel		MOKKA				17850 €
+
+98	Peugeot		108					10644 €
+99	Peugeot		208					13624 €
+100	Peugeot		2008				18145 €
+101	Peugeot		308					20109 €
+102	Peugeot		3008				25999 €
+103	Peugeot		4007				31959 €
+104	Peugeot		5008				27150 €
+105	Peugeot		508					30750 €
+
+106	Porsche		718 BOXSTER			55022 €
+107	Porsche		718 CAYMAN			52964 €
+108	Porsche		911					101252 €
+109	Porsche		CAYENNE				73543 €
+110	Porsche		MACAN				57259 €
+111	Porsche		PANAMERA			93871 €
+
+112	Renault		CAPTUR				16600 €
+113	Renault		CLIO				13924 €
+114	Renault		ESPACE				36149 €
+115	Renault		KADJAR				22450 €
+116	Renault		KOLEOS				32150 €
+117	Renault		MEGANE				17949 €
+118	Renault		SCENIC				21849 €
+119	Renault		TALISMAN			26249 €
+120	Renault		TWINGO				10300 €
+121	Renault		TWIZY				6990 €
+122	Renault		ZOE					22249 €
+
+123	Rover		75					2000 €
+
+124	Saab		9-3X				-------
+125	Saab		9-7X				-------
+
+126	Seat		ALHAMBRA 			32989 �
+127	Seat		ATECA				20673 €
+128	Seat		IBIZA				13754 €
+129	Seat		LEON				16319 €
+130	Seat		MII					9545 €
+
+131	Seat		TOLEDO				18509 €
+132	Skoda		CITIGO				9230 €
+133	Skoda		FABIA				12596 €
+134	Skoda		KODIAQ				26164 €
+135	Skoda		OCTAVIA				20120 €
+136	Skoda		RAPID				17757 €
+137	Skoda		SUPERB				27285 €
+138	Skoda		YETI				19474 €
+
+139	Smart		FORFOUR				10890 €
+140	Smart		FORTWO				9922 €
+	
+141	Subaru		BRZ					33794 €
+142	Subaru		FORESTER			26694 €
+143	Subaru		IMPREZA				42295 €
+144	Subaru		LEVORG				30695 €
+145	Subaru		OUTBACK				34295 €
+146	Subaru		XV					19994 €
+
+147	Suzuki		BALENO				16198 €
+148	Suzuki		CELERIO				10798 €
+149	Suzuki		IGNIS				14198 €
+150	Suzuki		JIMNY				15399 €
+151	Suzuki		SWIFT				14698 €
+152	Suzuki		SX4S-CROSS			19499 €
+153	Suzuki		VITARA				19299 €
+
+154	Toyota		AURIS				19360 €
+155	Toyota		AVENSIS				26340 €
+156	Toyota		AYGO				11760 €
+157	Toyota		C-HR				22580 €
+158	Toyota		COROLLA				23639 €
+159	Toyota		GT86				33400 €
+160	Toyota		LANDCRUISER			37699 €
+161	Toyota		MIRAI				79900 €
+162	Toyota		PRIUS				30310 €
+163	Toyota		RAV4				28650 €
+164	Toyota		VERSO				22040 €
+165	Toyota		YARIS				14989 €
+
+166	Volkswagen	CC					34990 €
+167	Volkswagen	GOLF				18067 €	
+168	Volkswagen	GOLF PLUS			19763 €
+169	Volkswagen	JETTA				24100 €
+170	Volkswagen	NEW BEETLE			19153 €
+171	Volkswagen	PASSAT				27609 €
+172	Volkswagen	POLO				14389 €
+173	Volkswagen	SCIROCCO			26847 €
+174	Volkswagen	SHARAN				33983 €
+175	Volkswagen	TIGUAN				27699 €
+176	Volkswagen	TOUAREG				55840 €
+177	Volkswagen	TOURAN				24634 €
+178	Volkswagen	T-ROC				20818 €
+179	Volkswagen	UP!					10486 €
+
+180	Volvo		S60					30340 €
+181	Volvo		S60 CROSS COUNTRY	36940 €
+182	Volvo		S90					44599 €
+183	Volvo		V40					24699 €
+184	Volvo		V40 CROSS COUNTRY	36940 €
+185	Volvo		V60					31840 €
+186	Volvo		V60 CROSS COUNTRY	35839 €
+187	Volvo		V90					41999 €
+188	Volvo		XC40				30400 €
+189	Volvo		XC60				47300 €
+190	Volvo		XC90				59600 €

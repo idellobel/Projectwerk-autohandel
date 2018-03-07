@@ -13,8 +13,8 @@ using System;
 namespace Autohandel.Domain.Migrations
 {
     [DbContext(typeof(AutohandelContext))]
-    [Migration("20180306134922_initial")]
-    partial class initial
+    [Migration("20180307175343_aanpsSpecificatie")]
+    partial class aanpsSpecificatie
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -277,6 +277,9 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<string>("Draagvermogen");
 
+                    b.Property<string>("Fietstypes")
+                        .HasMaxLength(75);
+
                     b.Property<string>("Flappen")
                         .HasMaxLength(75);
 
@@ -332,6 +335,9 @@ namespace Autohandel.Domain.Migrations
                         .HasMaxLength(75);
 
                     b.Property<string>("SnelheidIndex");
+
+                    b.Property<string>("StekkerAansluiting")
+                        .HasMaxLength(75);
 
                     b.Property<string>("Type")
                         .HasMaxLength(75);

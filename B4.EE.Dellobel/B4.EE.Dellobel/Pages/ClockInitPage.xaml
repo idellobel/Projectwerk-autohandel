@@ -1,0 +1,89 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:conv ="clr-namespace:B4.EE.DellobelI.Converters"
+             x:Class="B4.EE.DellobelI.Pages.ClockInitPage" 
+             NavigationPage.HasNavigationBar="False">
+    <ContentView x:Name="contentView" Padding="0,0,0,0"
+                 ControlTemplate="{StaticResource HomeTemplate}" BackgroundColor="#f7ddbb" >
+        <ScrollView>
+            <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.25*" />
+                <RowDefinition Height="0.1*" />
+                <!--1-->
+                <RowDefinition Height="0.1*" />
+                <!--2-->
+                <RowDefinition Height="0.1*" />
+                <!--3-->
+                <RowDefinition Height="0.1*" />
+                <!--4-->
+                <RowDefinition Height="0.1*" />
+                <!--5-->
+                <RowDefinition Height="0.1*" />
+                <!--6-->
+                <RowDefinition Height="0.1*" />
+                <!--7-->
+                <RowDefinition Height="0.1*" />
+                <!--8-->
+                <RowDefinition Height="0.1*" />
+                <!--9-->
+                </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*" />
+                <ColumnDefinition Width="0.30*" />
+                <ColumnDefinition Width="0.45*" />
+                <ColumnDefinition Width="0.30*" />
+                <ColumnDefinition Width="0.05*" />
+
+
+            </Grid.ColumnDefinitions>
+
+                <!--date en timepicker-->
+                <Label Text="Datum:"  Grid.Row="1" Grid.Column="1"/>
+                <DatePicker x:Name="StartDatumPicker" Date="{Binding StartDatum}" 
+                            Grid.Column="2" Grid.Row="1" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding StartDatumError}" 
+                       IsVisible="{Binding StartDatumErrorVisible}" 
+                       Style="{StaticResource ErrorMessage}" Grid.Column="3" Grid.Row="3" />
+
+                <Label Text="StartTijd:" Grid.Column="1" Grid.Row="2" />
+                <TimePicker Time="{Binding StartTijd}"   Grid.Column="2" Grid.Row="2" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding StartTijdError}" 
+                       IsVisible="{Binding StartTijdErrorVisible}" 
+                       Style="{StaticResource ErrorMessage}" Grid.Column="3" Grid.Row="2" />
+
+                <Label Text="EindTijd:" Grid.Column="1" Grid.Row="3" />
+                <TimePicker Time="{Binding EindTijd}"  Grid.Column="2" Grid.Row="3" HorizontalOptions="StartAndExpand"/>
+                <Label Text="{Binding EindTijdError}" 
+                       IsVisible="{Binding EindTijdErrorVisible}" 
+                       Style="{StaticResource ErrorMessage}" Grid.Column="3" Grid.Row="3" />
+
+                <Label Text="Toelichting:" Grid.Column="1" Grid.Row="4"/>
+                <Editor Text="{Binding Toelichting}" Keyboard="Default"  FontSize="14" Grid.Column="2" Grid.Row="4" 
+                        HeightRequest="50"/>
+                
+                <Label Text="Aankoop €:" Grid.Column="1" Grid.Row="5"/>
+                <Entry Text="{Binding Aankoop}" Keyboard="Numeric"  FontSize="14" Grid.Column="2" Grid.Row="5"/>
+
+                <Label Text="Verkoop €:" Grid.Column="1" Grid.Row="6"/>
+                <Entry Text="{Binding Verkoop}" Keyboard="Numeric"  FontSize="14" Grid.Column="2" Grid.Row="6"/>
+
+                <Label Text="Gewerkte Tijd:" Grid.Column="1" Grid.Row="7" />
+                <Label Text="{Binding GewerkteTijd, Converter={StaticResource GewerkteTijdConv}}" Grid.Column="2" Grid.Row="7" />
+                
+                <Label Text="Waarde:" Grid.Column="1" Grid.Row="8" />
+                <Label Text="{Binding Waarde, Converter={StaticResource DecimalinEuroConv}}" Grid.Column="2" Grid.Row="8" />
+
+
+                <Button x:Name="btnSave" Text="Bewaar" TextColor="White" BackgroundColor="Green" Grid.Column="1" Grid.Row="9"
+                        Command="{Binding BewaarWerkUrenCommand}" WidthRequest="100" HorizontalOptions="End"
+                        IsVisible="{Binding IsVisibleBewaar}"/>
+
+                <!--<Button x:Name="btnGereed" Text="&#10004;" TextColor="White" BackgroundColor="Aquamarine" Grid.Column="2" Grid.Row="9"
+                        Command="{Binding TerugClockPageFromGereedCommand}" WidthRequest="50" HorizontalOptions="Center"/>-->
+
+        </Grid>
+        </ScrollView>
+    </ContentView>
+</ContentPage>

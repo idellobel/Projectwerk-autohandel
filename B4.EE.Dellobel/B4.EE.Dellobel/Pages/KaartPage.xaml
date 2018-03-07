@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:extensions="clr-namespace:B4.EE.DellobelI.Extensions"
+             x:Class="B4.EE.DellobelI.Pages.KaartPage"
+              NavigationPage.HasNavigationBar="False">
+    <ContentView x:Name="contentView" Padding="0,0,0,0"
+                 ControlTemplate="{StaticResource HomeTemplate}" BackgroundColor="#f7ddbb">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="0.9*" />
+                <RowDefinition Height="0.1*" />
+                <!--<RowDefinition Height="0.1*" />-->
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.05*" />
+                <ColumnDefinition Width="0.95*" />
+            </Grid.ColumnDefinitions>
+
+            <StackLayout VerticalOptions="CenterAndExpand" Grid.Row="0" Grid.Column="1" >
+                <ScrollView>
+                    <Grid>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="0.05*" />
+                            <RowDefinition Height="0.95*" />
+                            <RowDefinition Height="0.05*" />
+                            <RowDefinition Height="0.1*" />
+                        </Grid.RowDefinitions>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="0.9*" />
+                            <ColumnDefinition Width="0.2*" />
+                        </Grid.ColumnDefinitions>
+                        
+                        <!--<Button Text="Clear contents" Command="{Binding ClearContentsCommand}"></Button>-->
+                        <Editor Text="{Binding FileContents}" BackgroundColor="#ffff33" TextColor="Chocolate" 
+                                FontAttributes="Bold" Grid.Row="1"/>
+                        <Label Text="Display gegevens, druk opnieuw 'prijzen'" Grid.Row="2" FontSize="20" BackgroundColor="Red" TextColor="White" HorizontalOptions="Start" ></Label>
+                       
+                        <!--<Button Text="Load" Command="{Binding LoadFileCommand}"></Button>-->
+                        <Button Text="Bij aanpassing, bewaar eerst." WidthRequest="300" HorizontalOptions="Start" BackgroundColor="Orange"
+                                TextColor="White" Command="{Binding SaveFileCommand}" Grid.Row="3" FontSize="20" />
+
+                    </Grid>
+                </ScrollView>
+
+            </StackLayout>
+            <StackLayout Grid.Row="1" Grid.ColumnSpan="2" BackgroundColor="Teal" >
+                <ScrollView Orientation="Horizontal">
+                    <StackLayout Orientation="Horizontal" VerticalOptions="Start" >
+                        
+                        <StackLayout Orientation="Horizontal"  Margin="25,10,0,10"  >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenHomePageCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{extensions:ImageResource B4.EE.DellobelI.Images.Home.png}" Aspect="AspectFit"></Image>
+                            <Label Grid.Row="2" Grid.Column="1" Text="home" TextColor="White" VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal"  Margin="25,0,0,0" BackgroundColor="#003333">
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding LoadFileCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{extensions:ImageResource B4.EE.DellobelI.Images.pijzen.png}" Aspect="AspectFit"></Image>
+                            <Label Grid.Row="2" Grid.Column="1" Text="prijzen" TextColor="White" VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Margin="25,10,0,10" >
+                            <StackLayout.GestureRecognizers >
+                                <TapGestureRecognizer Command="{Binding OpenClockPageCommand}" />
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{extensions:ImageResource B4.EE.DellobelI.Images.clock.png}" Aspect="AspectFit" />
+                            <Label Grid.Row="2" Grid.Column="1" Text="Uren" TextColor="White" VerticalOptions="Center"  HorizontalOptions="FillAndExpand" />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Margin="25,10,0,10" >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenStatistiekPageCommand}"/>
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{extensions:ImageResource B4.EE.DellobelI.Images.statistiek.png}" Aspect="AspectFit"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="Statistiek" TextColor="White" VerticalOptions="Center"  HorizontalOptions="FillAndExpand"  />
+                        </StackLayout>
+
+                        <StackLayout Orientation="Horizontal" Margin="25,10,25,10" >
+                            <StackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Command="{Binding OpenDatumPageCommand }"/>
+                            </StackLayout.GestureRecognizers>
+                            <Image Source="{extensions:ImageResource B4.EE.DellobelI.Images.klant.png}" Aspect="AspectFit"/>
+                            <Label Grid.Row="2" Grid.Column="1" Text="Klanten" TextColor="White" VerticalOptions="Center" HorizontalOptions="FillAndExpand"  />
+                        </StackLayout>
+
+                    </StackLayout>
+                </ScrollView>
+            </StackLayout>
+        </Grid>
+    </ContentView>
+</ContentPage>
