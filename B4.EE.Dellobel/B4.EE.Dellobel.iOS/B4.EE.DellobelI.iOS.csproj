@@ -123,9 +123,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\B4.EE.Dellobel\B4.EE.Dellobel.csproj">
-      <Project>{885C40B6-CB57-4842-B917-C3DF5F3BF8F1}</Project>
-      <Name>B4.EE.Dellobel</Name>
+    <ProjectReference Include="..\B4.EE.Dellobel\B4.EE.DellobelI.csproj">
+      <Project>{8616EA61-690F-42BB-BD58-804DAA88A7F1}</Project>
+      <Name>B4.EE.DellobelI</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

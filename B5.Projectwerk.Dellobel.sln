@@ -7,13 +7,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autohandel.Domain", "Autoha
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Autohandel.web", "Autohandel.web\Autohandel.web.csproj", "{6E657B63-FE5F-43E7-AF8C-999EE758C07B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4.EE.Dellobel.Android", "B4.EE.Dellobel\B4.EE.Dellobel.Android\B4.EE.Dellobel.Android.csproj", "{70993925-4307-41EA-AFF7-014D18BD5509}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4.EE.DellobelI.Android", "B4.EE.Dellobel\B4.EE.Dellobel.Android\B4.EE.DellobelI.Android.csproj", "{70993925-4307-41EA-AFF7-014D18BD5509}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4.EE.Dellobel.iOS", "B4.EE.Dellobel\B4.EE.Dellobel.iOS\B4.EE.Dellobel.iOS.csproj", "{A5662012-415B-4DAB-8CB9-DBCD6EA01664}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4.EE.DellobelI.iOS", "B4.EE.Dellobel\B4.EE.Dellobel.iOS\B4.EE.DellobelI.iOS.csproj", "{A5662012-415B-4DAB-8CB9-DBCD6EA01664}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4.EE.Dellobel.UWP", "B4.EE.Dellobel\B4.EE.Dellobel.UWP\B4.EE.Dellobel.UWP.csproj", "{E7171D41-BE8A-4202-97A4-CF87219BBB17}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4.EE.DellobelI.UWP", "B4.EE.Dellobel\B4.EE.Dellobel.UWP\B4.EE.DellobelI.UWP.csproj", "{E7171D41-BE8A-4202-97A4-CF87219BBB17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4.EE.Dellobel", "B4.EE.Dellobel\B4.EE.Dellobel\B4.EE.Dellobel.csproj", "{8616EA61-690F-42BB-BD58-804DAA88A7F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "B4.EE.DellobelI", "B4.EE.Dellobel\B4.EE.Dellobel\B4.EE.DellobelI.csproj", "{8616EA61-690F-42BB-BD58-804DAA88A7F1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
