@@ -1,5 +1,6 @@
 ﻿using Autohandel.Domain.Entities;
 using Autohandel.Domain.Extensions;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -1627,7 +1628,7 @@ namespace Autohandel.Domain.Data
                 context.SaveChanges();
             }
             
-
+            //seed subcategorieën onderdelen
             if(!context.CategorieOnderdelen.Any(o => o.ParentId != null))
                 { 
 
@@ -1659,6 +1660,7 @@ namespace Autohandel.Domain.Data
                 //context.CategorieOnderdelen.AddRange(categorieOnderdelen);
                 context.SaveChanges();
             }
+            //Onderdeel Winterbanden
             //Seed Winterbanden
             if(!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 1))
             {
@@ -2066,6 +2068,7 @@ namespace Autohandel.Domain.Data
                 context.OnderdelenProducten.AddRange(winterbanden);
                 context.SaveChanges();
             }
+            //Onderdeel Wieldoppen
             //Seed Wieldoppen
             if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 2))
             {
@@ -2696,6 +2699,7 @@ namespace Autohandel.Domain.Data
                 context.OnderdelenProducten.AddRange(wieldoppen);
                 context.SaveChanges();
             }
+            //Onderdeel Privacy Shades
             //seed privacy shades
             if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 5))
             {
@@ -2993,6 +2997,7 @@ namespace Autohandel.Domain.Data
                 context.OnderdelenProducten.AddRange(privacyShades);
                 context.SaveChanges();
             }
+            //Onderdeel Trekhaken
             //seed vaste trekhaak
             if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 8))
             {
@@ -3292,6 +3297,7 @@ namespace Autohandel.Domain.Data
                 context.OnderdelenProducten.AddRange(kabelsTrekhaak);
                 context.SaveChanges();
             }
+            //Onderdeel Bagage en Transport
             //seed dakdrager
             if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 9))
             {
@@ -3746,9 +3752,775 @@ namespace Autohandel.Domain.Data
                 context.OnderdelenProducten.AddRange(fietsendrager);
                 context.SaveChanges();
             }
+            //Onderdeel Tapijten
+            //seed koffermat
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 20))
+            {
+                OnderdelenProducten[] koffermat = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TPK_1",
+                        Artikelnaam = "TPK1 Kofferbakbeschermer universeel",
+                        Artikelomschrijving = "Kenmerken<br/>Vervaardigd uit 600d duurzaam polyester met waterdichte coating.<br/>U kunt de klittenband aan de achterkant " +
+                        "van de mat en de flappen bevestigen aan de binnenbekleding van de wagen.<br/>Voorzien van drukknoppen en rits om de flappen aan elkaar te " +
+                        "bevestigen.<br/>Beschermt uw kofferbak tegen dierenhaar, vuil en modder.<br/>Gemakkelijk te plaatsen en uit te nemen.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 20),
+                        Prijs = 23.36M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/koffermat/TPK_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Kleur= Kleur.zwart,
+                            Gewicht= 1075, //in gr
+                            Mat = "100 x 100 cm",
+                            Flappen = "100 x 40 cm"
 
-
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TPK_2",
+                        Artikelnaam = "TPK2 Anti-Slip Kofferbakmat 120x90cm",
+                        Artikelomschrijving = "Universele anti-slip mat",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 20),
+                        Prijs = 23.70M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/koffermat/TPK_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Kleur= Kleur.zwart,
+                            Gewicht= 800, //in gr
+                            Mat = "120 x 90 cm",
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TPK_3",
+                        Artikelnaam = "TPK3 Kofferbak mat rubber",
+                        Artikelomschrijving = "100% Natuurrubber. 139x108cm. Universeel, op maat te snijden. Beschermt uw kofferbak " +
+                        "tegen vuil, modder, sneeuw en vocht. Gemakkelijk.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 20),
+                        Prijs = 35.99M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/koffermat/TPK_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Kleur= Kleur.zwart,
+                            Gewicht= 700, //in gr
+                            Mat = "139 x 108 cm",
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(koffermat);
                 context.SaveChanges();
+            }
+            //seed tapijt rubber
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 18))
+            {
+                OnderdelenProducten[] tapijtRubber = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TPR_1",
+                        Artikelnaam = "TPR1 Mattenset rubber 'Contour'",
+                        Artikelomschrijving = "100% Premium rubber. Complete set: 2 voor- en 2 achtermatten ",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 18),
+                        Prijs = 24.30M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/rubber/TPR_1.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TPR_2",
+                        Artikelnaam = "TPR2 Powermat Rubber mattenset universeel, set á 4 stuks (voor+achter)",
+                        Artikelomschrijving = "Met vanille geur-Powermat. Rubberen mattenset universeel, set à 4 stuks (voor+achter)",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 18),
+                        Prijs = 21.06M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/rubber/TPR_2.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TPR_3",
+                        Artikelnaam = "TPR3 Mattenset rubber Voyager",
+                        Artikelomschrijving = "Complete set: 2 voor- en 2 achtermatten ",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 18),
+                        Prijs = 21.06M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/rubber/TPR_3.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TPR_4",
+                        Artikelnaam = "TPR4 Mattenset rubbercarpet 'Dakota'",
+                        Artikelomschrijving = "Universeel voor de meeste auto's. Exclusief design. Houdt uw auto vrij van vocht en " +
+                        "vuil. Ideaal in alle seizoenen. Hoogwaardige kwaliteit.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 18),
+                        Prijs = 31.49M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/rubber/TPR_4.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TPR_5",
+                        Artikelnaam = "TPR5 Rubber matten set, 4 delig",
+                        Artikelomschrijving = "Kenmerken:<br/><br/>Zware rubberen mattenset<br/>Rug van nopjesrubber<br/>Vuilopvang profiel<br/>Geleverd aan " +
+                        "hanger<br/>Ggemakkelijk schoon te maken / af te spuiten (ook met hogedrukspuit)<br/>Hoofdmaten van de voormatten zijn 50 x 70 cm. De " +
+                        "achtermatten zijn rechthoekig 46 x 34 cm.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 18),
+                        Prijs = 63.11M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/rubber/TPR_5.jpg",
+                    },
+                };
+                context.OnderdelenProducten.AddRange(tapijtRubber);
+                context.SaveChanges();
+            }
+            //seed tapijt stof
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 19))
+            {
+                OnderdelenProducten[] tapijtStof = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TP_1",
+                        Artikelnaam = "TP1 Automatten 'Malibu' universeel zwart",
+                        Artikelomschrijving = "Complete set: 2 voor- en 2 achtermatten",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 19),
+                        Prijs = 14.99M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/stof/TP_1.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TP_2",
+                        Artikelnaam = "TP2 Mattenset uni 'Pink Lady'",
+                        Artikelomschrijving = "Universeel. Verfraait en beschermt uw auto-interieur. Achterzijde genopte anti-slip. Makkelijk te reinigen, volledig wasbaar. 4 stuks",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 19),
+                        Prijs = 21.06M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/stof/TP_2.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TP_3",
+                        Artikelnaam = "TP3 Mattenset universeel 'Tribal' rood",
+                        Artikelomschrijving = "Universeel, 4-delig. Voor verfraaiing en bescherming van het interieur. Genopte anti-slip onderlaag. Eenvoudig te reinigen, volledig wasbaar.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 19),
+                        Prijs = 23.50M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/stof/TP_3.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TP_4",
+                        Artikelnaam = "TP4 Mattenset 4-delig type C Grafiet",
+                        Artikelomschrijving = "Mattenset 4-delig type C Grafiet.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 19),
+                        Prijs = 30.00M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/stof/TP_4.jpg",
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "TP_5",
+                        Artikelnaam = "TP5 Mattenset universeel 'Alu-carbon'",
+                        Artikelomschrijving = "Carbon-look. Universeel voor de meeste auto's en 4x4 wagens. Eenvoudig te reinigen. " +
+                        "Set bestaande uit 2 voor- en 2 achtermatten.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 19),
+                        Prijs = 24.99M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/stof/TP_5.jpg",
+                    },
+                };
+                context.OnderdelenProducten.AddRange(tapijtStof);
+                context.SaveChanges();
+            }
+            //seed tapijt clips
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 17))
+            {
+                OnderdelenProducten[] tapijtClips = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "CL_1",
+                        Artikelnaam = "CL1 Mattenclips 'VAG diversen' - set á 2 stuks",
+                        Artikelomschrijving = "Set MatClip 2 stuks tbv VAG.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 17),
+                        Prijs = 1.05M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/clips/CL_1.jpg",
+                    },
+                   new OnderdelenProducten
+                   {
+                        Artikelnummer = "CL_2",
+                        Artikelnaam = "CL2 Universele mattenclips 'StyleFit' - 4 stuks t.b.v. 2 matten",
+                        Artikelomschrijving = "Set a 4 mattenclips voor 2 matten.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 17),
+                        Prijs = 4.95M,
+                        FiguurURL = @"~/images/onderdelen/tapijten/clips/CL_2.jpg",
+                   },
+                };
+                context.OnderdelenProducten.AddRange(tapijtClips);
+                context.SaveChanges();
+            }
+            //Onderdeel Filters en Voeistoffen
+            //seed brandstoffilter
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 23))
+            {
+                OnderdelenProducten[] brandstoffilters = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "BF_1",
+                        Artikelnaam = "BF1 Brandstoffilter",
+                        Artikelomschrijving = "BF1 Brandstoffilter",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 23),
+                        Prijs = 11.43M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/brandstofFilter/BF_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Dikte= Convert.ToInt32(136.5), //mm
+                            Gewicht= 37, //in gr
+                            Binnendiameter= 11, //mm
+                            Buitendiameter = 78 //mm
+                        }
+                    },
+                   new OnderdelenProducten
+                   {
+                        Artikelnummer = "BF_2",
+                        Artikelnaam = "BF2 Brandstoffilter WK 842-2 Mann",
+                        Artikelomschrijving = "BF2 Brandstoffilter WK 842-2 Mann",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 23),
+                        Prijs = 10.89M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/brandstofFilter/BF_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Binnendiameter= 61, //mm
+                            Buitendiameter = 81, //mm
+                            Hoogte = 158, //mm
+                            Schroefdraad = "M 16 X 1.5" //Schroefdraad uitgang: M 16 X 1.5
+                        }
+                   },
+                   new OnderdelenProducten
+                   {
+                        Artikelnummer = "BF_3",
+                        Artikelnaam = "BF3 Brandstoffilter P 917 X Mann",
+                        Artikelomschrijving = "BF3 Brandstoffilter P 917 X Mann",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 23),
+                        Prijs = 6.55M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/brandstofFilter/BF_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Binnendiameter= 19, //mm
+                            Buitendiameter = 85, //mm
+                            Hoogte = Convert.ToInt32(71.5), //mm
+                        }
+                   },
+                   new OnderdelenProducten
+                   {
+                        Artikelnummer = "BF_4",
+                        Artikelnaam = "BF4 Brandstoffilter N0001 Bosch",
+                        Artikelomschrijving = "BF4 Brandstoffilter N0001 Bosch",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 23),
+                        Prijs = 24.22M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/brandstofFilter/BF_4.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Binnendiameter= 19, //mm
+                            Buitendiameter = 67, //mm
+                            Hoogte = 97, //mm
+                        }
+                   },
+                   new OnderdelenProducten
+                   {
+                        Artikelnummer = "BF_5",
+                        Artikelnaam = "BF5 Brandstoffilter 21622 FEBI",
+                        Artikelomschrijving = "BF5 Brandstoffilter 21622 FEBI",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 23),
+                        Prijs = 17.71M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/brandstofFilter/BF_5.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Materie = "staal", //materiaal
+                            Dikte = 193, //mm
+                            Gewicht = 31, //gr
+                            Binnendiameter= 19, //mm
+                            Buitendiameter = 67, //mm
+                            Hoogte = 97, //mm
+                            Type = "Met waterafscheider" //Filter Type
+                        }
+                   },
+                };
+                context.OnderdelenProducten.AddRange(brandstoffilters);
+                context.SaveChanges();
+            }
+            //seed interieurluchtfilter
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 16))
+            {
+                OnderdelenProducten[] interieurluchtfilter = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "IF_1",
+                        Artikelnaam = "IF1 Interieurluchtfilter 11566 FEBI",
+                        Artikelomschrijving = "IF1 Interieurluchtfilter 11566 FEBI",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 16),
+                        Prijs = 11.85M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/interieurfilter/IF_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Carbon filter", //Filter type
+                            Dikte= Convert.ToInt32(30.0), //mm
+                            Lengte = 281, //mm
+                            Gewicht = 209, //in gr
+                            Breedte = 206 //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "IF_2",
+                        Artikelnaam = "IF2 Interieurluchtfilter 21314 FEBI",
+                        Artikelomschrijving = "IF2 Interieurluchtfilter 21314 FEBI",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 16),
+                        Prijs = 14.37M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/interieurfilter/IF_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Carbon filter", //Filter type
+                            Dikte= Convert.ToInt32(34.0), //mm
+                            Lengte = 288, //mm
+                            Gewicht = 125, //in gr
+                            Breedte = 215 //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "IF_3",
+                        Artikelnaam = "IF3 Interieurfilter",
+                        Artikelomschrijving = "IF3 Interieurfilter",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 16),
+                        Prijs = 8.58M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/interieurfilter/IF_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Pollenfilter", //Filter type
+                            Dikte= Convert.ToInt32(12.0), //mm
+                            Lengte = 185, //mm
+                            Gewicht = 80, //in gr
+                            Breedte = 181 //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "IF_4",
+                        Artikelnaam = "IF4 Interieurluchtfilter 27873 FEBI",
+                        Artikelomschrijving = "IF4 Interieurluchtfilter 27873 FEBI",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 16),
+                        Prijs = 9.77M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/interieurfilter/IF_4.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Pollenfilter", //Filter type
+                            Dikte= Convert.ToInt32(18.0), //mm
+                            Lengte = 203, //mm
+                            Gewicht = 40, //in gr
+                            Breedte = 177 //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "IF_5",
+                        Artikelnaam = "IF5 Interieurfilter TC-1017 AMC",
+                        Artikelomschrijving = "IF5 Interieurfilter TC-1017 AMC",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 16),
+                        Prijs = 8.23M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/interieurfilter/IF_5.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Lengte = 215, //mm
+                            Hoogte = 30, //in mm
+                            Breedte = 150 //mm
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(interieurluchtfilter);
+                context.SaveChanges();
+            }
+            //seed koelvloeistof
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 14))
+            {
+                OnderdelenProducten[] koelvloeistof = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "KV_1",
+                        Artikelnaam = "KV1 Coolant Longlife -36 [1L] mengbaar",
+                        Artikelomschrijving = "Universele long-life koelvloeistof mengbaar met de meeste commerciële koelvloeistoffen. " +
+                        "Het tast geen rubbers, kunststoffen, metalen, aluminium of legeringen aan. Volg altijd het voorschrift van de fabrikant. " +
+                        "Schadelijk bij opname door de mond. Buiten bereik van kinderen bewaren. In het geval van inslikken onmiddellijk een " +
+                        "arts raadplegen en verpakking of etiket tonen. bevat 1,2-ethaandiol (ethyleenglycol)",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 14),
+                        Prijs = 2.29M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/koelvloeistof/KV_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            
+                            Inhoud = 1, //liter
+                            Mengbaar = "Ja (neemt kleur van huidige vloeistof aan)"
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "KV_2",
+                        Artikelnaam = "KV2 Coolant Longlife -36 [5L] mengbaar",
+                        Artikelomschrijving = "Universele long-life koelvloeistof mengbaar met de meeste commerciële koelvloeistoffen. " +
+                        "Het tast geen rubbers, kunststoffen, metalen, aluminium of legeringen aan. Volg altijd het voorschrift van de fabrikant. " +
+                        "Schadelijk bij opname door de mond. Buiten bereik van kinderen bewaren. In het geval van inslikken onmiddellijk een " +
+                        "arts raadplegen en verpakking of etiket tonen. bevat 1,2-ethaandiol (ethyleenglycol)",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 14),
+                        Prijs = 15.50M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/koelvloeistof/KV_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Mengbaar = "Ja (neemt kleur van huidige vloeistof aan)"
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(koelvloeistof);
+                context.SaveChanges();
+            }
+            //seed luchtfilter
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 13))
+            {
+                OnderdelenProducten[] luchtfilter = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "LF_1",
+                        Artikelnaam = "LF1 Luchtfilter S3971 Bosch",
+                        Artikelomschrijving = "LF1 Luchtfilter S3971 Bosch",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 13),
+                        Prijs = 12.09M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/luchtfilter/LF_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Filter insert", //filtertype
+                            Lengte = 257, //mm
+                            Hoogte = 44, //mm
+                            Breedte = 115 //mm 
+                            
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "LF_2",
+                        Artikelnaam = "LF2 Luchtfilter S9404 Bosch",
+                        Artikelomschrijving = "LF2 Luchtfilter S9404 Bosch",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 13),
+                        Prijs = 13.44M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/luchtfilter/LF_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Filter insert", //filtertype
+                            Lengte = 345, //mm
+                            Hoogte = 70, //mm
+                            Breedte = 136 //mm 
+                            
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "LF_3",
+                        Artikelnaam = "LF3 Luchtfilter 21110 FEBI",
+                        Artikelomschrijving = "LF3 Luchtfilter 21110 FEBI",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 13),
+                        Prijs = 6.20M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/luchtfilter/LF_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Filter insert", //filtertype
+                            Materie = "Papier", //materiaal
+                            Dikte = 62, //mm
+                            Buitendiameter = 275, //mm
+                            Gewicht = 200, //gr
+                            Binnendiameter = 225 //mm
+                            
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "LF_4",
+                        Artikelnaam = "LF4 Luchtfilter S0156 Bosch",
+                        Artikelomschrijving = "LF4 Luchtfilter S0156 Bosch",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 13),
+                        Prijs = 15.93M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/luchtfilter/LF_4.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Type = "Filter insert", //filtertype
+                            Buitendiameter = 149, //mm
+                            Hoogte = 170, //mm
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "LF_5",
+                        Artikelnaam = "LF5 Luchtfilter C 35 154 Mann",
+                        Artikelomschrijving = "LF5 Luchtfilter C 35 154 Mann",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 13),
+                        Prijs = 15.78M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/luchtfilter/LF_5.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Breedte = 149, //mm
+                            Hoogte = 70, //mm
+                            Lengte = 345 //mm
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(luchtfilter);
+                context.SaveChanges();
+            }
+            //seed motorolie
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 12))
+            {
+                OnderdelenProducten[] motorolie = new[] 
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_1",
+                        Artikelnaam = "MO1 Motorolie 5W40 Fullsynthetic Winprice 1L",
+                        Artikelomschrijving = "Vol Synthetische olie voor gebruik in benzine en dieselmotoren van personenwagens en lichte bedrijfswagens.<br/> Niet geschikt voor roetfilters. " +
+                        "<br/>Verlaagt brandstofgebruik. <br/>Bevat calciumalkarylsulfonaat met lange keten. <br/>Kan een allergische reactie veroorzaken. " +
+                        "<br/>Volg altijd olie voorschrift van de fabrikant van uw voertuig.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 4.30M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 1, //liter
+                            Type = "5W40", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_2",
+                        Artikelnaam = "MO2 Motorolie 5W30 Fullsynthetic Longlife Winprice 1L",
+                        Artikelomschrijving = "Vol Synthetische olie voor gebruik in benzine-, LPG- en dieselmotoren van personenwagens en lichte bedrijfswagens.<br/>Geschikt voor roetfilters. " +
+                        "<br/>Verlaagt brandstofgebruik. <br/>Bevat calciumalkarylsulfonaat met lange keten. <br/>Kan een allergische reactie veroorzaken. " +
+                        "<br/>Volg altijd olie voorschrift van de fabrikant van uw voertuig.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 6.95M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 1, //liter
+                            Type = "5W30", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_3",
+                        Artikelnaam = "MO3 Motorolie Winprice 10W40 A3B4 1L",
+                        Artikelomschrijving = "Vol Synthetische olie voor gebruik in benzine- en dieselmotoren van personenwagens en lichte bedrijfswagens.<br/>Niet geschikt voor roetfilters. " +
+                        "<br/>Verlaagt brandstofgebruik. <br/>Bevat calciumalkarylsulfonaat met lange keten. <br/>Kan een allergische reactie veroorzaken. " +
+                        "<br/>Volg altijd olie voorschrift van de fabrikant van uw voertuig.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 3.48M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_3.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 1, //liter
+                            Type = "10W40", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_4",
+                        Artikelnaam = "MO4 Motorolie Castrol Edge Titanium 5W-30 LL 5L 15669D",
+                        Artikelomschrijving = "De volledig synthetische Castrol Edge 5W30 LONGLIFE Titanium is geschikt voor benzine en diesel motoren.<br/>De unieke " +
+                        "TITANIUM FST™ in CASTROL EDGE verandert de fysieke manier waarop motorolie zich gedraagt onder extreme belasting. Na een complex " +
+                        "raffinage proces vormen de Titanium partikels een verbinding met een organische polymer." +
+                        "<br/>Deze unieke FluidStrengthTechnology™ versterkt de olie, zodat het metaal-op-metaal contact teruggebracht wordt.<br/>" +
+                        "Vermindert de wrijving tot 15%. <br/>Tot 45% sterker dan vooraanstaande concurrenten. " +
+                        "<br/>Behoudt kracht tot minstens 140 uur langer dan Castrol motorolie zonder titanium. De motoren van tegenwoordig werken harder, " +
+                        "worden warmer en worden meer belast dan ooit tevoren. Autofabrikanten maken steeds kleinere, krachtigere en efficiëntere motoren. " +
+                        "Downsizing, turbo's en geavanceerde motorontwerpen(zoals een onmiddellijke motorolie injectie en gevarieerde kleppenintervallen) hebben de druk " +
+                        "in de motor en dus ook op de motorolie verdubbeld.<br/>De motorolie aan onderdelen zoals aan de nokkenas en de tuimelaar moeten een belasting " +
+                        "kunnen weerstaan die soms hoger is dan 10.000kg per cm². Bij zo'n belasting is de motorolie de enige bescherming tussen de metalen oppervlakken en " +
+                        "daarom moet deze uiterst sterk zijn.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 44.95M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_4.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Type = "5W30", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_5",
+                        Artikelnaam = "MO5 Motorolie Kroon-Oil Torsynth 5W40 5L",
+                        Artikelomschrijving = "Torsynth 5W-40 is een universele, brandstof besparende motorolie, geschikt voor alle benzine- en dieselmotoren, " +
+                        "zowel zonder als met turbo-oplading, in personenwagens en bestelwagens.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 26.05M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_5.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Type = "5W40", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_6",
+                        Artikelnaam = "MO6 Motorolie Castrol GTX Ultraclean 10W-40 A3B4 5ltr 15A4D4",
+                        Artikelomschrijving = "Castrol GTX 10W40<br/>BESCHERM UW AUTO TEGEN SCHADELIJKE VORMING VAN SLUDGE MET CASTROL GTX.<br/>Het is meer dan alleen " +
+                        "olie. Het is 'Liquid Engineering' die beschermt tegen dagelijkse problemen, zoals sludge. Zware rijomstandigheden, zoals elke dag start - stop " +
+                        "verkeer, barre weersomstandigheden en verlengde verversingsintervallen, kunnen leiden tot de opbouw van een dikke, teerachtige substantie, " +
+                        "de zogenaamde sludge. De opbouw van deze sludge kan schade geven aan uw motor en de prestaties verminderen.<br/>CASTROL GTX GEEFT SUPERIEURE " +
+                        "MOTORBESCHERMING:<br/>Bevat een anti - sludge formule die 25 % betere sludge bescherming biedt in vergelijking met zware industrie normen.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 26.09M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_6.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Type = "10W40", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_7",
+                        Artikelnaam = "MO7 Motorolie 5W40 Fullsynthetic Winprice 5L",
+                        Artikelomschrijving = "Vol Synthetische olie voor gebruik in benzine en dieselmotoren van personenwagens en lichte bedrijfswagens. " +
+                        "Niet geschikt voor roetfilters. Verlaagt brandstofgebruik. Bevat calciumalkarylsulfonaat met lange keten. " +
+                        "Kan een allergische reactie veroorzaken. Volg altijd olie voorschrift van de fabrikant van uw voertuig.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 21.70M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_7.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Type = "5W40", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_8",
+                        Artikelnaam = "MO8 Motorolie 5W30 Fullsynthetic Longlife Winprice 5L",
+                        Artikelomschrijving = "Vol Synthetische olie voor gebruik in benzine en dieselmotoren van personenwagens en lichte bedrijfswagens. " +
+                        "Geschikt voor roetfilters. Verlaagt brandstofgebruik. Bevat calciumalkarylsulfonaat met lange keten. " +
+                        "Kan een allergische reactie veroorzaken. Volg altijd olie voorschrift van de fabrikant van uw voertuig.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 29.74M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_8.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Type = "5W30", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_9",
+                        Artikelnaam = "MO9 Motorolie 5W30 Fullsynthetic Winprice 5L",
+                        Artikelomschrijving = "Vol Synthetische olie voor gebruik in benzine en dieselmotoren van personenwagens en lichte bedrijfswagens. " +
+                        "Geschikt voor roetfilters. Verlaagt brandstofgebruik. Bevat calciumalkarylsulfonaat met lange keten. " +
+                        "Kan een allergische reactie veroorzaken. Volg altijd olie voorschrift van de fabrikant van uw voertuig.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 25.95M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_9.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Type = "5W30", //mm
+                        }
+                    },
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "MO_10",
+                        Artikelnaam = "MO10 Motorolie Shell Helix HX7 10W40 5L",
+                        Artikelomschrijving = "SHELL HELIX HX7 10W40<br/>MOTOROLIE MET SYNTHETISCHE TECHNOLOGIE VOOR PERSONENAUTO'S EN LICHTE BEDRIJFSWAGENS + reinigt" +
+                        "de motor en houdt deze inwendig schoon + biedt uitstekende bescherming en lange motorlevensduur + verzekert vlotte koude start." +
+                        "TOEPASSING:<br/>Shell Helix HX7 10W-40 kan worden toegepast in motoren van personenauto’s en lichte bedrijfswagens rijdend op benzine, " +
+                        "diesel of LPG ook wanneer die zijn uitgevoerd met turbo, meerkleppentechniek, brandstofinjectie en/of katalysator.<br/>SAMENSTELLING:<br/>Shell " +
+                        "Helix HX7 10W-40 bestaat uit een combinatie van synthetische basisolie, geselecteerde minerale olie en speciaal voor de universele toepassing " +
+                        "ontwikkelde additieven.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 12),
+                        Prijs = 25.64M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/motorolie/MO_10.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Type = "10W40", //mm
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(motorolie);
+                context.SaveChanges();
+            }
+            //seed remvloeistof
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 11))
+            {
+                OnderdelenProducten[] remvloeistof = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "RV_1",
+                        Artikelnaam = "RV1 Remvloeistof SAE J 1703 ",
+                        Artikelomschrijving = "Remvloeistof is onverdraagzaam met onder andere autolakken; bij knoeien moet de remvloeistof direct met water afgenomen" +
+                        " worden.<br/>In gesloten verpakking bewaren en vermenging met water of olieprodukten voorkomen.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 11),
+                        Prijs = 8.39M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/remvloeistof/RV_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 1, //liter
+                            Goedkeuring = "ISO 4925 Class 4",
+                            Type = "SAE J 1703"//mm
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(remvloeistof);
+                context.SaveChanges();
+            }
+            //seed ruitensproeier
+            if (!context.OnderdelenProducten.Any(o => o.CategorieOnderdelen.OnderdelenCategorieId == 10))
+            {
+                OnderdelenProducten[] ruitensproeier = new[]
+                {
+                    new OnderdelenProducten
+                    {
+                        Artikelnummer = "RS_1",
+                        Artikelnaam = "RS1 Ruitensproeier Antivries 5ltr -15",
+                        Artikelomschrijving = "Hoge kwaliteit ruitensproeier antivries. Kant en klaar met goede reiniging en aangename geur." +
+                        "Het laat geen strepen na en voorkomt bevriezing van ruiten. Ontvlambaar , buiten bereik van kinderen bewaren. In geval van inslikken onmiddellijk een " +
+                        "arts raadplegen en verpakking of etiket tonen. Bevat Anionogene oppervlakte-actieve stoffen. Parfums. Benzyl Alcohol.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 10),
+                        Prijs = 4.99M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/ruitensproeier/RS_1.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Geur = "Frisse lemon geur",
+                            Type = "Anti-vries",//mm
+                            MinimaleTemperatuur = "-15 graden"                          
+                        }
+                    },
+                     new OnderdelenProducten
+                    {
+                        Artikelnummer = "RS_2",
+                        Artikelnaam = "RS1 Ruitensproeier Antivries 5ltr -15",
+                        Artikelomschrijving = "Frisse citroengeur.<br/>Kant en klaar.<br/>Verwijdert vuil, vet en insectresten van de autoruit.<br/>Screenwash, kant en klaar " +
+                        "voor gebruik.<br/>Geeft een frisse citroenlucht en een streeploos resultaat tijdens het wissen.",
+                        CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 10),
+                        Prijs = 3.39M,
+                        FiguurURL = @"~/images/onderdelen/filtersVoeistof/ruitensproeier/RS_2.jpg",
+                        Specificatie = new Specificaties
+                        {
+                            Inhoud = 5, //liter
+                            Geur = "lemon",
+                            Type = "Zomer"//mm
+                        }
+                    },
+                };
+                context.OnderdelenProducten.AddRange(ruitensproeier);
+                context.SaveChanges();
+            }
+
+            context.SaveChanges();
 
             }
         }
