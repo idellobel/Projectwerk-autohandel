@@ -14,7 +14,7 @@ namespace Autohandel.Domain.Entities
         [MaxLength(150)]
         public string MerkNaam { get; set; }
 
-        public ICollection<MerkType> MerkTypes { get; set; }
+        public virtual ICollection<MerkType> MerkTypes { get; set; }
 
     }
 }

@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Autohandel.web.Models;
+using Autohandel.web.ViewModels;
 using Autohandel.web.Services;
 using Autohandel.Domain.Data;
 
@@ -57,6 +57,9 @@ namespace Autohandel.web
                                              .CreateScope())
                 {
                     var context = serviceScope.ServiceProvider.GetService<AutohandelContext>(); //get DbContext 
+
+                    /*De seedMethode dient uitgecommentariëerd te worden bij uitvoeren migratie/update database!!!!*/
+
                     DataSeeder.Seed(context);
                 }
             }
@@ -71,6 +74,11 @@ namespace Autohandel.web
 
             app.UseMvc(routes =>
             {
+                routes.MapRoute(
+                    name: "areaRoute",
+                    template: "{area:exists}/{controller=Home}/{action=index}/{id?}"
+                    );
+                //other routes...
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");

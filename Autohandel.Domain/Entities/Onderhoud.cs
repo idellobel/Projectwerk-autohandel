@@ -10,13 +10,14 @@ namespace Autohandel.Domain.Entities
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long OnderhoudId { get; set; }
 
-        public Voertuig Voertuig { get; set; }
+        public virtual Voertuig Voertuig { get; set; }
         //public long VoertuigId { get; set; }
 
         public DateTime Datum { get; set; }
         public int Kilometerstand { get; set; }
 
-        public Klant Klant { get; set; }
+        public virtual Klant Klant { get; set; }
+        [ForeignKey("Klant")]
         public long KlantId { get; set; }
 
     }

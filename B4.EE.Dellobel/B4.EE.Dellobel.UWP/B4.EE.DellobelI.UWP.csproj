@@ -151,12 +151,6 @@
     <PackageReference Include="Xamarin.Forms" Version="2.5.0.121934" />
     <PackageReference Include="Microsoft.NETCore.UniversalWindowsPlatform" Version="6.0.1" />
   </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\B4.EE.Dellobel\B4.EE.DellobelI.csproj">
-      <Project>{8616EA61-690F-42BB-BD58-804DAA88A7F1}</Project>
-      <Name>B4.EE.DellobelI</Name>
-    </ProjectReference>
-  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>

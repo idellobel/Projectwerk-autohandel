@@ -17,6 +17,6 @@ namespace Autohandel.Domain.Entities
         public bool RememberMe { get; set; }
 
        
-        public ICollection<RoleUsers> RoleUsers { get; set; }
+        public virtual ICollection<RoleUsers> RoleUsers { get; set; }
     }
 }

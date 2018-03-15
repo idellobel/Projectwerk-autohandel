@@ -1,0 +1,37 @@
+﻿@*@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers*@
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<h2 class="text-center text-xl-center text-lowercase text-primary " style="margin-top:25px;">Admin Dashboard</h2>
+@*<div class="container">*@
+    <div class="row text-center " style="height:400px;">
+        <div class=" col-sm-5  text-center " style="margin: 20px;background-color:aliceblue;box-shadow: 10px 10px 5px grey; ">
+            <a asp-controller="Home" asp-action="Voertuigen" asp-area="Admin">
+                <img asp-append-version="true" src="~/images/vtgn/voertuigenBeheer.jpg" alt="voertuigenBeheer" title="voertuigenBeheer"
+                     class="img-fluid" style="margin: 2%; mix-blend-mode: multiply;">
+            </a>
+           
+                <a asp-controller="Home" asp-action="Voertuigen" asp-area="Admin" class="btn btn-success" style="margin-bottom:20px;">Voertuigen</a>
+
+          
+        </div>
+        @*</div>*@
+
+        @*<div class="row text-center">*@
+        <div class=" col-sm-5  text-center" style="margin: 20px;background-color:aliceblue;box-shadow: 10px 10px 5px grey; ">
+            <a asp-controller="Home" asp-action="VoertuigOnderdelen" asp-area="Admin">
+                <img asp-append-version="true" src="~/images/onderdelen/Onderdelen.jpg" alt="Onderdelen" title="Onderdelen"
+                     class="img-fluid" style="margin: 2%; mix-blend-mode: multiply;">
+            </a>
+           
+               <a asp-controller="Home" asp-action="VoertuigOnderdelen" asp-area="Admin" class="btn btn-success" >Onderdelen</a>
+      
+         
+        </div>
+    </div>
+@*</div>*@
+@*</div>*@
+
+

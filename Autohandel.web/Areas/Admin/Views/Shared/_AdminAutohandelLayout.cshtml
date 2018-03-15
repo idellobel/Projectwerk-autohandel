@@ -1,0 +1,20 @@
+﻿
+@{
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+@section head{
+    <link href=" ~/css/admin.css" rel="stylesheet" />
+}
+@RenderSection("showPublic", false)
+@section showAdmin{ 
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = true })
+}
+
+
+
+@RenderBody()
+
+

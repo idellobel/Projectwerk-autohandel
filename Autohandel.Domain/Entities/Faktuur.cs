@@ -15,19 +15,19 @@ namespace Autohandel.Domain.Entities
         public DateTime Faktuurdatum { get; set; }
 
         //public Klant Klant { get; set; }
-        public ICollection<Klant> Klanten { get; set; }
+        public virtual ICollection<Klant> Klanten { get; set; }
 
         [ForeignKey("Klant")]
         public long  KlantId { get; set; }
 
         //public Voertuig Voertuig { get; set; }
-        public ICollection<Voertuig> Voertuigen { get; set; }
+        public virtual ICollection<Voertuig> Voertuigen { get; set; }
         [ForeignKey("Voertuig")]
         public long VoertuigId { get; set; }
 
 
         //public OnderdelenProducten OnderdelenProducten  { get; set; }
-        public ICollection<OnderdelenProducten> OnderdelenProducten { get; set; }
+        public virtual ICollection<OnderdelenProducten> OnderdelenProducten { get; set; }
         [ForeignKey("OnderdelenProdukten")]
         public long ArtikelId { get; set; }
 

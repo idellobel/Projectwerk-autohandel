@@ -21,14 +21,19 @@ namespace Autohandel.Domain.Entities
 
         public long Chassisnummer { get; set; }
 
-        public Merk Merk { get; set; }
-        public long MerkId { get; set; }
+        public virtual Merk Merk { get; set; }
 
-        public MerkType MerkType { get; set; }
-        public long MerkTypeId { get; set; }
+        //[ForeignKey("Merk")]
+        //public long MerkId { get; set; }
 
-        public VoertuigCategorie VoertuigCategorie { get; set; }
-        public long VoertuigCatId { get; set; }
+        public virtual MerkType MerkType { get; set; }
+
+        //[ForeignKey("Merktype")]
+        //public long MerkTypeId { get; set; } /*Conflikeert!
+
+        public virtual VoertuigCategorie VoertuigCategorie { get; set; }
+        //[ForeignKey("VoertuigCategorie")]
+        //public long VoertuigCatId { get; set; }
 
         public decimal Prijs { get; set; }
 
@@ -49,13 +54,13 @@ namespace Autohandel.Domain.Entities
         [Display(Name = "Afbeeldingen")]
         public string[] FiguurURLs { get; set; }
 
-        public Klant Klant  { get; set; }
+        public virtual Klant Klant  { get; set; }
   
         public virtual ICollection<Onderhoud> Onderhoudsbeurten { get; set; } 
         
-        public Garantie Garantie { get; set; }
+        public virtual Garantie Garantie { get; set; }
         
-        public Faktuur Faktuur { get; set; }
+        public virtual  Faktuur Faktuur { get; set; }
        
         public string Registratie { get; set; }
 

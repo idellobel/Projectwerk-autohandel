@@ -10,6 +10,6 @@ namespace Autohandel.Domain.Entities
         public long RoleId { get; set; }
         public string Name { get; set; }
 
-        public ICollection<RoleUsers> RoleUsers { get; set; }
+        public virtual ICollection<RoleUsers> RoleUsers { get; set; }
     }
 }

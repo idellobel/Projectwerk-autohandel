@@ -16,12 +16,12 @@ namespace Autohandel.Domain.Entities
         /// <summary>
         /// A navigation property to User entity
         /// </summary>
-        public User User { get; set; }
+        public virtual User User { get; set; }
 
 
         /// <summary>
         /// A navigation property to Role entity
         /// </summary>
-        public Role Role { get; set; }
+        public virtual Role Role { get; set; }
     }
 }

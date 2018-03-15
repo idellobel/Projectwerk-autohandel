@@ -16,6 +16,9 @@ namespace Autohandel.Domain.Entities
         [MaxLength(150)]
         public string MerkTypeNaam { get; set; }
 
-        public Merk VoertuigMerk { get; set; }
+        [ForeignKey("Merk")]
+        public long MerkId { get; set; }
+        public virtual Merk VoertuigMerk { get; set; }
+
     }
 }

@@ -67,196 +67,196 @@ namespace Autohandel.Domain.Data
                     MerkType[] types = new[]
                 {
                     //Alfa Romeo
-                    new MerkType {MerkTypeNaam = "Giulia"},     //0
-                    new MerkType {MerkTypeNaam = "Giulietta" },  //1
-                    new MerkType {MerkTypeNaam = "Stelvio"},    //2
-                    new MerkType {MerkTypeNaam = "MiTo" },       //3
-                    new MerkType {MerkTypeNaam = "156"},        //4
-                    new MerkType {MerkTypeNaam = "Brera" },      //5
-                    new MerkType {MerkTypeNaam = "Spider" },     //6
+                    new MerkType {MerkTypeNaam = "Giulia", MerkId= 1},     //0
+                    new MerkType {MerkTypeNaam = "Giulietta", MerkId= 1 },  //1
+                    new MerkType {MerkTypeNaam = "Stelvio", MerkId= 1},    //2
+                    new MerkType {MerkTypeNaam = "MiTo", MerkId= 1 },       //3
+                    new MerkType {MerkTypeNaam = "156", MerkId= 1},        //4
+                    new MerkType {MerkTypeNaam = "Brera", MerkId= 1 },      //5
+                    new MerkType {MerkTypeNaam = "Spider", MerkId= 1 },     //6
 
                     //Audi
-                    new MerkType {MerkTypeNaam = "A3"},        //7
-                    new MerkType {MerkTypeNaam = "A4"},        //8
-                    new MerkType {MerkTypeNaam = "A5"},        //9
-                    new MerkType {MerkTypeNaam = "A6"},        //10
-                    new MerkType {MerkTypeNaam = "A1"},        //11
+                    new MerkType {MerkTypeNaam = "A3", MerkId= 22},        //7
+                    new MerkType {MerkTypeNaam = "A4", MerkId= 22},        //8
+                    new MerkType {MerkTypeNaam = "A5", MerkId= 22},        //9
+                    new MerkType {MerkTypeNaam = "A6", MerkId= 22},        //10
+                    new MerkType {MerkTypeNaam = "A1", MerkId= 22},        //11
 
                     //BMW
-                     new MerkType {MerkTypeNaam = "1 Reeks" },        //12
-                     new MerkType {MerkTypeNaam = "2 Reeks" },        //13
-                     new MerkType {MerkTypeNaam = "3 Reeks" },        //14
-                     new MerkType {MerkTypeNaam = "4 Reeks"},        //15
-                     new MerkType {MerkTypeNaam = "5 Reeks"},        //16
-                     new MerkType {MerkTypeNaam = "i3" },             //17
-                     new MerkType {MerkTypeNaam = "X1"},             //18
-                     new MerkType {MerkTypeNaam = "X3" },             //19
-                     new MerkType {MerkTypeNaam = "Z4" },             //20
+                     new MerkType {MerkTypeNaam = "1 Reeks", MerkId= 21 },        //12
+                     new MerkType {MerkTypeNaam = "2 Reeks", MerkId= 21 },        //13
+                     new MerkType {MerkTypeNaam = "3 Reeks", MerkId= 21 },        //14
+                     new MerkType {MerkTypeNaam = "4 Reeks", MerkId= 21},        //15
+                     new MerkType {MerkTypeNaam = "5 Reeks", MerkId= 21},        //16
+                     new MerkType {MerkTypeNaam = "i3", MerkId= 21 },             //17
+                     new MerkType {MerkTypeNaam = "X1", MerkId= 21},             //18
+                     new MerkType {MerkTypeNaam = "X3", MerkId= 21 },             //19
+                     new MerkType {MerkTypeNaam = "Z4", MerkId= 21 },             //20
 
                      //CITROEN
-                     new MerkType {MerkTypeNaam = "C4 AIRCROSS" },   //21
-                     new MerkType {MerkTypeNaam = "C1"},            //22
-                     new MerkType {MerkTypeNaam = "C3"},            //23
-                     new MerkType {MerkTypeNaam = "C4" },            //24
-                     new MerkType {MerkTypeNaam = "C4 Cactus"},     //25
-                     new MerkType {MerkTypeNaam = "JUMPER"},        //26
-                     new MerkType {MerkTypeNaam = "C5"},            //27
+                     new MerkType {MerkTypeNaam = "C4 AIRCROSS", MerkId= 20 },   //21
+                     new MerkType {MerkTypeNaam = "C1", MerkId= 20},            //22
+                     new MerkType {MerkTypeNaam = "C3", MerkId= 20},            //23
+                     new MerkType {MerkTypeNaam = "C4", MerkId= 20 },            //24
+                     new MerkType {MerkTypeNaam = "C4 Cactus", MerkId= 20},     //25
+                     new MerkType {MerkTypeNaam = "JUMPER", MerkId= 20},        //26
+                     new MerkType {MerkTypeNaam = "C5", MerkId= 20},            //27
                      
                      //DAEWOO
-                     new MerkType {MerkTypeNaam = "Nubira" },       //28
+                     new MerkType {MerkTypeNaam = "Nubira", MerkId= 19 },       //28
                      
                      //DAIHATSU
-                     new MerkType {MerkTypeNaam = "Charade" },        //29
+                     new MerkType {MerkTypeNaam = "Charade", MerkId= 18 },        //29
                  
                      //FIAT
-                     new MerkType {MerkTypeNaam = "500"},           //30
-                     new MerkType {MerkTypeNaam = "Panda"},          //31
-                     new MerkType {MerkTypeNaam = "Punto"},          //32
-                     new MerkType {MerkTypeNaam = "Tipo"},         //33
-                     new MerkType {MerkTypeNaam = "Bravo" },        //34
+                     new MerkType {MerkTypeNaam = "500", MerkId= 17},           //30
+                     new MerkType {MerkTypeNaam = "Panda", MerkId= 17},          //31
+                     new MerkType {MerkTypeNaam = "Punto", MerkId= 17},          //32
+                     new MerkType {MerkTypeNaam = "Tipo", MerkId= 17},         //33
+                     new MerkType {MerkTypeNaam = "Bravo", MerkId= 17 },        //34
                      
                      //FORD
-                     new MerkType {MerkTypeNaam = "Ecosport"},       //35
-                     new MerkType {MerkTypeNaam = "Edge"},          //36
-                     new MerkType {MerkTypeNaam = "Fiesta"},       //37
-                     new MerkType {MerkTypeNaam = "Focus"},          //38
-                     new MerkType {MerkTypeNaam = "Galaxy"},         //39
-                     new MerkType {MerkTypeNaam = "B-Max"},         //40
-                     new MerkType {MerkTypeNaam = "C-Max"},          //41
-                     new MerkType {MerkTypeNaam = "Transit"},        //42
-                     new MerkType {MerkTypeNaam = "S-Max"},          //43
+                     new MerkType {MerkTypeNaam = "Ecosport", MerkId= 16},       //35
+                     new MerkType {MerkTypeNaam = "Edge", MerkId= 16},          //36
+                     new MerkType {MerkTypeNaam = "Fiesta", MerkId= 16},       //37
+                     new MerkType {MerkTypeNaam = "Focus", MerkId= 16},          //38
+                     new MerkType {MerkTypeNaam = "Galaxy", MerkId= 16},         //39
+                     new MerkType {MerkTypeNaam = "B-Max", MerkId= 16},         //40
+                     new MerkType {MerkTypeNaam = "C-Max", MerkId= 16},          //41
+                     new MerkType {MerkTypeNaam = "Transit", MerkId= 16},        //42
+                     new MerkType {MerkTypeNaam = "S-Max", MerkId= 16},          //43
                      
                      //HONDA
-                     new MerkType {MerkTypeNaam = "CR-V"},          //44
-                     new MerkType {MerkTypeNaam = "Jazz"},         //45
+                     new MerkType {MerkTypeNaam = "CR-V", MerkId= 15},          //44
+                     new MerkType {MerkTypeNaam = "Jazz", MerkId= 15},         //45
                      
                      //HYUNDAI
-                     new MerkType {MerkTypeNaam = "i10"},           //46
-                     new MerkType {MerkTypeNaam = "i20"},           //47
+                     new MerkType {MerkTypeNaam = "i10", MerkId= 14},           //46
+                     new MerkType {MerkTypeNaam = "i20", MerkId= 14},           //47
 
                      //JAGUAR
-                     new MerkType {MerkTypeNaam = "XE"},            //48
-                     new MerkType {MerkTypeNaam = "XJ"},            //49
-                     new MerkType {MerkTypeNaam = "E-PACE"},    //50
+                     new MerkType {MerkTypeNaam = "XE", MerkId= 13},            //48
+                     new MerkType {MerkTypeNaam = "XJ", MerkId= 13},            //49
+                     new MerkType {MerkTypeNaam = "E-PACE", MerkId= 13},    //50
                      
                      //KIA
-                     new MerkType {MerkTypeNaam = "Carens"},     //51
-                     new MerkType {MerkTypeNaam = "Rio"},         //52
-                     new MerkType {MerkTypeNaam = "Picanto"},       //53
-                     new MerkType {MerkTypeNaam = "Venga"},      //54
-                     new MerkType {MerkTypeNaam = "cee'd"},        //55
-                     new MerkType {MerkTypeNaam = "Hybrid"},        //56
-                     new MerkType {MerkTypeNaam = "Optima"},    //57
-                     new MerkType {MerkTypeNaam = "Soul EV"},      //58
+                     new MerkType {MerkTypeNaam = "Carens", MerkId= 12},     //51
+                     new MerkType {MerkTypeNaam = "Rio", MerkId= 12},         //52
+                     new MerkType {MerkTypeNaam = "Picanto", MerkId= 12},       //53
+                     new MerkType {MerkTypeNaam = "Venga", MerkId= 12},      //54
+                     new MerkType {MerkTypeNaam = "cee'd", MerkId= 12},        //55
+                     new MerkType {MerkTypeNaam = "Hybrid", MerkId= 12},        //56
+                     new MerkType {MerkTypeNaam = "Optima", MerkId= 12},    //57
+                     new MerkType {MerkTypeNaam = "Soul EV", MerkId= 12},      //58
                     
                      //LANDROVER
-                     new MerkType {MerkTypeNaam = "Discovery"},           //59
-                     new MerkType {MerkTypeNaam = "Range Rover Evoque"},    //60
+                     new MerkType {MerkTypeNaam = "Discovery", MerkId= 11},           //59
+                     new MerkType {MerkTypeNaam = "Range Rover Evoque", MerkId= 11},    //60
 
                      //MAZDA
-                     new MerkType {MerkTypeNaam = "Mazda2"},        //61
-                     new MerkType {MerkTypeNaam = "Mazda3"},        //62
-                     new MerkType {MerkTypeNaam = "CX-3"},        //63
-                     new MerkType {MerkTypeNaam = "CX-5"},       //64
-                     new MerkType {MerkTypeNaam = "MX-5"},        //65
+                     new MerkType {MerkTypeNaam = "Mazda2", MerkId= 10},        //61
+                     new MerkType {MerkTypeNaam = "Mazda3", MerkId= 10},        //62
+                     new MerkType {MerkTypeNaam = "CX-3", MerkId= 10},        //63
+                     new MerkType {MerkTypeNaam = "CX-5", MerkId= 10},       //64
+                     new MerkType {MerkTypeNaam = "MX-5", MerkId= 10},        //65
 
                      //MERCEDES
-                     new MerkType {MerkTypeNaam = "A-Klasse"},      //66
-                     new MerkType {MerkTypeNaam = "B-Klasse"},    //67
-                     new MerkType {MerkTypeNaam = "C-Klasse"},       //68
-                     new MerkType {MerkTypeNaam = "CLA"},           //69
-                     new MerkType {MerkTypeNaam = "GLA SUV"},       //70
+                     new MerkType {MerkTypeNaam = "A-Klasse", MerkId= 9},      //66
+                     new MerkType {MerkTypeNaam = "B-Klasse", MerkId= 9},    //67
+                     new MerkType {MerkTypeNaam = "C-Klasse", MerkId= 9},       //68
+                     new MerkType {MerkTypeNaam = "CLA", MerkId= 9},           //69
+                     new MerkType {MerkTypeNaam = "GLA SUV", MerkId= 9},       //70
 
                      //MITSUBISHI
-                     new MerkType {MerkTypeNaam = "SPACE STAR"},     //71
-                     new MerkType {MerkTypeNaam = "ASX"},          //72
-                     new MerkType {MerkTypeNaam = "ECLIPSE CROSS"},  //73
-                     new MerkType {MerkTypeNaam = "OUTLANDER"},   //74
+                     new MerkType {MerkTypeNaam = "SPACE STAR", MerkId= 8},     //71
+                     new MerkType {MerkTypeNaam = "ASX", MerkId= 8},          //72
+                     new MerkType {MerkTypeNaam = "ECLIPSE CROSS", MerkId= 8},  //73
+                     new MerkType {MerkTypeNaam = "OUTLANDER", MerkId= 8},   //74
 
                      //NISSAN
-                     new MerkType {MerkTypeNaam = "JUKE"},          //75
-                     new MerkType {MerkTypeNaam = "MICRA"},            //76
-                     new MerkType {MerkTypeNaam = "NOTE" },           //77
-                     new MerkType {MerkTypeNaam = "LEAF"},            //78
+                     new MerkType {MerkTypeNaam = "JUKE", MerkId= 7},          //75
+                     new MerkType {MerkTypeNaam = "MICRA", MerkId= 7},            //76
+                     new MerkType {MerkTypeNaam = "NOTE", MerkId= 7 },           //77
+                     new MerkType {MerkTypeNaam = "LEAF", MerkId= 7},            //78
 
                      //OPEL
-                      new MerkType {MerkTypeNaam = "ADAM"},            //79
-                     new MerkType {MerkTypeNaam = "AGILA"},           //80
-                     new MerkType {MerkTypeNaam = "AMPERA"},       //81
-                     new MerkType {MerkTypeNaam = "ASTRA"},          //82
-                     new MerkType {MerkTypeNaam = "CASCADA"},      //83
-                     new MerkType {MerkTypeNaam = "CORSA"},           //84
-                     new MerkType {MerkTypeNaam = "CROSSLAND X"},     //85
-                     new MerkType {MerkTypeNaam = "GRANDLAND X"},    //87
-                     new MerkType {MerkTypeNaam = "INSIGNIA"},        //88
-                     new MerkType {MerkTypeNaam = "KARL"},           //89
-                     new MerkType {MerkTypeNaam = "MERIVA"},          //90
-                     new MerkType {MerkTypeNaam = "MOKKA"},          //91
-                     new MerkType {MerkTypeNaam = "MOVANO"},         //92
+                      new MerkType {MerkTypeNaam = "ADAM", MerkId= 6},            //79
+                     new MerkType {MerkTypeNaam = "AGILA", MerkId= 6},           //80
+                     new MerkType {MerkTypeNaam = "AMPERA", MerkId= 6},       //81
+                     new MerkType {MerkTypeNaam = "ASTRA", MerkId= 6},          //82
+                     new MerkType {MerkTypeNaam = "CASCADA", MerkId= 6},      //83
+                     new MerkType {MerkTypeNaam = "CORSA", MerkId= 6},           //84
+                     new MerkType {MerkTypeNaam = "CROSSLAND X", MerkId= 6},     //85
+                     new MerkType {MerkTypeNaam = "GRANDLAND X", MerkId= 6},    //87
+                     new MerkType {MerkTypeNaam = "INSIGNIA", MerkId= 6},        //88
+                     new MerkType {MerkTypeNaam = "KARL", MerkId= 6},           //89
+                     new MerkType {MerkTypeNaam = "MERIVA", MerkId= 6},          //90
+                     new MerkType {MerkTypeNaam = "MOKKA", MerkId= 6},          //91
+                     new MerkType {MerkTypeNaam = "MOVANO", MerkId= 6},         //92
 
                      //PEUGEOT
-                     new MerkType {MerkTypeNaam = "207"},            //93
-                     new MerkType {MerkTypeNaam = "208"},         //94
-                     new MerkType {MerkTypeNaam = "2008"},         //95
-                     new MerkType {MerkTypeNaam = "308"},          //96
-                     new MerkType {MerkTypeNaam = "3008"},         //97
-                     new MerkType {MerkTypeNaam = "4007"},           //98
-                     new MerkType {MerkTypeNaam = "5008"},          //99
-                     new MerkType {MerkTypeNaam = "508"},         //100
-                     new MerkType {MerkTypeNaam = "TRAVELLER"},      //101
+                     new MerkType {MerkTypeNaam = "207", MerkId= 5},            //93
+                     new MerkType {MerkTypeNaam = "208", MerkId= 5},         //94
+                     new MerkType {MerkTypeNaam = "2008", MerkId= 5},         //95
+                     new MerkType {MerkTypeNaam = "308", MerkId= 5},          //96
+                     new MerkType {MerkTypeNaam = "3008", MerkId= 5},         //97
+                     new MerkType {MerkTypeNaam = "4007", MerkId= 5},           //98
+                     new MerkType {MerkTypeNaam = "5008", MerkId= 5},          //99
+                     new MerkType {MerkTypeNaam = "508", MerkId= 5},         //100
+                     new MerkType {MerkTypeNaam = "TRAVELLER", MerkId= 5},      //101
                    
                      //PORCHE
-                     new MerkType {MerkTypeNaam = "718 BOXSTER"},      //102
-                     new MerkType {MerkTypeNaam = "718 CAYMAN"},    //103
-                     new MerkType {MerkTypeNaam = "911"},              //104
-                     new MerkType {MerkTypeNaam = "CAYENNE"},         //105
-                     new MerkType {MerkTypeNaam = "MACAN"},            //106
-                     new MerkType {MerkTypeNaam = "PANAMERA"},       //107
+                     new MerkType {MerkTypeNaam = "718 BOXSTER", MerkId= 4},      //102
+                     new MerkType {MerkTypeNaam = "718 CAYMAN", MerkId= 4},    //103
+                     new MerkType {MerkTypeNaam = "911", MerkId= 4},              //104
+                     new MerkType {MerkTypeNaam = "CAYENNE", MerkId= 4},         //105
+                     new MerkType {MerkTypeNaam = "MACAN", MerkId= 4},            //106
+                     new MerkType {MerkTypeNaam = "PANAMERA", MerkId= 4},       //107
 
                      //RENAULT
-                     new MerkType {MerkTypeNaam = "CAPTUR"},          //108
-                     new MerkType {MerkTypeNaam = "CLIO"},             //109
-                     new MerkType {MerkTypeNaam = "ESPACE"},         //110
-                     new MerkType {MerkTypeNaam = "KADJAR"},          //111
-                     new MerkType {MerkTypeNaam = "KOLEOS"},           //112
-                     new MerkType {MerkTypeNaam = "MEGANE"},        //113
-                     new MerkType {MerkTypeNaam = "SCENIC"},         //114
-                     new MerkType {MerkTypeNaam = "TALISMAN"},         //115
-                     new MerkType {MerkTypeNaam = "TWINGO"},          //116
-                     new MerkType {MerkTypeNaam = "TWIZY"},          //117
-                     new MerkType {MerkTypeNaam = "ZOE"},              //118
+                     new MerkType {MerkTypeNaam = "CAPTUR", MerkId= 3},          //108
+                     new MerkType {MerkTypeNaam = "CLIO", MerkId= 3},             //109
+                     new MerkType {MerkTypeNaam = "ESPACE", MerkId= 3},         //110
+                     new MerkType {MerkTypeNaam = "KADJAR", MerkId= 3},          //111
+                     new MerkType {MerkTypeNaam = "KOLEOS", MerkId= 3},           //112
+                     new MerkType {MerkTypeNaam = "MEGANE", MerkId= 3},        //113
+                     new MerkType {MerkTypeNaam = "SCENIC", MerkId= 3},         //114
+                     new MerkType {MerkTypeNaam = "TALISMAN", MerkId= 3},         //115
+                     new MerkType {MerkTypeNaam = "TWINGO", MerkId= 3},          //116
+                     new MerkType {MerkTypeNaam = "TWIZY", MerkId= 3},          //117
+                     new MerkType {MerkTypeNaam = "ZOE", MerkId= 3},              //118
 
                      //VOLKSWAGEN
-                     new MerkType {MerkTypeNaam = "CC"},              //119
-                     new MerkType {MerkTypeNaam = "GOLF"},            //120
-                     new MerkType {MerkTypeNaam = "JETTA"},         //121
-                     new MerkType {MerkTypeNaam = "NEW BEETLE"},       //123
-                     new MerkType {MerkTypeNaam = "PASSAT"},          //124
-                     new MerkType {MerkTypeNaam = "POLO"},            //125
-                     new MerkType {MerkTypeNaam = "SCIROCCO"},       //126
-                     new MerkType {MerkTypeNaam = "SHARAN"},          //127
-                     new MerkType {MerkTypeNaam = "TIGUAN"},          //128
-                     new MerkType {MerkTypeNaam = "TOUAREG"},         //129
-                     new MerkType {MerkTypeNaam = "TOURAN"},          //130
-                     new MerkType {MerkTypeNaam = "T-ROC"},           //131
-                     new MerkType {MerkTypeNaam = "UP!"},            //132
-                     new MerkType {MerkTypeNaam = "TRANSPORTER"},     //133
+                     new MerkType {MerkTypeNaam = "CC", MerkId= 2},              //119
+                     new MerkType {MerkTypeNaam = "GOLF", MerkId= 2},            //120
+                     new MerkType {MerkTypeNaam = "JETTA", MerkId= 2},         //121
+                     new MerkType {MerkTypeNaam = "NEW BEETLE", MerkId= 2},       //123
+                     new MerkType {MerkTypeNaam = "PASSAT", MerkId= 2},          //124
+                     new MerkType {MerkTypeNaam = "POLO", MerkId= 2},            //125
+                     new MerkType {MerkTypeNaam = "SCIROCCO", MerkId= 2},       //126
+                     new MerkType {MerkTypeNaam = "SHARAN", MerkId= 2},          //127
+                     new MerkType {MerkTypeNaam = "TIGUAN", MerkId= 2},          //128
+                     new MerkType {MerkTypeNaam = "TOUAREG", MerkId= 2},         //129
+                     new MerkType {MerkTypeNaam = "TOURAN", MerkId= 2},          //130
+                     new MerkType {MerkTypeNaam = "T-ROC", MerkId= 2},           //131
+                     new MerkType {MerkTypeNaam = "UP!", MerkId= 2},            //132
+                     new MerkType {MerkTypeNaam = "TRANSPORTER", MerkId= 2},     //133
 
                      //VOLVO
-                     new MerkType {MerkTypeNaam = "S60"},              //134
-                     new MerkType {MerkTypeNaam = "S60 CROSS COUNTRY"},  //135
-                     new MerkType {MerkTypeNaam = "S90"},                //136
-                     new MerkType {MerkTypeNaam = "V40"},                //137
-                     new MerkType {MerkTypeNaam = "V40 CROSS COUNTRY"},  //138
-                     new MerkType {MerkTypeNaam = "V60"},              //139
-                     new MerkType {MerkTypeNaam = "V60 CROSS COUNTRY"},  //140
-                     new MerkType {MerkTypeNaam = "V90"},              //141
-                     new MerkType {MerkTypeNaam = "XC40"},               //142
-                     new MerkType {MerkTypeNaam = "XC60"},              //143
-                     new MerkType {MerkTypeNaam = "XC90"},              //144
+                     new MerkType {MerkTypeNaam = "S60", MerkId= 23},              //134
+                     new MerkType {MerkTypeNaam = "S60 CROSS COUNTRY", MerkId= 23},  //135
+                     new MerkType {MerkTypeNaam = "S90", MerkId= 23},                //136
+                     new MerkType {MerkTypeNaam = "V40", MerkId= 23},                //137
+                     new MerkType {MerkTypeNaam = "V40 CROSS COUNTRY", MerkId= 23},  //138
+                     new MerkType {MerkTypeNaam = "V60", MerkId= 23},              //139
+                     new MerkType {MerkTypeNaam = "V60 CROSS COUNTRY", MerkId= 23},  //140
+                     new MerkType {MerkTypeNaam = "V90", MerkId= 23},              //141
+                     new MerkType {MerkTypeNaam = "XC40", MerkId= 23},               //142
+                     new MerkType {MerkTypeNaam = "XC60", MerkId= 23},              //143
+                     new MerkType {MerkTypeNaam = "XC90", MerkId= 23},              //144
 
                      //DACIA
-                     new MerkType { MerkTypeNaam = "DUSTER"},            //145
+                     new MerkType { MerkTypeNaam = "DUSTER", MerkId= 24},            //145
                      
                   
                 };

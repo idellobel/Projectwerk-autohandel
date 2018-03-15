@@ -10,8 +10,8 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
-using Autohandel.web.Models;
-using Autohandel.web.Models.ManageViewModels;
+using Autohandel.web.ViewModels;
+using Autohandel.web.ViewModels.ManageViewModels;
 using Autohandel.web.Services;
 
 namespace Autohandel.web.Controllers

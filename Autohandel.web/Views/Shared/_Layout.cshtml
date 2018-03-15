@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@ViewData["Title"] - Autohandel Vandenheede</title>
+    <link rel="icon" href="~/images/vtgn/Vandenheede_Logo_1.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="Vandenheede_Logo_1.ico" type="image/x-icon" />
     @*<title>@ViewBag.Title</title>*@
     <environment include="Development">
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
@@ -15,9 +17,9 @@
               asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />
         <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
     </environment>
+    @RenderSection("head", false)
 </head>
 <body >
-   
     <nav class="navbar navbar-expand-sm navbar-dark bg-dark" >
         <div id="app" class="container">
             @*<div class="navbar-header">*@
@@ -33,20 +35,31 @@
             @*</div>*@
             <!--Navbar links-->
             <div class="navbar-collapse collapse" id="collapsibleNavbar">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="DataDisplay" asp-action="Index">DataBaseData</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-controller="Home" asp-action="About">Over Ons</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
-                    </li>
+               
+                <ul class="nav navbar-nav mr-auto">
+
+                    @RenderSection("showAdmin", false)
+
+                    @*@await Component.InvokeAsync("MainNavigation", new { showAdmin = false })*@
+                    @RenderSection("showPublic", false)
+                  
+
+
                 </ul>
+                @*<ul class="navbar-nav mr-auto">
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="DataDisplay" asp-action="Index">DataBaseData</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-controller="Home" asp-action="About">Over Ons</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Contact">Contact</a>
+            </li>
+        </ul>*@
                 @await Html.PartialAsync("_LoginPartial")
             </div>
         </div>

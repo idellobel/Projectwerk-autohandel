@@ -34,9 +34,15 @@ namespace Autohandel.Domain.Entities
 
         public int? OpVoorraad { get; set; }
 
-        public Specificaties Specificatie { get; set; }
+        public virtual Specificaties Specificatie { get; set; }
 
-        public CategorieOnderdelen CategorieOnderdelen  { get; set; }   
+        [ForeignKey("SpecificatieId")]
+        public long? SpecificatieId { get; set; }
+
+
+        public virtual CategorieOnderdelen CategorieOnderdelen  { get; set; }
+        [ForeignKey("CategorieOnderdelen")]
+        public int OnderdelenCategorieId { get; set; } 
 
         public virtual ICollection<File> Files { get; set; }
 

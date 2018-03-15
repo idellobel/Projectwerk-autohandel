@@ -1,4 +1,4 @@
-﻿@model Autohandel.web.Models.DatadisplayViewModels.DatadisplayViewModel
+﻿@model Autohandel.web.ViewModels.DatadisplayViewModels.DatadisplayViewModel
 @{
     ViewData["Title"] = "DatabaseData";
 
@@ -83,6 +83,7 @@
                 <tr>
                     <th>MerktypeNaam</th>
                     <th>MerktypeId</th>
+                    <th>Merk</th>
                 </tr>
             </thead>
             @foreach (var item in Model.automodellen)
@@ -93,6 +94,9 @@
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.MerkTypeId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.VoertuigMerk.MerkNaam)
                     </td>
                 </tr>
             }

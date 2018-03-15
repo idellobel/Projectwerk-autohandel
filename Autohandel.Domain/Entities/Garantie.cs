@@ -14,7 +14,7 @@ namespace Autohandel.Domain.Entities
         public DateTime Vervaldatum { get; set; }
 
         
-        public Faktuur Faktuur { get; set; }
+        public virtual Faktuur Faktuur { get; set; }
 
         [ForeignKey("Faktuur")]
         public long FaktuurId { get; set; }

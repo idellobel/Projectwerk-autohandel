@@ -1,5 +1,5 @@
 ﻿using Autohandel.Domain.Data;
-using Autohandel.web.Models.DatadisplayViewModels;
+using Autohandel.web.ViewModels.DatadisplayViewModels;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
@@ -22,7 +22,7 @@ namespace Autohandel.web.Controllers
             {
                 voertuigCategorieen = await _context.VoertuigCategorieen.ToListAsync(),
                 autoMerken = await _context.Merken.ToListAsync(),
-                automodellen = await _context.Types.ToListAsync(),
+                automodellen = await _context.Types.Include(t => t.VoertuigMerk).ToListAsync(),
                 aanbodVoertuigen = await _context.Voertuigen.ToListAsync(),
                 categorieOnderdelen = await _context.CategorieOnderdelen.ToArrayAsync(),
                 onderdelenProducten = await _context.OnderdelenProducten.Include(s => s.Specificatie).ToArrayAsync()
