@@ -1,0 +1,26 @@
+﻿@model Autohandel.Domain.Entities.Merk
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h6 style="margin-top:20px;">
+    <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar merkenlijst</a>
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
+
+<div>
+    <h4>Merk</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MerkNaam)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MerkNaam)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MerkId">Wijzig</a>
+</div>

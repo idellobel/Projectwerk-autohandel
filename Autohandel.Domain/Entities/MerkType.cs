@@ -12,13 +12,15 @@ namespace Autohandel.Domain.Entities
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long MerkTypeId { get; set; }
 
-        [Required]
-        [MaxLength(150)]
+        [Required(ErrorMessage = "{0} is verplicht")]
+        [StringLength(75, MinimumLength = 2, ErrorMessage = "{0} dient een lengte te hebben van 2 tot 75 karakters")]
         public string MerkTypeNaam { get; set; }
 
         [ForeignKey("Merk")]
         public long MerkId { get; set; }
         public virtual Merk VoertuigMerk { get; set; }
+
+        public virtual ICollection<Voertuig> Voertuigen { get; set; }
 
     }
 }

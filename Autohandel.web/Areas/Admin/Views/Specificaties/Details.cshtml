@@ -1,0 +1,240 @@
+﻿@model Autohandel.Domain.Entities.Specificaties
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Specificaties</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Materie)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Materie)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Kleur)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Kleur)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.GarantieTermijn)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.GarantieTermijn)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Goedkeuring)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Goedkeuring)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Breedte)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Breedte)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxBelading)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaxBelading)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Inhoud)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Inhoud)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Lengte)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Lengte)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Opening)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Opening)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Hoogte)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Hoogte)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Gewicht)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Gewicht)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vergrendeling)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vergrendeling)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Montageset)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Montageset)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.CityCrash)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.CityCrash)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.AantalFietsen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.AantalFietsen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Fietstypes)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Fietstypes)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.StekkerAansluiting)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StekkerAansluiting)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.WaaromKeuze)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.WaaromKeuze)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mistlicht)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mistlicht)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Kantelfunctie)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Kantelfunctie)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Inklapbaar)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Inklapbaar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Dikte)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Dikte)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Buitendiameter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Buitendiameter)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Binnendiameter)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Binnendiameter)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Schroefdraad)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Schroefdraad)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Type)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mengbaar)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mengbaar)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Geur)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Geur)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MinimaleTemperatuur)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MinimaleTemperatuur)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Mat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Mat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Flappen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Flappen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.MaxVertikaleLast)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MaxVertikaleLast)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Aanhangwagengewicht)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Aanhangwagengewicht)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Formaat)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Formaat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Draagvermogen)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Draagvermogen)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.SnelheidIndex)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SnelheidIndex)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Rolgeluid)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Rolgeluid)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.SpecificatieId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

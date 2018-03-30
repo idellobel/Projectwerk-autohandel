@@ -1,0 +1,31 @@
+﻿@model Autohandel.Domain.Entities.Merk
+
+@{
+    ViewData["Title"] = "Create";
+}
+<h6 style="margin-top:20px;">
+    <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar merkenlijst</a>
+
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Maak een nieuwe voertuigmerk</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="MerkNaam" class="control-label"></label>
+                <input asp-for="MerkNaam" class="form-control" />
+                <span asp-validation-for="MerkNaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Maak" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

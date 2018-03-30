@@ -1,0 +1,32 @@
+﻿@model Autohandel.Domain.Entities.MerkType
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h6 style="margin-top:20px;">
+    <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar modellenlijst</a>
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
+
+<div>
+    <h4>MerkType</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MerkTypeNaam)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MerkTypeNaam)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.VoertuigMerk)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.VoertuigMerk.MerkNaam)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.MerkTypeId">Wijzig</a> |
+</div>

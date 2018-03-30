@@ -11,8 +11,8 @@ namespace Autohandel.Domain.Data
     {
         public static void Seed(AutohandelContext context)
         {
-            List<MerkType> allTypes = context.Types.ToList();
-            List<Merk> allMerken = context.Merken.ToList();
+            //List<MerkType> allTypes = context.Types.ToList();
+            //List<Merk> allMerken = context.Merken.ToList();
             //Seed voertuigenCategorie
             if (!context.VoertuigCategorieen.Any())
             {

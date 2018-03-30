@@ -12,9 +12,11 @@ namespace Autohandel.Domain.Entities
         //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long VoertuigCatId { get; set; }
 
-        [Required]
-        [MaxLength(150)]
+        [Required(ErrorMessage ="{0} is verplicht")]
+        [StringLength(150, MinimumLength =5, ErrorMessage ="{0} dient een lengte te hebben van 5 tot 200 karakters")]
         public string VoertuigCategorieNaam { get; set; }
+
+        public virtual ICollection<Voertuig> Voertuigen { get; set; }
 
     }
 }

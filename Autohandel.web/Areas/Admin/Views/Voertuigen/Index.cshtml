@@ -1,0 +1,84 @@
+﻿@model IEnumerable<Autohandel.Domain.Entities.Voertuig>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h6 style="margin-top:20px;">
+    <a asp-area="Admin" asp-controller="Home" asp-action="Voertuigen" style="margin-top:40px;">
+        <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin voertuigen beheer'
+    </a>
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Beheer voertuigen</h2>
+
+<p>
+    <a asp-action="Create">Maak nieuw voertuig aan</a>
+</p>
+<table class="table">
+    <thead>
+        <tr class="d-flex">
+            <th class="col-1">
+                @Html.DisplayNameFor(model => model.VoertuigArtikelNummer)
+            </th>
+            <th class="col-2">
+                @Html.DisplayNameFor(model => model.Merk.MerkNaam)<br />
+                @Html.DisplayNameFor(model => model.MerkType.MerkTypeNaam)<br />
+                @Html.DisplayNameFor(model => model.VoertuigTitel)
+            </th>
+
+            <th class="col-2">
+                @Html.DisplayNameFor(model => model.Prijs)<br />
+                @Html.DisplayNameFor(model => model.Kilometerstand)
+            </th>
+            <th class="col-2">
+                @Html.DisplayNameFor(model => model.Kleur)<br />
+                @Html.DisplayNameFor(model => model.Brandstof)<br />
+                @Html.DisplayNameFor(model => model.Bouwjaar)<br />
+            </th>
+
+            <th class="col-3">
+                @Html.DisplayNameFor(model => model.FiguurURL)
+            </th>
+
+            <th class="col-2"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="d-flex">
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.VoertuigArtikelNummer)
+
+                </td>
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.Merk.MerkNaam)<br />
+                    @Html.DisplayFor(modelItem => item.MerkType.MerkTypeNaam)<br />
+                    @Html.DisplayFor(modelItem => item.VoertuigTitel)
+                </td>
+
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.Prijs) <br />
+                    @Html.DisplayFor(modelItem => item.Kilometerstand) km
+                </td>
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.Kleur)<br />
+                    @Html.DisplayFor(modelItem => item.Brandstof)<br />
+                    @Html.DisplayFor(modelItem => item.Bouwjaar)<br />
+                </td>
+                <td class="col-3" style="font-size:small;">
+                    @Html.DisplayFor(modelItem => item.FiguurURL)<br />
+                    <img src="@Url.Content(item.FiguurURL)" class="img-fluid" />
+                </td>
+
+
+                <td class="col-2">
+                    <a asp-action="Edit" asp-route-id="@item.VoertuigId">Wijzig</a> |
+                    <a asp-action="Details" asp-route-id="@item.VoertuigId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.VoertuigId">Verwijder</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -6,15 +6,36 @@
 }
 
 @section head{
-    <link href=" ~/css/admin.css" rel="stylesheet" />
+    <link href="~/css/admin.css" rel="stylesheet" />
 }
 @RenderSection("showPublic", false)
-@section showAdmin{ 
+@section showAdmin{
     @await Component.InvokeAsync("MainNavigation", new { showAdmin = true })
 }
 
 
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success successdiv">
+         <h3 class="alert-heading"><i class="fas fa-check"></i> Geslaagd!</h3>
+        <h4>
+            @Html.Raw(@TempData["SuccessMessage"])
+        </h4>
+    </div>
+}
+
+@if (TempData["AlertMessage"] != null)
+{
+    <div class="alert alert-danger dangerdiv ">
+        <h3 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Aandacht!</h3>
+        <h4>
+            @Html.Raw(@TempData["AlertMessage"])
+        </h4>
+    </div>
+}
+
 
 @RenderBody()
+@RenderSection("Scripts",false)
 
 

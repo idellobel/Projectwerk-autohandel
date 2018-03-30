@@ -16,8 +16,13 @@ namespace Autohandel.Domain.Entities
 
         public int? ParentId { get; set; }
 
+        [StringLength(512, ErrorMessage = "Het veld FiguurURL kan niet langer zijn dan 512 karakters")]
+        [Display(Name = "Afbeelding")]
+        public string FiguurURL { get; set; }
+
         [Display(Name = "Hoofdcategorie")]
         public virtual CategorieOnderdelen Parent { get; set; }
+
         public virtual ICollection<CategorieOnderdelen> Children { get; set; }
         public virtual ICollection<OnderdelenProducten> Products { get; set; }
 

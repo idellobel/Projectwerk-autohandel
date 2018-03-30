@@ -1,0 +1,35 @@
+﻿@model Autohandel.Domain.Entities.MerkType
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<h6 style="margin-top:20px;">
+    <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar modellenlijst</a>
+
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Wijzig</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MerkTypeId" />
+            <div class="form-group">
+                <label asp-for="MerkTypeNaam" class="control-label"></label>
+                <input asp-for="MerkTypeNaam" class="form-control" />
+                <span asp-validation-for="MerkTypeNaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MerkId" class="control-label"></label>
+                <select asp-for="MerkId" class="form-control" asp-items="ViewBag.MerkId"></select>
+                <span asp-validation-for="MerkId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Bewaar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+

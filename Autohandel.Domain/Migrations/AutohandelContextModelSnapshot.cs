@@ -27,6 +27,9 @@ namespace Autohandel.Domain.Migrations
                     b.Property<int>("OnderdelenCategorieId")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("FiguurURL")
+                        .HasMaxLength(512);
+
                     b.Property<string>("OnderdelenCategorienaam")
                         .IsRequired();
 
@@ -120,7 +123,7 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<string>("MerkTypeNaam")
                         .IsRequired()
-                        .HasMaxLength(150);
+                        .HasMaxLength(75);
 
                     b.HasKey("MerkTypeId");
 
@@ -367,20 +370,23 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<int>("CC");
 
-                    b.Property<string>("COTwee");
+                    b.Property<string>("COTwee")
+                        .HasMaxLength(50);
 
-                    b.Property<long>("Chassisnummer");
+                    b.Property<string>("Chassisnummer")
+                        .HasMaxLength(17);
 
                     b.Property<int>("Deuren");
 
                     b.Property<long?>("FaktuurNr");
 
                     b.Property<string>("FiguurURL")
-                        .HasMaxLength(512);
+                        .HasMaxLength(200);
 
                     b.Property<long?>("GarantieId");
 
-                    b.Property<string>("GarantieTijd");
+                    b.Property<string>("GarantieTijd")
+                        .HasMaxLength(75);
 
                     b.Property<int>("Kilometerstand");
 
@@ -390,24 +396,29 @@ namespace Autohandel.Domain.Migrations
 
                     b.Property<int>("Koetswerk");
 
-                    b.Property<long?>("MerkId");
+                    b.Property<long>("MerkId");
 
                     b.Property<long?>("MerkTypeId");
 
+                    b.Property<long>("ModelId");
+
                     b.Property<decimal>("Prijs");
 
-                    b.Property<string>("Registratie");
+                    b.Property<string>("Registratie")
+                        .HasMaxLength(50);
 
-                    b.Property<string>("Vermogen");
+                    b.Property<string>("Vermogen")
+                        .HasMaxLength(75);
 
                     b.Property<int>("Versnelling");
 
                     b.Property<string>("VoertuigArtikelNummer")
                         .IsRequired();
 
-                    b.Property<long?>("VoertuigCategorieVoertuigCatId");
+                    b.Property<long>("VoertuigCatId");
 
-                    b.Property<string>("VoertuigTitel");
+                    b.Property<string>("VoertuigTitel")
+                        .HasMaxLength(250);
 
                     b.Property<int>("Zitplaatsen");
 
@@ -423,7 +434,7 @@ namespace Autohandel.Domain.Migrations
 
                     b.HasIndex("MerkTypeId");
 
-                    b.HasIndex("VoertuigCategorieVoertuigCatId");
+                    b.HasIndex("VoertuigCatId");
 
                     b.ToTable("Voertuigen");
                 });
@@ -588,16 +599,18 @@ namespace Autohandel.Domain.Migrations
                         .HasForeignKey("KlantPersoonId");
 
                     b.HasOne("Autohandel.Domain.Entities.Merk", "Merk")
-                        .WithMany()
-                        .HasForeignKey("MerkId");
+                        .WithMany("Voertuigen")
+                        .HasForeignKey("MerkId")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Autohandel.Domain.Entities.MerkType", "MerkType")
-                        .WithMany()
+                        .WithMany("Voertuigen")
                         .HasForeignKey("MerkTypeId");
 
                     b.HasOne("Autohandel.Domain.Entities.VoertuigCategorie", "VoertuigCategorie")
-                        .WithMany()
-                        .HasForeignKey("VoertuigCategorieVoertuigCatId");
+                        .WithMany("Voertuigen")
+                        .HasForeignKey("VoertuigCatId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
 
             modelBuilder.Entity("Autohandel.Domain.Entities.Klant", b =>

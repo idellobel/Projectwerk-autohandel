@@ -3,5 +3,46 @@
     ViewData["Title"] = "Voertuigen";
 }
 
-<h2>Voertuigen</h2>
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Admin Voertuigen Beheer</h2>
 
+<div class="row text-center ">
+
+    <div class="col-lg-3 col-md-5 col-sm-8 text-center DashItems ">
+        <a asp-controller="VoertuigCategorieen" asp-action="Index" asp-area="Admin">
+            <img asp-append-version="true" src="~/images/vtgn/autoCategorie.jpg" alt="autoCategorie" title="autoCategorie"
+                 class="img-fluid DashItemsAfbeeldingen">
+        </a>
+        
+        <a asp-controller="VoertuigCategorieen" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Voertuigen Categorieën</a>
+    </div>
+
+    <div class=" col-lg-3 col-md-5 col-sm-8   text-center DashItems ">
+        <a asp-controller="Merken" asp-action="Index" asp-area="Admin">
+            <img asp-append-version="true" src="~/images/vtgn/autoMerken.png" alt="Merken" title="Merken"
+                 class="img-fluid DashItemsAfbeeldingen">
+        </a>
+
+        <a asp-controller="Merken" asp-action="Index" asp-area="Admin" class="btn btn-info"style="margin-bottom:2%;">Auto Merken</a>
+    </div>
+
+    <div class="col-lg-3 col-md-5 col-sm-8   text-center DashItems ">
+        <a asp-controller="MerkTypes" asp-action="Index" asp-area="Admin">
+            <img asp-append-version="true" src="~/images/vtgn/autoModel.jpg" alt="Modellen" title="Modellen"
+                 class="img-fluid DashItemsAfbeeldingen">
+        </a>
+
+        <a asp-controller="MerkTypes" asp-action="Index" asp-area="Admin" class="btn btn-info"style="margin-bottom:2%;">Auto Modellen</a>
+    </div>
+
+ </div>
+
+<div class="row text-center ">
+    <div class="col-lg-3 col-md-5 col-sm-8  text-center DashItems ">
+        <a asp-controller="Voertuigen" asp-action="Index" asp-area="Admin">
+            <img asp-append-version="true" src="~/images/vtgn/autoAanbod.png" alt="Aanbod voertuigen" title="Aanbod voertuigen"
+                 class="img-fluid DashItemsAfbeeldingen">
+        </a>
+
+        <a asp-controller="Voertuigen" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Aanbod Voertuigen</a>
+    </div>
+</div>

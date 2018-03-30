@@ -1,0 +1,251 @@
+﻿@model IEnumerable<Autohandel.Domain.Entities.Specificaties>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Materie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kleur)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.GarantieTermijn)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Goedkeuring)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Breedte)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaxBelading)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Inhoud)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Lengte)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Opening)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Hoogte)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Gewicht)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Vergrendeling)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Montageset)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.CityCrash)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.AantalFietsen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Fietstypes)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StekkerAansluiting)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.WaaromKeuze)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mistlicht)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Kantelfunctie)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Inklapbaar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Dikte)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Buitendiameter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Binnendiameter)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Schroefdraad)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mengbaar)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Geur)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MinimaleTemperatuur)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Mat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Flappen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.MaxVertikaleLast)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Aanhangwagengewicht)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Formaat)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Draagvermogen)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SnelheidIndex)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Rolgeluid)
+                </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Materie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kleur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GarantieTermijn)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Goedkeuring)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Breedte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxBelading)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inhoud)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Lengte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Opening)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hoogte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gewicht)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Vergrendeling)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Montageset)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CityCrash)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AantalFietsen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fietstypes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StekkerAansluiting)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WaaromKeuze)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mistlicht)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Kantelfunctie)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Inklapbaar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dikte)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buitendiameter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Binnendiameter)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Schroefdraad)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mengbaar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Geur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinimaleTemperatuur)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Flappen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxVertikaleLast)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Aanhangwagengewicht)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Formaat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Draagvermogen)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SnelheidIndex)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rolgeluid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.SpecificatieId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.SpecificatieId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.SpecificatieId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

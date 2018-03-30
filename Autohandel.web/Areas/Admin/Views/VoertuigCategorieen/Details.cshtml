@@ -3,8 +3,11 @@
 @{
     ViewData["Title"] = "Details";
 }
+<h6 style="margin-top:20px;">
+    <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar categorielijst</a>
+</h6>
 
-<h2>Details</h2>
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
 
 <div>
     <h4>VoertuigCategorie</h4>
@@ -19,6 +22,6 @@
     </dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.VoertuigCatId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.VoertuigCatId">Wijzig</a> 
+    
 </div>

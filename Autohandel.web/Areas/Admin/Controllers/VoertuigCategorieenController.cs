@@ -61,6 +61,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             {
                 _context.Add(voertuigCategorie);
                 await _context.SaveChangesAsync();
+                TempData["SuccessMessage"] = $"De voertuigencategorie <b>{voertuigCategorie.VoertuigCategorieNaam}</b> is succesvol toegevoegd.";
                 return RedirectToAction(nameof(Index));
             }
             return View(voertuigCategorie);
@@ -73,12 +74,24 @@ namespace Autohandel.web.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-
-            var voertuigCategorie = await _context.VoertuigCategorieen.SingleOrDefaultAsync(m => m.VoertuigCatId == id);
+            var voertuigCategorie = await _context.VoertuigCategorieen.Include(c => c.Voertuigen).SingleOrDefaultAsync(m => m.VoertuigCatId == id);
             if (voertuigCategorie == null)
             {
                 return NotFound();
             }
+            if (voertuigCategorie.Voertuigen.Count() != 0)
+            {
+                try
+                {
+                    TempData["AlertMessage"] = $"De voertuigencategorie <b>{voertuigCategorie.VoertuigCategorieNaam}</b> mag niet gewijzigd worden." +
+                        $"De categorienaam is reeds verbonden met voertuigen.";
+                    //TempData["msgClass"] = "alert alert-success";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch { }
+            }
+
+
             return View(voertuigCategorie);
         }
 
@@ -100,6 +113,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
                 {
                     _context.Update(voertuigCategorie);
                     await _context.SaveChangesAsync();
+                    TempData["SuccessMessage"] = $"De voertuigencategorie <b>{voertuigCategorie.VoertuigCategorieNaam}</b> is succesvol gewijzigd.";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -125,11 +139,22 @@ namespace Autohandel.web.Areas.Admin.Controllers
                 return NotFound();
             }
 
-            var voertuigCategorie = await _context.VoertuigCategorieen
+            var voertuigCategorie = await _context.VoertuigCategorieen.Include(c=>c.Voertuigen)
                 .SingleOrDefaultAsync(m => m.VoertuigCatId == id);
             if (voertuigCategorie == null)
             {
                 return NotFound();
+            }
+            if (voertuigCategorie.Voertuigen.Count() != 0)
+            {
+                try
+                {
+                    TempData["AlertMessage"] = $"De voertuigencategorie <b>{voertuigCategorie.VoertuigCategorieNaam}</b> mag niet verwijderd worden." +
+                        $"De categorienaam is reeds verbonden met voertuigen.";
+                    //TempData["msgClass"] = "alert alert-success";
+                    return RedirectToAction(nameof(Index));
+                }
+                catch { }
             }
 
             return View(voertuigCategorie);
@@ -140,9 +165,33 @@ namespace Autohandel.web.Areas.Admin.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {
-            var voertuigCategorie = await _context.VoertuigCategorieen.SingleOrDefaultAsync(m => m.VoertuigCatId == id);
-            _context.VoertuigCategorieen.Remove(voertuigCategorie);
-            await _context.SaveChangesAsync();
+            var voertuigCategorie = await _context.VoertuigCategorieen.Include(c => c.Voertuigen).SingleOrDefaultAsync(m => m.VoertuigCatId == id);
+
+            if (voertuigCategorie.Voertuigen.Count() == 0)
+            {
+                try
+                {
+                    _context.VoertuigCategorieen.Remove(voertuigCategorie);
+                    await _context.SaveChangesAsync();
+
+                    TempData["SuccessMessage"] = $"De voertuigencategorie <b>{voertuigCategorie.VoertuigCategorieNaam}</b> is succesvol verwijderd.";
+                    //TempData["msgClass"] = "alert alert-success";
+                }
+                catch
+                {
+                    TempData["AlertMessage"] = $"De voertuigencategorie <b>{voertuigCategorie.VoertuigCategorieNaam}</b> kon niet verwijderd worden.";
+                    //TempData["msgClass"] = "alert alert-danger";
+                }
+            }
+            else
+            {
+                TempData["AlertMessage"] = $"De voertuigencategorie <b>{voertuigCategorie.VoertuigCategorieNaam}</b> kon niet verwijderd worden. Er zijn reeds voertuigen aan verbonden!";
+                //TempData["msgClass"] = "alert alert-danger";<b>{categorie.Categorienaam}</b>
+
+            }
+        
+   
+
             return RedirectToAction(nameof(Index));
         }
 
