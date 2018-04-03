@@ -1,0 +1,83 @@
+﻿@model Autohandel.Domain.Entities.OnderdelenProducten
+
+@{
+    ViewData["Title"] = "Details";
+}
+<h6 style="margin-top:20px;">
+    <a asp-action="Index">
+        <i class="fas fa-arrow-circle-left"></i> Terug naar 'beheer interieurfilter'
+    </a>
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
+
+<div>
+
+    <hr />
+    <div class="container">
+        <div class="table-responsive ">
+            <table class="table table-condensed table-bordered table-striped ">
+                <thead class="thead-dark">
+                    <tr class="d-flex">
+                        <th class="col-lg-4 col-md-4 col col-sm-4">Benaming</th>
+                        <th class="col-lg-8 col-md-8 col-sm-8">Gegeven</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="d-flex">
+                        <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                            @Html.DisplayNameFor(model => model.Artikelnummer) : <br />
+                            @Html.DisplayNameFor(model => model.CategorieOnderdelen.OnderdelenCategorienaam) : <br />
+                            @Html.DisplayNameFor(model => model.Artikelnaam) : <br />
+                            @Html.DisplayNameFor(model => model.Prijs) : <br />
+
+
+                        </td>
+                        <td class="col-lg-8 col-md-8 col-sm-8">
+                            @Html.DisplayFor(model => model.Artikelnummer)<br />
+                            @Html.DisplayFor(model => model.CategorieOnderdelen.OnderdelenCategorienaam)<br />
+                            @Html.DisplayFor(model => model.Artikelnaam)<br />
+                            @Html.DisplayFor(model => model.Prijs)<br />
+
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                            @Html.DisplayNameFor(model => model.Artikelomschrijving) : <br />
+                        </td>
+                        <td class="col-lg-8 col-md-8 col-sm-8">
+                            @Html.Raw(Model.Artikelomschrijving)<br />
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                            @Html.DisplayNameFor(model => model.Specificatie.Type) : <br />
+                            @Html.DisplayNameFor(model => model.Specificatie.Dikte) in mm : <br />
+                            @Html.DisplayNameFor(model => model.Specificatie.Lengte) in mm : <br />
+                            @Html.DisplayNameFor(model => model.Specificatie.Breedte) in mm : <br />
+                            @Html.DisplayNameFor(model => model.Specificatie.Gewicht) in gr : <br />
+
+                        </td>
+                        <td class="col-lg-8 col-md-8 col-sm-8">
+                            @Html.DisplayFor(model => model.Specificatie.Type)<br />
+                            @Html.DisplayFor(model => model.Specificatie.Dikte)<br />
+                            @Html.DisplayFor(model => model.Specificatie.Lengte)<br />
+                            @Html.DisplayFor(model => model.Specificatie.Breedte)<br />
+                            @Html.DisplayFor(model => model.Specificatie.Gewicht)<br />
+
+                        </td>
+                    </tr>
+                    <tr class="d-flex">
+                        <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                            @Html.DisplayNameFor(model => model.FiguurURL) : <br />
+                        </td>
+                        <td class="col-lg-8 col-md-8 col-sm-8">
+                            @Html.DisplayFor(model => model.FiguurURL)<br />
+                            <img src="@Url.Content(Model.FiguurURL)" class="img-fluid" />
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

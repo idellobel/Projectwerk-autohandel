@@ -4,27 +4,28 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h6 style="margin-top:20px;">
+    <a asp-area="Admin" asp-controller="CategorieOnderdelen" asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar categorieOnderdelenlijst</a>
+</h6>
 
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
+<hr />
 <div>
-    <h4>CategorieOnderdelen</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.OnderdelenCategorienaam)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.OnderdelenCategorienaam)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.Parent)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.Parent.OnderdelenCategorienaam)
-        </dd>
-    </dl>
+<dl class="dl-horizontal">
+    <dt>
+        @Html.DisplayNameFor(model => model.OnderdelenCategorienaam)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.OnderdelenCategorienaam)
+    </dd>
+    <dt>
+        @Html.DisplayNameFor(model => model.Parent)
+    </dt>
+    <dd>
+        @Html.DisplayFor(model => model.Parent.OnderdelenCategorienaam)
+    </dd>
+</dl>
 </div>
 <div>
-    <a asp-action="Edit" asp-route-id="@Model.OnderdelenCategorieId">Edit</a> |
-    <a asp-action="Index">Back to List</a>
+    <a asp-action="Edit" asp-route-id="@Model.OnderdelenCategorieId">Wijzig</a> 
 </div>

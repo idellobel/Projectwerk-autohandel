@@ -1641,7 +1641,7 @@ namespace Autohandel.Domain.Data
                     new CategorieOnderdelen{ OnderdelenCategorienaam= "Tapijt Stof", ParentId = 4 },
                     new CategorieOnderdelen{ OnderdelenCategorienaam= "Tapijt Rubber", ParentId = 4 },
                     new CategorieOnderdelen{ OnderdelenCategorienaam= "Clips", ParentId = 4 },
-                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Brandstoffliter", ParentId = 6 },
+                    new CategorieOnderdelen{ OnderdelenCategorienaam= "Brandstoffilter", ParentId = 6 },
                     new CategorieOnderdelen{ OnderdelenCategorienaam= "Interieurfilter", ParentId = 6 },
                     new CategorieOnderdelen{ OnderdelenCategorienaam= "Koelvloeistof", ParentId = 6 },
                     new CategorieOnderdelen{ OnderdelenCategorienaam= "Luchtfilter", ParentId = 6 },
@@ -2477,7 +2477,7 @@ namespace Autohandel.Domain.Data
                     },
                           new OnderdelenProducten
                     {
-                        Artikelnummer = "20",
+                        Artikelnummer = "WD_20",
                         Artikelnaam = "16 INCH WIELDOPPEN SET EVO RACE ZILVER",
                         Artikelomschrijving = "16 inch wieldoppen set EVO Race zilver  zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere lagen zilverkleurige " +
                         "lak en zwart/rode EVO Race logo op een spaak. De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de stalen velgen " +
@@ -2498,7 +2498,7 @@ namespace Autohandel.Domain.Data
                     },
                            new OnderdelenProducten
                     {
-                        Artikelnummer = "21",
+                        Artikelnummer = "WD_21",
                         Artikelnaam = "16 INCH WIELDOPPEN SET GIGA ZWART",
                         Artikelomschrijving = "16 inch wieldoppen set Giga mat zwart zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere lagen zilverkleurige " +
                         "lak en Giga logo in het hart van de wieldop. De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de stalen velgen " +
@@ -2519,7 +2519,7 @@ namespace Autohandel.Domain.Data
                     },
                      new OnderdelenProducten
                     {
-                        Artikelnummer = "22",
+                        Artikelnummer = "WD_22",
                         Artikelnaam = "16 INCH WIELDOPPEN SET GRAL B ZWART",
                         Artikelomschrijving = "16 inch wieldoppen set Gral in het zwart  zijn gefabriceerd van buig- en recyclebaar kunststof en gespoten in meerdere lagen matzwarte lak. De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de stalen velgen " +
                         "van uw auto. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
@@ -2539,7 +2539,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "23",
+                        Artikelnummer = "WD_23",
                         Artikelnaam = "16 INCH WIELDOPPEN SET GRAL ZILVER",
                         Artikelomschrijving = "16 inch wieldoppen set Gral in zilver zijn gefabriceerd van buig- en recyclebaar kunststof en gespoten in meerdere lagen zilverkleurige coating. De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de stalen velgen " +
                         "van uw auto. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
@@ -2559,7 +2559,7 @@ namespace Autohandel.Domain.Data
                     },
                         new OnderdelenProducten
                     {
-                        Artikelnummer = "24",
+                        Artikelnummer = "WD_24",
                         Artikelnaam = "16 INCH WIELDOPPEN SET LEMANS ZWART/GROEN",
                         Artikelomschrijving = "16 inch wieldoppen set LeMans mat zwart/groen  zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere lagen groene en matzwarte lak en chromen ring. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
                         "De wielsierdoppen worden geleverd per set van vier stuks met 4 stalen ringen in een stevige doos die wij voor het verpakken voorzien van kartonnen afdekking om " +
@@ -2578,7 +2578,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "25",
+                        Artikelnummer = "WD_25",
                         Artikelnaam = "17 INCH WIELDOPPEN SET CALIFORNIA ZILVER",
                         Artikelomschrijving = "17 inch wieldoppen California zilver en 5 wielmoerkapjes  zijn gefabriceerd van eersteklas slagvast, recyclebaar ABS kunststof en gespoten " +
                         "in meerdere lagen zilverkleurige lak en afgewerkt met een blanke laklaag. Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
@@ -2598,7 +2598,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "26",
+                        Artikelnummer = "WD_26",
                         Artikelnaam = "17 INCH WIELDOPPEN SET NEW YORK MG MAT GUNMETAL",
                         Artikelomschrijving = "17 inch wieldoppen set New York-MG mat gunmetal met chroom ring  zijn gefabriceerd van eersteklas slagvast, recyclebaar ABS kunststof en gespoten in meerdere lagen mat antraciete coating." +
                         " Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
@@ -2618,7 +2618,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "27",
+                        Artikelnummer = "WD_27",
                         Artikelnaam = "17 INCH WIELDOPPEN SET SILVERSTONE PRO ZWART",
                         Artikelomschrijving = "17 inch wieldoppen Silverstone PRO mat zwart  zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere lagen matzwarte lak en een chromen ring." +
                         " Elke wieldop en ring zijn voorzien van een ventieluitsparing en de montage is eenvoudig. Zo kunt u uw auto in een korte tijd een nieuwe look geven. " +
@@ -2638,7 +2638,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "28",
+                        Artikelnummer = "WD_28",
                         Artikelnaam = "17 INCH WIELDOPPEN SET VERMONT GUNMETAL/ZILVER",
                         Artikelomschrijving = "17 inch wieldoppen Vermont antraciet (ook wel gun metal genoemd)/zilver geven uw auto een compleet nieuwe en frisse look. " +
                         "De 17 inch Vermont wieldoppen worden eenvoudig gemonteerd aan de rand van uw velgen en worden in een stevige doos die wij voor het verpakken " +
@@ -2657,7 +2657,7 @@ namespace Autohandel.Domain.Data
                     },
                      new OnderdelenProducten
                     {
-                        Artikelnummer = "29",
+                        Artikelnummer = "WD_29",
                         Artikelnaam = "17 INCH WIELDOPPEN SET VERMONT ZILVER/ZWART",
                         Artikelomschrijving = "17 inch wieldoppen Vermont zilver/mat zwart geven uw auto een compleet nieuwe en frisse look. " +
                         "De 17 inch Vermont wieldoppen worden eenvoudig gemonteerd aan de rand van uw velgen en worden in een stevige doos die wij voor het verpakken " +
@@ -2676,7 +2676,7 @@ namespace Autohandel.Domain.Data
                     },
                       new OnderdelenProducten
                     {
-                        Artikelnummer = "30",
+                        Artikelnummer = "WD_30",
                         Artikelnaam = "17 INCH WIELDOPPEN SET VOLANTE ZILVER/ZWART",
                         Artikelomschrijving = "17 inch wieldoppen Volante zilver/mat zwart  zijn geproduceerd van slagvast, recyclebaar ABS kunststof en voorzien van meerdere " +
                         "lagen zilverkleurige en matzwarte lak.De wieldoppen worden gemonteerd d.m.v. clips en een in hoogte of breedte verstelbare stalen ring in de rand van de " +
@@ -2709,7 +2709,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_1",
                         Artikelnaam = "PS1 Sonniboy Audi A1 5 deurs 2012- CL 78309",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2721,7 +2721,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_2",
                         Artikelnaam = "PS2 Privacy Shades Audi A3 8V 5 deurs 2012",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2733,7 +2733,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_3",
                         Artikelnaam = "PS3 Sonniboy Audi A5 4drs 09- Compleet zonder achter portieren. CL 78296",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2745,7 +2745,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_4",
                         Artikelnaam =  "PS4 Sonniboy BMW 1-serie F20 5 deurs 2011- CL 78318",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2757,7 +2757,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_5",
                         Artikelnaam = "PS5 Sonniboy BMW 3 serie F31 Touring 2012- CL 78344",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2769,7 +2769,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_6",
                         Artikelnaam = "PS6 Sonniboy BMW 5-Serie Touring F11 5drs 10- Compleet CL 78276",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2781,7 +2781,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_7",
                         Artikelnaam = "PS7 Sonniboy Ford B-Max 2012- CL 78325",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2793,7 +2793,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_8",
                         Artikelnaam = "PS8 Sonniboy Ford C-Max 10- Compleet CL 78261",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2805,7 +2805,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_9",
                         Artikelnaam = "PS9 Sonniboy OP Astra J HB 5drs 09- CL 78268",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2817,7 +2817,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_10",
                         Artikelnaam = "PS10 Privacy Shades Opel Corsa D 5 deurs",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2829,7 +2829,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_11",
                         Artikelnaam = "PS11 Sonniboy Opel Agila B 08- Achterdeuren CL 78190",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2841,7 +2841,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_12",
                         Artikelnaam = "PS12 Privacy Shades Peugeot 207 5 deurs",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2853,7 +2853,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_13",
                         Artikelnaam = "PS13 Zonwering Peugeot 308 Hatchback 5-deurs 2013- 3-delig",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2865,7 +2865,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_14",
                         Artikelnaam = "PS14 Privacy Shades Peugeot 2008 2013",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2877,7 +2877,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_15",
                         Artikelnaam = "PS15 Privacy Shades Peugeot 5008 5 deurs 2009",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2889,7 +2889,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_16",
                         Artikelnaam = "PS16 Sonniboy VW Golf VII 5drs 2012- Compleet CL 78315",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2901,7 +2901,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_17",
                         Artikelnaam = "PS17 Zonwering Volkswagen Jetta VI Sedan 4drs 2010- 3-delig",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2913,7 +2913,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_18",
                         Artikelnaam = "PS18 Sonniboy VW Touran 810- Compleet CL 78243",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2925,7 +2925,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_19",
                         Artikelnaam = "PS19 Originele Shades Citroen C3",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2937,7 +2937,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_20",
                         Artikelnaam = "PS20 Originele Shades Citroen C3 achterruit",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2949,7 +2949,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_21",
                         Artikelnaam = "PS21 Zonwering Citroen C4 AirCross Crossover 5drs 2012- 5-delig",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2961,7 +2961,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_22",
                         Artikelnaam = "PS22 Privacy Shades Kia Cee'd 5 deurs 2012",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2973,7 +2973,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_23",
                         Artikelnaam = "PS23 Privacy Shades Kia Carens 5 deurs 2013",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -2985,7 +2985,7 @@ namespace Autohandel.Domain.Data
                     {
                         Artikelnummer = "PS_24",
                         Artikelnaam = "PS24 Sonniboy Dacia Duster 2010- CL 78374",
-                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM.< <br/>Fix zonder schroeven of boren door clips<br/>" +
+                        Artikelomschrijving = "Voor dit artikel geldt de Laagste prijsgarantie.<br/>Perfecte pasvorm, OEM. <br/>Fix zonder schroeven of boren door clips<br/>" +
                         "Beschermt kinderen tegen zonlicht en insecten.<br/>Sportieve en discrete look.<br/>Uw auto warmt minder snel op door de zon.<br/>Veilig brandwerend polyesterdoek, " +
                         "easy clean.<br/>Kan gebruikt worden met open ramen<br/>Dimt licht van achterliggende voertuigen.<br/>Demonteerbaar naar wens, zonder gebruikssporen.<br/>" +
                         "Achterraam shade bestaat uit 1 deel.<br/>Duidelijke handleiding.",
@@ -3005,7 +3005,7 @@ namespace Autohandel.Domain.Data
                 {
                      new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_1",
+                        Artikelnummer = "VH_1",
                         Artikelnaam = "TH1 Trekhaak - vast 031-101 Bosal",
                         Artikelomschrijving= "TH1 Trekhaak - vast 031-101 Bosal",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
@@ -3022,7 +3022,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_4",
+                        Artikelnummer = "VH_4",
                         Artikelnaam = "TH4 Trekhaak - vast 034-581 Bosal",
                         Artikelomschrijving = "TH4 Trekhaak - vast 034-581 Bosal",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
@@ -3039,7 +3039,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_5",
+                        Artikelnummer = "VH_5",
                         Artikelnaam = "TH5 Trekhaak - vast 037-261 Bosal",
                         Artikelomschrijving = "TH5 Trekhaak - vast 037-261 Bosal",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
@@ -3056,7 +3056,7 @@ namespace Autohandel.Domain.Data
                     },
                      new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_6",
+                        Artikelnummer = "VH_6",
                         Artikelnaam = "TH6 Trekhaak - vast 037-141 Bosal",
                         Artikelomschrijving = "TH6 Trekhaak - vast 037-141 Bosal",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
@@ -3073,7 +3073,7 @@ namespace Autohandel.Domain.Data
                     },
                       new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_7",
+                        Artikelnummer = "VH_7",
                         Artikelnaam = "TH7 Trekhaak - vast 037-641 Bosal",
                         Artikelomschrijving = "TH7 Trekhaak - vast 037-641 Bosal",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
@@ -3090,7 +3090,7 @@ namespace Autohandel.Domain.Data
                     },
                       new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_8",
+                        Artikelnummer = "VH_8",
                         Artikelnaam = "TH8 Trekhaak vast 040-521 Bosal",
                         Artikelomschrijving = "TH8 Trekhaak vast 040-521 Bosal",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 8),
@@ -3116,7 +3116,7 @@ namespace Autohandel.Domain.Data
                 {
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_2",
+                        Artikelnummer = "LH_2",
                         Artikelnaam = "TH2 Trekhaak - afneembaar Bosal",
                         Artikelomschrijving = "TH2 Trekhaak - afneembaar Bosal",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
@@ -3132,7 +3132,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_3",
+                        Artikelnummer = "LH_3",
                         Artikelnaam = "GDW Towbars Group - Afneembaar",
                         Artikelomschrijving = "GDW Towbars Group - Afneembaar",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
@@ -3148,7 +3148,7 @@ namespace Autohandel.Domain.Data
                     },
                     new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_10",
+                        Artikelnummer = "LH_10",
                         Artikelnaam = "TH10 Trekhaak - afneembaar ECE7_0340",
                         Artikelomschrijving= "TH10 Trekhaak - afneembaar ECE7_0340",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
@@ -3164,7 +3164,7 @@ namespace Autohandel.Domain.Data
                     },
                       new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_9",
+                        Artikelnummer = "LH_9",
                         Artikelnaam = "TH9 Trekhaak - afneembaar Trh. Bosal PSA AK",
                         Artikelomschrijving = "TH9 Trekhaak - afneembaar Trh. Bosal PSA AK",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
@@ -3180,7 +3180,7 @@ namespace Autohandel.Domain.Data
                     },
                         new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_11",
+                        Artikelnummer = "LH_11",
                         Artikelnaam = "TH11 Trekhaak - afneembaar EC3852",
                         Artikelomschrijving = "TH11 Trekhaak - afneembaar EC3852",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
@@ -3196,7 +3196,7 @@ namespace Autohandel.Domain.Data
                     },
                           new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_12",
+                        Artikelnummer = "LH_12",
                         Artikelnaam = "TH12 Trekhaak - afneembaar ECE7_0320",
                         Artikelomschrijving = "TH12 Trekhaak - afneembaar ECE7_0320",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
@@ -3212,7 +3212,7 @@ namespace Autohandel.Domain.Data
                     },
                              new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_13",
+                        Artikelnummer = "LH_13",
                         Artikelnaam = "TH13 Trekhaak - afneembaar  ECE7_011388",
                         Artikelomschrijving = "TH13 Trekhaak - afneembaar  ECE7_011388",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),
@@ -3228,7 +3228,7 @@ namespace Autohandel.Domain.Data
                     },
                               new OnderdelenProducten
                     {
-                        Artikelnummer = "TH_14",
+                        Artikelnummer = "LH_14",
                         Artikelnaam = "TH14 BRINK KIT Trekhaak afneembaar (BMU) + 13p kabelset",
                         Artikelomschrijving = "TH14 BRINK KIT Trekhaak afneembaar (BMU) + 13p kabelset",
                         CategorieOnderdelen = context.CategorieOnderdelen.Single(c => c.OnderdelenCategorieId == 22),

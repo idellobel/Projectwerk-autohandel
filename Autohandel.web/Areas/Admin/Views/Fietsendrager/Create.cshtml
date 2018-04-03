@@ -1,0 +1,135 @@
+﻿@model Autohandel.Domain.Entities.OnderdelenProducten
+@using Autohandel.Domain.Entities
+@{
+    ViewData["Title"] = "Create";
+}
+<h6 style="margin-top:20px;">
+    <a asp-action="Index">
+        <i class="fas fa-arrow-circle-left"></i> Terug naar 'beheer fietsendrager'
+    </a>
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Maak een nieuwe fietsendrager</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Artikelnummer" class="control-label"></label>
+                <input asp-for="Artikelnummer" class="form-control" placeholder="---FD_Nr---" />
+                <span asp-validation-for="Artikelnummer" class="text-danger"> @Html.ValidationMessage("ArtikelValidatieError")</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artikelnaam" class="control-label"></label>
+                <input asp-for="Artikelnaam" class="form-control" />
+                <span asp-validation-for="Artikelnaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artikelomschrijving" class="control-label"></label>
+                <textarea asp-for="Artikelomschrijving" rows="5" cols="40" class="form-control"> </textarea>
+                <span asp-validation-for="Artikelomschrijving" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prijs" class="control-label"></label>
+                <input asp-for="Prijs" class="form-control" />
+                <span asp-validation-for="Prijs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FiguurURL" class="control-label"></label>
+                <input asp-for="FiguurURL" class="form-control" />
+                <span asp-validation-for="FiguurURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.AantalFietsen" class="control-label"></label>
+                <input asp-for="Specificatie.AantalFietsen" class="form-control" />
+                <span asp-validation-for="Specificatie.AantalFietsen" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Fietstypes" class="control-label"></label>
+                <input asp-for="Specificatie.Fietstypes" class="form-control" />
+                <span asp-validation-for="Specificatie.Fietstypes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Vergrendeling" class="control-label"></label>
+                <input asp-for="Specificatie.Vergrendeling" class="form-control" />
+                <span asp-validation-for="Specificatie.Vergrendeling" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.MaxBelading" class="control-label"></label>
+                <input asp-for="Specificatie.MaxBelading" class="form-control" />
+                <span asp-validation-for="Specificatie.MaxBelading" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.StekkerAansluiting" class="control-label"></label>
+                <input asp-for="Specificatie.StekkerAansluiting" class="form-control" />
+                <span asp-validation-for="Specificatie.StekkerAansluiting" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Mistlicht" class="control-label"></label>
+                <input asp-for="Specificatie.Mistlicht" class="form-control" />
+                <span asp-validation-for="Specificatie.Mistlicht" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Kantelfunctie" class="control-label"></label>
+                <select asp-for="Specificatie.Kantelfunctie" asp-items="Html.GetEnumSelectList<Kantelfunctie>()" class="form-control">
+                    <option selected="" value=""></option>
+                </select>
+                <span asp-validation-for="Specificatie.Kantelfunctie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Inklapbaar" class="control-label"></label>
+                <input asp-for="Specificatie.Inklapbaar" class="form-control" />
+                <span asp-validation-for="Specificatie.Inklapbaar" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Montageset" class="control-label"></label>
+                <input asp-for="Specificatie.Montageset" class="form-control" />
+                <span asp-validation-for="Specificatie.Montageset" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Materie" class="control-label"></label>
+                <input asp-for="Specificatie.Materie" class="form-control" />
+                <span asp-validation-for="Specificatie.Materie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Hoogte" class="control-label"></label>
+                <input asp-for="Specificatie.Hoogte" class="form-control" />
+                <span asp-validation-for="Specificatie.Hoogte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Lengte" class="control-label"></label>
+                <input asp-for="Specificatie.Lengte" class="form-control" />
+                <span asp-validation-for="Specificatie.Lengte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Breedte" class="control-label"></label>
+                <input asp-for="Specificatie.Breedte" class="form-control" />
+                <span asp-validation-for="Specificatie.Breedte" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Gewicht" class="control-label"></label>
+                <input asp-for="Specificatie.Gewicht" class="form-control" />
+                <span asp-validation-for="Specificatie.Gewicht" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Dikte" class="control-label"></label>
+                <input asp-for="Specificatie.Dikte" class="form-control" />
+                <span asp-validation-for="Specificatie.Dikte" class="text-danger"></span>
+            </div> 
+            <div class="form-group">
+                <label asp-for="Specificatie.GarantieTermijn" class="control-label"></label>
+                <input asp-for="Specificatie.GarantieTermijn" class="form-control" />
+                <span asp-validation-for="Specificatie.GarantieTermijn" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnderdelenCategorieId" class="control-label"></label>
+                <select asp-for="OnderdelenCategorieId" class="form-control" asp-items="ViewBag.OnderdelenCategorieId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Maak" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+

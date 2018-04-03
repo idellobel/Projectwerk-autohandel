@@ -1,0 +1,59 @@
+﻿@model Autohandel.Domain.Entities.OnderdelenProducten
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h6 style="margin-top:20px;">
+    <a asp-action="Index">
+        <i class="fas fa-arrow-circle-left"></i> Terug naar 'beheer motorolie'
+    </a>
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Wijzig</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Artikelnummer" />
+            <div class="form-group">
+                <label asp-for="Artikelnaam" class="control-label"></label>
+                <input asp-for="Artikelnaam" class="form-control" />
+                <span asp-validation-for="Artikelnaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artikelomschrijving" class="control-label"></label>
+                <textarea asp-for="Artikelomschrijving" rows="5" cols="40" class="form-control"> </textarea>
+                <span asp-validation-for="Artikelomschrijving" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prijs" class="control-label"></label>
+                <input asp-for="Prijs" class="form-control" />
+                <span asp-validation-for="Prijs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FiguurURL" class="control-label"></label>
+                <input asp-for="FiguurURL" class="form-control" />
+                <span asp-validation-for="FiguurURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Inhoud" class="control-label"></label>
+                <input asp-for="Specificatie.Inhoud" class="form-control" />
+                <span asp-validation-for="Specificatie.Inhoud" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Type" class="control-label"></label>
+                <input asp-for="Specificatie.Type" class="form-control" />
+                <span asp-validation-for="Specificatie.Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="OnderdelenCategorieId" class="control-label"></label>
+                <select asp-for="OnderdelenCategorieId" class="form-control" asp-items="ViewBag.OnderdelenCategorieId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Bewaar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>

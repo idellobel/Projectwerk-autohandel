@@ -19,7 +19,7 @@
     <h2 class="text-center text-xl-center text-lowercase text-primary " style="margin-top:25px;">@(Model.OnderdelenCategorienaam) bevat geen subcategorie.</h2>
 
     <div class="col-lg-3 col-md-5 col-sm-8 text-left @*DashItems*@ ">
-        <a asp-controller="CategorieOnderdelen" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Onmiddelijk naar beheer @(Model.OnderdelenCategorienaam)</a>
+        <a asp-controller="@Model.OnderdelenCategorienaam.Replace(" ","")" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Onmiddelijk naar beheer @(Model.OnderdelenCategorienaam)</a>
     </div>
 }
 else
@@ -29,16 +29,15 @@ else
     @foreach (var item in Model.Children)
     {
 
-        {
-
+        {            
 
             <div class="col-lg-3 col-md-5 col-sm-8 text-center DashItems ">
-                <a asp-controller="CategorieOnderdelen" asp-action="Index" asp-area="Admin">
+                <a asp-controller="@(item.OnderdelenCategorienaam.Replace(" ",""))" asp-action="Index" asp-area="Admin">
                     <img asp-append-version="true" src="~/images/onderdelen/@(item.OnderdelenCategorieId).jpg" alt="@(item.OnderdelenCategorienaam)" title="@(item.OnderdelenCategorienaam)"
                          class="img-fluid DashItemsAfbeeldingen">
                 </a>
 
-                <a asp-controller="CategorieOnderdelen" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">@(item.OnderdelenCategorienaam)</a>
+                <a asp-controller="@(item.OnderdelenCategorienaam.Replace(" ",""))" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">@(item.OnderdelenCategorienaam)</a>
             </div>
 
 

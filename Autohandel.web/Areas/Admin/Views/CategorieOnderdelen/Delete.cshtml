@@ -4,9 +4,12 @@
     ViewData["Title"] = "Delete";
 }
 
-<h2>Delete</h2>
+<h6 style="margin-top:20px;">
+    <a asp-area="Admin" asp-controller="CategorieOnderdelen" asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar categorieOnderdelenlijst</a>
 
-<h3>Are you sure you want to delete this?</h3>
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Ben je overtuigd om "<b>@Model.OnderdelenCategorienaam</b>" te verwijderen?</h2>
 <div>
     <h4>CategorieOnderdelen</h4>
     <hr />
@@ -27,7 +30,6 @@
     
     <form asp-action="Delete">
         <input type="hidden" asp-for="OnderdelenCategorieId" />
-        <input type="submit" value="Delete" class="btn btn-default" /> |
-        <a asp-action="Index">Back to List</a>
+        <input type="submit" value="Verwijder" class="btn btn-danger" /> 
     </form>
 </div>

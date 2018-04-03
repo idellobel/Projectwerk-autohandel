@@ -1,0 +1,78 @@
+﻿@model Autohandel.Domain.Entities.OnderdelenProducten
+@using Autohandel.Domain.Entities
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h6 style="margin-top:20px;">
+    <a asp-action="Index">
+        <i class="fas fa-arrow-circle-left"></i> Terug naar 'beheer wieldoppen'
+    </a>
+</h6>
+
+<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Maak een nieuwe wieldop</h2>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Artikelnummer" class="control-label"></label>
+                <input asp-for="Artikelnummer" class="form-control" placeholder="---WD_Nr---" />
+                <span asp-validation-for="Artikelnummer" class="text-danger"> @Html.ValidationMessage("ArtikelValidatieError")</span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artikelnaam" class="control-label"></label>
+                <input asp-for="Artikelnaam" class="form-control" />
+                <span asp-validation-for="Artikelnaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Artikelomschrijving" class="control-label"></label>
+                <textarea asp-for="Artikelomschrijving" rows="5" cols="40" class="form-control"> </textarea>
+                <span asp-validation-for="Artikelomschrijving" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Prijs" class="control-label"></label>
+                <input asp-for="Prijs" class="form-control" />
+                <span asp-validation-for="Prijs" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="FiguurURL" class="control-label"></label>
+                <input asp-for="FiguurURL" class="form-control" />
+                <span asp-validation-for="FiguurURL" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Formaat" class="control-label"></label>
+                <input asp-for="Specificatie.Formaat" class="form-control" />
+                <span asp-validation-for="Specificatie.Formaat" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Kleur" class="control-label"></label>
+                <select asp-for="Specificatie.Kleur" asp-items="Html.GetEnumSelectList<Kleur>()" class="form-control">
+                <option selected="selected" value=""></option>
+                </select>
+                <span asp-validation-for="Specificatie.Kleur" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Materie" class="control-label"></label>
+                <input asp-for="Specificatie.Materie" class="form-control" />
+                <span asp-validation-for="Specificatie.Materie" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Specificatie.Montageset" class="control-label"></label>
+                <input asp-for="Specificatie.Montageset" class="form-control" />
+                <span asp-validation-for="Specificatie.Montageset" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="OnderdelenCategorieId" class="control-label"></label>
+                <select asp-for="OnderdelenCategorieId" class="form-control" asp-items="ViewBag.OnderdelenCategorieId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Maak" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
