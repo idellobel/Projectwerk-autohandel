@@ -16,6 +16,10 @@
     <Content Remove="Areas\Admin\Views\_ViewImports.cshtml" />
     <Content Remove="wwwroot\images\vtgn\fronts\Vandenheede_Logo_1.ico" />
     <Content Remove="wwwroot\images\vtgn\voertuigenBeheer.png" />
+    <Content Remove="wwwroot\lib\bootstrap\Gemfile" />
+    <Content Remove="wwwroot\lib\bootstrap\Gemfile.lock" />
+    <Content Remove="wwwroot\lib\Font-Awesome\Gemfile" />
+    <Content Remove="wwwroot\lib\Font-Awesome\Gemfile.lock" />
   </ItemGroup>
 
 
