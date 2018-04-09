@@ -12,29 +12,29 @@
 @section showAdmin{
     @await Component.InvokeAsync("MainNavigation", new { showAdmin = true })
 }
+    <div class="container">
 
+        @if (TempData["SuccessMessage"] != null)
+         {
+            <div class="alert alert-success successdiv">
+                <h3 class="alert-heading"><i class="fas fa-check"></i> Geslaagd!</h3>
+                <h4>
+                    @Html.Raw(@TempData["SuccessMessage"])
+                </h4>
+            </div>
+         }
 
-@if (TempData["SuccessMessage"] != null)
-{
-    <div class="alert alert-success successdiv">
-         <h3 class="alert-heading"><i class="fas fa-check"></i> Geslaagd!</h3>
-        <h4>
-            @Html.Raw(@TempData["SuccessMessage"])
-        </h4>
+        @if (TempData["AlertMessage"] != null)
+         {
+            <div class="alert alert-danger dangerdiv ">
+                <h3 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Aandacht!</h3>
+                <h4>
+                    @Html.Raw(@TempData["AlertMessage"])
+                </h4>
+            </div>
+         }
+
     </div>
-}
-
-@if (TempData["AlertMessage"] != null)
-{
-    <div class="alert alert-danger dangerdiv ">
-        <h3 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Aandacht!</h3>
-        <h4>
-            @Html.Raw(@TempData["AlertMessage"])
-        </h4>
-    </div>
-}
-
-
 @RenderBody()
 @RenderSection("Footer", false)
 @RenderSection("Scripts",false)

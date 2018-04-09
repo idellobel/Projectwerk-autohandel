@@ -3,184 +3,185 @@
 @{
     ViewData["Title"] = "Edit";
 }
-<h6 style="margin-top:20px;">
-    <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar voertuigenlijst</a>
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar voertuigenlijst</a>
 
-</h6>
+    </h6>
 
-<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Wijzig</h2>
-<hr />
-<div class="row">
-    <div class="col-md-4">
-        <form asp-action="Edit">
-            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="VoertuigId" />
-            <div class="form-group">
-                <label asp-for="VoertuigArtikelNummer" class="control-label"></label>
-                <input asp-for="VoertuigArtikelNummer" class="form-control" />
-                <span asp-validation-for="VoertuigArtikelNummer" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-            <label asp-for="Merk.MerkNaam" class="control-label"></label>
-            <select asp-for="Merk.MerkId" class="form-control" id="Merk" asp-items="ViewBag.MerkId"></select>
-            @*<select asp-for="Merk.MerkId" class="form-control"></select>*
-            <span asp-validation-for="Merk.MerkId" class="text-danger"></span>
-        </div>*@
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Wijzig</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="VoertuigId" />
+                <div class="form-group">
+                    <label asp-for="VoertuigArtikelNummer" class="control-label"></label>
+                    <input asp-for="VoertuigArtikelNummer" class="form-control" />
+                    <span asp-validation-for="VoertuigArtikelNummer" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+                        <label asp-for="Merk.MerkNaam" class="control-label"></label>
+                        <select asp-for="Merk.MerkId" class="form-control" id="Merk" asp-items="ViewBag.MerkId"></select>
+                        @*<select asp-for="Merk.MerkId" class="form-control"></select>*
+                        <span asp-validation-for="Merk.MerkId" class="text-danger"></span>
+                    </div>*@
 
-            <div class="form-group">
-                <label asp-for="SelectedMerk" class="control-label"></label>
-                @Html.DropDownListFor(x => Model.SelectedMerk, new SelectList(Model.Merken, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Merk" })
-                @*<select asp-for="SelectedMerk" asp-items="Model.Merken" class="form-control" id="Merk"></select>*@
-                @*@Html.ValidationMessageFor(x => x.SelectedMerk, "", new { @class = "text-danger" })*@
-                <span asp-validation-for="SelectedMerk" class="text-danger"></span>
+                <div class="form-group">
+                    <label asp-for="SelectedMerk" class="control-label"></label>
+                    @Html.DropDownListFor(x => Model.SelectedMerk, new SelectList(Model.Merken, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Merk" })
+                    @*<select asp-for="SelectedMerk" asp-items="Model.Merken" class="form-control" id="Merk"></select>*@
+                    @*@Html.ValidationMessageFor(x => x.SelectedMerk, "", new { @class = "text-danger" })*@
+                    <span asp-validation-for="SelectedMerk" class="text-danger"></span>
 
-            </div>
-
-
-            @*<div class="form-group">
-            <label asp-for="MerkType.MerkTypeNaam" class="control-label"></label>
-            <select asp-for="MerkType.MerkTypeId" class="form-control" id="Model" asp-items="ViewBag.MerkTypeId"></select>
-            <span asp-validation-for="MerkType.MerkTypeId" class="text-danger"></span>
-        </div>*@
-
-            <div class="form-group">
-                <label asp-for="SelectedModel" class="control-label"></label>
-                @*@Html.DropDownListFor(x => Model.SelectedMerk, new SelectList(Model.Merken, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })*@
-                <select asp-for="SelectedModel" asp-items="Model.Modellen" class="form-control" id="Model"></select>
-                <span asp-validation-for="SelectedModel" class="text-danger"></span>
-
-            </div>
-
-            <div class="form-group">
-                <label asp-for="VoertuigTitel" class="control-label"></label>
-                <input asp-for="VoertuigTitel" class="form-control" />
-                <span asp-validation-for="VoertuigTitel" class="text-danger"></span>
-            </div>
-            @*<div class="form-group">
-            <label asp-for="VoertuigCategorie.VoertuigCategorieNaam" class="control-label"></label>
-            <select asp-for="VoertuigCategorie.VoertuigCatId" class="form-control" asp-items="ViewBag.VoertuigCatId"></select>
-            <span asp-validation-for="VoertuigCategorie.VoertuigCatId" class="text-danger"></span>
-        </div>*@
-
-            <div class="form-group">
-                <label asp-for="SelectedCategorie" class="control-label"></label>
-                <select asp-for="SelectedCategorie" asp-items="Model.Categorieen" class="form-control"></select>
-                <span asp-validation-for="SelectedCategorie" class="text-danger"></span>
-            </div>
+                </div>
 
 
-            <div class="form-group">
-                <label asp-for="Prijs" class="control-label"></label>
-                <input asp-for="Prijs" class="form-control" />
-                <span asp-validation-for="Prijs" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Kilometerstand" class="control-label"></label>
-                <input asp-for="Kilometerstand" class="form-control" />
-                <span asp-validation-for="Kilometerstand" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Registratie" class="control-label"></label>
-                <input asp-for="Registratie" class="form-control" />
-                <span asp-validation-for="Registratie" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Bouwjaar" class="control-label"></label>
-                <input asp-for="Bouwjaar" class="form-control"></>
-                <span asp-validation-for="Bouwjaar" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Brandstof" class="control-label"></label>
-                <select asp-for="Brandstof" asp-items="Html.GetEnumSelectList<Brandstof>()" class="form-control">
-                    <option selected="selected" value=""></option>
-                </select>
-                <span asp-validation-for="Brandstof" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Kleur" class="control-label"></label>
-                <input asp-for="Kleur" class="form-control" />
-                <span asp-validation-for="Kleur" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Koetswerk" class="control-label"></label>
-                <select asp-for="Koetswerk" asp-items="Html.GetEnumSelectList<Koetswerk>()" class="form-control">
-                    <option selected="selected" value=""></option>
-                </select>
-                <span asp-validation-for="Koetswerk" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="GarantieTijd" class="control-label"></label>
-                <input asp-for="GarantieTijd" class="form-control" />
-                <span asp-validation-for="GarantieTijd" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Versnelling" class="control-label"></label>
-                <select asp-for="Versnelling" asp-items="Html.GetEnumSelectList<Versnelling>()" class="form-control">
-                    <option selected="selected" value=""></option>
-                </select>
-                <span asp-validation-for="Versnelling" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Vermogen" class="control-label"></label>
-                <input asp-for="Vermogen" class="form-control" />
-                <span asp-validation-for="Vermogen" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="COTwee" class="control-label"></label>
-                <input asp-for="COTwee" class="form-control" />
-                <span asp-validation-for="COTwee" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CC" class="control-label"></label>
-                <input asp-for="CC" class="form-control" />
-                <span asp-validation-for="CC" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Zitplaatsen" class="control-label"></label>
-                <input asp-for="Zitplaatsen" class="form-control" />
-                <span asp-validation-for="Zitplaatsen" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Deuren" class="control-label"></label>
-                <input asp-for="Deuren" class="form-control" />
-                <span asp-validation-for="Deuren" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Binnenkleur" class="control-label"></label>
-                <select asp-for="Binnenkleur" asp-items="Html.GetEnumSelectList<Binnenkleur>()" class="form-control">
-                    <option selected="selected" value=""></option>
-                </select>
-                <span asp-validation-for="Binnenkleur" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Binnenbekleding" class="control-label"></label>
-                <select asp-for="Binnenbekleding" asp-items="Html.GetEnumSelectList<Binnenbekleding>()" class="form-control">
-                    <option selected="selected" value=""></option>
-                </select>
-                <span asp-validation-for="Binnenbekleding" class="text-danger"></span>
-            </div>
+                @*<div class="form-group">
+                        <label asp-for="MerkType.MerkTypeNaam" class="control-label"></label>
+                        <select asp-for="MerkType.MerkTypeId" class="form-control" id="Model" asp-items="ViewBag.MerkTypeId"></select>
+                        <span asp-validation-for="MerkType.MerkTypeId" class="text-danger"></span>
+                    </div>*@
 
-            <div class="form-group">
-                <label asp-for="FiguurURL" class="control-label"></label>
-                <input asp-for="FiguurURL" class="form-control"></>
-                <span asp-validation-for="FiguurURL" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Faktuur" class="control-label"></label>
-                <select asp-for="Faktuur.FaktuurNr" class="form-control"></select>
-                <span asp-validation-for="Faktuur.FaktuurNr" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Klant" class="control-label"></label>
-                <select asp-for="Klant.KlantId" class="form-control"></select>
-                <span asp-validation-for="Klant.KlantId" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="SelectedModel" class="control-label"></label>
+                    @*@Html.DropDownListFor(x => Model.SelectedMerk, new SelectList(Model.Merken, "Value", "Text"), htmlAttributes: new { @class = "form-control", id = "Country" })*@
+                    <select asp-for="SelectedModel" asp-items="Model.Modellen" class="form-control" id="Model"></select>
+                    <span asp-validation-for="SelectedModel" class="text-danger"></span>
 
-            <div class="form-group">
-                <input type="submit" value="Bewaar" class="btn btn-success" />
-            </div>
-        </form>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="VoertuigTitel" class="control-label"></label>
+                    <input asp-for="VoertuigTitel" class="form-control" />
+                    <span asp-validation-for="VoertuigTitel" class="text-danger"></span>
+                </div>
+                @*<div class="form-group">
+                        <label asp-for="VoertuigCategorie.VoertuigCategorieNaam" class="control-label"></label>
+                        <select asp-for="VoertuigCategorie.VoertuigCatId" class="form-control" asp-items="ViewBag.VoertuigCatId"></select>
+                        <span asp-validation-for="VoertuigCategorie.VoertuigCatId" class="text-danger"></span>
+                    </div>*@
+
+                <div class="form-group">
+                    <label asp-for="SelectedCategorie" class="control-label"></label>
+                    <select asp-for="SelectedCategorie" asp-items="Model.Categorieen" class="form-control"></select>
+                    <span asp-validation-for="SelectedCategorie" class="text-danger"></span>
+                </div>
+
+
+                <div class="form-group">
+                    <label asp-for="Prijs" class="control-label"></label>
+                    <input asp-for="Prijs" class="form-control" />
+                    <span asp-validation-for="Prijs" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Kilometerstand" class="control-label"></label>
+                    <input asp-for="Kilometerstand" class="form-control" />
+                    <span asp-validation-for="Kilometerstand" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Registratie" class="control-label"></label>
+                    <input asp-for="Registratie" class="form-control" />
+                    <span asp-validation-for="Registratie" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Bouwjaar" class="control-label"></label>
+                    <input asp-for="Bouwjaar" class="form-control"></>
+                    <span asp-validation-for="Bouwjaar" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Brandstof" class="control-label"></label>
+                    <select asp-for="Brandstof" asp-items="Html.GetEnumSelectList<Brandstof>()" class="form-control">
+                        <option selected="selected" value=""></option>
+                    </select>
+                    <span asp-validation-for="Brandstof" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Kleur" class="control-label"></label>
+                    <input asp-for="Kleur" class="form-control" />
+                    <span asp-validation-for="Kleur" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Koetswerk" class="control-label"></label>
+                    <select asp-for="Koetswerk" asp-items="Html.GetEnumSelectList<Koetswerk>()" class="form-control">
+                        <option selected="selected" value=""></option>
+                    </select>
+                    <span asp-validation-for="Koetswerk" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="GarantieTijd" class="control-label"></label>
+                    <input asp-for="GarantieTijd" class="form-control" />
+                    <span asp-validation-for="GarantieTijd" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Versnelling" class="control-label"></label>
+                    <select asp-for="Versnelling" asp-items="Html.GetEnumSelectList<Versnelling>()" class="form-control">
+                        <option selected="selected" value=""></option>
+                    </select>
+                    <span asp-validation-for="Versnelling" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Vermogen" class="control-label"></label>
+                    <input asp-for="Vermogen" class="form-control" />
+                    <span asp-validation-for="Vermogen" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="COTwee" class="control-label"></label>
+                    <input asp-for="COTwee" class="form-control" />
+                    <span asp-validation-for="COTwee" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="CC" class="control-label"></label>
+                    <input asp-for="CC" class="form-control" />
+                    <span asp-validation-for="CC" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Zitplaatsen" class="control-label"></label>
+                    <input asp-for="Zitplaatsen" class="form-control" />
+                    <span asp-validation-for="Zitplaatsen" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Deuren" class="control-label"></label>
+                    <input asp-for="Deuren" class="form-control" />
+                    <span asp-validation-for="Deuren" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Binnenkleur" class="control-label"></label>
+                    <select asp-for="Binnenkleur" asp-items="Html.GetEnumSelectList<Binnenkleur>()" class="form-control">
+                        <option selected="selected" value=""></option>
+                    </select>
+                    <span asp-validation-for="Binnenkleur" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Binnenbekleding" class="control-label"></label>
+                    <select asp-for="Binnenbekleding" asp-items="Html.GetEnumSelectList<Binnenbekleding>()" class="form-control">
+                        <option selected="selected" value=""></option>
+                    </select>
+                    <span asp-validation-for="Binnenbekleding" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="FiguurURL" class="control-label"></label>
+                    <input asp-for="FiguurURL" class="form-control"></>
+                    <span asp-validation-for="FiguurURL" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Faktuur" class="control-label"></label>
+                    <select asp-for="Faktuur.FaktuurNr" class="form-control"></select>
+                    <span asp-validation-for="Faktuur.FaktuurNr" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Klant" class="control-label"></label>
+                    <select asp-for="Klant.KlantId" class="form-control"></select>
+                    <span asp-validation-for="Klant.KlantId" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Bewaar" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
     </div>
 </div>
-
 

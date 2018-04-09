@@ -3,97 +3,97 @@
 @{
     ViewData["Title"] = "Index";
 }
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-area="Admin" asp-controller="Home" asp-action="SubCategorieOnderdelen" asp-route-id="6" style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin filters en vloeistoffen beheer'
+        </a>
+    </h6>
 
-<h6 style="margin-top:20px;">
-    <a asp-area="Admin" asp-controller="Home" asp-action="SubCategorieOnderdelen" asp-route-id="6" style="margin-top:40px;">
-        <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin filters en vloeistoffen beheer'
-    </a>
-</h6>
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Beheer brandstoffilter</h2>
 
-<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Beheer brandstoffilter</h2>
-
-<p>
-    <a asp-action="Create">Maak nieuwe brandstoffilter</a>
-</p>
-<table class="table">
-    <thead>
-        <tr class="d-flex">
-            <th class="col-1">
-                @Html.DisplayNameFor(model => model.Artikelnummer)<br />
-            </th>
-            <th class="col-2">
-                @Html.DisplayNameFor(model => model.Artikelnaam)<br />
-                @Html.DisplayNameFor(model => model.Prijs)<br />
-                @Html.DisplayNameFor(model => model.CategorieOnderdelen.OnderdelenCategorienaam)
-            </th>
-
-            <th class="col-2">
-                @Html.DisplayNameFor(model => model.Artikelomschrijving)<br />
-
-            </th>
-            <th class="col-3">
-                @Html.DisplayNameFor(model => model.Specificatie.Dikte) in mm<br />
-                @Html.DisplayNameFor(model => model.Specificatie.Gewicht) in gr<br />
-                @Html.DisplayNameFor(model => model.Specificatie.Binnendiameter) in mm<br />
-                @Html.DisplayNameFor(model => model.Specificatie.Buitendiameter) in mm<br />
-                @Html.DisplayNameFor(model => model.Specificatie.Hoogte) in mm<br />
-                @Html.DisplayNameFor(model => model.Specificatie.Schroefdraad)<br />
-                @Html.DisplayNameFor(model => model.Specificatie.Materie)<br />
-                @Html.DisplayNameFor(model => model.Specificatie.Type)<br />
-
-            </th>
-
-            <th class="col-3">
-                @Html.DisplayNameFor(model => model.FiguurURL)
-
-            </th>
-
-            <th class="col-1"></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <p>
+        <a asp-action="Create">Maak nieuwe brandstoffilter</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr class="d-flex">
-                <td class="col-1">
-                    @Html.DisplayFor(modelItem => item.Artikelnummer)<br /><br />
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.Artikelnummer)<br />
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Artikelnaam)<br />
+                    @Html.DisplayNameFor(model => model.Prijs)<br />
+                    @Html.DisplayNameFor(model => model.CategorieOnderdelen.OnderdelenCategorienaam)
+                </th>
 
-                </td>
-                <td class="col-2">
-                    @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
-                    @Html.DisplayFor(modelItem => item.Prijs)<br />
-                    @Html.DisplayFor(modelItem => item.CategorieOnderdelen.OnderdelenCategorienaam)
-                </td>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Artikelomschrijving)<br />
 
-                <td class="col-2">
-                    @Html.Raw(item.Artikelomschrijving) <br />
-                </td>
-                <td class="col-3">
-                    @Html.DisplayFor(modelItem => item.Specificatie.Dikte)<br />
-                    @Html.DisplayFor(modelItem => item.Specificatie.Gewicht)<br />
-                    @Html.DisplayFor(modelItem => item.Specificatie.Binnendiameter)<br />
-                    @Html.DisplayFor(modelItem => item.Specificatie.Buitendiameter)<br />
-                    @Html.DisplayFor(modelItem => item.Specificatie.Hoogte)<br />
-                    @Html.DisplayFor(modelItem => item.Specificatie.Schroefdraad)<br />
-                    @Html.DisplayFor(modelItem => item.Specificatie.Materie)<br />
-                    @Html.DisplayFor(modelItem => item.Specificatie.Type)<br />
+                </th>
+                <th class="col-3">
+                    @Html.DisplayNameFor(model => model.Specificatie.Dikte) in mm<br />
+                    @Html.DisplayNameFor(model => model.Specificatie.Gewicht) in gr<br />
+                    @Html.DisplayNameFor(model => model.Specificatie.Binnendiameter) in mm<br />
+                    @Html.DisplayNameFor(model => model.Specificatie.Buitendiameter) in mm<br />
+                    @Html.DisplayNameFor(model => model.Specificatie.Hoogte) in mm<br />
+                    @Html.DisplayNameFor(model => model.Specificatie.Schroefdraad)<br />
+                    @Html.DisplayNameFor(model => model.Specificatie.Materie)<br />
+                    @Html.DisplayNameFor(model => model.Specificatie.Type)<br />
 
+                </th>
 
+                <th class="col-3">
+                    @Html.DisplayNameFor(model => model.FiguurURL)
 
-                </td>
-                <td class="col-3" style="font-size:10px;">
-                    @Html.DisplayFor(modelItem => item.FiguurURL)<br />
-                    <img src="@Url.Content(item.FiguurURL)" class="img-fluid" />
-                </td>
+                </th>
 
-
-                <td class="col-1">
-                    <a asp-action="Edit" asp-route-id="@item.Artikelnummer">Wijzig</a> |
-                    <a asp-action="Details" asp-route-id="@item.Artikelnummer">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Artikelnummer">Verwijder</a>
-                </td>
+                <th class="col-1"></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="d-flex">
+                    <td class="col-1">
+                        @Html.DisplayFor(modelItem => item.Artikelnummer)<br /><br />
 
+                    </td>
+                    <td class="col-2">
+                        @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
+                        @Html.DisplayFor(modelItem => item.Prijs)<br />
+                        @Html.DisplayFor(modelItem => item.CategorieOnderdelen.OnderdelenCategorienaam)
+                    </td>
+
+                    <td class="col-2">
+                        @Html.Raw(item.Artikelomschrijving) <br />
+                    </td>
+                    <td class="col-3">
+                        @Html.DisplayFor(modelItem => item.Specificatie.Dikte)<br />
+                        @Html.DisplayFor(modelItem => item.Specificatie.Gewicht)<br />
+                        @Html.DisplayFor(modelItem => item.Specificatie.Binnendiameter)<br />
+                        @Html.DisplayFor(modelItem => item.Specificatie.Buitendiameter)<br />
+                        @Html.DisplayFor(modelItem => item.Specificatie.Hoogte)<br />
+                        @Html.DisplayFor(modelItem => item.Specificatie.Schroefdraad)<br />
+                        @Html.DisplayFor(modelItem => item.Specificatie.Materie)<br />
+                        @Html.DisplayFor(modelItem => item.Specificatie.Type)<br />
+
+
+
+                    </td>
+                    <td class="col-3" style="font-size:10px;">
+                        @Html.DisplayFor(modelItem => item.FiguurURL)<br />
+                        <img src="@Url.Content(item.FiguurURL)" class="img-fluid" />
+                    </td>
+
+
+                    <td class="col-1">
+                        <a asp-action="Edit" asp-route-id="@item.Artikelnummer">Wijzig</a> |
+                        <a asp-action="Details" asp-route-id="@item.Artikelnummer">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.Artikelnummer">Verwijder</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

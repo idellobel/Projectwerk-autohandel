@@ -3,39 +3,41 @@
 @{
     ViewData["Title"] = "Index";
 }
-<h6 style="margin-top:20px;">
-    <a asp-area="Admin" asp-controller="Home" asp-action="Voertuigen" style="margin-top:40px;">
-        <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin voertuigen beheer'
-    </a>
-</h6>
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Voertuigen" style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin voertuigen beheer'
+        </a>
+    </h6>
 
-<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Beheer Merken van voertuigen</h2>
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Beheer Merken van voertuigen</h2>
 
-<p>
-    <a asp-action="Create">Maak een nieuwe merk</a>
-</p>
-<table class="table">
-    <thead>
-        <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.MerkNaam)
-            </th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in Model)
-        {
+    <p>
+        <a asp-action="Create">Maak een nieuwe merk</a>
+    </p>
+    <table class="table">
+        <thead>
             <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.MerkNaam)
-                </td>
-                <td>
-                    <a asp-action="Edit" asp-route-id="@item.MerkId">Wijzig</a> |
-                    <a asp-action="Details" asp-route-id="@item.MerkId">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.MerkId">Verwijder</a>
-                </td>
+                <th>
+                    @Html.DisplayNameFor(model => model.MerkNaam)
+                </th>
+                <th></th>
             </tr>
-        }
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.MerkNaam)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.MerkId">Wijzig</a> |
+                        <a asp-action="Details" asp-route-id="@item.MerkId">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.MerkId">Verwijder</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>

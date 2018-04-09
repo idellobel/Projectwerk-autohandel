@@ -3,25 +3,28 @@
 @{
     ViewData["Title"] = "Details";
 }
-<h6 style="margin-top:20px;">
-    <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar categorielijst</a>
-</h6>
 
-<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar categorielijst</a>
+    </h6>
 
-<div>
-    <h4>VoertuigCategorie</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.VoertuigCategorieNaam)
-        </dt>
-        <dd>
-            @Html.DisplayFor(model => model.VoertuigCategorieNaam)
-        </dd>
-    </dl>
-</div>
-<div>
-    <a asp-action="Edit" asp-route-id="@Model.VoertuigCatId">Wijzig</a> 
-    
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
+
+    <div>
+        <h4>VoertuigCategorie</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.VoertuigCategorieNaam)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.VoertuigCategorieNaam)
+            </dd>
+        </dl>
+    </div>
+    <div>
+        <a asp-action="Edit" asp-route-id="@Model.VoertuigCatId">Wijzig</a>
+
+    </div>
 </div>

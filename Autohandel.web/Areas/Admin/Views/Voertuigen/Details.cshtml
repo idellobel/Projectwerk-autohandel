@@ -3,121 +3,123 @@
 @{
     ViewData["Title"] = "Details";
 }
-<h6 style="margin-top:20px;">
-    <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar voertuigenlijst</a>
-</h6>
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar voertuigenlijst</a>
+    </h6>
 
-<h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
-
-<div>
-    <h4>Voertuig</h4>
-    <hr />
-    <div class="container">
-        <div class="table-responsive ">
-            <table class="table table-condensed table-bordered table-striped ">
-                <thead class="thead-dark">
-                    <tr>
-                        <th>Benaming</th>
-                        <th>Gegeven</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td style="font-weight:bold">
-                            @Html.DisplayNameFor(model => model.VoertuigArtikelNummer) : <br />
-                            @Html.DisplayNameFor(model => model.Merk.MerkNaam) : <br />
-                            @Html.DisplayNameFor(model => model.MerkType.MerkTypeNaam) : <br />
-                            @Html.DisplayNameFor(model => model.VoertuigTitel) : <br />
-                            @Html.DisplayNameFor(model => model.VoertuigCategorie.VoertuigCategorieNaam) : <br />
-
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.VoertuigArtikelNummer)<br />
-                            @Html.DisplayFor(model => model.Merk.MerkNaam)<br />
-                            @Html.DisplayFor(model => model.MerkType.MerkTypeNaam)<br />
-                            @Html.DisplayFor(model => model.VoertuigTitel)<br />
-                            @Html.DisplayFor(model => model.VoertuigCategorie.VoertuigCategorieNaam)<br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight:bold">
-                            @Html.DisplayNameFor(model => model.Prijs) : <br />
-                            @Html.DisplayNameFor(model => model.Kilometerstand) : <br />
-                            @Html.DisplayNameFor(model => model.Registratie) : <br />
-                            @Html.DisplayNameFor(model => model.Bouwjaar) : <br />
-                            @Html.DisplayNameFor(model => model.Brandstof) : <br />
-
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.Prijs)<br />
-                            @Html.DisplayFor(model => model.Kilometerstand) Km<br />
-                            @Html.DisplayFor(model => model.Registratie)<br />
-                            @Html.DisplayFor(model => model.Bouwjaar)<br />
-                            @Html.DisplayFor(model => model.Brandstof)<br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight:bold">
-                            @Html.DisplayNameFor(model => model.Kleur) : <br />
-                            @Html.DisplayNameFor(model => model.Koetswerk) : <br />
-                            @Html.DisplayNameFor(model => model.GarantieTijd) : <br />
-                            @Html.DisplayNameFor(model => model.Versnelling) : <br />
-                            @Html.DisplayNameFor(model => model.Vermogen) : <br />
-
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.Kleur)<br />
-                            @Html.DisplayFor(model => model.Koetswerk)<br />
-                            @Html.DisplayFor(model => model.GarantieTijd)<br />
-                            @Html.DisplayFor(model => model.Versnelling)<br />
-                            @Html.DisplayFor(model => model.Vermogen)<br />
-                        </td>
-                    </tr>
-                    <tr>
-                        <td style="font-weight:bold">
-                            @Html.DisplayNameFor(model => model.COTwee) : <br />
-                            @Html.DisplayNameFor(model => model.CC) : <br />
-                            @Html.DisplayNameFor(model => model.Zitplaatsen) : <br />
-                            @Html.DisplayNameFor(model => model.Deuren) : <br />
-                            @Html.DisplayNameFor(model => model.Binnenkleur) : <br />
-                            @Html.DisplayNameFor(model => model.Binnenbekleding) : <br />
-
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.COTwee)<br />
-                            @Html.DisplayFor(model => model.CC)<br />
-                            @Html.DisplayFor(model => model.Zitplaatsen)<br />
-                            @Html.DisplayFor(model => model.Deuren)<br />
-                            @Html.DisplayFor(model => model.Binnenkleur)<br />
-                            @Html.DisplayFor(model => model.Binnenbekleding)<br />
-                        </td>
-                    </tr>
-
-                    <tr>
-                        <td style="font-weight:bold">
-                            @Html.DisplayNameFor(model => model.FiguurURL) : <br />
-                            @Html.DisplayNameFor(model => model.Faktuur) : <br />
-                            @Html.DisplayNameFor(model => model.Klant) : <br />
-
-
-
-                        </td>
-                        <td>
-                            @Html.DisplayFor(model => model.FiguurURL)<br />
-                            @Html.DisplayFor(model => model.Faktuur.FaktuurNr)<br />
-                            @Html.DisplayFor(model => model.Klant.FullName)<br />
-
-
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-    </div>
-
-
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
 
     <div>
-        <a asp-action="Edit" asp-route-id="@Model.VoertuigId">Wijzig</a> 
+        <h4>Voertuig</h4>
+        <hr />
+        <div class="container">
+            <div class="table-responsive ">
+                <table class="table table-condensed table-bordered table-striped ">
+                    <thead class="thead-dark">
+                        <tr>
+                            <th>Benaming</th>
+                            <th>Gegeven</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="font-weight:bold">
+                                @Html.DisplayNameFor(model => model.VoertuigArtikelNummer) : <br />
+                                @Html.DisplayNameFor(model => model.Merk.MerkNaam) : <br />
+                                @Html.DisplayNameFor(model => model.MerkType.MerkTypeNaam) : <br />
+                                @Html.DisplayNameFor(model => model.VoertuigTitel) : <br />
+                                @Html.DisplayNameFor(model => model.VoertuigCategorie.VoertuigCategorieNaam) : <br />
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.VoertuigArtikelNummer)<br />
+                                @Html.DisplayFor(model => model.Merk.MerkNaam)<br />
+                                @Html.DisplayFor(model => model.MerkType.MerkTypeNaam)<br />
+                                @Html.DisplayFor(model => model.VoertuigTitel)<br />
+                                @Html.DisplayFor(model => model.VoertuigCategorie.VoertuigCategorieNaam)<br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                @Html.DisplayNameFor(model => model.Prijs) : <br />
+                                @Html.DisplayNameFor(model => model.Kilometerstand) : <br />
+                                @Html.DisplayNameFor(model => model.Registratie) : <br />
+                                @Html.DisplayNameFor(model => model.Bouwjaar) : <br />
+                                @Html.DisplayNameFor(model => model.Brandstof) : <br />
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Prijs)<br />
+                                @Html.DisplayFor(model => model.Kilometerstand) Km<br />
+                                @Html.DisplayFor(model => model.Registratie)<br />
+                                @Html.DisplayFor(model => model.Bouwjaar)<br />
+                                @Html.DisplayFor(model => model.Brandstof)<br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                @Html.DisplayNameFor(model => model.Kleur) : <br />
+                                @Html.DisplayNameFor(model => model.Koetswerk) : <br />
+                                @Html.DisplayNameFor(model => model.GarantieTijd) : <br />
+                                @Html.DisplayNameFor(model => model.Versnelling) : <br />
+                                @Html.DisplayNameFor(model => model.Vermogen) : <br />
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.Kleur)<br />
+                                @Html.DisplayFor(model => model.Koetswerk)<br />
+                                @Html.DisplayFor(model => model.GarantieTijd)<br />
+                                @Html.DisplayFor(model => model.Versnelling)<br />
+                                @Html.DisplayFor(model => model.Vermogen)<br />
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                @Html.DisplayNameFor(model => model.COTwee) : <br />
+                                @Html.DisplayNameFor(model => model.CC) : <br />
+                                @Html.DisplayNameFor(model => model.Zitplaatsen) : <br />
+                                @Html.DisplayNameFor(model => model.Deuren) : <br />
+                                @Html.DisplayNameFor(model => model.Binnenkleur) : <br />
+                                @Html.DisplayNameFor(model => model.Binnenbekleding) : <br />
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.COTwee)<br />
+                                @Html.DisplayFor(model => model.CC)<br />
+                                @Html.DisplayFor(model => model.Zitplaatsen)<br />
+                                @Html.DisplayFor(model => model.Deuren)<br />
+                                @Html.DisplayFor(model => model.Binnenkleur)<br />
+                                @Html.DisplayFor(model => model.Binnenbekleding)<br />
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td style="font-weight:bold">
+                                @Html.DisplayNameFor(model => model.FiguurURL) : <br />
+                                @Html.DisplayNameFor(model => model.Faktuur) : <br />
+                                @Html.DisplayNameFor(model => model.Klant) : <br />
+
+
+
+                            </td>
+                            <td>
+                                @Html.DisplayFor(model => model.FiguurURL)<br />
+                                @Html.DisplayFor(model => model.Faktuur.FaktuurNr)<br />
+                                @Html.DisplayFor(model => model.Klant.FullName)<br />
+
+
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+
+
+        <div>
+            <a asp-action="Edit" asp-route-id="@Model.VoertuigId">Wijzig</a>
+        </div>
     </div>
 </div>

@@ -4,49 +4,49 @@
 @{
     ViewData["Title"] = "SubCategorieOnderdelen";
 }
+<div class="container">
+
+    <h6 style="margin-top:20px;">
+        <a asp-area="Admin" asp-controller="Home" asp-action="CategorieOnderdelen" style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'Overzicht van de Onderdelen'
+        </a>
+    </h6>
 
 
-<h6 style="margin-top:20px;">
-    <a asp-area="Admin" asp-controller="Home" asp-action="CategorieOnderdelen" style="margin-top:40px;">
-        <i class="fas fa-arrow-circle-left"></i> Terug naar 'Overzicht van de Onderdelen'
-    </a>
-</h6>
 
-
-
-@if (Model.Children.Count == 0)
-{
-    <h2 class="text-center text-xl-center text-lowercase text-primary " style="margin-top:25px;">@(Model.OnderdelenCategorienaam) bevat geen subcategorie.</h2>
-
-    <div class="col-lg-3 col-md-5 col-sm-8 text-left @*DashItems*@ ">
-        <a asp-controller="@Model.OnderdelenCategorienaam.Replace(" ","")" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Onmiddelijk naar beheer @(Model.OnderdelenCategorienaam)</a>
-    </div>
-}
-else
-{
-    <h2 class="text-center text-xl-center text-lowercase text-primary " style="margin-top:25px;">Overzicht @(Model.OnderdelenCategorienaam)</h2>
-    <div class="row text-center ">
-    @foreach (var item in Model.Children)
+    @if (Model.Children.Count == 0)
     {
+        <h2 class="text-center text-xl-center text-lowercase text-primary " style="margin-top:25px;">@(Model.OnderdelenCategorienaam) bevat geen subcategorie.</h2>
 
-        {            
-
-            <div class="col-lg-3 col-md-5 col-sm-8 text-center DashItems ">
-                <a asp-controller="@(item.OnderdelenCategorienaam.Replace(" ",""))" asp-action="Index" asp-area="Admin">
-                    <img asp-append-version="true" src="~/images/onderdelen/@(item.OnderdelenCategorieId).jpg" alt="@(item.OnderdelenCategorienaam)" title="@(item.OnderdelenCategorienaam)"
-                         class="img-fluid DashItemsAfbeeldingen">
-                </a>
-
-                <a asp-controller="@(item.OnderdelenCategorienaam.Replace(" ",""))" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">@(item.OnderdelenCategorienaam)</a>
-            </div>
-
-
-        }
+        <div class="col-lg-3 col-md-5 col-sm-8 text-left @*DashItems*@ ">
+            <a asp-controller="@Model.OnderdelenCategorienaam.Replace(" ","")" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Onmiddelijk naar beheer @(Model.OnderdelenCategorienaam)</a>
+        </div>
     }
-    </div>
+    else
+    {
+        <h2 class="text-center text-xl-center text-lowercase text-primary " style="margin-top:25px;">Overzicht @(Model.OnderdelenCategorienaam)</h2>
+        <div class="row text-center ">
+            @foreach (var item in Model.Children)
+            {
 
-}
+                {
+
+                    <div class="col-lg-3 col-md-5 col-sm-8 text-center DashItems ">
+                        <a asp-controller="@(item.OnderdelenCategorienaam.Replace(" ",""))" asp-action="Index" asp-area="Admin">
+                            <img asp-append-version="true" src="~/images/onderdelen/@(item.OnderdelenCategorieId).jpg" alt="@(item.OnderdelenCategorienaam)" title="@(item.OnderdelenCategorienaam)"
+                                 class="img-fluid DashItemsAfbeeldingen">
+                        </a>
+
+                        <a asp-controller="@(item.OnderdelenCategorienaam.Replace(" ",""))" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">@(item.OnderdelenCategorienaam)</a>
+                    </div>
 
 
+                }
+            }
+        </div>
 
+    }
+
+
+</div>
 
