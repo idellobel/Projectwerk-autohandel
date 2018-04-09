@@ -1,4 +1,6 @@
-﻿// Write your JavaScript code.
+﻿//import { Debug } from "util";
+
+// Write your JavaScript code.
 $('#Merk').change(function () {
 
     var selectedMerk = $("#Merk").val();
@@ -20,6 +22,13 @@ $('#Merk').change(function () {
             }
         });
     }
+});
+
+
+$(document).on('click', '[data-toggle="lightbox"]', function (event) {
+    event.preventDefault();
+    $(this).ekkoLightbox({ alwaysShowClose: true });
+    $['']
 });
 
 

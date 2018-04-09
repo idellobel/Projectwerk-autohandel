@@ -1,17 +1,164 @@
 ﻿@{
     ViewData["Title"] = "Contact";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
 
-<address>
-    One Microsoft Way<br />
-    Redmond, WA 98052-6399<br />
-    <abbr title="Phone">P:</abbr>
-    425.555.0100
-</address>
+}
 
-<address>
-    <strong>Support:</strong> <a href="mailto:Support@example.com">Support@example.com</a><br />
-    <strong>Marketing:</strong> <a href="mailto:Marketing@example.com">Marketing@example.com</a>
-</address>
+<!-- for documentation only -->
+@*<style type="text/css">
+  
+
+</style>*@
+
+<div class="container">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">CONTACT INFO</p>
+
+    </div>
+
+    <div class="row" style="color:dimgray">
+
+        <div class='col-sm-12 col-md-12 col-lg-5'>
+            <p class="tekstWelkomTitel">Kom langs voor een kop koffie, of laat ons een bericht achter:</p>
+            <div class="tekstWelkomTitel">
+                <div id="map" style="width:100%;height:400px"></div>
+            </div>
+        </div>
+
+
+        <div class='col-sm-12 col-md-12 col-lg-7'>
+
+            <div style="margin-left:5%;">
+                <form action="/action_page.php">
+                    <label class="contactLabel" for="fname">Voornaam:</label><span><input class="formContact" type="text" id="fname" name="voornaam" placeholder="Naam.."></span>
+                    <label class="contactLabel" for="lname">Familienaam:</label><span><input class="formContact" type="text" id="lname" name="lastname" placeholder="Familienaam.."></span>
+                    <label class="contactLabel" for="country">Land:</label>
+                    <select class="formContact" id="country" name="country">
+                        <option value="australia">België</option>
+                        <option value="canada">Nederland</option>
+                        <option value="usa">Frankrijk</option>
+                    </select>
+                    <label class="contactLabel" for="subject">Onderwerp:</label><textarea class="formContact" id="subject" name="subject" placeholder="Schrijf uw bericht.." style="height:120px"></textarea>
+                    <input class="submitContact" style=" margin-top:2%; width:150px" type="submit" value="Verzend">
+                </form>
+            </div>
+        </div>
+    </div>
+    <hr style="background:#000000;border:0;color:#000000;height:2px;" />
+    <div class="row" style="height:170px">
+        <div class='col-sm-12 col-md-4 col-lg-4 text-center'>
+            <img class="img-fluid" src="~/images/Vandenheede_Logo_1.png" style="height:170px" />
+        </div>
+        <div class='col-sm-12 col-md-4 col-lg-4 text-center'>
+
+            <ol style="font-size:16px;list-style-type:none; margin-bottom:0; padding-bottom:1rem;">
+                <li>
+                    Tel
+                    +32 (0)59 27 67 19
+                </li>
+                <li>
+                    Fax
+                    +32 (0)59 27 10 90
+                </li>
+                <li>
+                    GSM
+                    +32 (0)474 57 32 58 (Tim)
+                </li>
+                <li>
+                    GSM
+                    +32 (0)475 62 98 93 (Carlos)
+                </li>
+                <li>
+                    <a class="tekstWelkomLink" href="mailto:ivan.dellobel@gmail.com">
+                        E-Mail
+                        tim@vandenheede.com
+                    </a>
+                </li>
+                <li>
+                    <a class="tekstWelkomLink" href="../Home/Index">
+                        Web
+                        http://www.vandenheede.com
+                    </a>
+                </li>
+                <li>
+                    Adres
+                    Oostendsebaan 1/A | BE-8470 Gistel
+                </li>
+            </ol>
+        </div>
+        <div class='col-sm-12 col-md-4 col-lg-4 text-center'>
+            <img class="img-fluid" src="~/images/static_qr_code_without_logo.jpg" style="height:170px" />
+        </div>
+    </div>
+    <hr style="background:#000000;border:0;color:#000000;height:2px;" />
+
+</div>
+
+
+<!-- Initialize Google Maps -->
+<script>
+
+
+    function myMap() {
+        var GarageVandenHeede = "Garage Vandenheede, Oostendebaan 1/A te Gistel";
+        var Gistel = new google.maps.LatLng(51.149693, 2.953556);
+        var mapCanvas = document.getElementById("map");
+        var mapOptions = { center: Gistel, zoom: 15 };
+        var map = new google.maps.Map(mapCanvas, mapOptions);
+        var marker = new google.maps.Marker({
+            position: Gistel,
+            label: GarageVandenHeede
+        });
+        marker.setMap(map);
+    }
+</script>
+
+@*<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFZKu0qoIy8WiQboQcLHM65dXYZ0Sd92k"></script>*@
+@*<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFZKu0qoIy8WiQboQcLHM65dXYZ0Sd92k&callback=initMap"
+    type="text/javascript"></script>*@
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBFZKu0qoIy8WiQboQcLHM65dXYZ0Sd92k&callback=myMap" type="text/javascript">></script>
+
+
+@*/*To do
+Aanpassen form
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken();
+
+    <div>
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(e => e.Naam, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(e => e.Naam, new { @class = "form-control" })
+        @Html.ValidationMessageFor(e => e.Naam, "", new { @class = "text-danger" })
+    </div>
+    <p>
+        @Html.LabelFor(e => e.Email, new { @class = "control-label col-md-2" })
+        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+        @Html.ValidationMessageFor(e => e.Email, "", new { @class = "text-danger" })
+    </p>
+    <div>
+        @Html.LabelFor(e => e.Informatie, new { @class = "control-label col-md-2" })
+        @Html.TextAreaFor(e => e.Informatie, new
+        {
+            @class = "form-control",
+            rows = "6",
+            style = "width: 400px;"
+        })
+        @Html.ValidationMessageFor(e => e.Naam, "", new { @class = "text-danger" })
+
+    </div>
+    <br />
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Verstuur" class="btn btn-success" />
+        </div>
+    </div>
+
+}
+            </div>*@

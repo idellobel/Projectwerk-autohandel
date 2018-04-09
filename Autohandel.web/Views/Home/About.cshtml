@@ -1,7 +1,90 @@
 ﻿@{
     ViewData["Title"] = "About";
 }
-<h2>@ViewData["Title"]</h2>
-<h3>@ViewData["Message"]</h3>
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
 
-<p>Use this area to provide additional information.</p>
+}
+
+<div class="container">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">DIENSTEN</p>
+    </div>
+
+    <div class="row" style="color:dimgray">
+
+        <div class='col-sm-12 col-md-12 col-lg-5'>
+            <img class="img-fluid card-img" alt="fotobureel" src="~/images/garage/g_11.jpg"
+                 style="margin-top:5%;margin-left:5%  ;margin-bottom:5%; height:300px;width:452px;" />
+        </div>
+
+        <div class='col-sm-12 col-md-12 col-lg-7'>
+            <p class="tekstWelkomTitel">
+                AANKOOP en VERKOOP <span><img src="~/images/carpass.png" alt="carpass" /></span>
+            </p>
+            <p class="tekstWelkom">
+                Wij bieden jonge tweedehandswagens van alle merken aan.
+                U kunt bij ons terecht voor elk type wagen: stadswagen, berline, coupé, cabrioley, break, monovolume, SUV, 4x4 of bestelwagen.
+                <br />
+
+
+                Al onze wagens worden gekeurd afgeleverd met een CAR-PASS kilometerstand certificaat
+                en 1 jaar garantie.<br />
+
+            </p>
+            <p class="tekstWelkomTitel">
+                ONDERHOUD <span><img src="~/images/onderhoud-wagen.png" alt="onderhoud" /></span>
+            </p>
+            <p class="tekstWelkom">
+                Ook voor onderhoud, herstellingen en carrosserie van alle merken kan u bij ons terecht.
+                <br /><br />
+            </p>
+            <p class="tekstWelkomTitel">
+                FINANCIERING <span><img src="~/images/financiering.png" alt="financiering" /></span>
+            </p>
+            <p class="tekstWelkom">
+                Ook voor het financieren van uw nieuwe tweedehandswagen bieden wij u:<br />
+                - interessante formules.<br />
+                - Een financiering met respect voor uw budget.<br />
+                - Een zorgeloze kredietaanvraag, zonder administratieve omwegen.<br />
+            </p>
+        </div>
+
+        <!-- row / end -->
+    </div>
+    <hr style="background:#000000;border:0;color:#000000;height:2px;" /><br />
+    <div class="row" style="color:dimgray">
+
+        <div class='col-sm-12 col-md-12 col-lg-5'>
+            <img class="img-fluid card-img" alt="fotobureel" src="~/images/autoparts.jpg"
+                 style="margin-top:5%;margin-left:5%  ;margin-bottom:5%; height:300px;width:452px;" />
+        </div>
+
+        <div class='col-sm-12 col-md-12 col-lg-7'>
+            <p class="tekstWelkomTitel">
+                ONLINEVERKOOP AUTOPARTS <span><img src="~/images/autoparts-online.png" alt="carpass" /></span>
+            </p>
+            <p class="tekstWelkom">
+                Wij bieden online de volgende onderdelen aan:      
+                <ul class="tekstWelkom" >
+                    <li>Bagage en Transport</li>
+                    <li>Filters en Vloeistoffen</li>
+                    <li>Privacy Shades</li>
+                    <li>Tapijten</li>
+                    <li>Trekhaken</li>
+                    <li>Wieldoppen</li>
+                    <li>Winterbanden</li>
+                </ul>
+
+            </p>
+        </div>
+
+        <!-- row / end -->
+    </div>
+    <!-- container / end -->
+</div>
+
+
+

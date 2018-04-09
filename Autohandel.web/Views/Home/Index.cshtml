@@ -4,134 +4,62 @@
 @section showPublic{
     @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
 }
+@section head{
 
-<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="5000">
-    <!--Indicators-->
-    <ol class="carousel-indicators">
-        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-        <li data-target="#myCarousel" data-slide-to="1"></li>
-        <li data-target="#myCarousel" data-slide-to="2"></li>
-        <li data-target="#myCarousel" data-slide-to="3"></li>
-        <li data-target="#myCarousel" data-slide-to="4"></li>
-        <li data-target="#myCarousel" data-slide-to="5"></li>
+}
 
-    </ol>
-    <!--The slideshow-->
-    <div class="carousel-inner" role="listbox">
-        <div class="carousel-item active">
-            <img src="~/images/slh1.jpg" alt="Vandenheede Toonzaal" class="img-responsive" title="Vandenheede Toonzaal" />
-            <div class="carousel-caption" role="option">
-                @*<p>
-                        Learn how to build ASP.NET apps that can run anywhere.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525028&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>*@
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="~/images/slh2.jpg" alt="Vandenheede Toonzaal" class="img-responsive" title="Vandenheede Toonzaal" />
-            <div class="carousel-caption" role="option">
-                @*<p>
-                        There are powerful new features in Visual Studio for building modern web apps.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525030&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>*@
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="~/images/slh3.jpg" alt="VandenHeede Toonzaal" class="img-responsive" title="Vandenheede Toonzaal" />
-            <div class="carousel-caption" role="option">
-                @*<p>
-                    Bring in libraries from NuGet and npm, and automate tasks using Grunt or Gulp.
-                    <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525029&clcid=0x409">
-                        Learn More
-                    </a>
-                    </p>*@
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="~/images/slh4.jpg" alt="Vandenheede Toonzaal" class="img-responsive" title="Vandenheede Toonzaal" />
-            <div class="carousel-caption" role="option">
-                @*<p>
-                        Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>*@
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="~/images/slh5.jpg" alt="VandenHeede Toonzaal" class="img-responsive" title="Vandenheede Toonzaal" />
-            <div class="carousel-caption" role="option">
-                @*<p>
-                        Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>*@
-            </div>
-        </div>
-        <div class="carousel-item">
-            <img src="~/images/slh6.jpg" alt="Vandenheede Toonzaal" class="img-responsive" title="Vandenheede Toonzaal" />
-            <div class="carousel-caption" role="option">
-                @*<p>
-                        Learn how Microsoft's Azure cloud platform allows you to build, deploy, and scale web apps.
-                        <a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkID=525027&clcid=0x409">
-                            Learn More
-                        </a>
-                    </p>*@
-            </div>
-        </div>
+<div class="container">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">WELKOM</p>
     </div>
-    <!--Left and right controls-->
-    <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        @*<span class="sr-only">Previous</span>*@
-    </a>
-    <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        @*<span class="sr-only">Next</span>*@
-    </a>
-</div>
 
-@*<div class="row">
-        <div class="col-md-3">
-            <h2>Application uses</h2>
-            <ul>
-                <li>Sample pages using ASP.NET Core MVC</li>
-                <li>Theming using <a href="https://go.microsoft.com/fwlink/?LinkID=398939">Bootstrap</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h2>How to</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398600">Add a Controller and View</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699315">Manage User Secrets using Secret Manager.</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699316">Use logging to log a message.</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699317">Add packages using NuGet.</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699319">Target development, staging or production environment.</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h2>Overview</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=518008">Conceptual overview of what is ASP.NET Core</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=699320">Fundamentals of ASP.NET Core such as Startup and middleware.</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398602">Working with Data</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkId=398603">Security</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699321">Client side development</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699322">Develop on different platforms</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=699323">Read more on the documentation site</a></li>
-            </ul>
-        </div>
-        <div class="col-md-3">
-            <h2>Run &amp; Deploy</h2>
-            <ul>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517851">Run your app</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=517853">Run tools such as EF migrations and more</a></li>
-                <li><a href="https://go.microsoft.com/fwlink/?LinkID=398609">Publish to Microsoft Azure Web Apps</a></li>
-            </ul>
-        </div>
-    </div>*@
+        <div class="row" style="color:dimgray">
+            
+            <div class='col-sm-12 col-md-12 col-lg-5'>
+                <a class="tekstWelkomLink" href="~/images/garage/g_1.jpg" data-toggle="lightbox" data-gallery="hidden-images" data-title="1/15" name="lightboxgallery"  >
+                    <div class="mapImage">
+                        <span class="pin pin1"> <i class="fas fa-search-plus fa-stack-2x"></i></span><img class="img-fluid card-img" alt="fotogallerij" src="~/images/garage/g_1.jpg" style="margin-top:5%;margin-left:5%  ;margin-bottom:5%; height:300px;width:452px;" />
+
+                    </div>
+
+                    <!-- text-right / end -->
+                </a>
+            </div> <!-- col-6 / end -->
+            <!-- elements not showing, use data-remote -->
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_2.jpg" data-title="2/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_3.jpg" data-title="3/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_4.jpg" data-title="4/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_5.jpg" data-title="5/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_6.jpg" data-title="6/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_7.jpg" data-title="7/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_8.jpg" data-title="8/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_9.jpg" data-title="9/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_10.jpg" data-title="10/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_11.jpg" data-title="11/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_12.jpg" data-title="12/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_13.jpg" data-title="13/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_14.jpg" data-title="15/15"></div>
+            <div data-toggle="lightbox" data-gallery="hidden-images" data-remote="../images/garage/g_15.jpg" data-title="15/15"></div>
+
+            <div class='col-sm-12 col-md-12 col-lg-7'>
+                <p class="tekstWelkomTitel"> AUTO'S VANDENHEEDE verwelkomt u graag op zijn website.</p>
+                <p class="tekstWelkom">
+                    Auto's Vandenheede is een familiebedrijf met reeds meer dan 30 jaar ervaring en is gespecialiseerd in de aankoop en verkoop van jonge tweedehandswagens.<br /><br />
+                    Via deze weg laten wij u graag kennismaken met ons bedrijf.<br /><br />
+
+                    Naast informatie omtrent onze <a class="tekstWelkomLink" href="../Home/Contact">openingsuren en routebeschrijving</a>, bieden wij u graag een kijkje in ons autobedrijf.
+                    Eveneens vindt u op onze site ook <a class="tekstWelkomLink" href="../Home/Autoos">ons volledig aanbod van wagens in voorraad.</a><br /><br />
+
+                    In november 2014 openden wij onze nieuwe showroom te Gistel. Hierdoor kunnen wij u een optimale service aanbieden!<br /><br />
+
+                    Sedert eind 2016 verzorgen wij voor u een <a class="tekstWelkomLink" href="../Home/Parts">onlineverkoop van autoparts!</a><br /><br />
+                </p>
+
+            </div>
+
+            <!-- row / end -->
+        </div> <!-- container / end -->
+    </div>
+
+ 
+

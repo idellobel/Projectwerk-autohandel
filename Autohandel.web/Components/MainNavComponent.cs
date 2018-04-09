@@ -25,8 +25,11 @@ namespace Autohandel.web.Components
         {
             PublicLinks = new List<MainNavLinkVm>
             {
-                new MainNavLinkVm{ Controller="Home", Action="Index", Text="Home"},
-                new MainNavLinkVm{ Controller="Home", Action="About", Text="Over Ons"},
+                new MainNavLinkVm{ Controller="Home", Action="Index", Text="Welkom"},
+                new MainNavLinkVm{ Controller="Home", Action="About", Text="Diensten"},
+                new MainNavLinkVm{ Controller="Home", Action="", Text="Ons aanbod wagens"},
+                new MainNavLinkVm{ Controller="Home", Action="", Text="Onderdelen"},
+                new MainNavLinkVm{ Controller="Home", Action="Team", Text="Ons team"},
                 new MainNavLinkVm{ Controller="Home", Action="Contact", Text="Contact"},
                 new MainNavLinkVm{Area= "Admin", Controller="Home", Action= "Index", Text=$"Dashboard" },
               

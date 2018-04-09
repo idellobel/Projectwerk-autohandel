@@ -1,0 +1,121 @@
+﻿@{
+    ViewData["Title"] = "Team";
+}
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+
+<div class="container">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">ONS TEAM</p>
+    </div>
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitel">VERKOOP</p>
+    </div>
+    <div class="row" style="color:dimgray">
+
+        <div class='col-sm-6 col-md-6 col-lg-6 text-center'>
+            <ol style="font-size:16px;list-style-type:none; margin-bottom:0; padding-bottom:1rem;">
+                <li>
+                    <img class="img-fluid rounded-circle" alt="team" src="~/images/team/carlos.jpg"
+                         style="width:75%;" />
+
+                </li>
+                <li class="font-weight-bold">
+                    Carlos Vandenheede
+                </li>
+                <li>
+                    GSM
+                    +32 (0)475 62 98 93
+                </li>
+            </ol>
+
+        </div>
+
+
+        <div class='col-sm-6 col-md-6 col-lg-6 text-center'>
+            <ol style="font-size:16px;list-style-type:none; margin-bottom:0; padding-bottom:1rem;">
+                <li>
+                    <img class="img-fluid rounded-circle" alt="team" src="~/images/team/Tim.jpg"
+                         style="width:75%;" />
+
+                </li>
+                <li class="font-weight-bold">
+                    Tim Vandenheede
+                </li>
+                <li>
+                    GSM
+                    +32 (0)474 57 32 58
+                </li>
+            </ol>
+
+        </div>
+    </div>
+    <hr style="background:#000000;border:0;color:#000000;height:2px;" />
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitel">ONTHAAL - ADMINISTRATIE</p>
+    </div>
+    <div class="row" style="color:dimgray">
+        <div class='col-sm-3 col-md-3 col-lg-3 text-center'></div>
+
+        <div class='col-sm-6 col-md-6 col-lg-6 text-center'>
+            <ol style="font-size:16px;list-style-type:none; margin-bottom:0; padding-bottom:1rem;">
+                <li>
+                    <img class="img-fluid rounded-circle" alt="team" src="~/images/team/martine.jpg"
+                         style="width:75%;" />
+
+                </li>
+                <li class="font-weight-bold">
+                    Martine Verbeeke
+                </li>
+                <li>
+                    Tel
+                    +32 (0)59 27 67 19
+                </li>
+            </ol>
+
+        </div>
+        <div class='col-sm-3 col-md-3 col-lg-3 text-center'></div>
+    </div>
+    <hr style="background:#000000;border:0;color:#000000;height:2px;" />
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitel">SERVICE</p>
+    </div>
+    <div class="row" style="color:dimgray">
+
+        <div class='col-sm-6 col-md-6 col-lg-6 text-center'>
+            <ol style="font-size:16px;list-style-type:none; margin-bottom:0; padding-bottom:1rem;">
+                <li>
+                    <img class="img-fluid rounded-circle" alt="team" src="~/images/team/sven.jpg"
+                         style="width:75%;" />
+
+                </li>
+                <li class="font-weight-bold">
+                    Sven Vantielcke
+                </li>
+            </ol>
+
+        </div>
+
+
+        <div class='col-sm-6 col-md-6 col-lg-6 text-center'>
+            <ol style="font-size:16px;list-style-type:none; margin-bottom:0; padding-bottom:1rem;">
+                <li>
+                    <img class="img-fluid rounded-circle" alt="team" src="~/images/team/glenn.jpg"
+                         style="width:75%;" />
+
+                </li>
+                <li class="font-weight-bold">
+                    Glenn Segers
+                </li>
+            </ol>
+
+        </div>
+    </div>
+</div>
+
+
+

@@ -28,6 +28,12 @@ namespace Autohandel.web.Controllers
 
             return View();
         }
+        public IActionResult Team()
+        {
+            ViewData["Message"] = "Your team page.";
+
+            return View();
+        }
 
         public IActionResult Error()
         {

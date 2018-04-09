@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 0px;
     padding-bottom: 20px;
+    background-color:lemonchiffon;
 }
 
 /* Wrapping element */
@@ -33,3 +34,98 @@
         display: none;
     }
 }
+
+.gallery {
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.text-muted {
+    font-style: italic;
+    color: coral;
+}
+
+.tekstWelkom {
+    margin-left: 5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 16px;
+}
+
+.tekstWelkomTitel {
+    margin-left: 5%;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 18px;
+}
+
+.tekstWelkomTitelPagina {
+    margin-left: 3%;
+    margin-top: 3%;
+    font-size: 20px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.tekstWelkomLink {
+    color: darkslategray;
+    text-decoration: none;
+    font-weight: bolder;
+}
+
+    .tekstWelkomLink:hover {
+        color: darkslategray;
+        text-decoration: none;
+        font-size: 18px;
+    }
+
+.mapImage {
+    position: relative;
+    display: inline-block; /* this div is the same size as the image */
+}
+
+    .mapImage:hover {
+        opacity: 0.6;
+    }
+
+.pin {
+    position: absolute; /* Takes this element out the document flow */
+    z-index: 10; /* Just in case of z-index issues, remove if not needed */
+}
+
+.pin1 {
+    right: 0px;
+    top: 5%; /* Move pin1 5% down */
+}
+
+
+/* Style inputs contactpage */
+.formContact{
+    width: 70%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    margin-top: 6px;
+    margin-bottom: 16px;
+    resize: vertical;
+}
+
+.submitContact {
+    background-color: #4CAF50;
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    cursor: pointer;
+}
+
+.submitContact:hover {
+    background-color: #45a049;
+}
+
+.contactLabel {
+    margin: 3%,0%;
+    width: 150px;
+    float: left;
+    color: darkslategray;
+    font-weight: bold
+}
+
+  
