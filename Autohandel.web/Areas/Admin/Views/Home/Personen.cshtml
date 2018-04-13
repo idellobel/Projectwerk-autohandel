@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "Personen";
+}
+<div class="container">
+    <h6 style="margin-top:20px;"><a asp-area="Admin" asp-controller="Home" asp-action="Index" style="margin-top:40px;"><i class="fas fa-arrow-circle-left"></i> Terug naar 'Admin Dashboard'</a></h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Admin Personen Beheer</h2>
+
+    <div class="row text-center ">
+
+        <div class="col-lg-3 col-md-5 col-sm-8 text-center DashItems ">
+            <a asp-controller="KLanten" asp-action="Index" asp-area="Admin">
+                <img asp-append-version="true" src="~/images/persenpapier/klanten.jpg" alt="Klanten" title="Klanten"
+                     class="img-fluid DashItemsAfbeeldingen">
+            </a>
+
+            <a asp-controller="Klanten" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Klanten</a>
+        </div>
+
+        <div class=" col-lg-3 col-md-5 col-sm-8   text-center DashItems ">
+            <a asp-controller="Leveranciers" asp-action="Index" asp-area="Admin">
+                <img asp-append-version="true" src="~/images/persenpapier/leverancier.jpg" alt="Leveranciers" title="Leveranciers"
+                     class="img-fluid DashItemsAfbeeldingen">
+            </a>
+
+            <a asp-controller="Leveranciers" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Leveranciers</a>
+        </div>
+
+        <div class="col-lg-3 col-md-5 col-sm-8   text-center DashItems ">
+            <a asp-controller="Users" asp-action="Index" asp-area="Admin">
+                <img asp-append-version="true" src="~/images/persenpapier/bezoeker.jpg" alt="Users" title="Users"
+                     class="img-fluid DashItemsAfbeeldingen">
+            </a>
+
+            <a asp-controller="Users" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Users</a>
+        </div>
+
+    </div>
+
+</div>
+<br />
+<br />

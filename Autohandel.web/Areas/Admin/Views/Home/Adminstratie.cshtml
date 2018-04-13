@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Adminstratie";
+}
+<div class="container">
+    <h6 style="margin-top:20px;"><a asp-area="Admin" asp-controller="Home" asp-action="Index" style="margin-top:40px;"><i class="fas fa-arrow-circle-left"></i> Terug naar 'Admin Dashboard'</a></h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Admin Administratie Beheer</h2>
+
+    <div class="row text-center ">
+
+        <div class="col-lg-3 col-md-5 col-sm-8 text-center DashItems ">
+            <a asp-controller="Fakturen" asp-action="Index" asp-area="Admin">
+                <img asp-append-version="true" src="~/images/persenpapier/faktuur.png" alt="Fakturen" title="Fakturen"
+                     class="img-fluid DashItemsAfbeeldingen">
+            </a>
+
+            <a asp-controller="Fakturen" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Fakturen</a>
+        </div>
+
+        <div class=" col-lg-3 col-md-5 col-sm-8   text-center DashItems ">
+            <a asp-controller="Onderhoud" asp-action="Index" asp-area="Admin">
+                <img asp-append-version="true" src="~/images/persenpapier/onderhoud.jpg" alt="Onderhoud" title="Onderhoud"
+                     class="img-fluid DashItemsAfbeeldingen">
+            </a>
+
+            <a asp-controller="Onderhoud" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Onderhoud</a>
+        </div>
+
+        <div class=" col-lg-3 col-md-5 col-sm-8   text-center DashItems ">
+            <a asp-controller="Garanties" asp-action="Index" asp-area="Admin">
+                <img asp-append-version="true" src="~/images/persenpapier/garantie.png" alt="garanties" title="garanties"
+                     class="img-fluid DashItemsAfbeeldingen">
+            </a>
+
+            <a asp-controller="Garanties" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Garanties</a>
+        </div>
+    </div>
+    
+</div>
+<br />
+<br />

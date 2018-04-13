@@ -175,7 +175,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
                 try
                 {
                     TempData["AlertMessage"] = $"De categorie <b>{categorieOnderdelen.OnderdelenCategorienaam}</b> mag niet gewijzigd worden." +
-                        $"De categorienaam is een gekoppeld aan een (sub)categorie of is een categorie waaronder reeds producten zijn opgeslagen!";
+                        $"De categorienaam is reeds gekoppeld aan een (sub)categorie of is een categorie waaronder reeds producten zijn opgeslagen!";
 
                     return RedirectToAction(nameof(Index));
                 }

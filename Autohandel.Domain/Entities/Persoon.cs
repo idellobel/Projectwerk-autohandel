@@ -9,12 +9,13 @@ namespace Autohandel.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long PersoonId { get; set; }
 
-        [Required]
-        [MaxLength(150)]
+        [Required(ErrorMessage = "{0} is vereist")]
+        [StringLength(75, ErrorMessage = "Het veld {0} kan niet langer zijn dan 75 karakters")]
+        [Display(Name = "FamilieNaam")]
         public string Naam { get; set; }
 
-        [Required]
-        [MaxLength(150)]
+        [Required(ErrorMessage = "{0} is vereist")]
+        [StringLength(75, ErrorMessage = "Het veld {0} kan niet langer zijn dan 75 karakters")]
         public string Voornaam { get; set; }
 
         [Display(Name = "VolledigeNaam")]
@@ -23,21 +24,21 @@ namespace Autohandel.Domain.Entities
             get { return Naam + ", " + Voornaam; }
         }
 
-        //[Required(ErrorMessage = "Het veld Telefoon is vereist")]
+        [Required(ErrorMessage = "{0} is vereist")]
+        [RegularExpression("^(?!0+$)(\\+\\d{1,3}[- ]?)?(?!0+$)\\d{10,15}$", ErrorMessage = "Geen geldig telefoonnummer")]
         [DataType(DataType.PhoneNumber)]
-        //[RegularExpression(@"^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$", ErrorMessage = "Geen geldig telefoonnummer")]
         public string Telefoonnummer { get; set; }
 
-        [StringLength(70)]
-        [Required]
+        [StringLength(75, ErrorMessage = "Het veld {0} kan niet langer zijn dan 75 karakters")]
+        [Required(ErrorMessage = "{0} is vereist")]
         public string Adres { get; set; }
 
 
-        [Required]
+        [Required(ErrorMessage = "{0} is vereist")]
         public int Postcode { get; set; }
 
-        [StringLength(30)]
-        [Required]
+        [StringLength(75, ErrorMessage = "Het veld {0} kan niet langer zijn dan 75 karakters")]
+        [Required(ErrorMessage = "{0} is vereist")]
         public string Gemeente { get; set; }
 
         [Required(ErrorMessage = "Het veld Email is vereist")]

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Autohandel.Domain.Entities.User>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Personen" style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin personen beheer'
+        </a>
+    </h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Beheer users</h2>
+
+
+    <p>
+        <a asp-action="Create">Maak een nieuwe gebruiker</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.UserId)<br />
+                </th>
+                <th class="col-3">
+                    @Html.DisplayNameFor(model => model.UserName)<br />
+                    @Html.DisplayNameFor(model => model.PaswoordHash)<br />
+                    @Html.DisplayNameFor(model => model.RememberMe)
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Naam)<br />
+                    @Html.DisplayNameFor(model => model.Voornaam)<br />
+                    @Html.DisplayNameFor(model => model.Email)<br />
+
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Telefoonnummer)<br />
+                    @Html.DisplayNameFor(model => model.Adres)<br />
+                    @Html.DisplayNameFor(model => model.Postcode)<br />
+                    @Html.DisplayNameFor(model => model.Gemeente)<br />
+                </th>
+                </th>
+                <th class="col-2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td class="col-1">
+                    @Html.DisplayFor(modelItem => item.UserId)<br />
+                </td>
+                <td class="col-3">
+                    @Html.DisplayFor(modelItem => item.UserName)<br />
+                    @Html.DisplayFor(modelItem => item.PaswoordHash)<br />
+                    @Html.DisplayFor(modelItem => item.RememberMe)<br />
+                </td>
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.Naam)<br />
+                    @Html.DisplayFor(modelItem => item.Voornaam)<br />
+                    @Html.DisplayFor(modelItem => item.Email)<br />
+                </td>
+                <td class="col-2">
+                    @Html.DisplayFor(modelItem => item.Telefoonnummer)<br />
+                    @Html.DisplayFor(modelItem => item.Adres)<br />
+                    @Html.DisplayFor(modelItem => item.Postcode)<br />
+                    @Html.DisplayFor(modelItem => item.Gemeente)<br />
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.PersoonId">Wijzig</a> |
+                    <a asp-action="Details" asp-route-id="@item.PersoonId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.PersoonId">Verwijder</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />

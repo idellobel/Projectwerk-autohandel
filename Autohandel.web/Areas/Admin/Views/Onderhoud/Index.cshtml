@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Autohandel.Domain.Entities.Onderhoud>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Adminstratie" asp-route-id="7" style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin administratie'
+        </a>
+    </h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Beheer Onderhoud</h2>
+
+    <p>
+        <a asp-action="Create">Maak nieuw onderhoud aan</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-1">
+                    @Html.DisplayNameFor(model => model.OnderhoudId)<br />
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Datum)<br />
+                </th>
+
+                <th class="col-3">
+                    @Html.DisplayNameFor(model => model.Kilometerstand)<br />
+                    @Html.DisplayNameFor(model => model.Info)
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Voertuig)<br />
+                </th>
+
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Klant)
+
+                </th>
+
+                <th class="col-2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="d-flex">
+                    <td class="col-1">
+                        @Html.DisplayFor(modelItem => item.OnderhoudId)
+                    </td>
+                    <td class="col-2">
+                        @Html.DisplayFor(modelItem => item.Datum)
+                    </td>
+                    <td class="col-3">
+                        @Html.DisplayFor(modelItem => item.Kilometerstand) Km<br />
+                        @Html.DisplayFor(modelItem => item.Info)
+                    </td>
+                    <td class="col-2">
+                        VoertuigNr: @Html.DisplayFor(modelItem => item.Voertuig.VoertuigArtikelNummer)<br />
+                        Merk: @Html.DisplayFor(modelItem => item.Voertuig.Merk.MerkNaam)<br />
+                        Type: @Html.DisplayFor(modelItem => item.Voertuig.MerkType.MerkTypeNaam)
+                    </td>
+                    <td class="col-2">
+                       KlantId: @Html.DisplayFor(modelItem => item.KlantId)<br />
+                       KlantNaam: @Html.DisplayFor(modelItem => item.Klant.KlantNaam)
+                    </td>
+                    <td class="col-2">
+                        <a asp-action="Edit" asp-route-id="@item.OnderhoudId">Wijzig</a> |
+                        <a asp-action="Details" asp-route-id="@item.OnderhoudId">Details</a> |
+                        @*<a asp-action="Delete" asp-route-id="@item.OnderhoudId">Verwijder</a>*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />

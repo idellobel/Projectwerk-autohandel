@@ -4520,7 +4520,138 @@ namespace Autohandel.Domain.Data
                 context.SaveChanges();
             }
 
-            context.SaveChanges();
+            //seed leveranciers
+            if (!context.Leveranciers.Any())
+            {
+                Leverancier[] leveranciers = new[]
+                {
+                    new Leverancier{
+                                    LeverancierNaam = "Bosal",
+                                    LeverancierDatum = new DateTime(2018,4,2),
+                                    LeverancierID = 1,
+                                    Naam = "Therssen",
+                                    Voornaam = "Marc",
+                                    Telefoonnummer = "0478123456",
+                                    Email = "info@bosal.com",
+                                    Postcode = 8430,
+                                    Gemeente = "Middelkerke",
+                                    Adres = "Veldstraat 10",
+                                    },
+                    new Leverancier{
+                                    LeverancierNaam = "TowBars",
+                                    LeverancierDatum = new DateTime(2018,4,10),
+                                    LeverancierID = 2,
+                                    Naam = "Vanacker",
+                                    Voornaam = "Johan ",
+                                    Telefoonnummer = "0488565447",
+                                    Email = "info@towbars.com ",
+                                    Postcode = 8500,
+                                    Gemeente = "Kortrijk",
+                                    Adres = "doornstraat 16",
+                                    },
+                    new Leverancier{
+                                    LeverancierNaam = "MANN",
+                                    LeverancierDatum = new DateTime(2018,4,9),
+                                    LeverancierID = 3,
+                                    Naam = "Jacobs",
+                                    Voornaam = "Henk  ",
+                                    Telefoonnummer = "0488565447",
+                                    Email = "info@mann.com",
+                                    Postcode = 8450,
+                                    Gemeente = "Oostende",
+                                    Adres = "Bredabaan 102",
+                                    },
+                    new Leverancier{
+                                    LeverancierNaam = "TwinnyLoad",
+                                    LeverancierDatum = new DateTime(2018,4,4),
+                                    LeverancierID = 4,
+                                    Naam = "Peeters",
+                                    Voornaam = "Hans",
+                                    Telefoonnummer = "0487575757",
+                                    Email = "info@twinnyLoad.be ",
+                                    Postcode = 8620,
+                                    Gemeente = "Nieuwpoort",
+                                    Adres = "Langestraat 16",
+                                    },
+                    new Leverancier{
+                                    LeverancierNaam = "StyleFit-Clips",
+                                    LeverancierDatum = new DateTime(2018,4,2),
+                                    LeverancierID = 5,
+                                    Naam = "Janssens",
+                                    Voornaam = "Gert",
+                                    Telefoonnummer = "0478521369",
+                                    Email = "info@stylefit.be",
+                                    Postcode = 8620,
+                                    Gemeente = "Nieuwpoort",
+                                    Adres = "Brugsevaart 40",
+                                    },
+                    new Leverancier{
+                                    LeverancierNaam = "HEUVER(banden)",
+                                    LeverancierDatum = new DateTime(2018,4,10),
+                                    LeverancierID = 6,
+                                    Naam = "Vanzijl",
+                                    Voornaam = "Herbert ",
+                                    Telefoonnummer = "+31523850850 ",
+                                    Email = "info@heuver.be",
+                                    Postcode = 7770,
+                                    Gemeente = "Hardenberg",
+                                    Adres = "Zwedenweg 17",
+                                    },
+                    new Leverancier{
+                                    LeverancierNaam = "Wieldoppengigant",
+                                    LeverancierDatum = new DateTime(2018,4,5),
+                                    LeverancierID = 7,
+                                    Naam = "Aerts",
+                                    Voornaam = "Ben ",
+                                    Telefoonnummer = "+31598786093",
+                                    Email = "info@concept-s.nl",
+                                    Postcode = 9636,
+                                    Gemeente = "Zuidbroek",
+                                    Adres = "Hanzeweg 9C",
+                                    },
+                     new Leverancier{
+                                    LeverancierNaam = "Lano Carpets",
+                                    LeverancierDatum = new DateTime(2018,4,3),
+                                    LeverancierID = 8,
+                                    Naam = "Vandeursen",
+                                    Voornaam = "Gilles",
+                                    Telefoonnummer = "0456789133",
+                                    Email = "marketing@lano.be",
+                                    Postcode = 8530,
+                                    Gemeente = "Harelbeke",
+                                    Adres = "Venetiëlaan 33",
+                                    },
+                      new Leverancier{
+                                    LeverancierNaam = "SONNIBOY",
+                                    LeverancierDatum = new DateTime(2018,4,6),
+                                    LeverancierID = 9,
+                                    Naam = "Veres",
+                                    Voornaam = "Mariska",
+                                    Telefoonnummer = "+31507210808",
+                                    Email = "info@sonniboy.nl",
+                                    Postcode = 9723,
+                                    Gemeente = "Groningen",
+                                    Adres = "Verlengde Bremenweg 15 ",
+                                    },
+                      new Leverancier{
+                                    LeverancierNaam = "Teesing(filters en vloeistoffen)",
+                                    LeverancierDatum = new DateTime(2018,4,7),
+                                    LeverancierID = 10,
+                                    Naam = "Van Gorp",
+                                    Voornaam = "Cor",
+                                    Telefoonnummer = "+31704130700",
+                                    Email = "orders@teesing.nl",
+                                    Postcode = 2288,
+                                    Gemeente = "RIJSWIJK",
+                                    Adres = "Verrijn Stuartlaan 40",
+                                    },
+                };
+
+                context.Leveranciers.AddRange(leveranciers);
+                context.SaveChanges();
+            }
+
+                context.SaveChanges();
 
             }
         }

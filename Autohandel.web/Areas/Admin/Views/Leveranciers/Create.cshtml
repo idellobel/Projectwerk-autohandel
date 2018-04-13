@@ -1,0 +1,78 @@
+﻿@model Autohandel.Domain.Entities.Leverancier
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-action="Index"><i class="fas fa-arrow-circle-left"></i> Naar Leverancierlijst</a>
+
+    </h6>
+
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Maak een nieuwe leverancier</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="LeverancierID" class="control-label"></label>
+                    <input asp-for="LeverancierID" class="form-control" />
+                    <span asp-validation-for="LeverancierID" class="text-danger"> @Html.ValidationMessage("LeverancierValidatieError")</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LeverancierDatum" class="control-label"></label>
+                    <input asp-for="LeverancierDatum" class="form-control" />
+                    <span asp-validation-for="LeverancierDatum" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="LeverancierNaam" class="control-label"></label>
+                    <input asp-for="LeverancierNaam" class="form-control" />
+                    <span asp-validation-for="LeverancierNaam" class="text-danger"> @Html.ValidationMessage("LeverancierValidatieError")</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Naam" class="control-label"></label>
+                    <input asp-for="Naam" class="form-control" />
+                    <span asp-validation-for="Naam" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Voornaam" class="control-label"></label>
+                    <input asp-for="Voornaam" class="form-control" />
+                    <span asp-validation-for="Voornaam" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Telefoonnummer" class="control-label"></label>
+                    <input asp-for="Telefoonnummer" class="form-control" />
+                    <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Adres" class="control-label"></label>
+                    <input asp-for="Adres" class="form-control" />
+                    <span asp-validation-for="Adres" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Postcode" class="control-label"></label>
+                    <input asp-for="Postcode" class="form-control" />
+                    <span asp-validation-for="Postcode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Gemeente" class="control-label"></label>
+                    <input asp-for="Gemeente" class="form-control" />
+                    <span asp-validation-for="Gemeente" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Maak" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<br />

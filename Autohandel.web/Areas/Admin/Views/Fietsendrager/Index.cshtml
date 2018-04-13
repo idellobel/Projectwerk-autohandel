@@ -24,7 +24,8 @@
                 <th class="col-2">
                     @Html.DisplayNameFor(model => model.Artikelnaam)<br />
                     @Html.DisplayNameFor(model => model.Prijs)<br />
-                    @Html.DisplayNameFor(model => model.CategorieOnderdelen.OnderdelenCategorienaam)
+                    @Html.DisplayNameFor(model => model.CategorieOnderdelen.OnderdelenCategorienaam)<br />
+                    @Html.DisplayNameFor(model => model.Leverancier.LeverancierNaam)<br />
                 </th>
 
                 <th class="col-3">
@@ -69,7 +70,8 @@
                     <td class="col-2">
                         @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
                         @Html.DisplayFor(modelItem => item.Prijs)<br />
-                        @Html.DisplayFor(modelItem => item.CategorieOnderdelen.OnderdelenCategorienaam)
+                        @Html.DisplayFor(modelItem => item.CategorieOnderdelen.OnderdelenCategorienaam)<br />
+                        @Html.DisplayFor(modelItem => item.Leverancier.LeverancierNaam)<br />
                     </td>
 
                     <td class="col-3">
@@ -110,3 +112,5 @@
         </tbody>
     </table>
 </div>
+<br />
+<br />

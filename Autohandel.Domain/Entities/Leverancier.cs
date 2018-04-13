@@ -8,13 +8,13 @@ namespace Autohandel.Domain.Entities
 {
     public class Leverancier : Persoon
     {
-        //[Key]
-        //[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        [Required]
+        [Display(Name = "Leverancier")]
+        [Required(ErrorMessage = "Het veld {0} is vereist")]
         public long LeverancierID { get; set; }
 
         [DataType(DataType.Date)]
-        [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        //[DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]
+        [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:dd/MM/yyyy}")]
         [Display(Name = "Leverancier sedert")]
         public DateTime LeverancierDatum { get; set; }
 

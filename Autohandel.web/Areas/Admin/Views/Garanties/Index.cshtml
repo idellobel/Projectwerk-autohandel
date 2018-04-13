@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Autohandel.Domain.Entities.Garantie>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Adminstratie" asp-route-id="7" style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin administratie'
+        </a>
+    </h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Beheer garanties</h2>
+
+    <p>
+        <a asp-action="Create">Maak nieuwe garantie aan</a>
+    </p>
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Faktuur)<br />
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Vervaldatum)<br />
+                </th>
+
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Faktuur.Voertuig)<br />
+
+                </th>
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Faktuur.Artikelnummer)<br />
+                </th>
+
+                <th class="col-2">
+                    @Html.DisplayNameFor(model => model.Faktuur.Klant)
+
+                </th>
+
+                <th class="col-2"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+    {
+        <tr class="d-flex">
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => item.Faktuur.FaktuurNr)<br />
+                @Html.DisplayFor(modelItem => item.Faktuur.Faktuurdatum)<br />
+            </td>
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => item.Vervaldatum)<br />
+
+            </td>
+
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => item.Faktuur.Voertuig.VoertuigArtikelNummer)<br />
+                @Html.DisplayFor(modelItem => item.Faktuur.Voertuig.Merk.MerkNaam)<br />
+                @Html.DisplayFor(modelItem => item.Faktuur.Voertuig.MerkType.MerkTypeNaam)<br />
+                @Html.DisplayFor(modelItem => item.Faktuur.Voertuig.Prijs)<br />
+            </td>
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => item.Faktuur.OnderdelenProducten.Artikelnummer)<br />
+                @Html.DisplayFor(modelItem => item.Faktuur.OnderdelenProducten.Artikelnaam)<br />
+                @Html.DisplayFor(modelItem => item.Faktuur.OnderdelenProducten.Prijs)<br />
+            </td>
+            <td class="col-2">
+                @Html.DisplayFor(modelItem => item.Faktuur.Klant.KlantNaam)<br />
+            </td>
+
+
+            <td class="col-2">
+                <a asp-action="Edit" asp-route-id="@item.GarantieId">Wijzig</a> |
+                <a asp-action="Details" asp-route-id="@item.GarantieId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.GarantieId">Verwijder</a>
+            </td>
+        </tr>
+}
+        </tbody>
+    </table>

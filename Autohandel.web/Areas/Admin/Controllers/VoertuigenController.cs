@@ -29,6 +29,8 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(await _context.Voertuigen
                 .Include(v=>v.Merk)
                 .Include(v=>v.MerkType)
+                .Include(v=>v.Klant)
+                .Include(v=>v.Faktuur)
                 .OrderBy(v=>v.VoertuigArtikelNummer.Length)
                 .ThenBy(v=>v.VoertuigArtikelNummer)
                 .ToListAsync() );

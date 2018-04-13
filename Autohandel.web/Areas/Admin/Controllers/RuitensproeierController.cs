@@ -24,6 +24,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.OnderdelenProducten
+                                    .Include(lv => lv.Leverancier)
                                     .Include(o => o.CategorieOnderdelen)
                                     .Include(o => o.Specificatie)
                                     .Where(o => o.CategorieOnderdelen.OnderdelenCategorienaam == "Ruitensproeier")
@@ -41,11 +42,11 @@ namespace Autohandel.web.Areas.Admin.Controllers
                 return NotFound();
             }
 
-
             var onderdelenProducten = await _context.OnderdelenProducten
-                                        .Include(o => o.CategorieOnderdelen)
-                                        .Include(o => o.Specificatie)
-                                        .SingleOrDefaultAsync(m => m.Artikelnummer == id);
+                                                    .Include(o => o.Leverancier)
+                                                    .Include(o => o.CategorieOnderdelen)
+                                                    .Include(o => o.Specificatie)
+                                                    .SingleOrDefaultAsync(m => m.Artikelnummer == id);
 
             if (onderdelenProducten == null)
             {
@@ -59,6 +60,8 @@ namespace Autohandel.web.Areas.Admin.Controllers
         public IActionResult Create()
         {
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Ruitensproeier"), "OnderdelenCategorieId", "OnderdelenCategorienaam");
+            ViewData["LeveranciersLijst"] = new SelectList(_context.Leveranciers, "LeverancierID", "LeverancierNaam");
+
             return View();
         }
 
@@ -67,7 +70,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Artikelnummer,Artikelnaam,Artikelomschrijving,Prijs,FiguurURL,OpVoorraad,Specificatie,SpecificatieId,CategorieOnderdelen,OnderdelenCategorieId")] OnderdelenProducten onderdelenProductenCreate)
+        public async Task<IActionResult> Create([Bind("Leverancier,LeverancierID,Artikelnummer,Artikelnaam,Artikelomschrijving,Prijs,FiguurURL,OpVoorraad,Specificatie,SpecificatieId,CategorieOnderdelen,OnderdelenCategorieId")] OnderdelenProducten onderdelenProductenCreate)
         {
             if (OnderdelenProductenExists(onderdelenProductenCreate.Artikelnummer))
             {
@@ -82,6 +85,8 @@ namespace Autohandel.web.Areas.Admin.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Ruitensproeier"), "OnderdelenCategorieId", "OnderdelenCategorienaam", onderdelenProductenCreate.OnderdelenCategorieId);
+            ViewData["LeveranciersLijst"] = new SelectList(_context.Leveranciers, "LeverancierID", "LeverancierNaam", onderdelenProductenCreate.LeverancierID);
+
             return View(onderdelenProductenCreate);
         }
 
@@ -94,6 +99,8 @@ namespace Autohandel.web.Areas.Admin.Controllers
             }
 
             var onderdelenProducten = await _context.OnderdelenProducten
+                                                .Include(o => o.Leverancier)
+                                                .Include(o => o.Specificatie)
                                                 .Include(m => m.Specificatie)
                                                 .SingleOrDefaultAsync(m => m.Artikelnummer == id);
 
@@ -102,6 +109,8 @@ namespace Autohandel.web.Areas.Admin.Controllers
                 return NotFound();
             }
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Ruitensproeier"), "OnderdelenCategorieId", "OnderdelenCategorienaam", onderdelenProducten.OnderdelenCategorieId);
+            ViewData["LeveranciersLijst"] = new SelectList(_context.Leveranciers, "LeverancierID", "LeverancierNaam", onderdelenProducten.LeverancierID);
+
             return View(onderdelenProducten);
         }
 
@@ -110,7 +119,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(string id, [Bind("Artikelnummer,Artikelnaam,Artikelomschrijving,Prijs,FiguurURL,OpVoorraad,Specificatie,SpecificatieId,CategorieOnderdelen,OnderdelenCategorieId")] OnderdelenProducten onderdelenProductenEdit)
+        public async Task<IActionResult> Edit(string id, [Bind("Leverancier,LeverancierID,Artikelnummer,Artikelnaam,Artikelomschrijving,Prijs,FiguurURL,OpVoorraad,Specificatie,SpecificatieId,CategorieOnderdelen,OnderdelenCategorieId")] OnderdelenProducten onderdelenProductenEdit)
         {
             if (id != onderdelenProductenEdit.Artikelnummer)
             {
@@ -140,6 +149,8 @@ namespace Autohandel.web.Areas.Admin.Controllers
 
             }
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Ruitensproeier"), "OnderdelenCategorieId", "OnderdelenCategorienaam", onderdelenProductenEdit.OnderdelenCategorieId);
+            ViewData["LeveranciersLijst"] = new SelectList(_context.Leveranciers, "LeverancierID", "LeverancierNaam", onderdelenProductenEdit.LeverancierID);
+
             return View(onderdelenProductenEdit);
         }
 
@@ -152,9 +163,10 @@ namespace Autohandel.web.Areas.Admin.Controllers
             }
 
             var onderdelenProducten = await _context.OnderdelenProducten
-                                                  .Include(o => o.Specificatie)
-                                                  .Include(o => o.CategorieOnderdelen)
-                                                  .SingleOrDefaultAsync(m => m.Artikelnummer == id);
+                                              .Include(o => o.Leverancier)
+                                              .Include(o => o.Specificatie)
+                                              .Include(o => o.CategorieOnderdelen)
+                                              .SingleOrDefaultAsync(m => m.Artikelnummer == id);
 
             if (onderdelenProducten == null)
             {
@@ -170,9 +182,11 @@ namespace Autohandel.web.Areas.Admin.Controllers
         public async Task<IActionResult> DeleteConfirmed(string id)
         {
             var onderdelenProducten = await _context.OnderdelenProducten
-                                            .Include(o => o.Specificatie)
-                                            .Include(o => o.CategorieOnderdelen)
-                                            .SingleOrDefaultAsync(m => m.Artikelnummer == id);
+                                           .Include(o => o.Leverancier)
+                                           .Include(o => o.Specificatie)
+                                           .Include(o => o.CategorieOnderdelen)
+                                           .SingleOrDefaultAsync(m => m.Artikelnummer == id);
+
             _context.OnderdelenProducten.Remove(onderdelenProducten);
             await _context.SaveChangesAsync();
             TempData["SuccessMessage"] = $"Ruitensproeier <b>{onderdelenProducten.Artikelnummer}</b> werd verwijderd!";

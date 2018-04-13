@@ -150,10 +150,10 @@ namespace Autohandel.web.Repositories
                 VoertuigId =id,
                
                 VoertuigArtikelNummer = voertuigMod.VoertuigArtikelNummer,
-                SelectedMerk = voertuigMod.Merk.MerkId.ToString(),
-                SelectedModel = voertuigMod.MerkType.MerkTypeId.ToString(),
+                SelectedMerk = voertuigMod.MerkId.ToString(),
+                SelectedModel = voertuigMod.ModelId.ToString(),
                 VoertuigTitel = voertuigMod.VoertuigTitel,
-                SelectedCategorie = voertuigMod.VoertuigCategorie.VoertuigCatId.ToString(),
+                SelectedCategorie = voertuigMod.VoertuigCatId.ToString(),
                 Prijs = voertuigMod.Prijs,
                 Kilometerstand= voertuigMod.Kilometerstand,
                 Registratie= voertuigMod.Registratie    ,
@@ -171,8 +171,8 @@ namespace Autohandel.web.Repositories
                 Binnenkleur = voertuigMod.Binnenkleur,
                 Binnenbekleding = voertuigMod.Binnenbekleding,
                 FiguurURL = voertuigMod.FiguurURL,
-                SelectedFaktuur = voertuigMod.Faktuur?.FaktuurNr.ToString(),  //Bestaan nog geen fakturen
-                SelectedKlant = voertuigMod.Klant?.KlantId.ToString(),
+                SelectedFaktuur = voertuigMod.FaktuurNr.ToString(),  //Bestaan nog geen fakturen
+                SelectedKlant = voertuigMod.KlantId.ToString(),
                 Merken = mRepo.GetMerken(),
                 Modellen = tRepo.GetModellen(voertuigMod.MerkId.ToString()),
                 Categorieen = cRepo.GetCategorieen(),

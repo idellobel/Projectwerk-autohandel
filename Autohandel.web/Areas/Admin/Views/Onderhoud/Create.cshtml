@@ -1,0 +1,50 @@
+﻿@model Autohandel.Domain.Entities.Onderhoud
+
+@{
+    ViewData["Title"] = "Create";
+}
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-action="Index">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'beheer onderhoud'
+        </a>
+    </h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Maak een nieuw onderhoud</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Create">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="VoertuigId" class="control-label"></label>
+                    <select asp-for="VoertuigId" class="form-control" asp-items="ViewBag.VoertuigId"></select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Datum" class="control-label"></label>
+                    <input asp-for="Datum" class="form-control" />
+                    <span asp-validation-for="Datum" class="text-danger">@Html.ValidationMessage("OnderhoudDatumValidatieError")</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Kilometerstand" class="control-label"></label>
+                    <input asp-for="Kilometerstand" class="form-control" />
+                    <span asp-validation-for="Kilometerstand" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Info" class="control-label"></label>
+                    <input asp-for="Info" class="form-control" />
+                    <span asp-validation-for="Info" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KlantId" class="control-label"></label>
+                    <select asp-for="KlantId" class="form-control" asp-items="ViewBag.KlantId"></select>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Maak" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<br />

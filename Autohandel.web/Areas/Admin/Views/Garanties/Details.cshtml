@@ -1,0 +1,94 @@
+﻿@model Autohandel.Domain.Entities.Garantie
+
+@{
+    ViewData["Title"] = "Details";
+}
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-action="Index">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'beheer onderhoud'
+        </a>
+    </h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">In detail</h2>
+
+    <div>
+
+        <hr />
+        <div class="container">
+            <div class="table-responsive ">
+                <table class="table table-condensed table-bordered table-striped ">
+                    <thead class="thead-dark">
+                        <tr class="d-flex">
+                            <th class="col-lg-4 col-md-4 col col-sm-4">Benaming</th>
+                            <th class="col-lg-8 col-md-8 col-sm-8">Gegeven</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex">
+                            <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.DisplayNameFor(model => model.Faktuur)<br />
+
+
+                            </td>
+                            <td class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DisplayFor(model => model.Faktuur.FaktuurNr)<br />
+                                @Html.DisplayFor(model => model.Faktuur.Faktuurdatum)<br />
+
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.DisplayNameFor(model => model.Vervaldatum) : <br />
+                            </td>
+                            <td class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DisplayFor(model => model.Vervaldatum)<br />
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.DisplayNameFor(model => model.Faktuur.Voertuig) : <br /><br /><br /><br />
+
+
+                            </td>
+                            <td class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DisplayFor(model => model.Faktuur.Voertuig.VoertuigArtikelNummer)<br />
+                                @Html.DisplayFor(model => model.Faktuur.Voertuig.Merk.MerkNaam)<br />
+                                @Html.DisplayFor(model => model.Faktuur.Voertuig.MerkType.MerkTypeNaam)<br />
+                                @Html.DisplayFor(model => model.Faktuur.Voertuig.Prijs)<br />
+
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.DisplayNameFor(model => model.Faktuur.Artikelnummer) : <br /><br /><br />
+
+
+                            </td>
+                            <td class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DisplayFor(model => model.Faktuur.OnderdelenProducten.Artikelnummer)<br />
+                                @Html.DisplayFor(model => model.Faktuur.OnderdelenProducten.Artikelnaam)<br />
+                                @Html.DisplayFor(model => model.Faktuur.OnderdelenProducten.Prijs)<br />
+
+
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.DisplayNameFor(model => model.Faktuur.Klant) : <br /><br /><br />
+
+
+                            </td>
+                            <td class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DisplayFor(model => model.Faktuur.Klant.KlantNaam)<br />
+                              
+                            </td>
+                        </tr>
+                    </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</div>
+<br />
+<br />

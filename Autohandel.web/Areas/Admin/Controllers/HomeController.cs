@@ -59,5 +59,15 @@ namespace Autohandel.web.Areas.Admin.Controllers
 
             return View(categorieOnderdelen);
         }
+        public IActionResult Personen()
+        {
+            return View();
+        }
+
+        public IActionResult Adminstratie()
+        {
+            return View();
+        }   
+
     }
 }

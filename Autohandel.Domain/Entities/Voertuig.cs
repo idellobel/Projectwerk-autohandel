@@ -65,12 +65,16 @@ namespace Autohandel.Domain.Entities
         public string[] FiguurURLs { get; set; }
 
         public virtual Klant Klant  { get; set; }
-  
+        [Display(Name = "Klant")]
+        public long? KlantId { get; set; }
+
         public virtual ICollection<Onderhoud> Onderhoudsbeurten { get; set; } 
         
         public virtual Garantie Garantie { get; set; }
         
         public virtual  Faktuur Faktuur { get; set; }
+        [Display(Name = "FaktuurNr")]
+        public long? FaktuurNr { get; set; }
 
         [StringLength(50, ErrorMessage = "Het veld {0} kan niet langer zijn dan 50 karakters")]
         public string Registratie { get; set; }

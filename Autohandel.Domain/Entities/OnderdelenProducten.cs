@@ -23,8 +23,10 @@ namespace Autohandel.Domain.Entities
 
         [DataType(DataType.Currency, ErrorMessage = "{0} is in ongeldig formaat")]
         [Required(ErrorMessage = "Het veld Prijs is vereist")]
+
         [Display(Name = "Prijs")]
         public decimal Prijs { get; set; }
+        //[Column(TypeName = "money")] //foutmelding in database.
 
         [StringLength(512, ErrorMessage = "Het veld FiguurURL kan niet langer zijn dan 512 karakters")]
         [Display(Name = "Afbeelding")]
@@ -50,10 +52,14 @@ namespace Autohandel.Domain.Entities
 
         public virtual ICollection<File> Files { get; set; }
 
+        public virtual Leverancier Leverancier { get; set; }
+
+        public long? LeverancierID { get; set; }  
+      
 
 
 
-
+            
     }
 
     

@@ -1,0 +1,56 @@
+﻿@model Autohandel.Domain.Entities.Faktuur
+
+@{
+    ViewData["Title"] = "Edit";
+}
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-action="Index">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'beheer faktuur'
+        </a>
+    </h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Wijzig</h2>
+    <hr />
+    <div class="row">
+        <div class="col-md-4">
+            <form asp-action="Edit">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="FaktuurNr" />
+                <div class="form-group">
+                    <label asp-for="Faktuurdatum" class="control-label"></label>
+                    <input asp-for="Faktuurdatum" class="form-control" />
+                    <span asp-validation-for="Faktuurdatum" class="text-danger">@Html.ValidationMessage("FaktuurDatumValidatieError")</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="KlantId" class="control-label"></label>
+                    <select asp-for="KlantId" class="form-control" asp-items="ViewBag.KlantId"></select>
+                    <span asp-validation-for="KlantId" class="text-danger"> @Html.ValidationMessage("FaktuurValidatieError")</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="VoertuigId" class="control-label"></label>
+                    <select asp-for="VoertuigId" class="form-control" asp-items="ViewBag.VoertuigId">
+                        <option></option>
+                    </select>
+                    <span asp-validation-for="VoertuigId" class="text-danger"> @Html.ValidationMessage("FaktuurValidatieError")</span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Artikelnummer" class="control-label"></label>
+                    <select asp-for="Artikelnummer" class="form-control" asp-items="ViewBag.Artikelnummer">
+                        <option></option>
+                    </select>
+                    <span asp-validation-for="Artikelnummer" class="text-danger">
+
+                    </span>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Bewaar" class="btn btn-success" />
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+

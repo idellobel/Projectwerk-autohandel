@@ -56,10 +56,19 @@
                     <select asp-for="OnderdelenCategorieId" class="form-control" asp-items="ViewBag.OnderdelenCategorieId"></select>
                 </div>
                 <div class="form-group">
+                    <label asp-for="LeverancierID" class="control-label"></label>
+                    <select asp-for="LeverancierID" class="form-control" asp-items="ViewBag.LeveranciersLijst">
+                        <option>--Selecteer--</option>
+                        <option value="1"> </option>
+                    </select>
+                </div>
+                <div class="form-group">
                     <input type="submit" value="Maak" class="btn btn-success" />
                 </div>
             </form>
         </div>
     </div>
 </div>
+<br />
+<br />
 
