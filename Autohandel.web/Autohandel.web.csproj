@@ -7,9 +7,17 @@
 
   <ItemGroup>
     <Compile Remove="Data\**" />
+    <Compile Remove="obj\**" />
     <Content Remove="Data\**" />
+    <Content Remove="obj\**" />
     <EmbeddedResource Remove="Data\**" />
+    <EmbeddedResource Remove="obj\**" />
     <None Remove="Data\**" />
+    <None Remove="obj\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Remove="ViewModels\ApplicationUser.cs" />
   </ItemGroup>
 
   <ItemGroup>
@@ -23,6 +31,7 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" PrivateAssets="All" />
+    <PackageReference Include="Sendgrid" Version="9.9.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -34,6 +43,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Autohandel.Domain\Autohandel.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="SendGrid_ApiKey\" />
   </ItemGroup>
 
 </Project>

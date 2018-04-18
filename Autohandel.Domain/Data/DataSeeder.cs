@@ -4650,6 +4650,30 @@ namespace Autohandel.Domain.Data
                 context.Leveranciers.AddRange(leveranciers);
                 context.SaveChanges();
             }
+            //seed Klanten
+            if (!context.Klanten.Any())
+            {
+                Klant[] klanten = new[]
+                {
+                    new Klant{
+                                Klantdatum = new DateTime(2018,4,10),
+                                KlantNaam = "testKlantNaam",
+                                KlantId = 1,
+                                Naam = "testKlantFamilieNaam",
+                                Voornaam = "testKlantVoornaam",
+                                Postcode = 8630,
+                                Gemeente = "Nieuwpoort",
+                                Adres = "TestKlantadres",
+                                Telefoonnummer = "0471235689",
+                                Email = "testklant@test.be"
+
+                              },
+                };
+
+                context.Klanten.AddRange(klanten);
+                context.SaveChanges();
+
+            }
 
                 context.SaveChanges();
 

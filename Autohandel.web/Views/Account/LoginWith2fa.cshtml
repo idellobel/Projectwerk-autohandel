@@ -3,38 +3,43 @@
     ViewData["Title"] = "Two-factor authentication";
 }
 
-<h2>@ViewData["Title"]</h2>
-<hr />
-<p>Your login is protected with an authenticator app. Enter your authenticator code below.</p>
-<div class="row">
-    <div class="col-md-4">
-        <form method="post" asp-route-returnUrl="@ViewData["ReturnUrl"]">
-            <input asp-for="RememberMe" type="hidden" />
-            <div asp-validation-summary="All" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="TwoFactorCode"></label>
-                <input asp-for="TwoFactorCode" class="form-control" autocomplete="off" />
-                <span asp-validation-for="TwoFactorCode" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label asp-for="RememberMachine">
-                        <input asp-for="RememberMachine" />
-                        @Html.DisplayNameFor(m => m.RememberMachine)
-                    </label>
-                </div>
-            </div>
-            <div class="form-group">
-                <button type="submit" class="btn btn-default">Log in</button>
-            </div>
-        </form>
+<div class="container">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">@ViewData["Title"]</p><br />
+        <p class="tekstWelkom">De login is beveiligd met de authenticatie app. Voer de authenticatie code hieronder in.</p>
     </div>
+    
+    <div class="row">
+        <div class="col-md-4">
+            <form method="post" asp-route-returnUrl="@ViewData["ReturnUrl"]">
+                <input asp-for="RememberMe" type="hidden" />
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <label asp-for="TwoFactorCode"></label>
+                    <input asp-for="TwoFactorCode" class="form-control" autocomplete="off" />
+                    <span asp-validation-for="TwoFactorCode" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label asp-for="RememberMachine">
+                            <input asp-for="RememberMachine" />
+                            @Html.DisplayNameFor(m => m.RememberMachine)
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">Log in</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <p class="tekstWelkom">
+        Geen toegang tot uw authenticatie toestel . U kunt 
+        @*Don't have access to your authenticator device? You can*@
+        <a class="tekstWelkomLink" asp-action="LoginWithRecoveryCode" asp-route-returnUrl="@ViewData["ReturnUrl"]"> met de herstelcode inloggen</a>.
+    </p>
 </div>
-<p>
-    Don't have access to your authenticator device? You can 
-    <a asp-action="LoginWithRecoveryCode" asp-route-returnUrl="@ViewData["ReturnUrl"]">log in with a recovery code</a>.
-</p>
 
-@section Scripts {
-    @await Html.PartialAsync("_ValidationScriptsPartial")
-}
+    @section Scripts {
+        @await Html.PartialAsync("_ValidationScriptsPartial")
+    }

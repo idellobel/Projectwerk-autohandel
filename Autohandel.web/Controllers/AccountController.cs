@@ -1,18 +1,14 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Autohandel.web.ViewModels;
 using Autohandel.web.ViewModels.AccountViewModels;
 using Autohandel.web.Services;
+using Autohandel.Domain.Entities;
 
 namespace Autohandel.web.Controllers
 {
@@ -62,6 +58,22 @@ namespace Autohandel.web.Controllers
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, lockoutOnFailure: false);
+
+                // controle of de user het emailadres al bevestigd heeft, 
+                //zoniet dit melden en een nieuwe mail sturen var user = await: 
+
+                var user = await _userManager.FindByEmailAsync(model.Email);
+                bool isEmailconfirmed = await _userManager.IsEmailConfirmedAsync(user);
+                if (!isEmailconfirmed)
+                {
+                    string callbackUrl = await SendEmailConfirmationTokenAsync(user, "Bevestig uw account-Resend");
+                    ViewBag.Message = "U dient de mail te bevestigen, om u aan te melden.";
+                    return View("Error"); //nog te voorzien!
+                }
+                ///einde controle of de user het emailadres al bevestigd heeft.
+                ///Vervolg stanndaardcode (ref p 14 Identity)
+                ///Voorzie een View Error in de submap View > Account.
+
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("Gebruiker ingelogd.");
@@ -118,7 +130,7 @@ namespace Autohandel.web.Controllers
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new ApplicationException($"Kan gebruiker met ID niet laden '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}'  niet laden.");
             }
 
             var authenticatorCode = model.TwoFactorCode.Replace(" ", string.Empty).Replace("-", string.Empty);
@@ -127,18 +139,18 @@ namespace Autohandel.web.Controllers
 
             if (result.Succeeded)
             {
-                _logger.LogInformation("User with ID {UserId} logged in with 2fa.", user.Id);
+                _logger.LogInformation("Gebruiker met ID {UserId} ingelogd met 2fa.", user.Id);
                 return RedirectToLocal(returnUrl);
             }
             else if (result.IsLockedOut)
             {
-                _logger.LogWarning("User with ID {UserId} account locked out.", user.Id);
+                _logger.LogWarning("Gebruiker met ID {UserId}, account is geblokkeerd.", user.Id);
                 return RedirectToAction(nameof(Lockout));
             }
             else
             {
-                _logger.LogWarning("Invalid authenticator code entered for user with ID {UserId}.", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid authenticator code.");
+                _logger.LogWarning("Ongeldige authenticatiecode ingevoerd voor gebruiker met ID {UserId}.", user.Id);
+                ModelState.AddModelError(string.Empty, "Ongeldige authenticatiecode.");
                 return View();
             }
         }
@@ -172,7 +184,7 @@ namespace Autohandel.web.Controllers
             var user = await _signInManager.GetTwoFactorAuthenticationUserAsync();
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load two-factor authentication user.");
+                throw new ApplicationException($"Kan tweefactor-authenticatie van de gebruiker niet laden.");
             }
 
             var recoveryCode = model.RecoveryCode.Replace(" ", string.Empty);
@@ -181,18 +193,18 @@ namespace Autohandel.web.Controllers
 
             if (result.Succeeded)
             {
-                _logger.LogInformation("User with ID {UserId} logged in with a recovery code.", user.Id);
+                _logger.LogInformation("Gebruiker met ID {UserId} is ingelogd met een herstelcode.", user.Id);
                 return RedirectToLocal(returnUrl);
             }
             if (result.IsLockedOut)
             {
-                _logger.LogWarning("User with ID {UserId} account locked out.", user.Id);
+                _logger.LogWarning("Gebruiker met ID {UserId}, account is geblokkeerd.", user.Id);
                 return RedirectToAction(nameof(Lockout));
             }
             else
             {
-                _logger.LogWarning("Invalid recovery code entered for user with ID {UserId}", user.Id);
-                ModelState.AddModelError(string.Empty, "Invalid recovery code entered.");
+                _logger.LogWarning("Ongeldige herstelcode ingevoerd voor gebruiker met ID {UserId}", user.Id);
+                ModelState.AddModelError(string.Empty, "Ongeldige herstelcode ingevoerd.");
                 return View();
             }
         }
@@ -226,13 +238,30 @@ namespace Autohandel.web.Controllers
                 {
                     _logger.LogInformation("Gebruiker heeft een nieuw account met wachtwoord gemaakt.");
 
-                    var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
-                    var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
-                    await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
+                    //uitcommentariëren om de herzend emailconfirmatie methode toe te passen door string callbackUrl toe te voegen
+                    //var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+                    //var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+                    //await _emailSender.SendEmailConfirmationAsync(model.Email, callbackUrl);
 
-                    await _signInManager.SignInAsync(user, isPersistent: false);
+                    string callbackUrl = await SendEmailConfirmationTokenAsync(user, "Bevestig uw account");
+
+                    // onderstaande lijn in comment
+                    // niet automatisch inloggen na registreren
+                    // we vereisen emailconfirmatie
+                    //await _signInManager.SignInAsync(user, isPersistent: false);
+
                     _logger.LogInformation("Gebruiker heeft een nieuw account met wachtwoord gemaakt.");
-                    return RedirectToLocal(returnUrl);
+
+                    // uitcommentariëren
+                    // standaard niet de startpagina tonen na registratie
+                    //return RedirectToLocal(returnUrl);
+
+                    // We voorzien een View met een melding
+                    // dat een confirmatiemail werd verstuurd 
+                    ViewBag.Message = "Controleer uw e-mail en bevestig uw account "
+                                    + "je moet bevestigen"
+                                    + "voordat je kunt inloggen.";
+                    return View("Info");
                 }
                 AddErrors(result);
             }
@@ -240,6 +269,30 @@ namespace Autohandel.web.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        /// <summary>
+        /// Herzend emailconfirmatielink: (ref pag 13 Identity )
+        /// Voeg volgende hulpmethode toe aan AccountsController
+        /// Update nadien de methode Register van AccountController om de nieuwe hulpmethode te gebruiken = lijn 234
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="subject"></param>
+        /// <returns></returns>
+
+        private async Task<string> SendEmailConfirmationTokenAsync(
+            ApplicationUser user,
+            string subject)
+        {
+            string code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
+            //var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Scheme);
+            var callbackUrl = Url.EmailConfirmationLink(user.Id, code, Request.Scheme);
+            await _emailSender.SendEmailAsync(user.Email, subject, "Bevestig uw account door  <a href=\""
+                + callbackUrl + "\">hier</a> te drukken"
+                );
+            return callbackUrl;
+        }
+
+
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -340,7 +393,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.FindByIdAsync(userId);
             if (user == null)
             {
-                throw new ApplicationException($"Kan gebruiker met ID niet laden '{userId}'.");
+                throw new ApplicationException($"Kan gebruiker met ID  '{userId}' niet inladen.");
             }
             var result = await _userManager.ConfirmEmailAsync(user, code);
             return View(result.Succeeded ? "ConfirmEmail" : "Error");
@@ -393,7 +446,7 @@ namespace Autohandel.web.Controllers
         {
             if (code == null)
             {
-                throw new ApplicationException("Er moet een code worden verstrekt voor het opnieuw instellen van het wachtwoord.");
+                throw new ApplicationException("Er moet een code worden ingegeven om het paswoord opnieuw in te stellen.");
             }
             var model = new ResetPasswordViewModel { Code = code };
             return View(model);

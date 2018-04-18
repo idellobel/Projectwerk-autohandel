@@ -1,8 +1,8 @@
 ﻿<Application
-    x:Class="B4.EE.Dellobel.UWP.App"
+    x:Class="B4.EE.DellobelI.UWP.App"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:B4.EE.Dellobel.UWP"
+    xmlns:local="using:B4.EE.DellobelI.UWP"
     RequestedTheme="Light">
 
 </Application>

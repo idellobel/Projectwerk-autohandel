@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.Encodings.Web;
@@ -9,10 +8,9 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
-using Autohandel.web.ViewModels;
 using Autohandel.web.ViewModels.ManageViewModels;
 using Autohandel.web.Services;
+using Autohandel.Domain.Entities;
 
 namespace Autohandel.web.Controllers
 {
@@ -51,7 +49,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var model = new IndexViewModel
@@ -78,7 +76,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID  '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var email = user.Email;
@@ -87,7 +85,7 @@ namespace Autohandel.web.Controllers
                 var setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
                 if (!setEmailResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
+                    throw new ApplicationException($"Een onverwachte fout is opgetreden bij het instellen van e-mail voor gebruiker met ID '{user.Id}'.");
                 }
             }
 
@@ -97,11 +95,11 @@ namespace Autohandel.web.Controllers
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
+                    throw new ApplicationException($"Een onverwachte fout is opgetreden bij het instellen van telefoonnummer voor gebruiker met ID '{user.Id}'.");
                 }
             }
 
-            StatusMessage = "Your profile has been updated";
+            StatusMessage = "Uw profiel is bijgewerkt";
             return RedirectToAction(nameof(Index));
         }
 
@@ -117,7 +115,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var code = await _userManager.GenerateEmailConfirmationTokenAsync(user);
@@ -125,7 +123,7 @@ namespace Autohandel.web.Controllers
             var email = user.Email;
             await _emailSender.SendEmailConfirmationAsync(email, callbackUrl);
 
-            StatusMessage = "Verification email sent. Please check your email.";
+            StatusMessage = "Verificatie email is verzonden. Controleer uw e-mail.";
             return RedirectToAction(nameof(Index));
         }
 
@@ -135,7 +133,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var hasPassword = await _userManager.HasPasswordAsync(user);
@@ -160,7 +158,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}'niet inladen.");
             }
 
             var changePasswordResult = await _userManager.ChangePasswordAsync(user, model.OldPassword, model.NewPassword);
@@ -171,8 +169,8 @@ namespace Autohandel.web.Controllers
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
-            _logger.LogInformation("User changed their password successfully.");
-            StatusMessage = "Your password has been changed.";
+            _logger.LogInformation("Gebruiker heeft zijn wachtwoord met succes gewijzigd.");
+            StatusMessage = "Uw wachtwoord is gewijzigd.";
 
             return RedirectToAction(nameof(ChangePassword));
         }
@@ -183,7 +181,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var hasPassword = await _userManager.HasPasswordAsync(user);
@@ -209,7 +207,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var addPasswordResult = await _userManager.AddPasswordAsync(user, model.NewPassword);
@@ -220,7 +218,7 @@ namespace Autohandel.web.Controllers
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
-            StatusMessage = "Your password has been set.";
+            StatusMessage = "Uw wachtwoord is ingesteld.";
 
             return RedirectToAction(nameof(SetPassword));
         }
@@ -231,7 +229,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var model = new ExternalLoginsViewModel { CurrentLogins = await _userManager.GetLoginsAsync(user) };
@@ -263,25 +261,25 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var info = await _signInManager.GetExternalLoginInfoAsync(user.Id);
             if (info == null)
             {
-                throw new ApplicationException($"Unexpected error occurred loading external login info for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Er is een onverwachte fout opgetreden bij het laden van externe aanmeldingsgegevens voor gebruikers met ID '{user.Id}'.");
             }
 
             var result = await _userManager.AddLoginAsync(user, info);
             if (!result.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occurred adding external login for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Er is een onverwachte fout opgetreden bij het toevoegen van externe aanmelding voor gebruiker met ID '{user.Id}'.");
             }
 
             // Clear the existing external cookie to ensure a clean login process
             await HttpContext.SignOutAsync(IdentityConstants.ExternalScheme);
 
-            StatusMessage = "The external login was added.";
+            StatusMessage = "De externe login is toegevoegd.";
             return RedirectToAction(nameof(ExternalLogins));
         }
 
@@ -292,17 +290,17 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var result = await _userManager.RemoveLoginAsync(user, model.LoginProvider, model.ProviderKey);
             if (!result.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occurred removing external login for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Er is een onverwachte fout opgetreden bij het verwijderen van externe aanmelding voor gebruiker met ID '{user.Id}'.");
             }
 
             await _signInManager.SignInAsync(user, isPersistent: false);
-            StatusMessage = "The external login was removed.";
+            StatusMessage = "De externe login is verwijderd.";
             return RedirectToAction(nameof(ExternalLogins));
         }
 
@@ -312,7 +310,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var model = new TwoFactorAuthenticationViewModel
@@ -331,12 +329,12 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             if (!user.TwoFactorEnabled)
             {
-                throw new ApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Er is een onverwachte fout opgetreden bij het uitschakelen van 2FA voor gebruiker met ID '{user.Id}'.");
             }
 
             return View(nameof(Disable2fa));
@@ -349,13 +347,13 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var disable2faResult = await _userManager.SetTwoFactorEnabledAsync(user, false);
             if (!disable2faResult.Succeeded)
             {
-                throw new ApplicationException($"Unexpected error occured disabling 2FA for user with ID '{user.Id}'.");
+                throw new ApplicationException($"Er is een onverwachte fout opgetreden bij het uitschakelen van 2FA voor gebruiker met ID '{user.Id}'.");
             }
 
             _logger.LogInformation("User with ID {UserId} has disabled 2fa.", user.Id);
@@ -368,7 +366,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             var unformattedKey = await _userManager.GetAuthenticatorKeyAsync(user);
@@ -399,7 +397,7 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             // Strip spaces and hypens
@@ -410,12 +408,12 @@ namespace Autohandel.web.Controllers
 
             if (!is2faTokenValid)
             {
-                ModelState.AddModelError("model.Code", "Verification code is invalid.");
+                ModelState.AddModelError("model.Code", "Verificatiecode is ongeldig.");
                 return View(model);
             }
 
             await _userManager.SetTwoFactorEnabledAsync(user, true);
-            _logger.LogInformation("User with ID {UserId} has enabled 2FA with an authenticator app.", user.Id);
+            _logger.LogInformation("Gebruiker met ID {UserId} heeft 2FA ingeschakeld met een authenticatie-app.", user.Id);
             return RedirectToAction(nameof(GenerateRecoveryCodes));
         }
 
@@ -432,12 +430,12 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             await _userManager.SetTwoFactorEnabledAsync(user, false);
             await _userManager.ResetAuthenticatorKeyAsync(user);
-            _logger.LogInformation("User with id '{UserId}' has reset their authentication app key.", user.Id);
+            _logger.LogInformation("Gebruiker met ID '{UserId}' heeft de authenticatie-app-sleutel opnieuw ingesteld.", user.Id);
 
             return RedirectToAction(nameof(EnableAuthenticator));
         }
@@ -448,18 +446,18 @@ namespace Autohandel.web.Controllers
             var user = await _userManager.GetUserAsync(User);
             if (user == null)
             {
-                throw new ApplicationException($"Unable to load user with ID '{_userManager.GetUserId(User)}'.");
+                throw new ApplicationException($"Kan gebruiker met ID '{_userManager.GetUserId(User)}' niet inladen.");
             }
 
             if (!user.TwoFactorEnabled)
             {
-                throw new ApplicationException($"Cannot generate recovery codes for user with ID '{user.Id}' as they do not have 2FA enabled.");
+                throw new ApplicationException($"Kan geen herstelcodes genereren voor gebruiker met ID '{user.Id}' omdat ze 2FA niet hebben ingeschakeld.");
             }
 
             var recoveryCodes = await _userManager.GenerateNewTwoFactorRecoveryCodesAsync(user, 10);
             var model = new GenerateRecoveryCodesViewModel { RecoveryCodes = recoveryCodes.ToArray() };
 
-            _logger.LogInformation("User with ID {UserId} has generated new 2FA recovery codes.", user.Id);
+            _logger.LogInformation("Gebruiker met ID {UserId} heeft nieuwe 2FA herstelcodes gegenereerd.", user.Id);
 
             return View(model);
         }

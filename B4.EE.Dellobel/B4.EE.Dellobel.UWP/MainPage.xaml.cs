@@ -13,7 +13,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace B4.EE.Dellobel.UWP
+namespace B4.EE.DellobelI.UWP
 {
     public sealed partial class MainPage
     {
@@ -21,7 +21,7 @@ namespace B4.EE.Dellobel.UWP
         {
             this.InitializeComponent();
 
-            LoadApplication(new B4.EE.Dellobel.App());
+            LoadApplication(new B4.EE.DellobelI.App());
         }
     }
 }

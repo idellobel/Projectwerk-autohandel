@@ -9,12 +9,12 @@ namespace Autohandel.web.ViewModels.AccountViewModels
     public class LoginWith2faViewModel
     {
         [Required]
-        [StringLength(7, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+        [StringLength(7, ErrorMessage = "Het {0} moet minimaal {2} en maximaal {1} ​​tekens lang zijn.", MinimumLength = 6)]
         [DataType(DataType.Text)]
-        [Display(Name = "Authenticator code")]
+        [Display(Name = "Authenticatie code")]
         public string TwoFactorCode { get; set; }
 
-        [Display(Name = "Remember this machine")]
+        [Display(Name = "Onthoud dit toestel")]
         public bool RememberMachine { get; set; }
 
         public bool RememberMe { get; set; }

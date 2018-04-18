@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace B4.EE.Dellobel.ApiKey
+namespace B4.EE.DellobelI.ApiKey
 {
     public class ApiKey
     {

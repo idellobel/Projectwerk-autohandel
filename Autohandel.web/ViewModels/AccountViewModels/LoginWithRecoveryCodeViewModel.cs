@@ -10,7 +10,7 @@ namespace Autohandel.web.ViewModels.AccountViewModels
     {
             [Required]
             [DataType(DataType.Text)]
-            [Display(Name = "Recovery Code")]
+            [Display(Name = "Herstel code")]
             public string RecoveryCode { get; set; }
     }
 }

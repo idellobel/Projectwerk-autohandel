@@ -1,4 +1,5 @@
 ﻿using Autohandel.Domain.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -6,6 +7,7 @@ using System.Text;
 
 namespace Autohandel.Domain.Data
 {
+    //public class AutohandelContext : IdentityDbContext<ApplicationUser>
     public class AutohandelContext : DbContext
     {
         
@@ -27,11 +29,12 @@ namespace Autohandel.Domain.Data
         public DbSet<OnderdelenProducten> OnderdelenProducten { get; set; }
         public DbSet<Onderhoud> Onderhoud { get; set; }
         public DbSet<Persoon> Personen { get; set; }
-        public DbSet<Role> Roles { get; set; }
-        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; } //Mijn inziens niet nodig, Zouden reeds vervat zitten in 'IdentityDbContext<ApplicationUser>'?
+        public DbSet<User> Users { get; set; } //Mijn inziens niet nodig, Zouden reeds vervat zitten in 'IdentityDbContext<ApplicationUser>'?
         public DbSet<Voertuig> Voertuigen { get; set; }
         public DbSet<VoertuigCategorie> VoertuigCategorieen { get; set; }
-        public DbSet<Specificaties> Specificaties { get; set; } 
+        public DbSet<Specificaties> Specificaties { get; set; }
+        //public DbSet<ApplicationUser>User { get; set; }  // Mijn inziens niet nodig bij overerving van 'IdentityDbContext<ApplicationUser>'?
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace B4.EE.Dellobel.UWP
+namespace B4.EE.DellobelI.UWP
 {
     /// <summary>
     /// Provides application-specific behavior to supplement the default Application class.

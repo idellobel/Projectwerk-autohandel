@@ -14,6 +14,7 @@ namespace Autohandel.web.ViewModels.AccountViewModels
 
         [Required]
         [DataType(DataType.Password)]
+        [Display(Name = "Paswoord")]
         public string Password { get; set; }
 
         [Display(Name = "Onthou paswoord?")]

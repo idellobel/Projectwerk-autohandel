@@ -7,7 +7,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Autohandel.web.ViewModels;
 using Autohandel.web.Services;
 using Autohandel.Domain.Data;
-
+using Autohandel.Domain.Entities;
 
 namespace Autohandel.web
 {
@@ -32,10 +32,20 @@ namespace Autohandel.web
             //    .AddEntityFrameworkStores<ApplicationDbContext>()
             //    .AddDefaultTokenProviders();
 
-            services.AddIdentity<ApplicationUser, IdentityRole>()
+            services.AddIdentity<ApplicationUser, IdentityRole>(
+                config =>
+                {
+                    config.SignIn.RequireConfirmedEmail = true;
+                }
+                )
                 .AddEntityFrameworkStores<AutohandelContext>()
                 .AddDefaultTokenProviders();
 
+            services.AddAuthentication().AddGoogle(googleOptions =>
+            {
+                googleOptions.ClientId = "177053743468-copjv6q6uri1i2ju4j5g96spc946m84s.apps.googleusercontent.com";
+                googleOptions.ClientSecret = "57wP6JOj8fTyr2YsvbYPJ1yc";
+            });  
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 

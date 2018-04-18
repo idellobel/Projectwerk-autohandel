@@ -5,8 +5,34 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Images\clock.png" />
+    <None Remove="Images\comsoon.jpg" />
+    <None Remove="Images\Home.png" />
+    <None Remove="Images\JapJik2.png" />
+    <None Remove="Images\JikanHead.png" />
+    <None Remove="Images\klant.png" />
+    <None Remove="Images\koopvtg.png" />
+    <None Remove="Images\pijzen.png" />
+    <None Remove="Images\statistiek.png" />
+    <None Remove="Images\verkopvtg2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Images\clock.png" />
+    <EmbeddedResource Include="Images\comsoon.jpg" />
+    <EmbeddedResource Include="Images\Home.png" />
+    <EmbeddedResource Include="Images\JapJik2.png" />
+    <EmbeddedResource Include="Images\JikanHead.png" />
+    <EmbeddedResource Include="Images\klant.png" />
+    <EmbeddedResource Include="Images\koopvtg.png" />
+    <EmbeddedResource Include="Images\pijzen.png" />
+    <EmbeddedResource Include="Images\statistiek.png" />
+    <EmbeddedResource Include="Images\verkopvtg2.png" />
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="FluentValidation" Version="7.3.3" />
-    <PackageReference Include="FreshMvvm" Version="2.2.4" />
+    <PackageReference Include="FreshMvvm" Version="2.2.3" />
     <PackageReference Include="Newtonsoft.Json" Version="10.0.3" />
     <PackageReference Include="Sendgrid" Version="9.9.0" />
     <PackageReference Include="SQLite.Net-PCL" Version="3.1.1" />
@@ -18,9 +44,6 @@
 
   <ItemGroup>
     <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="App.xaml.cs">
-      <DependentUpon>*.xaml</DependentUpon>
-    </Compile>
-    <Compile Condition=" '$(EnableDefaultCompileItems)' == 'true' " Update="MainPage.xaml.cs">
       <DependentUpon>*.xaml</DependentUpon>
     </Compile>
   </ItemGroup>

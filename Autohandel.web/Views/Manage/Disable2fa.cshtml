@@ -1,24 +1,30 @@
 ﻿@{
-    ViewData["Title"] = "Disable two-factor authentication (2FA)";
+    ViewData["Title"] = "Schakel two-factor authentication (2FA) uit";
     ViewData.AddActivePage(ManageNavPages.TwoFactorAuthentication);
 }
+<div class="container">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">@ViewData["Title"]</p>
 
-<h2>@ViewData["Title"]</h2>
+    </div>
+  
 
-<div class="alert alert-warning" role="alert">
-    <p>
-        <span class="glyphicon glyphicon-warning-sign"></span>
-        <strong>This action only disables 2FA.</strong>
-    </p>
-    <p>
-        Disabling 2FA does not change the keys used in authenticator apps. If you wish to change the key
-        used in an authenticator app you should <a asp-action="ResetAuthenticatorWarning">reset your
-        authenticator keys.</a>
-    </p>
-</div>
+    <div class="alert alert-warning" role="alert">
+        <p>
+            <span class="glyphicon glyphicon-warning-sign"></span>
+            <strong>Deze actie schakelt enkel 2FA uit.</strong>
+        </p>
+        <p>
+            Afzetten van 2FA verandert de gebruikte sleutels niet in authenticatie apps. Wenst u ook de sleutels te veranderen?  <a asp-action="ResetAuthenticatorWarning">
+                reset de
+                authenticatie sleutels.
+            </a>
+        </p>
+    </div>
 
-<div>
-    <form asp-action="Disable2fa" method="post" class="form-group">
-        <button class="btn btn-danger" type="submit">Disable 2FA</button>
-    </form>
+    <div>
+        <form asp-action="Disable2fa" method="post" class="form-group">
+            <button class="btn btn-danger" type="submit">Disable 2FA</button>
+        </form>
+    </div>
 </div>

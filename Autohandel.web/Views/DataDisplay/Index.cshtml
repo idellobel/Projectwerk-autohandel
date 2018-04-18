@@ -4,7 +4,7 @@
 
 }
 <div class="container">
-    
+
     <h6 style="margin-top:20px;"><a asp-area="Admin" asp-controller="Home" asp-action="Index" style="margin-top:40px;"><i class="fas fa-arrow-circle-left"></i> Terug naar 'Admin Dashboard'</a></h6>
 
 </div>
@@ -953,6 +953,249 @@
         </table>
     </div>
 </div>
+<!--Klanten-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="bg-info populair text-center">Leveranciers</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>LeverancierId</th>
+                    <th>Leverancierdatum<br />LeverancierNam</th>
+                    <th>FamilieNaam<br />Voornaam</th>
+                    <th>Postcode<br />Gemeente<br />Adres</th>
+                    <th>Telefoonnummer<br />Email</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.leveranciers)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeverancierID)<br />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.LeverancierDatum)<br />
+                        @Html.DisplayFor(modelItem => item.LeverancierNaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Naam)<br />
+                        @Html.DisplayFor(modelItem => item.Voornaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Postcode)<br />
+                        @Html.DisplayFor(modelItem => item.Gemeente)<br />
+                        @Html.DisplayFor(modelItem => item.Adres)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefoonnummer)<br />
+                        @Html.DisplayFor(modelItem => item.Email)<br />
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<!--Klanten-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="bg-info populair text-center">Klanten</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>KlantId</th>
+                    <th>Klantdatum<br />KlantNam</th>
+                    <th>FamilieNaam<br />Voornaam</th>
+                    <th>Postcode<br />Gemeente<br />Adres</th>
+                    <th>Telefoonnummer<br />Email</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.klanten)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KlantId)<br />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Klantdatum)<br />
+                        @Html.DisplayFor(modelItem => item.KlantNaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Naam)<br />
+                        @Html.DisplayFor(modelItem => item.Voornaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Postcode)<br />
+                        @Html.DisplayFor(modelItem => item.Gemeente)<br />
+                        @Html.DisplayFor(modelItem => item.Adres)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Telefoonnummer)<br />
+                        @Html.DisplayFor(modelItem => item.Email)<br />
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<!--Fakturen-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="bg-info populair text-center">Fakturen</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>FaktuurNr</th>
+                    <th>FaktuurDatum</th>
+                    <th>Klant</th>
+                    <th>Voertuig</th>
+                    <th>Onderdeel</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.fakturenlijst)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaktuurNr)<br />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.FaktuurNr)<br />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Klant.KlantNaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voertuig.Merk.MerkId)<br />
+                        @Html.DisplayFor(modelItem => item.Voertuig.Merk.MerkNaam)<br />
+                        @Html.DisplayFor(modelItem => item.Voertuig.MerkType.MerkTypeNaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OnderdelenProducten.Artikelnummer)<br />
+                        @Html.DisplayFor(modelItem => item.OnderdelenProducten.Artikelnaam)<br />
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<!--Onderhoud-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="bg-info populair text-center">Onderhoudstabel</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>FaktuurNr</th>
+                    <th>FaktuurDatum</th>
+                    <th>Klant</th>
+                    <th>Voertuig</th>
+                    <th>Onderdeel</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.onderhoudslijst)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.OnderhoudId)<br />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Datum)<br />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Kilometerstand)<br />
+                        @Html.DisplayFor(modelItem => item.Info)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Voertuig.Merk.MerkId)<br />
+                        @Html.DisplayFor(modelItem => item.Voertuig.Merk.MerkNaam)<br />
+                        @Html.DisplayFor(modelItem => item.Voertuig.MerkType.MerkTypeNaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Klant.KlantNaam)<br />
+                        @Html.DisplayFor(modelItem => item.Klant.Gemeente)<br />
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
+<!--Garantie-->
+<div class="row">
+    <div class="col-lg-12">
+        <h3 class="bg-info populair text-center">Garantietabel</h3>
+    </div>
+</div>
+<div class="container">
+    <div class="table-responsive">
+        <table id="AanbodVoertuigen" class="table table-condensed  table-bordered table-striped">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Faktuur</th>
+                    <th>Vervaldatum</th>
+                    <th>Klant</th>
+                    <th>Voertuig</th>
+                    <th>Onderdeel</th>
+                </tr>
+            </thead>
+            @foreach (var item in Model.garantielijst)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Faktuur.FaktuurNr)<br />
+                        @Html.DisplayFor(modelItem => item.Faktuur.Faktuurdatum)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Vervaldatum)<br />
+
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Faktuur.Klant.KlantNaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Faktuur.Voertuig.Merk.MerkId)<br />
+                        @Html.DisplayFor(modelItem => item.Faktuur.Voertuig.Merk.MerkNaam)<br />
+                        @Html.DisplayFor(modelItem => item.Faktuur.Voertuig.MerkType.MerkTypeNaam)<br />
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Faktuur.OnderdelenProducten.Artikelnummer)<br />
+                        @Html.DisplayFor(modelItem => item.Faktuur.OnderdelenProducten.Artikelnaam)<br />
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
+
 
 
 

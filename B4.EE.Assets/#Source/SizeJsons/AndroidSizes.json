@@ -1,0 +1,33 @@
+﻿ [
+    {
+      "ImageName": "iconl",
+      "Width": "36",
+      "Height": "36",
+      "Scale": "Idpi"
+    },
+    {
+      "ImageName": "iconm",
+      "Width": "72",
+      "Height": "72",
+      "Scale": "Mdpi"
+    },
+    {
+      "ImageName": "iconh",
+      "Width": "72",
+      "Height": "72",
+      "Scale": "Hdpi"
+    },
+    {
+      "ImageName": "iconx",
+      "Width": "96",
+      "Height": "96",
+      "Scale": "xHdpi"
+    },
+    {
+      "ImageName": "iconxx",
+      "Width": "144",
+      "Height": "144",
+      "Scale": "xxHdpi"
+    }
+  ]
+

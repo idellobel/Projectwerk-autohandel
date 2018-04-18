@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Autohandel.web.ViewModels;
+using Microsoft.AspNetCore.Authorization;
 
 namespace Autohandel.web.Controllers
 {
@@ -22,6 +23,7 @@ namespace Autohandel.web.Controllers
             return View();
         }
 
+        //[Authorize]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

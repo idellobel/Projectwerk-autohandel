@@ -1,0 +1,75 @@
+﻿[
+    {
+      "ImageName": "Icon-Small-40",
+      "Width": "40",
+      "Height": "40",
+      "Scale": "2x"
+    },
+    {
+      "ImageName": "Icon-Small-40@2x",
+      "Width": "80",
+      "Height": "80",
+      "Scale": "2x"
+    },
+    {
+      "ImageName": "Icon-Small-40@3x",
+      "Width": "120",
+      "Height": "120",
+      "Scale": "3x"
+    },
+    {
+      "ImageName": "Icon-Small",
+      "Width": "29",
+      "Height": "29",
+      "Scale": "1x"
+    },
+    {
+      "ImageName": "Icon-Small@2x",
+      "Width": "58",
+      "Height": "58",
+      "Scale": "2x"
+    },
+    {
+      "ImageName": "Icon-Small@3x",
+      "Width": "87",
+      "Height": "87",
+      "Scale": "3x"
+    },
+    {
+      "ImageName": "Icon-76",
+      "Width": "76",
+      "Height": "76",
+      "Scale": "1x"
+    },
+    {
+      "ImageName": "Icon-76@2x",
+      "Width": "152",
+      "Height": "152",
+      "Scale": "2x"
+    },
+    {
+      "ImageName": "Icon-60@2x",
+      "Width": "120",
+      "Height": "120",
+      "Scale": "2x"
+    },
+    {
+      "ImageName": "Icon-60@3x",
+      "Width": "180",
+      "Height": "180",
+      "Scale": "3x"
+    },
+	{
+      "ImageName": "Bucket-Portrait-512",
+      "Width": "512",
+      "Height": "512",
+      "Scale": "1x"
+    },
+	{
+      "ImageName": "Bucket-Portrait-1024",
+      "Width": "1024",
+      "Height": "1024",
+      "Scale": "2x"
+    }
+  ]
+

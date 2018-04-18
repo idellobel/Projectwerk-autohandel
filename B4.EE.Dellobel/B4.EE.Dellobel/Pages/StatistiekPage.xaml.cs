@@ -29,6 +29,11 @@ namespace B4.EE.DellobelI.Pages
                                            $"\nVriendelijke groeten" +
                                            $"\nDe personeelsverantwoordelijke ", "OK");
                });
+            MessagingCenter.Subscribe<StatistiekViewModel>(this, Constants.MessageNames.MailNietVerstuurd,
+               async (StatistiekViewModel sender) =>
+               {
+                   await DisplayAlert("Bericht wordt niet verzonden!", $"Zie de internetverbinding na.", "OK");
+               });
             base.OnAppearing();
         }
 
@@ -36,6 +41,8 @@ namespace B4.EE.DellobelI.Pages
         {
             
             MessagingCenter.Unsubscribe<StatistiekViewModel>(this, Constants.MessageNames.MailBevestiging);
+            MessagingCenter.Unsubscribe<StatistiekViewModel>(this, Constants.MessageNames.MailNietVerstuurd);
+
             base.OnDisappearing();
         }
     }

@@ -143,21 +143,29 @@ namespace B4.EE.DellobelI.ViewModels
               SaveStatistiekState();
 
               //var emailService = DependencyService.Get<IEmailService>();
-              await emailService.SendMailAsync(
-                                $" Onderwerp = Weekgegevens ",
-                                $"\n Uren = {currentUurWeek}\n Omzet = {currentOmzetWeek}" +
-                                $"\n vriendelijke groeten" +
-                                $"\n Ivan ",
-                               "ivan.dellobel@gmail.com", //HRM
-                               "Ivan Dellobel",
-                               "ivan.dellobel@gmail.com",
-                               "Ivan Dellobel"
+              try
+              {
+                  await emailService.SendMailAsync(
+                               $" Onderwerp = Weekgegevens ",
+                               $"\n Uren = {currentUurWeek}\n Omzet = {currentOmzetWeek}" +
+                               $"\n vriendelijke groeten" +
+                               $"\n Ivan ",
+                              "ivan.dellobel@gmail.com", //HRM
+                              "Ivan Dellobel",
+                              "ivan.dellobel@gmail.com",
+                              "Ivan Dellobel"
 
-                               );
+                              );
 
-              await soundPlayer.PlaySound();
+                  await soundPlayer.PlaySound();
 
-              MessagingCenter.Send(this, Constants.MessageNames.MailBevestiging);
+                  MessagingCenter.Send(this, Constants.MessageNames.MailBevestiging);
+              }
+              catch
+              {
+                  MessagingCenter.Send(this, Constants.MessageNames.MailNietVerstuurd);
+              }
+             
 
           }
           );

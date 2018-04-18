@@ -1,20 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using B4.EE.DellobelI.Domain.Services.Abstract;
+using B4.EE.DellobelI.Domain.Services.Mock;
+using B4.EE.DellobelI.ViewModels;
+using FreshMvvm;
 
 using Xamarin.Forms;
 
-namespace B4.EE.Dellobel
+namespace B4.EE.DellobelI
 {
 	public partial class App : Application
 	{
 		public App ()
 		{
-			InitializeComponent();
+            InitializeComponent();
 
-			MainPage = new B4.EE.Dellobel.MainPage();
-		}
+            FreshIOC.Container.Register<IKlantenService>(new KlantenInMemoryService());
+            FreshIOC.Container.Register<IVoertuigenService>(new VoertuigenInMemoryService());
+            FreshIOC.Container.Register<IUrenService>(new UrenInMemoryService());
+
+            //FreshIOC.Container.Register<IKlantenService>(new AppKlantenSQLiteService());
+            //FreshIOC.Container.Register<IVoertuigenService>(new VoertuigenSQLiteService());
+            //FreshIOC.Container.Register<IUrenService>(new UrenSQLiteService());
+
+            //register dependencies
+            FreshIOC.Container.Register<TTextfileService>(DependencyService.Get<TTextfileService>());
+            FreshIOC.Container.Register<ISoundPlayer>(DependencyService.Get<ISoundPlayer>());
+            FreshIOC.Container.Register<IEmailService>(DependencyService.Get<IEmailService>());
+
+            //MainPage = new B4.EE.DellobelI.Pages.MainPage();
+            MainPage = new FreshNavigationContainer(FreshPageModelResolver.ResolvePageModel<MainViewModel>());
+        }
 
 		protected override void OnStart ()
 		{

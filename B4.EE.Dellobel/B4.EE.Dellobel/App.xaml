@@ -1,10 +1,82 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Application xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="B4.EE.Dellobel.App">
+             xmlns:extensions="clr-namespace:B4.EE.DellobelI.Extensions"
+             xmlns:conv="clr-namespace:B4.EE.DellobelI.Converters"
+             xmlns:bhv="clr-namespace:B4.EE.DellobelI.Behaviors"
+             x:Class="B4.EE.DellobelI.App">
 	<Application.Resources>
+        <ResourceDictionary>
+            <!-- Common Colors -->
+            <Color x:Key="ColorPrimary">#2196F3</Color>
+            <Color x:Key="ColorSecundary">#1976D2</Color>
+            <Color x:Key="ColorError">#ff0000</Color>
+            <Color x:Key="ColorAccent">#ffffff</Color>
 
-		<!-- Application resource dictionary -->
+            <!--Converters-->
+            <conv:ItemTappedEventArgsConverter x:Key="ItemTappedEventArgsConv"/>
+            <conv:GewerkteTijdToGewerkteTijdStringConverter x:Key="GewerkteTijdConv" />
+            <conv:DecimalToStringConverter x:Key="DecimalinEuroConv" />
+            <conv:DatumToStringConverter x:Key="DatumStringConv" />
+            <!-- On Platform Resources -->
+            <!--<OnPlatform x:Key="DefaultThickness" x:TypeArguments="Thickness">
+                <On Platform="iOS" Value="15"></On>
+                <On Platform="Android" Value="20"></On>
+                <On Platform="Windows,UWP" Value="10"></On>
+            </OnPlatform>-->
+            <OnPlatform x:Key="ErrorMessageFontSize" x:TypeArguments="NamedSize">
+                <On Platform="iOS, Android" Value="Small"></On>
+                <On Platform="Windows" Value="Micro"></On>
+            </OnPlatform>
+
+            <!-- Explicit Styles -->
+
+            <Style x:Key="ErrorMessage" TargetType="Label">
+                <Setter Property="TextColor" Value="{StaticResource ColorError}" />
+                <Setter Property="FontSize" Value="{StaticResource ErrorMessageFontSize}" />
+                <Setter Property="Margin" Value="2,-5,7,0" />
+                <Setter Property="IsVisible" Value="False" />
+            </Style>
+
+
+            <!--ControlTemplate Hompagina-->
+            <ControlTemplate x:Key="HomeTemplate">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="0.1*" />
+                        <RowDefinition Height="0.9*" />
+                        <!--<RowDefinition Height="0.1*" />-->
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="0.05*" />
+                        <ColumnDefinition Width="0.95*" />
+                    </Grid.ColumnDefinitions>
+
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="2"  >
+                        <StackLayout Orientation="Horizontal" VerticalOptions="Center" BackgroundColor="Teal">
+                            <StackLayout  Orientation="Horizontal"  Margin="25,10,0,10">
+                                <Image Source="{extensions:ImageResource B4.EE.DellobelI.Images.JikanHead.png}" Aspect="Fill"></Image>
+                                <Label Grid.Column="1" Text="JI-KAN" TextColor="#ff3399" FontSize="25" Margin="20,0,0,0" VerticalOptions="Start" />
+                                <Image Source="{extensions:ImageResource B4.EE.DellobelI.Images.JapJik2.png}" HeightRequest="40" 
+                                       Margin="20,0,0,0" Aspect="AspectFit" VerticalOptions="Start"/>
+                            </StackLayout>
+                        </StackLayout>
+                    </StackLayout>
+
+                    <ContentPresenter Grid.Row="1" Grid.ColumnSpan="2"  />
+
+
+
+                </Grid>
+            </ControlTemplate>
+
+            <!--			<Style TargetType="ContentView">
+				<Setter Property="ControlTemplate" Value="{StaticResource TealTemplate}" />
+			</Style>-->
+        </ResourceDictionary>
+
+
+        <!-- Application resource dictionary -->
 
 	</Application.Resources>
 </Application>
