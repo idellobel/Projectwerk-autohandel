@@ -10,7 +10,7 @@ namespace Autohandel.web.Services
     {
         public Task SendEmailAsync(string email, string subject, string message)
         {
-            string apiKey = "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";
+            string apiKey = "";
             return Execute(apiKey, subject, message, email);
         }
 
@@ -20,7 +20,7 @@ namespace Autohandel.web.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("ivan.dellobel@gmail.com", "Ivan Dellobel"),
+                From = new EmailAddress("mail.com", "naam"),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message

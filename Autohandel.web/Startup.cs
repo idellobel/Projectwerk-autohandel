@@ -43,8 +43,8 @@ namespace Autohandel.web
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
-                googleOptions.ClientId = "177053743468-copjv6q6uri1i2ju4j5g96spc946m84s.apps.googleusercontent.com";
-                googleOptions.ClientSecret = "57wP6JOj8fTyr2YsvbYPJ1yc";
+                googleOptions.ClientId = "";
+                googleOptions.ClientSecret = "";
             });  
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
