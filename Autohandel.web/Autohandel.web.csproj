@@ -45,8 +45,4 @@
     <ProjectReference Include="..\Autohandel.Domain\Autohandel.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="SendGrid_ApiKey\" />
-  </ItemGroup>
-
 </Project>
