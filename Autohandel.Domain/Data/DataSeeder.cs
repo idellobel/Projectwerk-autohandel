@@ -1,9 +1,14 @@
 ﻿using Autohandel.Domain.Entities;
 using Autohandel.Domain.Extensions;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-
+using System.Threading.Tasks;
 
 namespace Autohandel.Domain.Data
 {
@@ -4675,9 +4680,96 @@ namespace Autohandel.Domain.Data
 
             }
 
-                context.SaveChanges();
 
+            ////seed AspNetRoles
+            //string[] roles = new string[] { "eigenaar", "administrator", "bezoeker", "klant", "koper", "bedrijf", "verkoper", "abonnee" };
+
+            //foreach (string role in roles)
+            //{
+            //    var roleStore = new RoleStore<IdentityRole>(context);
+
+            //    if (!context.Roles.Any(r => r.Name == role))
+            //    {
+            //        roleStore.CreateAsync(new IdentityRole(role)).GetAwaiter();
+                  
+                    
+            //    }
+
+            //}
+            //context.SaveChanges();
+
+
+            //var user = new ApplicationUser
+            //{
+
+            //    UserName = "Ivan@email.com",
+            //    NormalizedUserName = "ivan@email.com",
+            //    Email = "Ivan@email.com",
+            //    NormalizedEmail = "ivan@email.com",
+            //    EmailConfirmed = true,
+            //    LockoutEnabled = false,
+            //    SecurityStamp = Guid.NewGuid().ToString(),
+                
+            //};
+
+            //if (!context.Users.Any(u => u.UserName == user.UserName))
+            //{
+            //    var password = new PasswordHasher<ApplicationUser>();
+            //    var hashed = password.HashPassword(user, "Ivocursist#123");
+            //    user.PasswordHash = hashed;
+            //    var userStore = new UserStore<ApplicationUser>(context);
+            //    var role =  context.Roles.Single(r => r.Name == "administrator");
+
+            //    userStore.CreateAsync(user).GetAwaiter();
+            //    userStore.AddToRoleAsync(user, role.NormalizedName).GetAwaiter();
+            //    context.SaveChanges();
+
+            //}
+
+
+            context.SaveChanges();
+
+            }
+        public static async Task CreateRoles(IServiceProvider serviceProvider, IConfiguration Configuration)
+        {
+            //adding customs roles
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<ApplicationUser>>();
+            string[] roleNames = { "eigenaar", "administrator", "bezoeker", "klant", "koper", "bedrijf", "verkoper", "abonnee" };
+            IdentityResult roleResult;
+
+            foreach (var roleName in roleNames)
+            {
+                //creating the roles and seeding them to the database
+                var roleExist = await RoleManager.RoleExistsAsync(roleName);
+                if (!roleExist)
+                {
+                    roleResult = await RoleManager.CreateAsync(new IdentityRole(roleName));
+                }
+            }
+
+            //creating a super user who could maintain the web app
+            var poweruser = new ApplicationUser
+            {
+                UserName = Configuration.GetSection("AppSettings")["UserEmail"],
+                Email = Configuration.GetSection("AppSettings")["UserEmail"]
+            };
+
+            string userPassword = Configuration.GetSection("AppSettings")["UserPassword"];
+            var user = await UserManager.FindByEmailAsync(Configuration.GetSection("AppSettings")["UserEmail"]);
+
+            if (user == null)
+            {
+                var createPowerUser = await UserManager.CreateAsync(poweruser, userPassword);
+                if (createPowerUser.Succeeded)
+                {
+                    //here we tie the new user to the "Admin" role 
+                    await UserManager.AddToRoleAsync(poweruser, "administrator");
+
+                }
             }
         }
     }
+}
+   
 

@@ -7,8 +7,8 @@ using System.Text;
 
 namespace Autohandel.Domain.Data
 {
-    //public class AutohandelContext : IdentityDbContext<ApplicationUser>
-    public class AutohandelContext : DbContext
+    public class AutohandelContext : IdentityDbContext<ApplicationUser>
+    //public class AutohandelContext : DbContext
     {
         
 
@@ -29,8 +29,8 @@ namespace Autohandel.Domain.Data
         public DbSet<OnderdelenProducten> OnderdelenProducten { get; set; }
         public DbSet<Onderhoud> Onderhoud { get; set; }
         public DbSet<Persoon> Personen { get; set; }
-        public DbSet<Role> Roles { get; set; } //Mijn inziens niet nodig, Zouden reeds vervat zitten in 'IdentityDbContext<ApplicationUser>'?
-        public DbSet<User> Users { get; set; } //Mijn inziens niet nodig, Zouden reeds vervat zitten in 'IdentityDbContext<ApplicationUser>'?
+       /* public DbSet<Role> Roles { get; set; }*/ //Mijn inziens niet nodig, Zouden reeds vervat zitten in 'IdentityDbContext<ApplicationUser>'?
+       /* public DbSet<User> Users { get; set; }*/ //Mijn inziens niet nodig, Zouden reeds vervat zitten in 'IdentityDbContext<ApplicationUser>'?
         public DbSet<Voertuig> Voertuigen { get; set; }
         public DbSet<VoertuigCategorie> VoertuigCategorieen { get; set; }
         public DbSet<Specificaties> Specificaties { get; set; }

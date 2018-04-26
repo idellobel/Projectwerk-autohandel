@@ -13,9 +13,10 @@ using System;
 namespace Autohandel.Domain.Migrations
 {
     [DbContext(typeof(AutohandelContext))]
-    partial class AutohandelContextModelSnapshot : ModelSnapshot
+    [Migration("20180422180853_changeToIdentity")]
+    partial class changeToIdentity
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

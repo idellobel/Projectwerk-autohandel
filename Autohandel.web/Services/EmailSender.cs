@@ -20,7 +20,7 @@ namespace Autohandel.web.Services
             var client = new SendGridClient(apiKey);
             var msg = new SendGridMessage()
             {
-                From = new EmailAddress("mail.com", "naam"),
+                From = new EmailAddress(""),
                 Subject = subject,
                 PlainTextContent = message,
                 HtmlContent = message

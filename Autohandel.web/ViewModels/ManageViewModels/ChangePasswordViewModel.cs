@@ -8,12 +8,12 @@ namespace Autohandel.web.ViewModels.ManageViewModels
 {
     public class ChangePasswordViewModel
     {
-        [Required]
+        [Required(ErrorMessage = "Gelieve je {0} in te geven")]
         [DataType(DataType.Password)]
         [Display(Name = "Huidig paswoord ")]
         public string OldPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessage = "Gelieve je {0} in te geven")]
         [StringLength(100, ErrorMessage = "Het {0} moet minimaal {2} en maximaal {1} ​​tekens lang zijn.", MinimumLength = 6)]
         [DataType(DataType.Password)]
         [Display(Name = "Nieuw paswoord")]

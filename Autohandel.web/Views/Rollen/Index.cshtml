@@ -1,0 +1,58 @@
+﻿@model IEnumerable<Autohandel.web.ViewModels.UserViewModels.UserViewModel>
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="container">
+    <h6 style="margin-top:20px;">
+        <a asp-area="Admin" asp-controller="Home" asp-action="Personen"  style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'admin personen'
+        </a>
+    </h6>
+
+    <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Overzicht Rollen</h2>
+
+  
+    <table class="table">
+        <thead>
+            <tr class="d-flex">
+                <th class="col-4">
+                    @Html.DisplayNameFor(model => model.RoleName)<br />
+                </th>
+                <th class="col-4">
+                    @Html.DisplayNameFor(model => model.Username)<br />
+                </th>
+
+                <th class="col-4">
+                    @Html.DisplayNameFor(model => model.Email)<br />
+
+                </th>
+               
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr class="d-flex">
+                    <td class="col-4">
+                        @Html.DisplayFor(modelItem => item.RoleName)<br /><br />
+
+                    </td>
+                    <td class="col-4">
+                        @Html.DisplayFor(modelItem => item.Username)<br />
+
+                    </td>
+
+                    <td class="col-4">
+                        @Html.DisplayFor(modelItem => item.Email)<br />
+                    </td>
+                   
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<br />
+<br />
+
+

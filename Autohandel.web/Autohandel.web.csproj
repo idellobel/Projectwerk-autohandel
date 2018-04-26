@@ -6,17 +6,22 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Views\Rollen\**" />
     <Compile Remove="Data\**" />
     <Compile Remove="obj\**" />
+    <Content Remove="Areas\Admin\Views\Rollen\**" />
     <Content Remove="Data\**" />
     <Content Remove="obj\**" />
+    <EmbeddedResource Remove="Areas\Admin\Views\Rollen\**" />
     <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="obj\**" />
+    <None Remove="Areas\Admin\Views\Rollen\**" />
     <None Remove="Data\**" />
     <None Remove="obj\**" />
   </ItemGroup>
 
   <ItemGroup>
+    <Compile Remove="Areas\Admin\Controllers\RollenController.cs" />
     <Compile Remove="ViewModels\ApplicationUser.cs" />
   </ItemGroup>
 

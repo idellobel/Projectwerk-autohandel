@@ -10,10 +10,10 @@
         <ul class="navbar-nav navbar-right">
             @*@await Component.InvokeAsync("MainNavigation")*@
             <li class="nav-item">
-            <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello @UserManager.GetUserName(User)!</a>
+            <a class="nav-link" asp-area="" asp-controller="Manage" asp-action="Index" title="Beheer uw account">Hello @UserManager.GetUserName(User)!</a>
         </li>
             <li class="nav-item">
-                <button type="submit" class="btn btn-link navbar-btn navbar-link">Uitloggen</button>
+                <button type="submit" class="btn btn-link navbar-btn nav-link">Uitloggen</button>
             </li>
         </ul>
     </form>

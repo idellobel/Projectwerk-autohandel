@@ -8,8 +8,8 @@ namespace Autohandel.web.ViewModels.AccountViewModels
 {
     public class ForgotPasswordViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Gelieve je {0} in te geven")]
+        [EmailAddress(ErrorMessage = "Gelieve een correct {0} in te geven")]
         public string Email { get; set; }
     }
 }

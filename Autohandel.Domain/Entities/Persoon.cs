@@ -42,8 +42,8 @@ namespace Autohandel.Domain.Entities
         public string Gemeente { get; set; }
 
         [Required(ErrorMessage = "Het veld Email is vereist")]
-        [DataType(DataType.EmailAddress)]
-        [EmailAddress]
+        [DataType(DataType.EmailAddress, ErrorMessage = "Gelieve een correcte mail in te geven")]
+        [EmailAddress(ErrorMessage = "Gelieve een correcte mail in te geven")]
         public string Email { get; set; }
 
 

@@ -23,7 +23,7 @@ namespace Autohandel.web.Controllers
             return View();
         }
 
-        //[Authorize]
+        [Authorize]
         public IActionResult Contact()
         {
             ViewData["Message"] = "Your contact page.";

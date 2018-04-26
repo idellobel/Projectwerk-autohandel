@@ -45,7 +45,12 @@ namespace Autohandel.web
             {
                 googleOptions.ClientId = "";
                 googleOptions.ClientSecret = "";
-            });  
+            });
+
+            services.AddAuthorization(options =>
+            {
+                options.AddPolicy("RequireAdministratorRole", policy => policy.RequireRole("administrator"));
+            });
             // Add application services.
             services.AddTransient<IEmailSender, EmailSender>();
 

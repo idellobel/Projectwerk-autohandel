@@ -28,12 +28,21 @@
         </div>
 
         <div class="col-lg-3 col-md-5 col-sm-8   text-center DashItems ">
-            <a asp-controller="Users" asp-action="Index" asp-area="Admin">
+            <a asp-controller="Rollen" asp-action="Users" asp-area="">
                 <img asp-append-version="true" src="~/images/persenpapier/bezoeker.jpg" alt="Users" title="Users"
                      class="img-fluid DashItemsAfbeeldingen">
             </a>
 
-            <a asp-controller="Users" asp-action="Index" asp-area="Admin" class="btn btn-info" style="margin-bottom:2%;">Users</a>
+            <a asp-controller="Rollen" asp-action="Users" asp-area="" class="btn btn-info" style="margin-bottom:2%;">Users</a>
+        </div>
+
+        <div class="col-lg-3 col-md-5 col-sm-8   text-center DashItems ">
+            <a asp-controller="Rollen" asp-action="Index" asp-area="">
+                <img asp-append-version="true" src="~/images/persenpapier/rol.png" alt="Rollen" title="Rollen"
+                     class="img-fluid DashItemsAfbeeldingen">
+            </a>
+
+            <a asp-controller="Rollen" asp-action="Index" asp-area="" class="btn btn-info" style="margin-bottom:2%;">Rollen</a>
         </div>
 
     </div>

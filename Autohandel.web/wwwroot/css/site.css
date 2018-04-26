@@ -78,6 +78,19 @@
         font-size: 18px;
     }
 
+.tekstManageLink {
+    color: darkslategray;
+    text-decoration: none;
+    /*font-weight: bolder;*/
+}
+
+    .tekstManageLink:hover {
+        color: darkslategray;
+        text-decoration: none;
+        /*font-size: 16px;*/
+        font-weight: bolder;
+    }
+
 .mapImage {
     position: relative;
     display: inline-block; /* this div is the same size as the image */

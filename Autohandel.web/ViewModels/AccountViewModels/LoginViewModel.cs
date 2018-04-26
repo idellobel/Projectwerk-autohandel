@@ -8,12 +8,12 @@ namespace Autohandel.web.ViewModels.AccountViewModels
 {
     public class LoginViewModel
     {
-        [Required]
-        [EmailAddress]
+        [Required(ErrorMessage = "Gelieve je {0} in te geven")]
+        [EmailAddress(ErrorMessage = "Gelieve een correct {0} in te geven")]
         public string Email { get; set; }
 
-        [Required]
-        [DataType(DataType.Password)]
+        [Required(ErrorMessage = "Gelieve je {0} in te geven")]
+        [DataType(DataType.Password, ErrorMessage = "Paswoorden dienen minstens 1 'alphanumeric character' te bevatten en 1 hoofdletter('A' - 'Z').")]
         [Display(Name = "Paswoord")]
         public string Password { get; set; }
 

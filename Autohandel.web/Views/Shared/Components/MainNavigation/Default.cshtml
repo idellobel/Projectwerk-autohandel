@@ -2,8 +2,12 @@
 
 @foreach (var navlink in Model)
 {
-    <li@(Html.Raw(navlink.IsActive ? " class=\"nav-item active\"" : ""))>
-        <a asp-action="@navlink.Action" asp-controller="@navlink.Controller" asp-area="@navlink.Area" class="nav-link">@navlink.Text</a>    </li>
-    }
+<li @(Html.Raw(navlink.IsActive ? " class=\"nav-item active\"" : ""))>
+    <a asp-action="@navlink.Action" asp-controller="@navlink.Controller" asp-area="@navlink.Area" class="nav-link">@navlink.Text</a></li>
 
+}
+@if (User.IsInRole("administrator"))
+{
+    <li ><a asp-area="Admin" asp-controller="Home" asp-action="Index" class="nav-link">ADMIN-AREA</a></li>
+}
 

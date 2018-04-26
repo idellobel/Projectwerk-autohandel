@@ -172,6 +172,29 @@
             @RenderSection("abovemain", false)
             <main class="col-sm-12" style="padding-left:0;padding-right:0;">
                 <section id="maincontent">
+                    <div class="container">
+
+                        @if (TempData["SuccessMessage"] != null)
+                          {
+                            <div class="alert alert-success successdiv">
+                                <h3 class="alert-heading"><i class="fas fa-check"></i> Geslaagd!</h3>
+                                <h4>
+                                    @Html.Raw(@TempData["SuccessMessage"])
+                                </h4>
+                            </div>
+                           }
+
+                        @if (TempData["AlertMessage"] != null)
+                          {
+                            <div class="alert alert-danger dangerdiv ">
+                                <h3 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Aandacht!</h3>
+                                <h4>
+                                    @Html.Raw(@TempData["AlertMessage"])
+                                </h4>
+                            </div>
+                          }
+
+                    </div>
                     @RenderBody()
                 </section>
             </main>

@@ -9,6 +9,8 @@ using Microsoft.Extensions.Logging;
 using Autohandel.web.ViewModels.AccountViewModels;
 using Autohandel.web.Services;
 using Autohandel.Domain.Entities;
+using Autohandel.Domain.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Autohandel.web.Controllers
 {
@@ -20,17 +22,20 @@ namespace Autohandel.web.Controllers
         private readonly SignInManager<ApplicationUser> _signInManager;
         private readonly IEmailSender _emailSender;
         private readonly ILogger _logger;
+        private readonly AutohandelContext _context;
 
         public AccountController(
             UserManager<ApplicationUser> userManager,
             SignInManager<ApplicationUser> signInManager,
             IEmailSender emailSender,
-            ILogger<AccountController> logger)
+            ILogger<AccountController> logger,
+            AutohandelContext context)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _emailSender = emailSender;
             _logger = logger;
+            _context = context;
         }
 
         [TempData]
@@ -76,7 +81,11 @@ namespace Autohandel.web.Controllers
 
                 if (result.Succeeded)
                 {
+                    //var role = await _context.Roles.SingleOrDefaultAsync(r=>r.Name == "Klant");
+                   
                     _logger.LogInformation("Gebruiker ingelogd.");
+                    // await _userManager.AddToRoleAsync(user, role.NormalizedName);
+                    //_context.SaveChanges();
                     return RedirectToLocal(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -252,15 +261,17 @@ namespace Autohandel.web.Controllers
 
                     _logger.LogInformation("Gebruiker heeft een nieuw account met wachtwoord gemaakt.");
 
+                    // Add a user to the default role, or any role you prefer here
+                    await _userManager.AddToRoleAsync(user, "klant");
+
                     // uitcommentariëren
                     // standaard niet de startpagina tonen na registratie
                     //return RedirectToLocal(returnUrl);
 
                     // We voorzien een View met een melding
                     // dat een confirmatiemail werd verstuurd 
-                    ViewBag.Message = "Controleer uw e-mail en bevestig uw account "
-                                    + "je moet bevestigen"
-                                    + "voordat je kunt inloggen.";
+                    ViewBag.Message = "Controleer uw e-mail en bevestig uw account." + System.Environment.NewLine
+                                    + "Je dient te bevestigen voordat je kunt inloggen.";
                     return View("Info");
                 }
                 AddErrors(result);
@@ -300,6 +311,7 @@ namespace Autohandel.web.Controllers
         {
             await _signInManager.SignOutAsync();
             _logger.LogInformation("Gebruiker uitgelogd.");
+            TempData["SuccessMessage"] = $"U bent uitgelogd!";
             return RedirectToAction(nameof(HomeController.Index), "Home");
         }
 
@@ -425,8 +437,9 @@ namespace Autohandel.web.Controllers
                 var code = await _userManager.GeneratePasswordResetTokenAsync(user);
                 var callbackUrl = Url.ResetPasswordCallbackLink(user.Id, code, Request.Scheme);
                 await _emailSender.SendEmailAsync(model.Email, "Reset Password",
-                   $"Kan gebruiker met ID niet inlezen .Stel je wachtwoord opnieuw in door hier te klikken: < a href='{callbackUrl}'>link</a>");
+                   "Stel je wachtwoord opnieuw in door <a href=\"" + callbackUrl + "\">hier</a> te drukken");
                 return RedirectToAction(nameof(ForgotPasswordConfirmation));
+              
             }
 
             // If we got this far, something failed, redisplay form

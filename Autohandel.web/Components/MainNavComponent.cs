@@ -31,7 +31,7 @@ namespace Autohandel.web.Components
                 new MainNavLinkVm{ Controller="Home", Action="", Text="Onderdelen"},
                 new MainNavLinkVm{ Controller="Home", Action="Team", Text="Ons team"},
                 new MainNavLinkVm{ Controller="Home", Action="Contact", Text="Contact"},
-                new MainNavLinkVm{Area= "Admin", Controller="Home", Action= "Index", Text=$"Dashboard" },
+                //new MainNavLinkVm{Area= "Admin", Controller="Home", Action= "Index", Text=$"ADMIN-AREA" },
               
               
 
