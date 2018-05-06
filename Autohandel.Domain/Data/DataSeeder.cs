@@ -1143,7 +1143,7 @@ namespace Autohandel.Domain.Data
                        new Voertuig{ Merk = context.Merken.Single(c => c.MerkNaam == "Kia"),
                                   MerkType = context.Types.Single(c => c.MerkTypeNaam == "Carens"),
                                   VoertuigArtikelNummer = "40",
-                                  FiguurURL = @"~/images/vtgn/fronts/39_FRONT.jpg",
+                                  FiguurURL = @"~/images/vtgn/fronts/40_FRONT.jpg",
                                   VoertuigTitel= "1.7 CRDi Automaat Sense + Panorama + Leder/Cuir",
                                   Koetswerk = Koetswerk.Monovolume,
                                   Registratie = "03/2014",

@@ -1,0 +1,360 @@
+﻿@using Autohandel.Domain.DTO_klassen
+@model List<VoertuigDTO>
+@{
+    ViewData["Title"] = "VoorraadWagens";
+    
+}
+
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Style the search field */
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+    }
+
+    /* Style the submit button */
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 14px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+    }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+    /* Clear floats */
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .liAanbodvoertuig {
+        width: 100%;
+        text-decoration: none;
+        margin-left: 0;
+        margin-bottom: 5%;
+        font-size: 14px;
+    }
+
+    .btnAanbodvoertuig {
+        margin-left: 0;
+        padding: 10px;
+    }
+
+    .margin5pct {
+        margin: 5%;
+    }
+
+    .cardbodyVtgLijst {
+        height: 75px;
+        background-color: #c4ff4d;
+    }
+
+    .vtgPrijs {
+        float: right;
+    }
+
+    .vtgWitdhLijst {
+        width: 100%;
+    }
+
+    .voertuigLink {
+        text-decoration: none;
+        color: inherit;
+    }
+
+
+
+</style>
+
+<div id="vtgn">
+    <div class="container">
+
+        <div class="row" style="color:dimgray">
+            <p class="tekstWelkomTitelPagina ">Ons aanbod aan voertuigen</p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row" style="font-weight:bold;margin:5%;  ">
+                    <h6>Zoeken op merk:</h6>
+
+                    <form class="example" style="margin:5%;">
+                        <input type="text" placeholder="Merknaam.." name="search" id="zoekMerk">
+                        <button type="button" id="sbutton"><i class="fa fa-search"></i></button>
+                    </form>
+                    <br />
+                </div>
+                <div class="row" style="font-weight:bold;margin:5%;">
+                    <h6>Zoeken op prijs:</h6>
+
+                    @*<form class="example" style="margin:5%;">
+                            <input type="text" placeholder=">3000.." name="search" id="zoekPrijs">
+                            <button type="button" id="pbutton"><i class="fa fa-search"></i></button>
+                        </form>
+                        <br />*@
+
+                    <ul style="margin-top:10%; width:80%; list-style-type: none; padding:10px;">
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" id="button1" href="#"> minder dan 10.000 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" id="button2" href="#"> beneden de 20.000 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" id="button3" href="#"> meer dan 20.000 €  </button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" id="button4" href="#"> alle voertuigen</button>
+                        </li>
+
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9" style="color:dimgray">
+                <div class="row " id="voertuigcont">
+
+                    @foreach (VoertuigDTO v in Model)
+                    {
+                       
+
+                        <div class="col-md-6 mapImage" id="voertuigenreeks">
+                            <a style="text-decoration:none;color:inherit" href="@Url.Action("VoertuigDetails","AanbodVoertuigen",new { id = v.VoertuigArtikelNummer })">
+                                <div class="card margin5pct">
+                                    <div class="card-body cardbodyVtgLijst ">
+                                        <h5 class="card-title ">
+                                            <span id="merk">@v.MerkNaam  @v.MerkTypeNaam</span>
+                                            <span class="badge-primary vtgPrijs" id="prijs">@v.Prijs</span>
+                                        </h5>
+                                        <h6>@v.VoertuigTitel</h6>
+
+                                    </div>
+                                    <img class="card-img-bottom vtgWitdhLijst" id="img" src=@Url.Content(v.FiguurURL)
+                                         alt=@v.FiguurURL title=@v.MerkNaam @v.MerkTypeNaam @v.VoertuigTitel>
+                                </div>
+                            </a>
+                        </div>
+
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts{
+    <script src="~/js/underscore.js"></script>
+    <script type="text/template" id="voertuigen-template">
+        <% _.each(voertuigen, function(voertuig) { %>
+        <div class="col-md-6 mapImage " id="voertuigenreeks">
+            <a style="text-decoration:none;color:inherit" href="../AanbodVoertuigen/VoertuigDetails/<%= id= voertuig.voertuigArtikelNummer %>">
+                <div class="card margin5pct">
+                    <div class="card-body cardbodyVtgLijst ">
+                        <h5 class="card-title ">
+                            <span id="merk"><%= voertuig.merkNaam %>  <%= voertuig.merkTypeNaam %></span>
+                            <span class="badge-primary vtgPrijs" id="prijs"><%= voertuig.prijs %></span>
+                        </h5>
+                        <h6><%= voertuig.voertuigTitel %></h6>
+
+                    </div>
+                    <img class="card-img-bottom vtgWitdhLijst " id="img" src="../images/vtgn/fronts/<%= voertuig.voertuigArtikelNummer %>_FRONT.jpg"
+                         alt="<%= voertuig.figuurURL %>" title="<%= voertuig.merkNaam %> <%= voertuig.merkTypeNaam %> <%= voertuig.voertuigTitel %>">
+                </div>
+            </a>
+        </div>
+        <%}); %>
+    </script>
+    <script type="text/template" id="error-template">
+        <div class="alert alert-danger dangerdiv ">
+            <h3 class="alert-heading"><i class="fas fa-exclamation-triangle"></i> Aandacht!</h3>
+            <h4>
+                Opzoeking kent geen resultaat!
+            </h4>
+        </div>
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var url = 'https://' + window.location.host + '/api/VoertuigAanbod';
+
+            var value = "";
+            var lenprijs = 0;
+            var richtprijs = "";
+
+            $("#zoekMerk")
+                .keyup(function () {
+                    value = $(this).val()
+                });
+
+
+
+            $('#sbutton').on('click', function () {
+                $('#voertuigcont').empty();
+                $.ajax({
+                    type: "Get",
+                    url: url + '/' + value,
+                    dataType: 'json',
+                    success: function (data) {
+                        var voertuigenTemplate = _.template($('#voertuigen-template').html());
+                        var resultingHtml = voertuigenTemplate({ voertuigen: data })
+                        $('#voertuigcont').html(resultingHtml);
+                        if (data == "") {
+                            var errorTemplate = _.template($('#error-template').html());
+                            var errorresultHtml = errorTemplate();
+                            $('#voertuigcont').html(errorresultHtml);
+                        }
+                    },
+                });
+            });
+
+            //$("#zoekPrijs")
+            //    .keyup(function () {
+            //        valueprijs = $(this).val()
+            //    });
+
+            $('#button1').on('click', function () {
+
+                $("#zoekMerk").val('');
+
+                lenprijs = 7;
+                richtprijs = "123";
+
+                $('#voertuigcont').empty();
+
+                //valueDec = parseFloat(valueprijs);
+
+                $.ajax({
+                    type: "Get",
+                    url: url + '/' + lenprijs + '/' + richtprijs,
+                    dataType: 'json',
+                    success: function (data) {
+                        var voertuigenTemplate = _.template($('#voertuigen-template').html());
+                        var resultingHtml = voertuigenTemplate({ voertuigen: data })
+                        $('#voertuigcont').html(resultingHtml);
+                        if (data == "") {
+                            var errorTemplate = _.template($('#error-template').html());
+                            var errorresultHtml = errorTemplate();
+                            $('#voertuigcont').html(errorresultHtml);
+                        }
+                    },
+                });
+            });
+
+            $('#button2').on('click', function () {
+
+                $("#zoekMerk").val('');
+
+                lenprijs = 8;
+                richtprijs = "123";
+
+                $('#voertuigcont').empty();
+
+                //valueDec = parseFloat(valueprijs);
+
+                $.ajax({
+                    type: "Get",
+                    url: url + '/' + lenprijs + '/' + richtprijs,
+                    dataType: 'json',
+                    success: function (data) {
+                        var voertuigenTemplate = _.template($('#voertuigen-template').html());
+                        var resultingHtml = voertuigenTemplate({ voertuigen: data })
+                        $('#voertuigcont').html(resultingHtml);
+                        if (data == "") {
+                            var errorTemplate = _.template($('#error-template').html());
+                            var errorresultHtml = errorTemplate();
+                            $('#voertuigcont').html(errorresultHtml);
+                        }
+                    },
+                });
+            });
+
+            $('#button3').on('click', function () {
+
+                $("#zoekMerk").val('');
+
+                lenprijs = 8;
+                richtprijs = "234";
+
+                $('#voertuigcont').empty();
+
+                //valueDec = parseFloat(valueprijs);
+
+                $.ajax({
+                    type: "Get",
+                    url: url + '/' + lenprijs + '/' + richtprijs,
+                    dataType: 'json',
+                    success: function (data) {
+                        var voertuigenTemplate = _.template($('#voertuigen-template').html());
+                        var resultingHtml = voertuigenTemplate({ voertuigen: data })
+                        $('#voertuigcont').html(resultingHtml);
+                        if (data == "") {
+                            var errorTemplate = _.template($('#error-template').html());
+                            var errorresultHtml = errorTemplate();
+                            $('#voertuigcont').html(errorresultHtml);
+                        }
+                    },
+                });
+            });
+
+            $('#button4').on('click', function () {
+
+                $("#zoekMerk").val('');
+
+                lenprijs = 0;
+                richtprijs = "123";
+
+                $('#voertuigcont').empty();
+
+                //valueDec = parseFloat(valueprijs);
+
+                $.ajax({
+                    type: "Get",
+                    url: url + '/' + lenprijs + '/' + richtprijs,
+                    dataType: 'json',
+                    success: function (data) {
+                        var voertuigenTemplate = _.template($('#voertuigen-template').html());
+                        var resultingHtml = voertuigenTemplate({ voertuigen: data })
+                        $('#voertuigcont').html(resultingHtml);
+                        if (data == "") {
+                            var errorTemplate = _.template($('#error-template').html());
+                            var errorresultHtml = errorTemplate();
+                            $('#voertuigcont').html(errorresultHtml);
+                        }
+                    },
+                });
+            });
+
+        });
+
+
+    </script>
+
+}
+

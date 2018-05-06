@@ -7,7 +7,9 @@
     "jquery-form-validator": "^2.3.77",
     "jquery-validation-unobtrusive": "v3.2.9",
     "Font-Awesome": "5.0.9",
-    "ekko-lightbox": "^5.3.0"
+    "ekko-lightbox": "^5.3.0",
+    "vue": "v2.5.16",
+    "underscore": "1.9.0"
   },
   "resolutions": {
     "jquery": "3.2.6",

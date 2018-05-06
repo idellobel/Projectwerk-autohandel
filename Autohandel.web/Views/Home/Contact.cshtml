@@ -1,4 +1,5 @@
-﻿@{
+﻿@model Autohandel.web.ViewModels.ContactViewModels.ContactInformatieViewModel
+@{
     ViewData["Title"] = "Contact";
 }
 @section showPublic{
@@ -33,18 +34,43 @@
         <div class='col-sm-12 col-md-12 col-lg-7'>
 
             <div style="margin-left:5%;">
-                <form action="/action_page.php">
-                    <label class="contactLabel" for="fname">Voornaam:</label><span><input class="formContact" type="text" id="fname" name="voornaam" placeholder="Naam.."></span>
-                    <label class="contactLabel" for="lname">Familienaam:</label><span><input class="formContact" type="text" id="lname" name="lastname" placeholder="Familienaam.."></span>
-                    <label class="contactLabel" for="country">Land:</label>
-                    <select class="formContact" id="country" name="country">
-                        <option value="australia">België</option>
-                        <option value="canada">Nederland</option>
-                        <option value="usa">Frankrijk</option>
-                    </select>
-                    <label class="contactLabel" for="subject">Onderwerp:</label><textarea class="formContact" id="subject" name="subject" placeholder="Schrijf uw bericht.." style="height:120px"></textarea>
-                    <input class="submitContact" style=" margin-top:2%; width:150px" type="submit" value="Verzend">
-                </form>
+                @using (Html.BeginForm())
+          {
+            @Html.AntiForgeryToken();
+
+            <div>
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            </div>
+            <div class="form-group">
+                <label asp-for="Voornaam" class="contactLabel" ></label><span>
+                    <input asp-for="Voornaam" class="formContact" placeholder="Naam..">
+                </span>
+                <span asp-validation-for="Voornaam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Naam" class="contactLabel" ></label><span>
+                    <input asp-for="Naam" class="formContact" placeholder="Familienaam..">
+                </span>
+                <span asp-validation-for="Naam" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <label asp-for="Land" class="contactLabel" ></label>
+                 <select asp-for="Land" class="formContact" >
+                        <option value="belgië">België</option>
+                        <option value="nederland">Nederland</option>
+                        <option value="frankrijk">Frankrijk</option>
+                 </select>
+                 <span asp-validation-for="Land" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                 <label asp-for="Onderwerp" class="contactLabel" ></label>
+                 <textarea asp-for="Onderwerp" class="formContact" placeholder="Schrijf uw bericht.." style="height:120px"></textarea>
+                 <span asp-validation-for="Onderwerp" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+            <input class="submitContact" style=" margin-top:2%; width:150px" type="submit" value="Verzend">
+                </div>
+        }
             </div>
         </div>
     </div>

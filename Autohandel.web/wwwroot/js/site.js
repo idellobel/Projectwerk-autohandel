@@ -1,6 +1,6 @@
 ﻿//import { Debug } from "util";
 
-// Write your JavaScript code.
+// Admin-Area: create voertuig.
 $('#Merk').change(function () {
 
     var selectedMerk = $("#Merk").val();
@@ -24,11 +24,19 @@ $('#Merk').change(function () {
     }
 });
 
-
+//welkompagina -fotoreeks
 $(document).on('click', '[data-toggle="lightbox"]', function (event) {
     event.preventDefault();
     $(this).ekkoLightbox({ alwaysShowClose: true });
     $['']
+});
+
+
+//voertuigDetail-btn specifieke gegevens
+$(document).ready(function () {
+    $("#sdetail").on('click', function () {
+        $("#ddetail").toggle();
+    })
 });
 
 

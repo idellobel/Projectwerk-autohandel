@@ -9,15 +9,19 @@
     <Compile Remove="Areas\Admin\Views\Rollen\**" />
     <Compile Remove="Data\**" />
     <Compile Remove="obj\**" />
+    <Compile Remove="wwwroot\lib\vue\**" />
     <Content Remove="Areas\Admin\Views\Rollen\**" />
     <Content Remove="Data\**" />
     <Content Remove="obj\**" />
+    <Content Remove="wwwroot\lib\vue\**" />
     <EmbeddedResource Remove="Areas\Admin\Views\Rollen\**" />
     <EmbeddedResource Remove="Data\**" />
     <EmbeddedResource Remove="obj\**" />
+    <EmbeddedResource Remove="wwwroot\lib\vue\**" />
     <None Remove="Areas\Admin\Views\Rollen\**" />
     <None Remove="Data\**" />
     <None Remove="obj\**" />
+    <None Remove="wwwroot\lib\vue\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -27,12 +31,15 @@
 
   <ItemGroup>
     <Content Remove="Areas\Admin\Views\_ViewImports.cshtml" />
+    <Content Remove="Views\AanbodVoertuigen\Index.cshtml" />
     <Content Remove="wwwroot\images\vtgn\fronts\Vandenheede_Logo_1.ico" />
     <Content Remove="wwwroot\images\vtgn\voertuigenBeheer.png" />
   </ItemGroup>
 
 
   <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="6.2.2" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="3.2.0" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.3" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="2.0.1" PrivateAssets="All" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.1" PrivateAssets="All" />
@@ -48,6 +55,10 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Autohandel.Domain\Autohandel.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\vtgn\reeks\" />
   </ItemGroup>
 
 </Project>

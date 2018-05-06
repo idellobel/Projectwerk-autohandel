@@ -1,0 +1,181 @@
+﻿@model IEnumerable<Autohandel.Domain.Entities.Voertuig>
+@{
+    ViewData["Title"] = "Index";
+}
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Style the search field */
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+    }
+
+    /* Style the submit button */
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 14px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+    }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+    /* Clear floats */
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+    .liAanbodvoertuig {
+        width: 100%;
+        text-decoration: none;
+        margin-left: 0;
+        margin-bottom: 5%;
+        font-size: 14px;
+    }
+    .btnAanbodvoertuig {
+        margin-left: 0;
+        padding: 10px;
+    }
+</style>
+
+<div class="container">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">AANBOD VAN ONZE VOERTUIGEN</p>
+    </div>
+ </div>
+
+ <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row" style="font-weight:bold;margin:5%;  ">
+                    <h6>Zoeken op merk:</h6>
+                    
+                    <form class="example" style="margin:5%;" >
+                        <input type="text" placeholder="Merknaam.." name="search" id="zoekMerk">
+                        <button type="button" onclick="find();"><i class="fa fa-search"></i></button>
+                    </form>
+                    <br />
+                </div>
+                <div class="row" style="font-weight:bold;margin:5%;">
+                    <h6>Zoeken op prijs:</h6>
+
+                    <ul style="margin-top:10%; width:80%; list-style-type: none; padding:10px;">
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">3500 -> 6000 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">6000 -> 9500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">9500 -> 14500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">14500 -> 19500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">19500 -> 24500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">24500 -> 29500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">Boven  29500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">Alle voertuigen</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9" style="color:dimgray">
+                <div class="row">
+                    @foreach (var voertuig in Model)
+                    {
+
+
+                        <div class="col-md-6">
+                            <div class="card" style="margin:5%;" id="voertuigen">
+                                <div class="card-body" style="height:75px;background-color:#c4ff4d">
+                                    <h5 class="card-title">
+                                        <span style="text-align:left;">@voertuig.Merk.MerkNaam @voertuig.MerkType.MerkTypeNaam</span>
+                                        <span class="badge-primary" style="float:right;">@voertuig.Prijs.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("nl-BE"))</span>
+                                    </h5>
+                                    <h6>@voertuig.VoertuigTitel </h6>
+
+                                </div>
+                                <img class="card-img-bottom" src="@Url.Content(voertuig.FiguurURL)" alt="@Url.Content(voertuig.FiguurURL)"
+                                     title="@voertuig.Merk.MerkNaam @voertuig.MerkType.MerkTypeNaam @voertuig.VoertuigTitel"
+                                     style="width:100%">
+                            </div>
+                        </div>
+
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+    //var uri = "https://" + Request.Url.Host + ":" + Request.Url.Port + "GetVtgnOpMerk";
+    var uri = "https://localhost:44303/GetVtgnOpMerk";
+//    $(document).ready(function () {
+//        //Ajax request verzenden
+//        $.getJSON(uri)
+//            .done(function (data) {
+//                // On success, 'data' bevat de lijst met voertuigen op merk
+//                $.each(data, function (key, item) {
+
+//                    '<div class="card-body" style="height:75px;background-color:#c4ff4d"> '+
+//                        $('< h5 class="card-title" >'+
+//                           ' <span style="text-align:left;">voertuig.Merk.MerkNaam voertuig.MerkType.MerkTypeNaam</span>' +
+//                           ' <span class="badge-primary" style="float:right;">voertuig.Prijs.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("nl-BE"))</span> ' +
+//                        ' </h5 >' +
+//                       ' <h6>voertuig.VoertuigTitel </h6>'+
+
+//                       '    </div > ' +
+//                      '  <img class="card-img-bottom" src="Url.Content(voertuig.FiguurURL)" alt="Url.Content(voertuig.FiguurURL)" ' +
+//                         '   title="voertuig.Merk.MerkNaam voertuig.MerkType.MerkTypeNaam voertuig.VoertuigTitel" ' +
+//                         '   style="width:100%"> ' +
+//                        '  </div> '.appendTo($('#voertuigen')); ''
+
+//                }
+//                    function formatItem(item {
+//                        return 
+                      
+
+//})
+
+
+//            })
+
+//    })
+    function find() {
+        var id = $('#zoekMerk').val();
+        $.getJSON(uri + '/' + id)
+    };
+   
+</script>
+
+

@@ -1,0 +1,172 @@
+﻿@model Autohandel.web.ViewModels.AanbodVoertuigenViewModels.VoertuigDetailsViewModel
+@using System.Linq
+@{
+    ViewData["Title"] = "VoertuigDetails";
+}
+
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+
+<div class="container">
+
+    <h6 style="margin-top:20px;">
+        <a asp-area="" asp-controller="Home" asp-action="VoorraadWagens" style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar 'Ons aanbod aan voertuigen'
+        </a>
+    </h6>
+
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina ">Voertuig in detail</p>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1 col-md-1 ">
+
+        </div>
+        <div class="col-lg-10 col-md-12 kadervtgDetail"  >
+            <div class="row mrgBtm3pct"  >
+
+                <!--Carousel auto's in detail-->
+                <div class="col-lg-6 col-md-6 mrgBtm2pctTo3pct">
+                    <div id="myCarousel1" class="carousel slide" data-ride="carousel" data-interval="5000">
+                        <!--Indicators-->
+                        <ol class="carousel-indicators">
+
+                            @foreach (var imgsrc in Model.VoertuigAfbeeldingen.Select((value, i) => new { i, value }))
+                {
+
+                    var value = imgsrc.value;
+                    var index = imgsrc.i;
+                    if (index == 0)
+                    {
+                        <li data-target="#myCarousel1" data-slide-to="@index" class="active"></li>}
+        else
+        {
+            <li data-target="#myCarousel1" data-slide-to="@index" class=""></li>}
+
+}
+
+                        </ol>
+
+                        <!--The slideshow-->
+                        <div class="carousel-inner" role="listbox">
+                            @foreach (var imgsrc in Model.VoertuigAfbeeldingen.Select((value, i) => new { i, value }))
+                {
+                    var value = imgsrc.value;
+                    var index = imgsrc.i;
+                    if (index == 0)
+                    {
+                        <div class="carousel-item active">
+                            <img src="~/@imgsrc.value" alt="@imgsrc" class="img-responsive img-thumbnail carousImgFE"  />
+
+                            <div class="carousel-caption" role="option">
+
+                            </div>
+                        </div>
+        }
+        else
+        {
+            <div class="carousel-item">
+                <img src="~/@imgsrc.value" alt="@imgsrc" class="img-responsive img-thumbnail carousImgFE"  />
+
+                <div class="carousel-caption" role="option">
+
+                </div>
+            </div>
+
+}
+
+}
+                        </div>
+                        <!--Left and right controls-->
+                        <a class="carousel-control-prev" href="#myCarousel1" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                        </a>
+
+
+                    </div>
+                </div>
+
+
+                <!--Hoofdpunten auto detail -->
+                <div class="col-lg-5 col-md-5 autoDetailTekst" >
+                    <p>@Html.DisplayFor(model => model.VoertuigDetail.VoertuigCategorie.VoertuigCategorieNaam)</p>
+                    <p>@Html.DisplayFor(model => model.VoertuigDetail.Merk.MerkNaam) @Html.DisplayFor(model => model.VoertuigDetail.MerkType.MerkTypeNaam)</p>
+                    <p>@Html.DisplayFor(model => model.VoertuigDetail.VoertuigTitel) </p>
+
+
+                    <p>@Html.DisplayFor(model => model.VoertuigDetail.Prijs)</p>
+                    <p> @Html.DisplayFor(model => model.VoertuigDetail.Kilometerstand) Km</p>
+                    <p>  @Html.DisplayNameFor(model => model.VoertuigDetail.Registratie) : @Html.DisplayFor(model => model.VoertuigDetail.Registratie)</p>
+                    <p>@Html.DisplayNameFor(model => model.VoertuigDetail.Bouwjaar) : @Html.DisplayFor(model => model.VoertuigDetail.Bouwjaar)</p>
+                    <p> @Html.DisplayNameFor(model => model.VoertuigDetail.Brandstof) : @Html.DisplayFor(model => model.VoertuigDetail.Brandstof)</p>
+
+
+                </div>
+            </div>
+                <!--Specifieke details-->
+            <div class="row mrgBtm3pct">
+                        <button type="button" id="sdetail" class="btn btn-primary mrgLft3pct" >
+                        Verdere specifieke gegevens:
+                    </button>
+            </div>
+            <div class="row mrgBtm3pct " ">
+                <div class="col-11 autoDetailTekstHide" id="ddetail" >
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.Kleur) : @Html.DisplayFor(model => model.VoertuigDetail.Kleur)                
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.Koetswerk) :  @Html.DisplayFor(model => model.VoertuigDetail.Koetswerk)
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.GarantieTijd) :  @Html.DisplayFor(model => model.VoertuigDetail.GarantieTijd)
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.Versnelling) : @Html.DisplayFor(model => model.VoertuigDetail.Versnelling)
+                    </p>
+                    <p> 
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.Vermogen) :  @Html.DisplayFor(model => model.VoertuigDetail.Vermogen)
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.COTwee) :   @Html.DisplayFor(model => model.VoertuigDetail.COTwee)
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.CC) : @Html.DisplayFor(model => model.VoertuigDetail.CC)
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.Zitplaatsen) :   @Html.DisplayFor(model => model.VoertuigDetail.Zitplaatsen)
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.Deuren) :     @Html.DisplayFor(model => model.VoertuigDetail.Deuren)
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.Binnenkleur) :  @Html.DisplayFor(model => model.VoertuigDetail.Binnenkleur)
+                    </p>
+                    <p>
+                        @Html.DisplayNameFor(model => model.VoertuigDetail.Binnenbekleding) :  @Html.DisplayFor(model => model.VoertuigDetail.Binnenbekleding)
+                    </p>
+                </div>
+            </div>
+        </div>
+
+   </div>
+   
+</div>
+  
+<div class="col-lg-1 col-md-1 ">
+
+</div>
+<br />
+<br />
+        
+ 

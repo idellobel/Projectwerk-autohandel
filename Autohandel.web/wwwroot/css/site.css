@@ -94,6 +94,7 @@
 .mapImage {
     position: relative;
     display: inline-block; /* this div is the same size as the image */
+
 }
 
     .mapImage:hover {
@@ -140,5 +141,91 @@
     color: darkslategray;
     font-weight: bold
 }
+.successdiv {
+    border: 2px solid #00ff21;
+    clear: both;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: #c3c2be 3px 3px;
+    border-radius: 5px;
+}
+
+.messageicon {
+    float: left;
+    position: relative;
+    top: -10px;
+    left: -10px;
+   
+}
+
+.dangerdiv {
+    border: 2px solid #f64309;
+    clear: both;
+    margin: 10px;
+    padding: 5px;
+    box-shadow: #c3c2be 3px 3px;
+    border-radius: 5px;
+}
+
+/* Style voertuig detailpage */
+.kadervtgDetail {
+    background-color: khaki;
+    border: 5px solid #ffd633;
+    box-shadow: #c3c2be 5px 5px;
+    border-radius: 5px;
+}
+
+.mrgBtm3pct {
+    margin-bottom: 3%;
+}
+
+.mrgBtm2pctTo3pct {
+    margin-bottom: 2%;
+    margin-top: 3%;
+}
+
+.mrgLft3pct {
+    margin-left: 3%;
+}
+
+.carousImgFE {
+    width: 100%;
+    height: 300px;
+}
+
+.autoDetailTekst {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: whitesmoke;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    color: dimgray;
+    font-size: 14px;
+    text-decoration: wavy;
+    padding-left: 5%;
+    padding-top: 2%;
+    margin-left: 2%;
+    border: 5px solid #394d00;
+    box-shadow: #c3c2be 10px 10px;
+    border-radius: 10px
+}
+
+.autoDetailTekstHide {
+    display: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: whitesmoke;
+    margin-bottom: 2%;
+    margin-top: 2%;
+    color: dimgray;
+    font-size: 14px;
+    text-decoration: wavy;
+    padding-left: 5%;
+    padding-top: 2%;
+    margin-left: 2%;
+    border: 5px solid #394d00;
+    box-shadow: #c3c2be 10px 10px;
+    border-radius: 10px
+}
+
+
 
   

@@ -1,0 +1,207 @@
+﻿
+@{
+    ViewData["Title"] = "VoertuigenInAaanbod";
+}
+
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+
+@section scripts{
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="~/js/vue.js"></script>
+    <script type="text/javascript">
+
+        var apiURL = '/api/'
+        var app = new Vue({
+            el: '#vtgn',
+            data: {
+                message: 'laden van voertuigen....',
+                voertuigen: null,
+                
+            },
+            created: function () {
+                var self = this;
+                this.fetchVoertuigen();
+                this.fetchVoertuigenOpMerk();
+            },
+            methods: {
+                fetchVoertuigen: function () {
+                    self = this;
+                    fetch(`${apiURL}VoertuigenAanbod`)
+                        .then(res => res.json())
+                        .then(function (voertuigen) {
+                            self.voertuigen = voertuigen;
+                           
+                            self.message = 'AANBOD VAN ONZE VOERTUIGEN';
+                            if ('#sbutton' == onclick) {
+
+                                fetchVoertuigenOpMerk();
+                            }
+                        })
+                        .catch(err => console.error('Fout' + err));
+
+                },
+                //fetchVoertuigenOpMerk: function () {
+                //    var input, filter;
+                //    input = document.getElementById("zoekMerk");
+                //    filter = input.value.toUpperCase();
+                //    self = this;
+                //    fetch(`${apiURL}VoertuigenAanbod`)
+                //        .then(res => res.json())
+                //        .then(function (voertuigen) {
+                //            self.voertuigen = voertuigen.filter(voertuigen => (voertuigen.merkNaam.toUpperCase() === filter)) ;
+
+                //            self.message = 'AANBOD VAN ONZE VOERTUIGEN';
+                //        })
+                //        .catch(err => console.error('Fout' + err));
+
+                //}
+
+            }
+
+        })
+
+    </script>
+
+}
+
+
+
+<style>
+    * {
+        box-sizing: border-box;
+    }
+
+    /* Style the search field */
+    form.example input[type=text] {
+        padding: 10px;
+        font-size: 14px;
+        border: 1px solid grey;
+        float: left;
+        width: 80%;
+        background: #f1f1f1;
+    }
+
+    /* Style the submit button */
+    form.example button {
+        float: left;
+        width: 20%;
+        padding: 10px;
+        background: #2196F3;
+        color: white;
+        font-size: 14px;
+        border: 1px solid grey;
+        border-left: none; /* Prevent double borders */
+        cursor: pointer;
+    }
+
+        form.example button:hover {
+            background: #0b7dda;
+        }
+
+    /* Clear floats */
+    form.example::after {
+        content: "";
+        clear: both;
+        display: table;
+    }
+
+    .liAanbodvoertuig {
+        width: 100%;
+        text-decoration: none;
+        margin-left: 0;
+        margin-bottom: 5%;
+        font-size: 14px;
+    }
+
+    .btnAanbodvoertuig {
+        margin-left: 0;
+        padding: 10px;
+    }
+</style>
+<div id="vtgn">
+    <div class="container">
+
+        <div class="row" style="color:dimgray">
+            <p class="tekstWelkomTitelPagina ">{{ message }}</p>
+        </div>
+    </div>
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-3">
+                <div class="row" style="font-weight:bold;margin:5%;  ">
+                    <h6>Zoeken op merk:</h6>
+
+                    <form class="example" style="margin:5%;">
+                        <input type="text" placeholder="Merknaam.." name="search" id="zoekMerk">
+                        <button type="button" id="sbutton" onclick="fetchVoertuigenOpMerk();"><i class="fa fa-search"></i></button>
+                    </form>
+                    <br />
+                </div>
+                <div class="row" style="font-weight:bold;margin:5%;">
+                    <h6>Zoeken op prijs:</h6>
+
+                    <ul style="margin-top:10%; width:80%; list-style-type: none; padding:10px;">
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">3500 -> 6000 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">6000 -> 9500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">9500 -> 14500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">14500 -> 19500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">19500 -> 24500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">24500 -> 29500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">Boven  29500 €</button>
+                        </li>
+                        <li class="liAanbodvoertuig">
+                            <button class="btn-block btnAanbodvoertuig" href="#">Alle voertuigen</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-9" style="color:dimgray">
+                <div class="row">
+                    @*@foreach (var voertuig in Model)
+                        {*@
+
+
+
+                    <div class="col-md-6"v-for="voertuig in voertuigen"  >
+                       
+                        <div  class="card" style="margin:5%;">
+                            <div class="card-body" style="height:75px;background-color:#c4ff4d">
+                                <h5 class="card-title">
+                                    <span style="text-align:left;">{{voertuig.merkNaam}} {{voertuig.merkTypeNaam}}</span>
+                                    <span class="badge-primary" style="float:right;" >{{voertuig.prijs}}</span>
+                                </h5>
+                                <h6>{{voertuig.voertuigTitel}} </h6>
+
+                            @*</div>
+                        <img class="card-img-bottom" :src = "voertuig.figuurURL" :alt ="voertuig.figuurUrl"
+                            style="width:100%">
+                        </div>*@
+                    </div>
+                    
+                    @*}*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
