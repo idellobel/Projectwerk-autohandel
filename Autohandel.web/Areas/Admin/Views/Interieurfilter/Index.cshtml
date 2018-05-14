@@ -20,6 +20,7 @@
             <tr class="d-flex">
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.Artikelnummer)<br />
+                    @Html.DisplayNameFor(model => model.Korting)<br />
                 </th>
                 <th class="col-2">
                     @Html.DisplayNameFor(model => model.Artikelnaam)<br />
@@ -53,7 +54,8 @@
             {
                 <tr class="d-flex">
                     <td class="col-1">
-                        @Html.DisplayFor(modelItem => item.Artikelnummer)<br /><br />
+                        @Html.DisplayFor(modelItem => item.Artikelnummer)<br />
+                        @Html.DisplayFor(modelItem => item.Korting)<br /><br />
 
                     </td>
                     <td class="col-2">

@@ -33,6 +33,12 @@
                     <span asp-validation-for="Prijs" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="Korting" class="control-label"></label>
+                    <input asp-for="Korting" class="form-control" type="checkbox"  value="true" />
+                    <input asp-for="Korting" class="form-control" type="hidden" value="true" />
+                    <span asp-validation-for="Korting" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="FiguurURL" class="control-label"></label>
                     <input asp-for="FiguurURL" class="form-control" />
                     <span asp-validation-for="FiguurURL" class="text-danger"></span>
@@ -71,7 +77,7 @@
                     <label asp-for="LeverancierID" class="control-label"></label>
                     <select asp-for="LeverancierID" class="form-control" asp-items="ViewBag.LeveranciersLijst">
                         <option>--Selecteer--</option>
-                        <option value="1"> </option>
+                        <option value="1"></option>
                     </select>
                     <span asp-validation-for="LeverancierID" class="text-danger"></span>
                 </div>

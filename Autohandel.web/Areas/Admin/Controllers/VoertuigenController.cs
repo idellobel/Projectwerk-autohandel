@@ -24,6 +24,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Voertuigen
+        [Route("Admin/Voertuigen/Index")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Voertuigen
@@ -37,6 +38,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Voertuigen/Details/5
+        [Route("Admin/Voertuigen/Details/{id}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -62,6 +64,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         [HttpGet] //Get /Admin/Voertuigen/GetModellen)
+        [Route("Admin/Voertuigen/GetModellen")]
         public IActionResult GetModellen(string merkId)
         {
             if (!string.IsNullOrWhiteSpace(merkId))
@@ -76,6 +79,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Voertuigen/Create
+        [Route("Admin/Voertuigen/Create")]
         public IActionResult Create()
         {
            
@@ -87,7 +91,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(voertuig);
             //return View();
         }
-
+        [Route("Admin/Voertuigen/Create")]
         // POST: Admin/Voertuigen/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -130,6 +134,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Voertuigen/Edit/5
+        [Route("Admin/Voertuigen/Edit/{id}")]
         public IActionResult Edit(long? id)
         {
             if (id == null)
@@ -168,6 +173,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
+        [Route("Admin/Voertuigen/Edit/{id}")]
         public IActionResult Edit(long id, [Bind("VoertuigId,VoertuigArtikelNummer,VoertuigTitel,Chassisnummer,Prijs,Kleur," +
             "Brandstof,Kilometerstand,Bouwjaar,FiguurURL,Registratie,GarantieTijd,COTwee,Versnelling,CC,Vermogen,Deuren,Zitplaatsen," +
             "Binnenbekleding,Binnenkleur,Koetswerk, SelectedMerk, SelectedModel, SelectedCategorie, SelectedFaktuur, SelectedKlant")]  VoertuigEditViewModel voertuigModified)
@@ -247,6 +253,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         //}
 
         // GET: Admin/Voertuigen/Delete/5
+        [Route("Admin/Voertuigen/Delete/{id}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -271,6 +278,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
 
         // POST: Admin/Voertuigen/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Route("Admin/Voertuigen/Delete/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {

@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Autohandel.Domain.Entities.CategorieOnderdelen>
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+<div class="container">
+
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina ">Onderdelen</p>
+    </div>
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitel">Maak uw keuze uit één van onderstaande categorieën:</p>
+    </div>
+
+
+    <div class="row text-center ">
+
+        @foreach (var item in Model)
+        {
+
+
+            <div class="col-md-4 col-sm-6 mapImage">
+                <a style="text-decoration:none;color:inherit" asp-controller="OnlineOnderdelen" asp-action="SubCatOnderdelen" asp-area="" asp-route-id="@item.OnderdelenCategorieId">
+                    <div class="card margin5pct">
+                        <div class="card-body cardbodyVtgLijst  ">
+                            <h5 class="card-title ">
+                                @(item.OnderdelenCategorienaam)
+                            </h5>
+                        </div>
+                        <img asp-append-version="true" src="~/images/onderdelen/@(item.OnderdelenCategorieId).jpg" alt="@(item.OnderdelenCategorienaam)" title="@(item.OnderdelenCategorienaam)"
+                             class="card-img-bottom vtgWitdhLijst">
+
+                    </div>
+
+
+                </a>
+
+            </div>
+        }
+    </div>
+</div>
+

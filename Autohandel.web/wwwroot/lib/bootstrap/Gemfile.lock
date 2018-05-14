@@ -36,7 +36,7 @@ GEM
     jekyll-sitemap (1.1.1)
       jekyll (~> 3.3)
     jekyll-toc (0.5.1)
-      nokogiri (~> 1.6)
+      nokogiri (~> 1.8.2)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
     kramdown (1.16.2)

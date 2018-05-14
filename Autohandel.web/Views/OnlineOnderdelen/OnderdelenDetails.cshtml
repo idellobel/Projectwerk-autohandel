@@ -1,0 +1,447 @@
+﻿@model Autohandel.web.ViewModels.OnlineOnderdelen.OnderdelenDetailViewModel
+@{
+    ViewData["Title"] = "OnderdelenDetails";
+}
+
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+
+<div class="container">
+    @*@if (Model.OnderdeelDetail.CategorieOnderdelen.ParentId != null)
+        {*@
+    <h6 style="margin-top:20px;">
+        <a asp-area="" asp-controller="OnlineOnderdelen" asp-action="OnderdeelProduct" asp-route-id="@Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorieId" style="margin-top:40px;">
+            <i class="fas fa-arrow-circle-left"></i> Terug naar '@Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorienaam'
+        </a>
+    </h6>
+    @*}
+        else
+        {*@
+    @*<h6 style="margin-top:20px;">
+                <a asp-area="" asp-controller="OnlineOnderdelen" asp-action="OnderdeelProduct" asp-route-id="@Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorieId" style="margin-top:40px;">
+                    <i class="fas fa-arrow-circle-left"></i> Terug naar '@Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorienaam'
+                </a>
+            </h6>
+
+        }*@
+
+
+
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina ">'@Model.OnderdeelDetail.Artikelnaam' in detail</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-1 col-md-1 ">
+
+        </div>
+        <div class="col-lg-10 col-md-12 kadervtgDetail">
+            <div class="row mrgBtm3pct">
+
+                <!--Carousel auto's in detail-->
+                <div class="col-lg-4 col-md-4 mrgBtm2pctTo3pct">
+                    <div id="myCarousel1" class="carousel slide" data-ride="carousel" data-interval="5000">
+                        <!--Indicators-->
+                        <ol class="carousel-indicators">
+
+                            @foreach (var imgsrc in Model.OnderdelenAfbeeldingen.Select((value, i) => new { i, value }))
+                            {
+
+                                var value = imgsrc.value;
+                                var index = imgsrc.i;
+                                if (index == 0)
+                                {
+                                    <li data-target="#myCarousel1" data-slide-to="@index" class="active"></li>}
+                                else
+                                {
+                                    <li data-target="#myCarousel1" data-slide-to="@index" class=""></li>}
+
+                            }
+
+                        </ol>
+
+                        <!--The slideshow-->
+                        <div class="carousel-inner" role="listbox">
+                            @foreach (var imgsrc in Model.OnderdelenAfbeeldingen.Select((value, i) => new { i, value }))
+                            {
+                                var value = imgsrc.value;
+                                var index = imgsrc.i;
+                                if (index == 0)
+                                {
+                                    <div class="carousel-item active">
+                                        <img src="~/@imgsrc.value" alt="@imgsrc" class="img-responsive img-thumbnail carousImgFE" />
+
+                                        <div class="carousel-caption" role="option">
+
+                                        </div>
+                                    </div>
+                                }
+                                else
+                                {
+                                    <div class="carousel-item">
+                                        <img src="~/@imgsrc.value" alt="@imgsrc" class="img-responsive img-thumbnail carousImgFE" />
+
+                                        <div class="carousel-caption" role="option">
+
+                                        </div>
+                                    </div>
+
+                                }
+
+                            }
+                        </div>
+                        <!--Left and right controls-->
+                        <a class="carousel-control-prev" href="#myCarousel1" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel1" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+
+                        </a>
+
+
+                    </div>
+                </div>
+
+
+                <!--Hoofdpunten onderdelen detail -->
+                <div class="col-lg-7 col-md-7 autoDetailTekst">
+                    @*<p>@Html.DisplayFor(model => model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorienaam)</p>*@
+                    <p style="font-size:large;">@Html.DisplayFor(model => model.OnderdeelDetail.Artikelnaam)</p>
+                    <p style="font-size:x-large;color:blue;">@Model.OnderdeelDetail.Prijs.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("nl-BE"))@if (Model.OnderdeelDetail.Korting)
+                    {
+                        <span style="background-color:gold; color:white; font-weight:bold; border-radius:50%; margin-left:10%; font-size:larger; padding:2%">-15 % </span>}
+                    </p>
+                    @if (Model.OnderdeelDetail.OpVoorraad != null)
+                    {
+                        <p style="font-size:medium;color:forestgreen;">Product op voorraad : @Html.DisplayFor(model => model.OnderdeelDetail.OpVoorraad)</p>
+                    }
+
+                    <p style="text-decoration:underline;font-weight:bolder;">@Html.DisplayNameFor(model => model.OnderdeelDetail.Artikelomschrijving) :</p>
+
+                    <p>@Html.Raw(Model.OnderdeelDetail.Artikelomschrijving)</p>
+
+
+                </div>
+            </div>
+            <!--Specificaties onderdelen-->
+            <div class="row mrgBtm3pct">
+                <button type="button" id="sdetail" class="btn btn-primary mrgLft3pct">
+                    Specificaties:
+                </button>
+                <button type="button" class="btn btn-success mrgLft3pct">
+                    <i class="fas fa-shopping-cart "></i> Voeg toe
+                </button>
+                <button type="button"  class="btn btn-danger mrgLft3pct">
+                <i class="fas fa-credit-card "></i> Koop nu
+                </button>
+            </div>
+            <div class="row mrgBtm3pct ">
+                <div class="col-11 autoDetailTekstHide" id="ddetail">
+                    @try
+                            {
+                                    <!--Winterbanden-->
+                                    @if (Model.OnderdeelDetail.Specificatie.Type != null)
+                                         {
+                                            <p>
+                                                @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Type) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Type)
+                                            </p>
+                                          }
+                                    @if (Model.OnderdeelDetail.Specificatie.Draagvermogen != null)
+                                         {
+                                             <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Draagvermogen) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Draagvermogen)
+                                             </p>
+                                         }
+                                    @if (Model.OnderdeelDetail.Specificatie.SnelheidIndex != null)
+                                         {
+                                             <p>
+                                                  @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.SnelheidIndex) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.SnelheidIndex)
+                                              </p>
+                                         }
+                                    @if (Model.OnderdeelDetail.Specificatie.Rolgeluid != null)
+                                         {
+                                            <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Rolgeluid) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Rolgeluid)
+                                            </p>
+                                         }
+
+                                    <!--Wieldoppen-->
+                                    @if (Model.OnderdeelDetail.Specificatie.Formaat != null)
+                                         {
+                                             <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Formaat) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Formaat)
+                                             </p>
+                                         }
+
+                                    @if (Model.OnderdeelDetail.Specificatie.Kleur != 0)
+                                         {
+                                             <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Kleur) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Kleur)
+                                             </p>
+                                         }
+
+                                    @if (Model.OnderdeelDetail.Specificatie.Materie != null)
+                                        {
+                                             <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Materie) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Materie)
+                                             </p>
+                                        }
+                                    @if (Model.OnderdeelDetail.Specificatie.Montageset != null)
+                                        {
+                                              <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Montageset) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Montageset)
+                                             </p>
+                                        }
+
+                                    <!--Trekhaken-->
+                                    @if (Model.OnderdeelDetail.Specificatie.MaxVertikaleLast != 0)
+                                        {
+                                              <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.MaxVertikaleLast) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.MaxVertikaleLast) kg
+                                              </p>
+                                        }
+                                    @if (Model.OnderdeelDetail.Specificatie.Goedkeuring != null)
+                                        {
+                                              <p>
+                                                  @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Goedkeuring) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Goedkeuring)
+                                              </p>
+                                        }
+                                    @if (Model.OnderdeelDetail.Specificatie.Aanhangwagengewicht != 0)
+                                        {
+                                              <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Aanhangwagengewicht) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Aanhangwagengewicht) kg
+                                             </p>
+                                        }
+
+                                    <!--dakdrager-->
+                                    @if (Model.OnderdeelDetail.Specificatie.GarantieTermijn != null)
+                                        {
+                                             <p>
+                                                @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.GarantieTermijn) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.GarantieTermijn)
+                                             </p>
+                                         }
+                                    @if (Model.OnderdeelDetail.Specificatie.Breedte != 0)
+                                         {
+                                    <!--Onderscheid breedte mm <> cm-->
+                                         @if ((Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorieId == 15) || (Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorieId == 24))
+                                            {
+                                                 <p>
+                                                       @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Breedte) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Breedte) cm
+                                                 </p>
+                                            }
+                                          else
+                                            {
+                                                 <p>
+                                                      @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Breedte) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Breedte) mm
+                                                 </p>
+                                            }
+                                         }
+
+                                    @if (Model.OnderdeelDetail.Specificatie.Hoogte != 0)
+                                    {
+                                            <p>
+                                                 @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Hoogte) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Hoogte) mm
+                                             </p>
+
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.Vergrendeling != null)
+                                    {
+                                            <p>
+                                                @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Vergrendeling) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Vergrendeling)
+                                            </p>
+                                    }
+                                    <!--dakkoffer-->
+                                    @if (Model.OnderdeelDetail.Specificatie.Inhoud != 0)
+                                    {
+                                            <p>
+                                                @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Inhoud) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Inhoud) L
+                                            </p>
+                                     }
+                                    @if (Model.OnderdeelDetail.Specificatie.Lengte != 0)
+                                    {
+                                        <!--Dakkoffer: lengte in cm-->
+                                        @if (Model.OnderdeelDetail.OnderdelenCategorieId == 15)
+                                         {
+                                                     <p>
+                                                        @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Lengte) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Lengte) cm
+                                                    </p>
+                                         }
+                                         else
+                                         {
+                                                     <p>
+                                                       @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Lengte) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Lengte) mm
+                                                     </p>
+                                         }
+
+                                     }
+                                    @if (Model.OnderdeelDetail.Specificatie.Opening != null)
+                                    {
+                                        <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Opening) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Opening)
+                                        </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.Gewicht != 0)
+                                    {
+                                       <!--Onderscheid gewicht kg <> gr-->
+                                       @if (Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorieId == 15 || Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorieId == 24)
+                                       {
+                                                   <p>
+                                                       @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Gewicht) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Gewicht) Kg
+                                                   </p>
+                                       }
+                                       else
+                                       {
+                                                    <p>
+                                                        @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Gewicht) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Gewicht) gr
+                                                    </p>
+                                       }
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.CityCrash)
+                                    {
+                                         <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.CityCrash) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.CityCrash)
+                                         </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.MaxBelading != 0)
+                                    {
+                                         <p>
+                                              @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.MaxBelading) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.MaxBelading) Kg
+                                         </p>
+                                    }
+
+                                    <!--Fietsendrager-->
+                                    @if (Model.OnderdeelDetail.Specificatie.AantalFietsen != 0)
+                                    {
+                                         <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.AantalFietsen) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.AantalFietsen)
+                                         </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.Fietstypes != null)
+                                    {
+                                         <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Fietstypes) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Fietstypes)
+                                         </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.StekkerAansluiting != null)
+                                    {
+                                          <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.StekkerAansluiting) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.StekkerAansluiting)
+                                          </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.Mistlicht)
+                                    {
+                                           <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Mistlicht) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Mistlicht)
+                                           </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.Inklapbaar)
+                                    {
+                                           <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Inklapbaar) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Inklapbaar)
+                                           </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorienaam == "Fietsendrager")
+                                    {
+                                            <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Kantelfunctie) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Kantelfunctie)
+                                            </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.Dikte != 0)
+                                    {
+                                        <!--fietsendragers: dikte = afstand ts fietsen-->
+                                        @if (Model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorieId == 24)
+                                        {
+                                                 <p>
+                                                     @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Dikte) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Dikte) cm afstand tussen twee fietsen
+                                                 </p>
+                                        }
+                                        else
+                                        {
+                                                <p>
+                                                     @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Dikte) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Dikte) mm
+                                                </p>
+                                        }
+                                    }
+
+                                    <!--koffermat-->
+                                    @if (Model.OnderdeelDetail.Specificatie.Mat != null)
+                                    {
+                                         <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Mat) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Mat)
+                                         </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.Flappen != null)
+                                    {
+                                         <p>
+                                            @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Flappen) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Flappen)
+                                         </p>
+                                    }
+
+                                    <!--brandstoffilter-->
+                                    @if (Model.OnderdeelDetail.Specificatie.Binnendiameter != 0)
+                                     {
+                                         <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Binnendiameter) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Binnendiameter) mm
+                                         </p>
+                                     }
+                                    @if (Model.OnderdeelDetail.Specificatie.Buitendiameter != 0)
+                                    {
+                                         <p>
+                                             @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Buitendiameter) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Buitendiameter) mm
+                                         </p>
+                                     }
+                                    @if (Model.OnderdeelDetail.Specificatie.Schroefdraad != null)
+                                    {
+                                         <p>
+                                              @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Schroefdraad) :  @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Schroefdraad)
+                                        </p>
+                                    }
+
+                                    <!--Koelvloeistof-->
+                                    @if (Model.OnderdeelDetail.Specificatie.Mengbaar != null)
+                                    {
+                                         <p>
+                                            @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Mengbaar) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Mengbaar)
+                                         </p>
+                                    }
+
+                                    <!--ruitensproeier-->
+                                    @if (Model.OnderdeelDetail.Specificatie.Geur != null)
+                                    {
+                                        <p>
+                                           @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.Geur) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.Geur)
+                                        </p>
+                                    }
+                                    @if (Model.OnderdeelDetail.Specificatie.MinimaleTemperatuur != null)
+                                    {
+                                        <p>
+                                           @Html.DisplayNameFor(model => model.OnderdeelDetail.Specificatie.MinimaleTemperatuur) : @Html.DisplayFor(model => model.OnderdeelDetail.Specificatie.MinimaleTemperatuur)
+                                        </p>
+                                    }
+
+
+                     }
+                     catch
+                     {
+                         <p>@Model.OnderdeelDetail.Artikelnaam heeft geen specifieke kenmerken</p>
+                     }
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="col-lg-1 col-md-1 ">
+
+</div>
+<br />
+<br />
+

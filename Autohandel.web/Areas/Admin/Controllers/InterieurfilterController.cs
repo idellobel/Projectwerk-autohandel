@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Interieurfilter
+        [Route("Admin/Interieurfilter/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.OnderdelenProducten
@@ -35,6 +36,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Interieurfilter/Details/5
+        [Route("Admin/Interieurfilter/Details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -57,6 +59,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Interieurfilter/Create
+        [Route("Admin/Interieurfilter/Create")]
         public IActionResult Create()
         {
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Interieurfilter"), "OnderdelenCategorieId", "OnderdelenCategorienaam");
@@ -66,6 +69,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Interieurfilter/Create
+        [Route("Admin/Interieurfilter/Create")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -91,6 +95,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Interieurfilter/Edit/5
+        [Route("Admin/Interieurfilter/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -115,6 +120,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Interieurfilter/Edit/5
+        [Route("Admin/Interieurfilter/Edit/{id}")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -155,6 +161,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Interieurfilter/Delete/5
+        [Route("Admin/Interieurfilter/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -177,6 +184,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Interieurfilter/Delete/5
+        [Route("Admin/Interieurfilter/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

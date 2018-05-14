@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/TapijtStof
+        [Route("Admin/TapijtStof/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.OnderdelenProducten
@@ -35,6 +36,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/TapijtStof/Details/5
+        [Route("Admin/TapijtStof/Details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -58,6 +60,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/TapijtStof/Create
+        [Route("Admin/TapijtStof/Create")]
         public IActionResult Create()
         {
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Tapijt Stof"), "OnderdelenCategorieId", "OnderdelenCategorienaam");
@@ -66,6 +69,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View();
         }
 
+        [Route("Admin/TapijtStof/Create")]
         // POST: Admin/TapijtStof/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -92,6 +96,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/TapijtStof/Edit/5
+        [Route("Admin/TapijtStof/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -116,6 +121,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/TapijtStof/Edit/5
+        [Route("Admin/TapijtStof/Edit/{id}")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -156,6 +162,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/TapijtStof/Delete/5
+        [Route("Admin/TapijtStof/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -178,6 +185,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/TapijtStof/Delete/5
+        [Route("Admin/TapijtStof/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

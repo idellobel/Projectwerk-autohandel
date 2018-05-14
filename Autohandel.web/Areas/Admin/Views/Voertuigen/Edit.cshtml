@@ -22,11 +22,11 @@
                     <span asp-validation-for="VoertuigArtikelNummer" class="text-danger"></span>
                 </div>
                 @*<div class="form-group">
-                        <label asp-for="Merk.MerkNaam" class="control-label"></label>
-                        <select asp-for="Merk.MerkId" class="form-control" id="Merk" asp-items="ViewBag.MerkId"></select>
-                        @*<select asp-for="Merk.MerkId" class="form-control"></select>*
-                        <span asp-validation-for="Merk.MerkId" class="text-danger"></span>
-                    </div>*@
+            <label asp-for="Merk.MerkNaam" class="control-label"></label>
+            <select asp-for="Merk.MerkId" class="form-control" id="Merk" asp-items="ViewBag.MerkId"></select>
+            @*<select asp-for="Merk.MerkId" class="form-control"></select>*
+            <span asp-validation-for="Merk.MerkId" class="text-danger"></span>
+        </div>*@
 
                 <div class="form-group">
                     <label asp-for="SelectedMerk" class="control-label"></label>
@@ -39,10 +39,10 @@
 
 
                 @*<div class="form-group">
-                        <label asp-for="MerkType.MerkTypeNaam" class="control-label"></label>
-                        <select asp-for="MerkType.MerkTypeId" class="form-control" id="Model" asp-items="ViewBag.MerkTypeId"></select>
-                        <span asp-validation-for="MerkType.MerkTypeId" class="text-danger"></span>
-                    </div>*@
+            <label asp-for="MerkType.MerkTypeNaam" class="control-label"></label>
+            <select asp-for="MerkType.MerkTypeId" class="form-control" id="Model" asp-items="ViewBag.MerkTypeId"></select>
+            <span asp-validation-for="MerkType.MerkTypeId" class="text-danger"></span>
+        </div>*@
 
                 <div class="form-group">
                     <label asp-for="SelectedModel" class="control-label"></label>
@@ -58,17 +58,21 @@
                     <span asp-validation-for="VoertuigTitel" class="text-danger"></span>
                 </div>
                 @*<div class="form-group">
-                        <label asp-for="VoertuigCategorie.VoertuigCategorieNaam" class="control-label"></label>
-                        <select asp-for="VoertuigCategorie.VoertuigCatId" class="form-control" asp-items="ViewBag.VoertuigCatId"></select>
-                        <span asp-validation-for="VoertuigCategorie.VoertuigCatId" class="text-danger"></span>
-                    </div>*@
+            <label asp-for="VoertuigCategorie.VoertuigCategorieNaam" class="control-label"></label>
+            <select asp-for="VoertuigCategorie.VoertuigCatId" class="form-control" asp-items="ViewBag.VoertuigCatId"></select>
+            <span asp-validation-for="VoertuigCategorie.VoertuigCatId" class="text-danger"></span>
+        </div>*@
 
                 <div class="form-group">
                     <label asp-for="SelectedCategorie" class="control-label"></label>
                     <select asp-for="SelectedCategorie" asp-items="Model.Categorieen" class="form-control"></select>
                     <span asp-validation-for="SelectedCategorie" class="text-danger"></span>
                 </div>
-
+                <div class="form-group">
+                    <label asp-for="Nieuw" class="control-label"></label>
+                    <input asp-for="Nieuw" class="form-control" />
+                    <span asp-validation-for="Nieuw" class="text-danger"></span>
+                </div>
 
                 <div class="form-group">
                     <label asp-for="Prijs" class="control-label"></label>

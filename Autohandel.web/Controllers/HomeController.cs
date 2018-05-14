@@ -16,6 +16,8 @@ using System.Net.Http;
 using Newtonsoft.Json;
 using Autohandel.Domain.DTO_klassen;
 using System.Collections.Generic;
+using Microsoft.EntityFrameworkCore;
+using System.Linq;
 
 namespace Autohandel.web.Controllers
 {
@@ -49,9 +51,16 @@ namespace Autohandel.web.Controllers
 
         public IActionResult About()
         {
+            var onderdelenhoofdcat = _context.CategorieOnderdelen
+                                   .Include(c => c.Parent)
+                                   .Where(c => c.ParentId == null)
+                                   .OrderBy(c => c.OnderdelenCategorienaam)
+                                   .ToList();             
+           
+
             ViewData["Message"] = "Your application description page.";
 
-            return View();
+            return View(onderdelenhoofdcat);
         }
 
         [Authorize]

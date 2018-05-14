@@ -16,6 +16,7 @@ namespace Autohandel.web.Controllers
         {
             _context = context;
         }
+        [Route("Rollen/Index")]
         public IActionResult Index()
         {
             List<UserViewModel> modelLst = new List<UserViewModel>();
@@ -38,7 +39,7 @@ namespace Autohandel.web.Controllers
             }
             return View(modelLst);
         }
-
+        [Route("Rollen/Users")]
         public IActionResult Users()
         {
             List<UserViewModel> userLst = new List<UserViewModel>();

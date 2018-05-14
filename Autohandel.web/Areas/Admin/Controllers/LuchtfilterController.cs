@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Luchtfilter
+        [Route("Admin/Luchtfilter/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.OnderdelenProducten
@@ -35,6 +36,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Luchtfilter/Details/5
+        [Route("Admin/Luchtfilter/Details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -57,6 +59,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Luchtfilter/Create
+        [Route("Admin/Luchtfilter/Create")]
         public IActionResult Create()
         {
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Luchtfilter"), "OnderdelenCategorieId", "OnderdelenCategorienaam");
@@ -65,6 +68,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Luchtfilter/Create
+        [Route("Admin/Luchtfilter/Create")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,6 +94,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Luchtfilter/Edit/5
+        [Route("Admin/Luchtfilter/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -114,6 +119,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Luchtfilter/Edit/5
+        [Route("Admin/Luchtfilter/Edit/{id}")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -154,6 +160,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Luchtfilter/Delete/5
+        [Route("Admin/Luchtfilter/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -176,6 +183,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Luchtfilter/Delete/5
+        [Route("Admin/Luchtfilter/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

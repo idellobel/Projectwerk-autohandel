@@ -9,8 +9,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Autohandel.web.Areas.Admin.Controllers
 {
+
     [Authorize(Policy = "RequireAdministratorRole")]
     [Area("Admin")]
+    
     public class HomeController : Controller
     {
         private readonly AutohandelContext _context;
@@ -19,7 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         {
             _context = context;
         }
-
+        [Route("Home/Index")]
         public IActionResult Index()
         {
             return View();

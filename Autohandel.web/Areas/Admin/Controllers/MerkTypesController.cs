@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/MerkTypes
+        [Route("Admin/MerkTypes/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.Types.Include(m => m.VoertuigMerk);
@@ -28,6 +29,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/MerkTypes/Details/5
+        [Route("Admin/MerkTypes/Details/{id}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -47,12 +49,14 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/MerkTypes/Create
+        [Route("Admin/MerkTypes/Create")]
         public IActionResult Create()
         {
             ViewData["MerkId"] = new SelectList(_context.Merken, "MerkId", "MerkNaam");
             return View();
         }
 
+        [Route("Admin/MerkTypes/Create")]
         // POST: Admin/MerkTypes/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -72,6 +76,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/MerkTypes/Edit/5
+        [Route("Admin/MerkTypes/Edit/{id}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -100,6 +105,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(merkType);
         }
 
+        [Route("Admin/MerkTypes/Edit/{id}")]
         // POST: Admin/MerkTypes/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -138,6 +144,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/MerkTypes/Delete/5
+        [Route("Admin/MerkTypes/Delete/{id}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -169,6 +176,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/MerkTypes/Delete/5
+        [Route("Admin/MerkTypes/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)

@@ -16,6 +16,7 @@ namespace Autohandel.web.Controllers
             _context = context;
         }
 
+        [Route("DataDisplay/Index")]
         public async Task<IActionResult> Index()
         {
             var viewModel = new DatadisplayViewModel()

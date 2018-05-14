@@ -20,11 +20,13 @@
             <tr class="d-flex">
                 <th class="col-1">
                     @Html.DisplayNameFor(model => model.Artikelnummer)<br />
+                    @Html.DisplayNameFor(model => model.Korting)<br />
                     @Html.DisplayNameFor(model => model.OpVoorraad)<br />
                 </th>
                 <th class="col-2">
                     @Html.DisplayNameFor(model => model.Artikelnaam)<br />
                     @Html.DisplayNameFor(model => model.Prijs)<br />
+                    @Html.DisplayNameFor(model => model.Korting)<br/>
                     @Html.DisplayNameFor(model => model.CategorieOnderdelen.OnderdelenCategorienaam)<br />
                     @Html.DisplayNameFor(model => model.Leverancier.LeverancierNaam)<br />
                 </th>
@@ -53,13 +55,15 @@
             {
                 <tr class="d-flex">
                     <td class="col-1">
-                        @Html.DisplayFor(modelItem => item.Artikelnummer)<br /><br />
+                        @Html.DisplayFor(modelItem => item.Artikelnummer)<br />
+                        @Html.DisplayFor(modelItem => item.Korting)<br /><br />
                         @Html.DisplayFor(modelItem => item.OpVoorraad) stuks<br /><br />
 
                     </td>
                     <td class="col-2">
                         @Html.DisplayFor(modelItem => item.Artikelnaam)<br />
                         @Html.DisplayFor(modelItem => item.Prijs)<br />
+                       
                         @Html.DisplayFor(modelItem => item.CategorieOnderdelen.OnderdelenCategorienaam)<br />
                         @Html.DisplayFor(modelItem => item.Leverancier.LeverancierNaam)<br />
                     </td>

@@ -21,12 +21,14 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Merken
+        [Route("Admin/Merken/Index")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Merken.ToListAsync());
         }
 
         // GET: Admin/Merken/Details/5
+        [Route("Admin/Merken/Details/{id}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -45,11 +47,13 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Merken/Create
+        [Route("Admin/Merken/Create")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Route("Admin/Merken/Create")]
         // POST: Admin/Merken/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -68,6 +72,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Merken/Edit/5
+        [Route("Admin/Merken/Edit/{id}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -104,6 +109,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(merk);
         }
 
+        [Route("Admin/Merken/Edit/{id}")]
         // POST: Admin/Merken/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -141,6 +147,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Merken/Delete/5
+        [Route("Admin/Merken/Delete/{id}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -171,6 +178,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Merken/Delete/5
+        [Route("Admin/Merken/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)

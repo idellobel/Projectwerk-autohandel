@@ -21,12 +21,14 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Leveranciers
+        [Route("Admin/Leveranciers/Index")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Leveranciers.ToListAsync());
         }
 
         // GET: Admin/Leveranciers/Details/5
+        [Route("Admin/Leveranciers/Details/{id}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -45,12 +47,14 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Leveranciers/Create
+        [Route("Admin/Leveranciers/Create")]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Admin/Leveranciers/Create
+        [Route("Admin/Leveranciers/Create")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -73,6 +77,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Leveranciers/Edit/5
+        [Route("Admin/Leveranciers/Edit/{id}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -89,6 +94,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Leveranciers/Edit/5
+        [Route("Admin/Leveranciers/Edit/{id}")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -125,6 +131,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Leveranciers/Delete/5
+        [Route("Admin/Leveranciers/Delete/{id}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -156,6 +163,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Leveranciers/Delete/5
+        [Route("Admin/Leveranciers/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)

@@ -11,6 +11,7 @@ namespace Autohandel.web.ViewModels.VoertuigenViewModels
     public class VoertuigEditViewModel
     {
         public long? VoertuigId { get; set; }
+        public bool Nieuw { get; set; } = true;
 
         public string MaxLVNr { get; set; }
 

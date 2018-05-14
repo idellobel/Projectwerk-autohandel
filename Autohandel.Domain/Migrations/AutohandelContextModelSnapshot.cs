@@ -209,6 +209,8 @@ namespace Autohandel.Domain.Migrations
                     b.Property<string>("FiguurURL")
                         .HasMaxLength(512);
 
+                    b.Property<bool>("Korting");
+
                     b.Property<long?>("LeverancierID");
 
                     b.Property<int>("OnderdelenCategorieId");
@@ -462,6 +464,8 @@ namespace Autohandel.Domain.Migrations
                     b.Property<long?>("MerkTypeId");
 
                     b.Property<long>("ModelId");
+
+                    b.Property<bool>("Nieuw");
 
                     b.Property<decimal>("Prijs");
 

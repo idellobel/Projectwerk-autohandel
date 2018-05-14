@@ -50,42 +50,24 @@
         clear: both;
         display: table;
     }
-
-    .liAanbodvoertuig {
-        width: 100%;
-        text-decoration: none;
-        margin-left: 0;
-        margin-bottom: 5%;
-        font-size: 14px;
+    .nieuw {
+        position:absolute;  
+        top: 10%; right:0; 
+        background-color:yellow; 
+        height:20%;width:30%; 
+        -ms-transform: rotate(30deg); /* IE 9 */
+        -webkit-transform: rotate(30deg); /* Safari 3-8 */
+        transform: rotate(30deg);
+        color: black;
+        text-decoration: dashed;
+        text-align: center;
+        font-weight: bold;
+        padding-top: 3%;
+        padding-bottom: 2%;
+        border-radius: 25px 40px;
+        
     }
-
-    .btnAanbodvoertuig {
-        margin-left: 0;
-        padding: 10px;
-    }
-
-    .margin5pct {
-        margin: 5%;
-    }
-
-    .cardbodyVtgLijst {
-        height: 75px;
-        background-color: #c4ff4d;
-    }
-
-    .vtgPrijs {
-        float: right;
-    }
-
-    .vtgWitdhLijst {
-        width: 100%;
-    }
-
-    .voertuigLink {
-        text-decoration: none;
-        color: inherit;
-    }
-
+   
 
 
 </style>
@@ -155,8 +137,14 @@
                                         <h6>@v.VoertuigTitel</h6>
 
                                     </div>
-                                    <img class="card-img-bottom vtgWitdhLijst" id="img" src=@Url.Content(v.FiguurURL)
-                                         alt=@v.FiguurURL title=@v.MerkNaam @v.MerkTypeNaam @v.VoertuigTitel>
+                                    <div style="position:relative;">
+                                        <img class="card-img-bottom vtgWitdhLijst" id="img" src=@Url.Content(v.FiguurURL)
+                                             alt=@v.FiguurURL title=@v.MerkNaam @v.MerkTypeNaam @v.VoertuigTitel>
+                                        @if (v.Nieuw)
+                                          {
+                                              <div class="nieuw">NIEUW</div>
+                                          }
+                                    </div>
                                 </div>
                             </a>
                         </div>
@@ -184,9 +172,15 @@
                         <h6><%= voertuig.voertuigTitel %></h6>
 
                     </div>
-                    <img class="card-img-bottom vtgWitdhLijst " id="img" src="../images/vtgn/fronts/<%= voertuig.voertuigArtikelNummer %>_FRONT.jpg"
-                         alt="<%= voertuig.figuurURL %>" title="<%= voertuig.merkNaam %> <%= voertuig.merkTypeNaam %> <%= voertuig.voertuigTitel %>">
-                </div>
+                    <div style="position:relative;">
+                        <img class="card-img-bottom vtgWitdhLijst " id="img" src="../images/vtgn/fronts/<%= voertuig.voertuigArtikelNummer %>_FRONT.jpg"
+                             alt="<%= voertuig.figuurURL %>" title="<%= voertuig.merkNaam %> <%= voertuig.merkTypeNaam %> <%= voertuig.voertuigTitel %>" />
+                    <%if ( voertuig.nieuw ) { %>
+                        <div class="nieuw">NIEUW</div>
+                        <% } %>
+
+                       
+                    </div></div>
             </a>
         </div>
         <%}); %>

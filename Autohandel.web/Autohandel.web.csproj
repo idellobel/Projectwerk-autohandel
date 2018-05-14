@@ -61,4 +61,16 @@
     <Folder Include="wwwroot\images\vtgn\reeks\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Content Update="wwwroot\images\onderdelen\fronts\PS_10.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\onderdelen\fronts\PS_11.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Update="wwwroot\images\onderdelen\fronts\PS_12.jpg">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+  </ItemGroup>
+
 </Project>

@@ -40,7 +40,8 @@ namespace Autohandel.web.Controllers
                                  KlantNaam = v.Klant.KlantNaam,
                                  FaktuurNr = v.Faktuur.FaktuurNr,
                                  VoertuigArtikelNummer = v.VoertuigArtikelNummer,
-                                 VoertuigCatId = v.VoertuigCatId
+                                 VoertuigCatId = v.VoertuigCatId,
+                                 Nieuw = v.Nieuw
                              };
             return voertuigen.Where(v => v.FaktuurNr == null)
                 .OrderBy(v => v.VoertuigCatId)
@@ -64,7 +65,8 @@ namespace Autohandel.web.Controllers
                                  KlantNaam = v.Klant.KlantNaam,
                                  FaktuurNr = v.Faktuur.FaktuurNr,
                                  VoertuigArtikelNummer = v.VoertuigArtikelNummer,
-                                 VoertuigCatId = v.VoertuigCatId
+                                 VoertuigCatId = v.VoertuigCatId,
+                                 Nieuw = v.Nieuw
                              };
 
             var voertuigenOpMerk = voertuigen.Where(v => v.FaktuurNr == null);
@@ -103,7 +105,8 @@ namespace Autohandel.web.Controllers
                                  KlantNaam = v.Klant.KlantNaam,
                                  FaktuurNr = v.Faktuur.FaktuurNr,
                                  VoertuigArtikelNummer = v.VoertuigArtikelNummer,
-                                 VoertuigCatId = v.VoertuigCatId
+                                 VoertuigCatId = v.VoertuigCatId,
+                                 Nieuw = v.Nieuw
                              };
             if (lenprijs == 7)
             {

@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/PrivacyShades
+        [Route("Admin/PrivacyShades/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.OnderdelenProducten
@@ -34,6 +35,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/PrivacyShades/Details/5
+        [Route("Admin/PrivacyShades/Details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -56,6 +58,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/PrivacyShades/Create
+        [Route("Admin/PrivacyShades/Create")]
         public IActionResult Create()
         {
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Privacy Shades"), "OnderdelenCategorieId", "OnderdelenCategorienaam");
@@ -65,6 +68,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/PrivacyShades/Create
+        [Route("Admin/PrivacyShades/Create")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -90,6 +94,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/PrivacyShades/Edit/5
+        [Route("Admin/PrivacyShades/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -114,6 +119,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/PrivacyShades/Edit/5
+        [Route("Admin/PrivacyShades/Edit/{id}")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -154,6 +160,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/PrivacyShades/Delete/5
+        [Route("Admin/PrivacyShades/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -175,6 +182,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/PrivacyShades/Delete/5
+        [Route("Admin/PrivacyShades/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

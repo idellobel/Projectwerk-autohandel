@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Garanties
+        [Route("Admin/Garanties/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.GarantieTabel
@@ -34,6 +35,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Garanties/Details/5
+        [Route("Admin/Garanties/Details/{id}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -57,6 +59,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Garanties/Create
+        [Route("Admin/Garanties/Create")]
         public IActionResult Create()
         {
             ViewData["FaktuurId"] = new SelectList(_context.Fakturen.OrderByDescending(f=>f.FaktuurNr), "FaktuurNr", "FaktuurNr");
@@ -64,6 +67,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Garanties/Create
+        [Route("Admin/Garanties/Create")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -82,6 +86,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Garanties/Edit/5
+        [Route("Admin/Garanties/Edit/{id}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -99,6 +104,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Garanties/Edit/5
+        [Route("Admin/Garanties/Edit/{id}")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -136,6 +142,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Garanties/Delete/5
+        [Route("Admin/Garanties/Delete/{id}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -159,6 +166,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Garanties/Delete/5
+        [Route("Admin/Garanties/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)

@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Wieldoppen
+        [Route("Admin/Wieldoppen/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.OnderdelenProducten
@@ -35,6 +36,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Wieldoppen/Details/5
+        [Route("Admin/Wieldoppen/Details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -57,6 +59,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Wieldoppen/Create
+        [Route("Admin/Wieldoppen/Create")]
         public IActionResult Create()
         {
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Wieldoppen"), "OnderdelenCategorieId", "OnderdelenCategorienaam");
@@ -65,6 +68,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View();
         }
 
+        [Route("Admin/Wieldoppen/Create")]
         // POST: Admin/Wieldoppen/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -92,6 +96,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Wieldoppen/Edit/5
+        [Route("Admin/Wieldoppen/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -104,6 +109,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
                                                 .Include(o => o.Specificatie)
                                                 .Include(m => m.Specificatie)
                                                 .SingleOrDefaultAsync(m => m.Artikelnummer == id);
+         
             if (onderdelenProducten == null)
             {
                 return NotFound();
@@ -114,6 +120,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(onderdelenProducten);
         }
 
+        [Route("Admin/Wieldoppen/Edit/{id}")]
         // POST: Admin/Wieldoppen/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -155,6 +162,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Wieldoppen/Delete/5
+        [Route("Admin/Wieldoppen/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -176,6 +184,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Wieldoppen/Delete/5
+        [Route("Admin/Wieldoppen/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

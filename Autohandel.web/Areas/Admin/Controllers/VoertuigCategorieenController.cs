@@ -21,12 +21,14 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/VoertuigCategorieen
+        [Route("Admin/VoertuigCategorieen/Index")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.VoertuigCategorieen.ToListAsync());
         }
 
         // GET: Admin/VoertuigCategorieen/Details/5
+        [Route("Admin/VoertuigCategorieen/Details/{id}")]
         public async Task<IActionResult> Details(long? id)
         {
             if (id == null)
@@ -45,11 +47,12 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/VoertuigCategorieen/Create
+        [Route("Admin/VoertuigCategorieen/Create")]
         public IActionResult Create()
         {
             return View();
         }
-
+        [Route("Admin/VoertuigCategorieen/Create")]
         // POST: Admin/VoertuigCategorieen/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -68,6 +71,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/VoertuigCategorieen/Edit/5
+        [Route("Admin/VoertuigCategorieen/Edit/{id}")]
         public async Task<IActionResult> Edit(long? id)
         {
             if (id == null)
@@ -94,7 +98,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
 
             return View(voertuigCategorie);
         }
-
+        [Route("Admin/VoertuigCategorieen/Edit/{id}")]
         // POST: Admin/VoertuigCategorieen/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -132,6 +136,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/VoertuigCategorieen/Delete/5
+        [Route("Admin/VoertuigCategorieen/Delete/{id}")]
         public async Task<IActionResult> Delete(long? id)
         {
             if (id == null)
@@ -162,6 +167,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
 
         // POST: Admin/VoertuigCategorieen/Delete/5
         [HttpPost, ActionName("Delete")]
+        [Route("Admin/VoertuigCategorieen/Delete/{id}")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(long id)
         {

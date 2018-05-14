@@ -14,6 +14,8 @@ namespace Autohandel.Domain.Entities
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public long VoertuigId { get; set; }
 
+        public bool Nieuw { get; set; }
+
         [Required(ErrorMessage = "{0} is verplicht")]
         [Display(Name = "Nr")]
         public string VoertuigArtikelNummer { get; set; }

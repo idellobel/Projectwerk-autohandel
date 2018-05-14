@@ -1,0 +1,87 @@
+﻿@model Autohandel.Domain.Entities.CategorieOnderdelen
+@{
+    ViewData["Title"] = "OnderdeelProduct";
+}
+
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+<style>
+    .korting {
+        position:absolute; background-color:gold;
+        color:white; 
+        height:60%;
+        width:30%; 
+        font-size:20px;
+        padding-top:2%;
+        right:0; 
+        font-weight:bold;
+        -ms-transform: rotate(30deg); /* IE 9 */
+        -webkit-transform: rotate(30deg); /* Safari 3-8 */
+        transform: rotate(30deg);
+        border-radius: 50%;
+       
+    }
+</style>
+<div class="container">
+
+    <h6 style="margin-top:20px;">
+        @if (Model.ParentId != null)
+         {
+            <a asp-area="" asp-controller="OnlineOnderdelen" asp-action="SubCatOnderdelen" asp-route-id="@Model.ParentId"  style="margin-top:40px;">
+                <i class="fas fa-arrow-circle-left"></i> Terug naar '@Model.Parent.OnderdelenCategorienaam.'
+            </a>
+
+         }
+        else
+        {
+            <a asp-area="" asp-controller="OnlineOnderdelen" asp-action="Index" style="margin-top:40px;">
+                <i class="fas fa-arrow-circle-left"></i> Terug naar 'Overzicht van de Onderdelen'
+            </a>
+
+        }
+
+    </h6>
+
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina ">Producten voor @Model.OnderdelenCategorienaam</p>
+    </div>
+
+
+
+    <div class="row text-center ">
+
+        @foreach (var item in Model.Products)
+        {
+
+
+            <div class="col-md-4 col-sm-6 mapImage">
+                <a style="text-decoration:none;color:inherit" asp-controller="OnlineOnderdelen" asp-action="OnderdelenDetails" asp-area="" asp-route-id="@item.Artikelnummer">
+                    <div class="card margin5pct">
+                        <div class="card-body cardbodyVtgLijst  " style="position:relative;">
+                            <h6 class="card-title ">
+                                @(item.Artikelnaam)
+                            </h6>
+                            @if (item.Korting)
+                            { <div class="korting"> -15% </div>}
+                        </div>
+                        <img asp-append-version="true" src="~/images/onderdelen/fronts/@(item.Artikelnummer).jpg" alt="GEEN AFBEELDING VOOR @(item.Artikelnaam)" 
+                             class="card-img-bottom vtgWitdhLijst" style="height:250px;background-color:lavender;">
+                        <h6 class="card-title text-right " style="background-color:dodgerblue; color:white; margin-bottom:0px; padding-right:3%; height:30px;">
+                          Prijs:  @(item.Prijs.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("nl-BE")))
+                        </h6>
+                    </div>
+
+
+
+                </a>
+
+            </div>
+        }
+    </div>
+</div>
+
+

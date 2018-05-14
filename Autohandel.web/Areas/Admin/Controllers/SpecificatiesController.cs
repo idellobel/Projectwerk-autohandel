@@ -21,12 +21,14 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Specificaties
+        [Route("Admin/Specificaties/Index")]
         public async Task<IActionResult> Index()
         {
             return View(await _context.Specificaties.ToListAsync());
         }
 
         // GET: Admin/Specificaties/Details/5
+        [Route("Admin/Specificaties/Details/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -45,12 +47,14 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Specificaties/Create
+        [Route("Admin/Specificaties/Create")]
         public IActionResult Create()
         {
             return View();
         }
 
         // POST: Admin/Specificaties/Create
+        [Route("Admin/Specificaties/Create")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -67,6 +71,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Specificaties/Edit/5
+        [Route("Admin/Specificaties/Edit/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -85,6 +90,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Specificaties/Edit/5
+        [Route("Admin/Specificaties/Edit/{id}")]
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -120,6 +126,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/Specificaties/Delete/5
+        [Route("Admin/Specificaties/Delete/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -138,6 +145,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/Specificaties/Delete/5
+        [Route("Admin/Specificaties/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

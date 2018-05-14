@@ -79,7 +79,7 @@ namespace Autohandel.web
 
                     /*De seedMethode dient uitgecommentariëerd te worden bij uitvoeren migratie/update database!!!!*/
 
-                    DataSeeder.Seed(context);
+                    //DataSeeder.Seed(context);
                 }
             }
             else

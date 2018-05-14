@@ -32,6 +32,8 @@ namespace Autohandel.web.ViewModels.VoertuigenViewModels
 
         public string Kleur { get; set; }
 
+        public bool Nieuw { get; set; }
+
         public Brandstof Brandstof { get; set; }
 
         [Range(0, 150000, ErrorMessage = "{0} dient gekozen tussen 0 en 150.000 Km")]

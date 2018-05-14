@@ -227,5 +227,43 @@
 }
 
 
+/* Style card aanbodvoertuigen en onderdelen */
+.liAanbodvoertuig {
+    width: 100%;
+    text-decoration: none;
+    margin-left: 0;
+    margin-bottom: 5%;
+    font-size: 14px;
+}
+
+.btnAanbodvoertuig {
+    margin-left: 0;
+    padding: 10px;
+}
+
+.margin5pct {
+    margin: 5%;
+}
+
+.cardbodyVtgLijst {
+    height: 75px;
+    background-color: #c4ff4d;
+}
+
+.vtgPrijs {
+    float: right;
+}
+
+.vtgWitdhLijst {
+    width: 100%;
+}
+
+.voertuigLink {
+    text-decoration: none;
+    color: inherit;
+}
+
+
+
 
   

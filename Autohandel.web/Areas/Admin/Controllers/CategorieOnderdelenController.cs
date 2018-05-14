@@ -22,6 +22,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/CategorieOnderdelen
+        [Route("Admin/CategorieOnderdelen/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.CategorieOnderdelen
@@ -34,6 +35,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/CategorieOnderdelen/Details/5
+        [Route("Admin/CategorieOnderdelen/Details/{id}")]
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -72,6 +74,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
 
 
         // GET: Admin/CategorieOnderdelen/Create
+        [Route("Admin/CategorieOnderdelen/Create")]
         public IActionResult Create()
         {
             //ViewData["ParentId"] = new SelectList(_context.CategorieOnderdelen, "OnderdelenCategorieId", "OnderdelenCategorienaam");
@@ -88,6 +91,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
 
         }
 
+        [Route("Admin/CategorieOnderdelen/Create")]
         // POST: Admin/CategorieOnderdelen/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -153,6 +157,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/CategorieOnderdelen/Edit/5
+        [Route("Admin/CategorieOnderdelen/Edit/{id}")]
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -166,6 +171,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
                                             .Include(c => c.Children)
                                             .Include(p => p.Products)
                                             .SingleOrDefaultAsync(m => m.OnderdelenCategorieId == id);
+            
             if (categorieOnderdelen == null)
             {
                 return NotFound();
@@ -211,6 +217,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(vm);
         }
 
+        [Route("Admin/CategorieOnderdelen/Edit/{id}")]
         // POST: Admin/CategorieOnderdelen/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -275,6 +282,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/CategorieOnderdelen/Delete/5
+        [Route("Admin/CategorieOnderdelen/Delete/{id}")]
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -307,6 +315,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/CategorieOnderdelen/Delete/5
+        [Route("Admin/CategorieOnderdelen/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

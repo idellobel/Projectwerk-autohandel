@@ -10,6 +10,7 @@ namespace Autohandel.Domain.DTO_klassen
         public string VoertuigArtikelNummer { get; set; }
         public string Prijs { get; set; }
         public string FiguurURL { get; set; }
+        public bool Nieuw { get; set; }
 
         public string VoertuigTitel { get; set; }
         public string MerkNaam { get; set; }

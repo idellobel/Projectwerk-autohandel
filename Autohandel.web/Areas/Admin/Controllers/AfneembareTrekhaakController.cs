@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/AfneembareTrekhaak
+        [Route("Admin/AfneembareTrekhaak/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.OnderdelenProducten
@@ -34,6 +35,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/AfneembareTrekhaak/Details/5
+        [Route("Admin/AfneembareTrekhaak/Details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -56,6 +58,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/AfneembareTrekhaak/Create
+        [Route("Admin/AfneembareTrekhaak/Create")]
         public IActionResult Create()
         {
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Afneembare Trekhaak"), "OnderdelenCategorieId", "OnderdelenCategorienaam");
@@ -64,6 +67,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View();
         }
 
+        [Route("Admin/AfneembareTrekhaak/Create")]
         // POST: Admin/AfneembareTrekhaak/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -89,6 +93,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/AfneembareTrekhaak/Edit/5
+        [Route("Admin/AfneembareTrekhaak/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -110,6 +115,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(onderdelenProducten);
         }
 
+        [Route("Admin/AfneembareTrekhaak/Edit/{id}")]
         // POST: Admin/AfneembareTrekhaak/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -149,8 +155,9 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(onderdelenProductenEdit);
         }
 
-            // GET: Admin/AfneembareTrekhaak/Delete/5
-            public async Task<IActionResult> Delete(string id)
+        // GET: Admin/AfneembareTrekhaak/Delete/5
+        [Route("Admin/AfneembareTrekhaak/Delete/{id}")]
+        public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
             {
@@ -172,6 +179,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/AfneembareTrekhaak/Delete/5
+        [Route("Admin/AfneembareTrekhaak/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

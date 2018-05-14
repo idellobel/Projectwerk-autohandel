@@ -54,7 +54,9 @@ namespace Autohandel.Domain.Entities
 
         public virtual Leverancier Leverancier { get; set; }
 
-        public long? LeverancierID { get; set; }  
+        public long? LeverancierID { get; set; }
+
+        public bool Korting { get; set; } = true;
       
 
 

@@ -38,6 +38,12 @@
                     <span asp-validation-for="FiguurURL" class="text-danger"></span>
                 </div>
                 <div class="form-group">
+                    <label asp-for="Korting" class="control-label"></label>
+                    <input asp-for="Korting" class="form-control" type="checkbox" value="true" />
+                    <input asp-for="Korting" class="form-control" type="hidden" value="true" />
+                    <span asp-validation-for="Korting" class="text-danger"></span>
+                </div>
+                <div class="form-group">
                     <label asp-for="Specificatie.Dikte" class="control-label"></label>
                     <input asp-for="Specificatie.Dikte" class="form-control" />
                     <span asp-validation-for="Specificatie.Dikte" class="text-danger"></span>

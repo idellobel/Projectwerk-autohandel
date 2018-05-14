@@ -51,6 +51,12 @@
                     <select asp-for="SelectedCategorie" asp-items="Model.Categorieen" class="form-control"></select>
                     <span asp-validation-for="SelectedCategorie" class="text-danger"></span>
                 </div>
+                <div class="checkbox">
+                    <input asp-for="Nieuw"  class="control-label" />
+                    <label asp-for="Nieuw" class="form-control"></label>
+                    <span asp-validation-for="Nieuw" class="text-danger"></span>
+                </div>
+     
                 <div class="form-group">
                     <label asp-for="Prijs" class="control-label"></label>
                     <input asp-for="Prijs" class="form-control" />

@@ -21,6 +21,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/KabelsetTrekhaken
+        [Route("Admin/KabelsetTrekhaken/Index")]
         public async Task<IActionResult> Index()
         {
             var autohandelContext = _context.OnderdelenProducten
@@ -35,6 +36,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/KabelsetTrekhaken/Details/5
+        [Route("Admin/KabelsetTrekhaken/Details/{id}")]
         public async Task<IActionResult> Details(string id)
         {
             if (id == null)
@@ -57,6 +59,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/KabelsetTrekhaken/Create
+        [Route("Admin/KabelsetTrekhaken/Create")]
         public IActionResult Create()
         {
             ViewData["OnderdelenCategorieId"] = new SelectList(_context.CategorieOnderdelen.Where(o => o.OnderdelenCategorienaam == "Kabelset Trekhaken"), "OnderdelenCategorieId", "OnderdelenCategorienaam");
@@ -65,6 +68,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View();
         }
 
+        [Route("Admin/KabelsetTrekhaken/Create")]
         // POST: Admin/KabelsetTrekhaken/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -91,6 +95,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/KabelsetTrekhaken/Edit/5
+        [Route("Admin/KabelsetTrekhaken/Edit/{id}")]
         public async Task<IActionResult> Edit(string id)
         {
             if (id == null)
@@ -113,6 +118,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             return View(onderdelenProducten);
         }
 
+        [Route("Admin/KabelsetTrekhaken/Edit/{id}")]
         // POST: Admin/KabelsetTrekhaken/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
@@ -154,6 +160,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // GET: Admin/KabelsetTrekhaken/Delete/5
+        [Route("Admin/KabelsetTrekhaken/Delete/{id}")]
         public async Task<IActionResult> Delete(string id)
         {
             if (id == null)
@@ -175,6 +182,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         }
 
         // POST: Admin/KabelsetTrekhaken/Delete/5
+        [Route("Admin/KabelsetTrekhaken/Delete/{id}")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(string id)

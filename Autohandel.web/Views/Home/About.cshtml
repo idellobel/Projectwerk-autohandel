@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<Autohandel.Domain.Entities.CategorieOnderdelen>
+@{
     ViewData["Title"] = "About";
 }
 @section showPublic{
@@ -31,7 +32,7 @@
 
 
                 Al onze wagens worden gekeurd afgeleverd met een CAR-PASS kilometerstand certificaat
-                en 1 jaar garantie.<br />
+                en minstens 1 jaar garantie.<br />
 
             </p>
             <p class="tekstWelkomTitel">
@@ -45,10 +46,10 @@
                 FINANCIERING <span><img src="~/images/financiering.png" alt="financiering" /></span>
             </p>
             <p class="tekstWelkom">
-                Ook voor het financieren van uw nieuwe tweedehandswagen bieden wij u:<br />
+                Voor het financieren van uw nieuwe tweedehandswagen bieden wij u:<br />
                 - interessante formules.<br />
-                - Een financiering met respect voor uw budget.<br />
-                - Een zorgeloze kredietaanvraag, zonder administratieve omwegen.<br />
+                - een financiering met respect voor uw budget.<br />
+                - een zorgeloze kredietaanvraag, zonder administratieve omwegen.<br />
             </p>
         </div>
 
@@ -67,15 +68,20 @@
                 ONLINEVERKOOP AUTOPARTS <span><img src="~/images/autoparts-online.png" alt="carpass" /></span>
             </p>
             <p class="tekstWelkom">
-                Wij bieden online de volgende onderdelen aan:      
-                <ul class="tekstWelkom" >
-                    <li>Bagage en Transport</li>
+                Wij bieden online de volgende onderdelen aan:
+                <ul class="tekstWelkom">
+                    @foreach(var cat in Model)
+                    {
+                    <li> @Html.DisplayFor(modelItem => cat.OnderdelenCategorienaam)</li>
+
+                    }
+                    @*<li>Bagage en Transport</li>
                     <li>Filters en Vloeistoffen</li>
                     <li>Privacy Shades</li>
                     <li>Tapijten</li>
                     <li>Trekhaken</li>
                     <li>Wieldoppen</li>
-                    <li>Winterbanden</li>
+                    <li>Winterbanden</li>*@
                 </ul>
 
             </p>
