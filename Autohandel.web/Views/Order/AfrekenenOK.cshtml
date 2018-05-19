@@ -1,0 +1,90 @@
+﻿@model Autohandel.Domain.Entities.Order
+@{
+    ViewData["Title"] = "AfrekenenOK";
+}
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+<div class="container">
+
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina ">Overzicht bestelling:</p>
+    </div>
+
+    <div>
+
+        <hr />
+        <div class="container">
+            <div class="table-responsive ">
+                <table class="table table-condensed table-bordered table-striped ">
+                    <thead class="thead-dark">
+                        <tr class="d-flex">
+                            <th class="col-lg-4 col-md-4 col col-sm-4">Benaming</th>
+                            <th class="col-lg-8 col-md-8 col-sm-8">Gegeven</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="d-flex">
+                            <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.DisplayNameFor(model => model.OrderId) : <br />
+                                @Html.DisplayNameFor(model => model.OrderGeplaatst) : <br />
+                                @Html.DisplayNameFor(model => model.OrderTotaal) : <br />
+                             
+                            </td>
+                            <td class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DisplayFor(model => model.OrderId)<br />
+                                @Html.DisplayFor(model => model.OrderGeplaatst)<br />
+                                @Html.DisplayFor(model => model.OrderTotaal)<br />
+                             
+                            </td>
+                        </tr>
+                        <tr class="d-flex">
+                            <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                                @Html.DisplayNameFor(model => model.Naam) : <br />
+                                @Html.DisplayNameFor(model => model.Voornaam) : <br />
+                                @Html.DisplayNameFor(model => model.Adres) : <br />
+                                @Html.DisplayNameFor(model => model.Gemeente) : <br />
+                            </td>
+                            <td class="col-lg-8 col-md-8 col-sm-8">
+                                @Html.DisplayFor(model => model.Naam)<br />
+                                @Html.DisplayFor(model => model.Voornaam)<br />
+                                @Html.DisplayFor(model => model.Adres)<br />
+                                @Html.DisplayFor(model => model.Gemeente)<br />
+                            </td>
+                        </tr>
+                        @*<tr class="d-flex">
+                            @foreach (var item in Model.OrderDetails)
+                            {
+                        <td style="font-weight:bold" class="col-lg-4 col-md-4 col-sm-4">
+                            @Html.DisplayNameFor(modelItem => item.Product.Artikelnaam) : <br />
+                            @Html.DisplayNameFor(modelItem => item.Product.Prijs) : <br />
+                            @Html.DisplayNameFor(modelItem => item.Product.Korting) : <br />
+                            @Html.DisplayNameFor(modelItem => item.Aantal) : <br />
+                            @Html.DisplayNameFor(modelItem => item.Faktuur.FaktuurNr) : <br />
+                         
+                        </td>
+                        <td class="col-lg-8 col-md-8 col-sm-8">
+                            @Html.DisplayFor(modelItem => item.Product.Artikelnaam)<br />
+                            @Html.DisplayFor(modelItem => item.Product.Prijs)<br />
+                            @Html.DisplayFor(modelItem => item.Product.Korting)<br />
+                            @Html.DisplayFor(modelItem => item.Aantal)<br />
+                            @Html.DisplayFor(modelItem => item.Faktuur.FaktuurNr)<br />
+                           
+                        </td>
+                            }
+                        </tr>*@
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+
+
+

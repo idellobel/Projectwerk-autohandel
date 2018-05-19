@@ -9,6 +9,10 @@ using Autohandel.web.Services;
 using Autohandel.Domain.Data;
 using Autohandel.Domain.Entities;
 using AutoMapper;
+using System;
+using Microsoft.AspNetCore.Http;
+using Autohandel.web.Interfaces;
+using Autohandel.web.Repositories;
 
 namespace Autohandel.web
 {
@@ -32,7 +36,8 @@ namespace Autohandel.web
             //services.AddIdentity<ApplicationUser, IdentityRole>()
             //    .AddEntityFrameworkStores<ApplicationDbContext>()
             //    .AddDefaultTokenProviders();
-
+            services.AddTransient<IOnderdelenProductenRepository, OnderdelenProductenRepository>();
+            services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddIdentity<ApplicationUser, IdentityRole>(
                 config =>
                 {
@@ -58,7 +63,25 @@ namespace Autohandel.web
             services.AddMvc()
                 .AddJsonOptions(
             options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore
-            ); 
+            );
+
+            services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+            services.AddScoped(sp => Winkelkar.GetWinkelkar(sp));
+
+            //services.AddMvc()
+            //    .AddSessionStateTempDataProvider();
+
+            // Adds a default in-memory implementation of IDistributedCache.
+            //services.AddDistributedMemoryCache();
+            services.AddMemoryCache();
+            services.AddSession();
+
+            //services.AddSession(options =>
+            //{
+            //    // Set a short timeout for easy testing.
+            //    options.IdleTimeout = TimeSpan.FromSeconds(10);
+            //    options.Cookie.HttpOnly = true;
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -66,6 +89,7 @@ namespace Autohandel.web
         {
             if (env.IsDevelopment())
             {
+                app.UseSession();
                 app.UseDeveloperExceptionPage();
                 app.UseBrowserLink();
                 app.UseDatabaseErrorPage();
@@ -102,6 +126,8 @@ namespace Autohandel.web
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+          
         }
     }
 }

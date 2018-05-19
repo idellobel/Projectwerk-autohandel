@@ -71,7 +71,7 @@
                         <img asp-append-version="true" src="~/images/onderdelen/fronts/@(item.Artikelnummer).jpg" alt="GEEN AFBEELDING VOOR @(item.Artikelnaam)" 
                              class="card-img-bottom vtgWitdhLijst" style="height:250px;background-color:lavender;">
                         <h6 class="card-title text-right " style="background-color:dodgerblue; color:white; margin-bottom:0px; padding-right:3%; height:30px;">
-                          Prijs:  @(item.Prijs.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("nl-BE")))
+                            Prijs:  € @((int)item.Prijs)
                         </h6>
                     </div>
 

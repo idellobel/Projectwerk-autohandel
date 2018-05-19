@@ -10,6 +10,10 @@
 
 }
 
+<style>
+   
+</style>
+
 <div class="container">
     @*@if (Model.OnderdeelDetail.CategorieOnderdelen.ParentId != null)
         {*@
@@ -115,9 +119,9 @@
                 <div class="col-lg-7 col-md-7 autoDetailTekst">
                     @*<p>@Html.DisplayFor(model => model.OnderdeelDetail.CategorieOnderdelen.OnderdelenCategorienaam)</p>*@
                     <p style="font-size:large;">@Html.DisplayFor(model => model.OnderdeelDetail.Artikelnaam)</p>
-                    <p style="font-size:x-large;color:blue;">@Model.OnderdeelDetail.Prijs.ToString("C0", System.Globalization.CultureInfo.GetCultureInfo("nl-BE"))@if (Model.OnderdeelDetail.Korting)
+                    <p style="font-size:x-large;color:blue;">€ @((int)Model.OnderdeelDetail.Prijs) @if (Model.OnderdeelDetail.Korting)
                     {
-                        <span style="background-color:gold; color:white; font-weight:bold; border-radius:50%; margin-left:10%; font-size:larger; padding:2%">-15 % </span>}
+                        <span class="korting">-15 % </span>}
                     </p>
                     @if (Model.OnderdeelDetail.OpVoorraad != null)
                     {
@@ -136,13 +140,14 @@
                 <button type="button" id="sdetail" class="btn btn-primary mrgLft3pct">
                     Specificaties:
                 </button>
-                <button type="button" class="btn btn-success mrgLft3pct">
-                    <i class="fas fa-shopping-cart "></i> Voeg toe
-                </button>
-                <button type="button"  class="btn btn-danger mrgLft3pct">
-                <i class="fas fa-credit-card "></i> Koop nu
-                </button>
-            </div>
+                <a asp-controller="Winkelkar" asp-action="ToevoegenAanWinkelkar" asp-route-id="@Model.OnderdeelDetail.Artikelnummer"
+                     class="btn btn-success mrgLft3pct">
+                        <i class="fas fa-shopping-cart "></i> Voeg toe
+                    </a>
+                    @*<button type="button" class="btn btn-danger mrgLft3pct">
+                        <i class="fas fa-credit-card "></i> Koop nu
+                    </button>*@
+</div>
             <div class="row mrgBtm3pct ">
                 <div class="col-11 autoDetailTekstHide" id="ddetail">
                     @try

@@ -1,0 +1,164 @@
+﻿@model Autohandel.web.ViewModels.MandjeViewModels.WinkelkarViewModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+<style type="text/css">
+    .karTotaal {
+        font-size: larger;
+        font-weight: bold;
+        text-decoration: underline;
+    }
+
+    .karTotaalPrijs {
+        font-size: x-large;
+        font-weight: bold;
+        color: blueviolet;
+    }
+
+  
+</style>
+
+<div class="container" id="dvContents">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">Uw winkelkar</p>
+    </div>
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitel">Dit zijn de producten in uw winkelkar:</p>
+    </div>
+    <table class="table table-bordered table-striped">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Aantal</th>
+                <th>Product</th>
+                <th></th>
+                <th class="text-right">Prijs</th>
+                <th class="text-right">Subtotaal</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Winkelkar.WinkelkarItems)
+            {
+                <tr>
+                    @if (item.Product.Korting)
+                    {
+
+                        <td>
+                            <a asp-controller="Winkelkar" asp-action="ToevoegenAanWinkelkar" asp-route-id="@item.Product.Artikelnummer">
+                                <i class="text-success fas fa-plus-circle fa-lg"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">@item.Aantal</td>
+                        <td class="text-left">@item.Product.Artikelnaam</td>
+                        <td class="text-center" style="font-size:10px;">
+                            <img src="@Url.Content(item.Product.FiguurURL)" class="img-fluid" style="height:50px;" />
+                        </td>
+                        <td class="text-right">
+                            € @((int)item.Product.Prijs)  <span class="korting">-15 % </span>
+                        </td>
+                        <td class="text-right">
+                            € @(item.Aantal * ((int)item.Product.Prijs - (int)(item.Product.Prijs * 0.15M)))
+                        </td>
+                        <td>
+                            <a asp-controller="Winkelkar" asp-action="VerwijderUitKar" asp-route-id="@item.Product.Artikelnummer">
+                                <i class="text-danger fas as fa-minus-circle fa-lg"></i>
+                            </a>
+                        </td>
+
+                    }
+                    else
+                    {
+                        <td>
+                            <a asp-controller="Winkelkar" asp-action="ToevoegenAanWinkelkar" asp-route-id="@item.Product.Artikelnummer">
+                                <i class="text-success fas fa-plus-circle fa-lg"></i>
+                            </a>
+                        </td>
+                        <td class="text-center">@item.Aantal</td>
+                        <td class="text-left">@item.Product.Artikelnaam</td>
+                        <td class="text-center" style="font-size:10px; ">
+                            <img src="@Url.Content(item.Product.FiguurURL)" class="img-fluid" style="height:50px;" />
+                        </td>
+                        <td class="text-right">
+                            €  @((int)item.Product.Prijs)
+                        </td>
+                        <td class="text-right">
+                            € @(item.Aantal * (int)item.Product.Prijs)
+                        </td>
+                        <td>
+                            <a asp-controller="Winkelkar" asp-action="VerwijderUitKar" asp-route-id="@item.Product.Artikelnummer">
+                                <i class="text-danger fas as fa-minus-circle fa-lg"></i>
+                            </a>
+                        </td>
+
+                    }
+                </tr>
+
+            }
+        </tbody>
+        <tfoot>
+
+
+            <tr>
+                <td colspan="5" class="text-right karTotaal">Totaal:</td>
+                <td colspan="2" class=" text-xl-center karTotaalPrijs">€@((int)Model.WinkelkarTotaal) </td>
+            </tr>
+
+        </tfoot>
+    </table>
+    <br />
+    <div class="text-right">
+        <div class="btn-group">
+            <button class="btn btn-primary" id="btnPrint"><i class="fas fa-print fa-lg"></i> Print</button>
+            <a class="btn btn-danger" asp-controller="Order" asp-action="Afrekenen"><i class="fas fa-credit-card fa-lg  "></i> Afrekenen</a>
+            <a class="btn btn-success" asp-controller="OnlineOnderdelen" asp-action="Index"><i class="fas fa-cart-plus fa-lg  "></i> Ga door met winkelen</a>
+
+        </div>
+
+    </div>
+</div>
+<br />
+<br />
+@section scripts{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(function () {
+                $("#btnPrint").click(function () {
+                    var contents = $("#dvContents").html();
+                    var frame1 = $('<iframe />');
+                    frame1[0].name = "frame1";
+                    frame1.css({
+                        "position": "absolute",
+                        "top": "-1000000px"
+                    });
+                    $("body").append(frame1);
+                    var frameDoc = frame1[0].contentWindow ? frame1[0].contentWindow : frame1[0].contentDocument.document ? frame1[0].contentDocument.document : frame1[0].contentDocument;
+                    frameDoc.document.open();
+                    //Create a new HTML document.
+                    frameDoc.document.write('<html><head><title>Uw Winkelkar</title>');
+                    frameDoc.document.write('</head><body>');
+                    //Append the external CSS file.
+                    frameDoc.document.write('<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css">');
+                    frameDoc.document.write('<link rel="stylesheet" href="/lib/Font-Awesome/web-fonts-with-css/css/fontawesome.css">');
+                    frameDoc.document.write('<link href="site.css" rel="stylesheet" type="text/css" />');
+                    //Append the DIV contents.
+                    frameDoc.document.write(contents);
+                    frameDoc.document.write('</body></html>');
+                    frameDoc.document.close();
+                    setTimeout(function () {
+                        window.frames["frame1"].focus();
+                        window.frames["frame1"].print();
+                        frame1.remove();
+                    }, 500);
+                });
+            });
+        });
+    </script>
+    }

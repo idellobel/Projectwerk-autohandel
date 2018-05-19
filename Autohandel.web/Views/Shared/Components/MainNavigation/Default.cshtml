@@ -1,5 +1,6 @@
 ﻿@model IEnumerable<Autohandel.web.ViewModels.Components.MainNavLinkVm>
 
+
 @foreach (var navlink in Model)
 {
 <li @(Html.Raw(navlink.IsActive ? " class=\"nav-item active\"" : ""))>
@@ -10,4 +11,6 @@
 {
     <li ><a asp-area="Admin" asp-controller="Home" asp-action="Index"  class="nav-link">ADMIN-AREA</a></li>
 }
+
+
 

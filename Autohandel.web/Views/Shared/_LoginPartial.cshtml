@@ -1,5 +1,7 @@
 @using Microsoft.AspNetCore.Identity
 @using Autohandel.web.ViewModels
+@using Microsoft.AspNetCore.Http
+@*Session Value = @Context.Session.GetString("mandje")*@
 
 @inject SignInManager<ApplicationUser> SignInManager
 @inject UserManager<ApplicationUser> UserManager
@@ -10,11 +12,12 @@
         <ul class="navbar-nav navbar-right">
             @*@await Component.InvokeAsync("MainNavigation")*@
             <li class="nav-item active">
-            <a class="nav-link" asp-area="" asp-controller="Manage" asp-action="Index" title="Beheer uw account">Hello @UserManager.GetUserName(User)!</a>
-        </li>
+                <a class="nav-link" asp-area="" asp-controller="Manage" asp-action="Index" title="Beheer uw account">Hello @UserManager.GetUserName(User)!</a>
+            </li>
             <li class="nav-item">
                 <button type="submit" class="btn btn-link navbar-btn nav-link">Uitloggen</button>
             </li>
+            @await Component.InvokeAsync("WinkelkarOverzichtComponent")
         </ul>
     </form>
 }
@@ -23,10 +26,10 @@ else
     <ul class="navbar-nav navbar-right">
         @*@await Component.InvokeAsync("MainNavigation")*@
         <li class="nav-item  ">
-        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Registreer</a>
+            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Register">Registreer</a>
         </li>
         <li class="nav-item ">
-        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Inloggen</a>
+            <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Inloggen</a>
         </li>
     </ul>
 }

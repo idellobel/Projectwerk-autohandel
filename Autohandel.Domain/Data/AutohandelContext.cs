@@ -29,13 +29,16 @@ namespace Autohandel.Domain.Data
         public DbSet<OnderdelenProducten> OnderdelenProducten { get; set; }
         public DbSet<Onderhoud> Onderhoud { get; set; }
         public DbSet<Persoon> Personen { get; set; }
+        public DbSet<WinkelkarItem> WinkelkarItems { get; set; }
+        public DbSet<Order> Orders { get; set; }
+        public DbSet<OrderDetail> OrderDetails { get; set; }
        /* public DbSet<Role> Roles { get; set; }*/ //Mijn inziens niet nodig, Zouden reeds vervat zitten in 'IdentityDbContext<ApplicationUser>'?
        /* public DbSet<User> Users { get; set; }*/ //Mijn inziens niet nodig, Zouden reeds vervat zitten in 'IdentityDbContext<ApplicationUser>'?
         public DbSet<Voertuig> Voertuigen { get; set; }
         public DbSet<VoertuigCategorie> VoertuigCategorieen { get; set; }
         public DbSet<Specificaties> Specificaties { get; set; }
         //public DbSet<ApplicationUser>User { get; set; }  // Mijn inziens niet nodig bij overerving van 'IdentityDbContext<ApplicationUser>'?
-
+       
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

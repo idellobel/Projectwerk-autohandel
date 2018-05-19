@@ -1,0 +1,153 @@
+﻿@model Autohandel.Domain.Entities.Order
+@{
+    ViewData["Title"] = "Afrekenen";
+}
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+
+<div class="container">
+
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">Afrekenen</p>
+    </div>
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitel">
+            Om een correcte afhandeling te verzekeren hebben
+            we volgende gegevens nodig:
+        </p>
+    </div>
+
+  
+    <hr />
+  
+       
+    <form asp-action="Afrekenen" method="post" class="form-horizontal" role="form">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="Naam" class="control-label"></label>
+                    <input asp-for="Naam" class="form-control" />
+                    <span asp-validation-for="Naam" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="Voornaam" class="control-label"></label>
+                    <input asp-for="Voornaam" class="form-control" />
+                    <span asp-validation-for="Voornaam" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="Adres" class="control-label"></label>
+                    <input asp-for="Adres" class="form-control" />
+                    <span asp-validation-for="Adres" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="Postcode" class="control-label"></label>
+                    <input asp-for="Postcode" class="form-control" />
+                    <span asp-validation-for="Postcode" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="Gemeente" class="control-label"></label>
+                    <input asp-for="Gemeente" class="form-control" />
+                    <span asp-validation-for="Gemeente" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="Land" class="control-label"></label>
+                    <input asp-for="Land" class="form-control" />
+                    <span asp-validation-for="Land" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="Telefoonnummer" class="control-label"></label>
+                    <input asp-for="Telefoonnummer" class="form-control" />
+                    <span asp-validation-for="Telefoonnummer" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-1">
+
+            </div>
+            <div class="col-md-5">
+                <div class="form-group">
+                    <label asp-for="Email" class="control-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="row" style="color:dimgray">
+            <p class="tekstWelkomTitelPagina">
+                Betaalwijze:
+            </p>
+        </div>
+        <br />
+
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio" required="required">
+                <img src="~/images/betaalwijze/bancontact.png" title="Bancontact" />
+            </label>
+        </div>
+        <div class="form-check-inline">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio">
+                <img src="~/images/betaalwijze/visa.jpg" title="Visa" />
+            </label>
+        </div>
+        <div class="form-check-inline disabled">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio">
+                <img src="~/images/betaalwijze/mastercard_creditcard.png" title="Mastercard" />
+            </label>
+        </div>
+        <div class="form-check-inline disabled">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio">
+                <img src="~/images/betaalwijze/paypal.jpg" title="PayPal" />
+            </label>
+        </div>
+        <div class="form-check-inline disabled">
+            <label class="form-check-label">
+                <input type="radio" class="form-check-input" name="optradio">
+                <img src="~/images/betaalwijze/ideal.png" title="Ideal" />
+            </label>
+        </div>
+        <br />
+        <hr />
+        <br />
+        <div class="form-group text-center">
+            <input type="submit" value="Ga verder" class="btn btn-success" />
+        </div>
+    </form>
+        </div>
+   
+
+

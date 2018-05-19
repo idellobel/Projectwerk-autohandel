@@ -1,0 +1,37 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h3>Cart Page</h3>
+<table cellpadding="2" cellspacing="2" border="1">
+    <tr>
+        <th>Option</th>
+        <th>Id</th>
+        <th>Name</th>
+        <th>Photo</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        <th>Sub Total</th>
+    </tr>
+    @foreach (var item in ViewBag.mandje)
+    {
+        <tr>
+            <td><a asp-controller="mandje" asp-action="remove" asp-route-id="@item.Product.Artikelnummer">Verwijder</a></td>
+            <td>@item.Product.Artikelnummer</td>
+            <td>@item.Product.Artikelnaam</td>
+            <td><img src="@item.Product.FiguurURL" width="60" /> </td>
+            <td>@item.Product.Prijs</td>
+            <td>@item.Aantal</td>
+            <td>@(item.Product.Prijs * item.Aantal)</td>
+        </tr>
+    }
+    <tr>
+        <td align="right" colspan="6">Som</td>
+        <td>
+            @ViewBag.total
+        </td>
+    </tr>
+</table>
+<br>
+<a asp-controller="OnlineOnderdelen" asp-action="Index">Ga door met winkelen</a>

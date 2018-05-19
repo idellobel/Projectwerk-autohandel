@@ -1,0 +1,25 @@
+﻿@model Autohandel.web.ViewModels.MandjeViewModels.WinkelkarViewModel
+
+<style>
+    .overzicht {
+        background-color:yellow;
+        border:2px solid brown;
+        font-size:15px;color:black;
+        border-radius:40%;
+        padding:10%;
+    }
+</style>
+
+@if (Model.Winkelkar.WinkelkarItems.Count > 0)
+{
+    
+    <li class="nav-item">
+        <a class="btn btn-link navbar-btn nav-link" asp-controller="Winkelkar" >
+            <i class="fas fa-cart-arrow-down fa-lg" style="color:green;"></i>
+            <span class="overzicht">
+                @Model.Winkelkar.WinkelkarItems.Count
+            </span>
+        </a>
+    </li>
+
+}

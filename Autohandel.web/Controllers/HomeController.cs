@@ -21,6 +21,7 @@ using System.Linq;
 
 namespace Autohandel.web.Controllers
 {
+   
     public class HomeController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -76,19 +77,24 @@ namespace Autohandel.web.Controllers
         public ActionResult Contact(ContactInformatieViewModel input)   
         {
             var info = input.Onderwerp;
-
+            var tijd = DateTime.Now;
 
             if (ModelState.IsValid)
             {
                 SmtpClient client = new SmtpClient("uit.telenet.be", 25);
                 MailMessage message = new MailMessage(_userManager.GetUserName(User), "ivan.dellobel@gmail.com");
-                message.Subject = $"Een vraag van {input.Voornaam} {input.Naam} :";
+                message.Subject = $"Een vraag van {input.Voornaam} {input.Naam} van {tijd} uur:";
 
                 StringBuilder sb = new StringBuilder();
+                sb.AppendLine();
                 sb.AppendFormat("Naam: {0}{1}", input.Naam, Environment.NewLine);
                 sb.AppendFormat("Voornaam: {0}{1}", input.Voornaam, Environment.NewLine);
+                sb.AppendLine();
                 sb.AppendFormat("Onderwerp: {0}{1}", input.Onderwerp, Environment.NewLine);
+                sb.AppendLine();
                 sb.AppendFormat("Land: {0}{1}", input.Land, Environment.NewLine);
+                sb.AppendLine();
+                sb.AppendFormat("Antwoorden op mail: {0}{1}", _userManager.GetUserName(User), Environment.NewLine);
 
 
                 message.Body = sb.ToString();

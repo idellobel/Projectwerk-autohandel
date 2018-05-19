@@ -263,6 +263,15 @@
     color: inherit;
 }
 
+.korting {
+    background-color: gold;
+    color: white;
+    font-weight: bold;
+    border-radius: 50%;
+    margin-left: 10%;
+    font-size: larger;
+    padding: 2%
+}
 
 
 

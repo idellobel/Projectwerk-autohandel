@@ -8,6 +8,7 @@ using System.Linq;
 using System.Threading.Tasks;
 
 using Autohandel.web.ViewModels;
+using Autohandel.web.ViewModels.MandjeViewModels;
 
 namespace Autohandel.web.Components
 {
@@ -16,13 +17,17 @@ namespace Autohandel.web.Components
     [ViewComponent(Name = "MainNavigation")]
     public class MainNavComponent : ViewComponent
     {
-        SignInManager<ApplicationUser> SignInManager;
-        UserManager<ApplicationUser> UserManager;
+        //SignInManager<ApplicationUser> SignInManager;
+        //UserManager<ApplicationUser> UserManager;
         private IEnumerable<MainNavLinkVm> PublicLinks { get; set; }
         private IEnumerable<MainNavLinkVm> AdminLinks { get; set; }
 
+        
+
         public MainNavComponent()
         {
+            
+
             PublicLinks = new List<MainNavLinkVm>
             {
                 new MainNavLinkVm{ Controller="Home", Action="Index", Text="Welkom"},
@@ -72,5 +77,7 @@ namespace Autohandel.web.Components
             //return View(navLinks);
             return Task.FromResult<IViewComponentResult>(View(navLinks)); //avoids warning about lacking await operator
         }
+
+      
     }
 }
