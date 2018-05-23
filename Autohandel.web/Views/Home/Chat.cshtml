@@ -1,0 +1,54 @@
+﻿
+@{
+    ViewData["Title"] = "Chat";
+}
+
+@section showPublic{
+    @await Component.InvokeAsync("MainNavigation", new { showAdmin = false })
+}
+@section head{
+
+}
+<div class="container">
+    <div class="row" style="color:dimgray">
+        <p class="tekstWelkomTitelPagina">Interne berichten</p>
+    </div>
+    <div class="container" style="color:dimgray" >
+        <l class="control-label tekstWelkomTitel" title="Chatbericht:" >Chatbericht:</l>
+        <textarea rows="2" cols="40" class="form-control" id="txtMessage"> </textarea>
+        <br />
+        <input type="button" class="btn btn-success" id="sendMessage" value="Verstuur" onclick="sendMessage();" />
+
+        <div class="tekstWelkom" id="DisplayMessages"></div>
+
+    </div>
+</div>
+<br />
+<br />
+
+@section Scripts{
+    <script src="~/js/signalr.js"></script>
+
+    <script>
+        let connection;
+
+        if (@ViewBag.RunState = 'Debug') {
+                     connection = new signalR.HubConnection("/chat", { transport: signalR.TransportType.LongPolling }); //debug
+        }
+        else {
+                    connection = new signalR.HubConnection("/chat"); //release
+        }
+
+        connection.on('send', data => {
+            var DisplayMessagesDiv = document.getElementById("DisplayMessages");
+            DisplayMessagesDiv.innerHTML += " " + data;
+        });
+        connection.start().then(() => connection.invoke('send', '@ViewBag.RunState'));
+        function sendMessage() {
+            var msg = document.getElementById("txtMessage").value;
+            connection.invoke('send', msg);
+
+        }
+    </script>
+}
+

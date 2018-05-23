@@ -4,15 +4,15 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Autohandel.web.ViewModels;
 using Autohandel.web.Services;
 using Autohandel.Domain.Data;
 using Autohandel.Domain.Entities;
 using AutoMapper;
-using System;
 using Microsoft.AspNetCore.Http;
 using Autohandel.web.Interfaces;
 using Autohandel.web.Repositories;
+
+
 
 namespace Autohandel.web
 {
@@ -49,8 +49,8 @@ namespace Autohandel.web
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
-                googleOptions.ClientId = "";
-                googleOptions.ClientSecret = "";
+                googleOptions.ClientId = "177053743468-copjv6q6uri1i2ju4j5g96spc946m84s.apps.googleusercontent.com";
+                googleOptions.ClientSecret = "57wP6JOj8fTyr2YsvbYPJ1yc";
             });
 
             services.AddAuthorization(options =>
@@ -82,6 +82,11 @@ namespace Autohandel.web
             //    options.IdleTimeout = TimeSpan.FromSeconds(10);
             //    options.Cookie.HttpOnly = true;
             //});
+
+          
+
+            services.AddSignalR();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -105,11 +110,16 @@ namespace Autohandel.web
 
                     //DataSeeder.Seed(context);
                 }
+                
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
             }
+            app.UseSignalR(routes =>
+            {
+                routes.MapHub<Chat>("/chat");
+            });
 
             app.UseStaticFiles();
 

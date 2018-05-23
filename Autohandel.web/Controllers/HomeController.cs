@@ -18,10 +18,11 @@ using Autohandel.Domain.DTO_klassen;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
+using Microsoft.AspNetCore.SignalR.Client;
 
 namespace Autohandel.web.Controllers
 {
-   
+
     public class HomeController : Controller
     {
         private readonly UserManager<ApplicationUser> _userManager;
@@ -137,6 +138,56 @@ namespace Autohandel.web.Controllers
                     .Result
                     );
             }
+        }
+    
+        public IActionResult Chat()
+        {
+                #if DEBUG
+                            ViewBag.RunState = "Debug";
+                #else
+                           ViewBag.RunState = "Release";
+                #endif
+
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ShowTelemetry([FromBody] Telemetry telemetry)
+        {
+            try
+            {
+                #if DEBUG
+                var connection = new HubConnectionBuilder()
+                                  .WithUrl("https://localhost:44303/chat")
+                                  //.WithTransport(Microsoft.AspNetCore.Sockets.TransportType.LongPolling)
+                                  //.WithConsoleLogger()
+                                  .Build();
+                #else
+                    var connection = new HubConnectionBuilder()
+                                      .WithUrl("http://signalrapplication.azurewebsites.net/chat")
+                                      .WithConsoleLogger()
+                                      .Build();
+                #endif
+                connection.StartAsync().Wait();
+                var text = telemetry == null || string.IsNullOrEmpty(telemetry.text)
+                                          ? "***"
+                                          : telemetry.text;
+                connection.SendAsync("Send", text).Wait(); // InvokeAsync("Send", text)
+                
+                connection.DisposeAsync().Wait();
+                return Json("Success");
+            }
+            catch (Exception ex)
+            {
+                return Json($"Exception {ex.Message}");
+            }
+        }
+
+        public class Telemetry
+        {
+            public string deviceName { get; set; }
+            public string text { get; set; }
+            public DateTime dateTime { get; set; }
         }
 
         public IActionResult Error()

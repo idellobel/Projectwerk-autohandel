@@ -36,9 +36,8 @@ namespace Autohandel.web.Components
                 new MainNavLinkVm{ Controller="OnlineOnderdelen", Action="Index", Text="Onderdelen"},
                 new MainNavLinkVm{ Controller="Home", Action="Team", Text="Ons team"},
                 new MainNavLinkVm{ Controller="Home", Action="Contact", Text="Contact"},
-                //new MainNavLinkVm{Area= "Admin", Controller="Home", Action= "Index", Text=$"ADMIN-AREA" },
-              
-              
+               
+
 
             };
             AdminLinks = new List<MainNavLinkVm>
@@ -50,7 +49,7 @@ namespace Autohandel.web.Components
                 new MainNavLinkVm{ Area="Admin" , Controller="Home", Action="VoertuigOnderdelen", Text="Onderdelen"},
                 new MainNavLinkVm{ Area="Admin" , Controller="Home", Action="Personen", Text="Personen"},
                 new MainNavLinkVm{ Area="Admin" , Controller="Home", Action="Adminstratie", Text="Administratie"},
-
+                new MainNavLinkVm{ Controller="Home", Action= "chat", Text="Chat" },
                 //new MainNavLinkVm{ Area="Admin" , Controller="DataDisplay", Action="Index", Text="DataBaseData"},
 
             };
