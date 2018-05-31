@@ -22,6 +22,7 @@ namespace Autohandel.web.Controllers
             _onderdelenProductenRepository = onderdelenProductenRepository;
             _winkelkar = winkelkar;
         }
+
         [Route("Index")]
         public ViewResult Index()
         {
