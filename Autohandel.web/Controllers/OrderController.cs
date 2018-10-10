@@ -45,9 +45,10 @@ namespace Autohandel.web.Controllers
             {
                 _orderRepository.CreateOrder(order);
 
+                //Uitcommentariëren voor de presentatie: Blijkbaar staat HOWEST uitgaand verkeer op poort 25 niet toe.
 
                 SmtpClient client = new SmtpClient("uit.telenet.be", 25);
-                MailMessage message = new MailMessage("ivan.dellobel@gmail.com", order.Email );
+                MailMessage message = new MailMessage("ivan.dellobel@gmail.com", order.Email);
                 message.Subject = $"Bevestging van ordernummer: {order.OrderId} van {order.OrderGeplaatst} uur :";
 
                 StringBuilder sb = new StringBuilder();
@@ -64,13 +65,13 @@ namespace Autohandel.web.Controllers
                 sb.AppendLine();
                 sb.AppendFormat("Bestelling:");
                 sb.AppendLine();
-                foreach ( var item in order.OrderDetails)
+                foreach (var item in order.OrderDetails)
                 {
                     sb.AppendFormat("Product: {0}{1}", item.Product.Artikelnaam, Environment.NewLine);
-                    sb.AppendFormat("Aantal: {0}{1}", item.Aantal,Environment.NewLine );
+                    sb.AppendFormat("Aantal: {0}{1}", item.Aantal, Environment.NewLine);
                     sb.AppendFormat("Prijs: €{0}{1} ", item.Product.Korting ? (int)item.Product.Prijs - (int)(item.Product.Prijs * 0.15M) : (int)item.Product.Prijs, Environment.NewLine);
                     sb.AppendLine();
-                    
+
                 }
                 sb.AppendFormat("Totaal prijs:  €{0}{1}", order.OrderTotaal, Environment.NewLine);
                 sb.AppendLine();
@@ -80,6 +81,8 @@ namespace Autohandel.web.Controllers
 
                 message.Body = sb.ToString();
                 client.Send(message);
+
+                //Tot hier!
 
                 _winkelkar.LedigKar();
                 TempData["SuccessMessage"] = $"Uw bestelling is met succes afgerond! Een bevestigingsmail wordt dadelijk verstuurd.";

@@ -64,7 +64,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
         {
 
 
-            ViewData["KlantId"] = new SelectList(_context.Klanten, "PersoonId", "Adres");
+            ViewData["KlantId"] = new SelectList(_context.Klanten, "PersoonId", "KlantNaam");
             ViewData["Artikelnummer"] = new SelectList(_context.OnderdelenProducten, "Artikelnummer", "Artikelnummer");
             ViewData["VoertuigId"] = new SelectList(_context.Voertuigen.OrderBy(v => v.VoertuigArtikelNummer.Length)
                                              .ThenBy(v => v.VoertuigArtikelNummer), "VoertuigId", "VoertuigArtikelNummer");
@@ -113,7 +113,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
                 TempData["SuccessMessage"] = $"De faktuur <b>{faktuur.FaktuurNr}</b> werd toegevoegd!";
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KlantId"] = new SelectList(_context.Klanten, "PersoonId", "Adres", faktuur.KlantId);
+            ViewData["KlantId"] = new SelectList(_context.Klanten, "PersoonId", "KlantNaam", faktuur.KlantId);
             ViewData["Artikelnummer"] = new SelectList(_context.OnderdelenProducten, "Artikelnummer", "Artikelnummer", faktuur.Artikelnummer);
             ViewData["VoertuigId"] = new SelectList(_context.Voertuigen.OrderBy(v => v.VoertuigArtikelNummer.Length)
                                              .ThenBy(v => v.VoertuigArtikelNummer), "VoertuigId", "VoertuigArtikelNummer", faktuur.VoertuigId);
@@ -134,7 +134,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
             {
                 return NotFound();
             }
-            ViewData["KlantId"] = new SelectList(_context.Klanten, "PersoonId", "Adres", faktuur.KlantId);
+            ViewData["KlantId"] = new SelectList(_context.Klanten, "PersoonId", "KlantNaam", faktuur.KlantId);
             ViewData["Artikelnummer"] = new SelectList(_context.OnderdelenProducten, "Artikelnummer", "Artikelnummer", faktuur.Artikelnummer);
             ViewData["VoertuigId"] = new SelectList(_context.Voertuigen.OrderBy(v => v.VoertuigArtikelNummer.Length)
                                              .ThenBy(v => v.VoertuigArtikelNummer), "VoertuigId", "VoertuigArtikelNummer", faktuur.VoertuigId);
@@ -183,7 +183,7 @@ namespace Autohandel.web.Areas.Admin.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["KlantId"] = new SelectList(_context.Klanten, "PersoonId", "Adres", faktuur.KlantId);
+            ViewData["KlantId"] = new SelectList(_context.Klanten, "PersoonId", "KlantNaam", faktuur.KlantId);
             ViewData["Artikelnummer"] = new SelectList(_context.OnderdelenProducten, "Artikelnummer", "Artikelnummer", faktuur.Artikelnummer);
             ViewData["VoertuigId"] = new SelectList(_context.Voertuigen.OrderBy(v => v.VoertuigArtikelNummer.Length)
                                              .ThenBy(v => v.VoertuigArtikelNummer), "VoertuigId", "VoertuigArtikelNummer", faktuur.VoertuigId);

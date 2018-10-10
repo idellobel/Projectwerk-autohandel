@@ -13,7 +13,8 @@
 
     <h2 class="text-center text-xl-center text-uppercase text-success " style="margin-top:25px;">Maak een nieuwe faktuur</h2>
     <hr />
-    <div class="row">
+    <img src="~/images/werkenWebsite.png" />
+    @*<div class="row">
         <div class="col-md-4">
             <form asp-action="Create">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
@@ -24,9 +25,12 @@
                 </div>
                 <div class="form-group">
                     <label asp-for="KlantId" class="control-label"></label>
-                    <select asp-for="KlantId" class="form-control" asp-items="ViewBag.KlantId"></select>
+                    <select asp-for="KlantId" class="form-control" asp-items="ViewBag.KlantId ">
+                        <option>--Selecteer Klant--</option>
+                    </select>
                     <span asp-validation-for="KlantId" class="text-danger"></span>
                 </div>
+
                 <div class="form-group">
                     <label asp-for="VoertuigId" class="control-label"></label>
                     <select asp-for="VoertuigId" class="form-control" asp-items="ViewBag.VoertuigId">
@@ -48,7 +52,7 @@
                 </div>
             </form>
         </div>
-    </div>
+    </div>*@
 </div>
 <br />
 <br />
