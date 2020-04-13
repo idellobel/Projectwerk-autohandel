@@ -49,8 +49,7 @@ namespace Autohandel.web
 
             services.AddAuthentication().AddGoogle(googleOptions =>
             {
-               
-
+                
             });
 
             services.AddAuthorization(options =>
